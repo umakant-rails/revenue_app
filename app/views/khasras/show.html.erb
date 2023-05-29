@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @khasra %>
+
+<div>
+  <%= link_to "Edit this khasra", edit_khasra_path(@khasra) %> |
+  <%= link_to "Back to khasras", khasras_path %>
+
+  <%= button_to "Destroy this khasra", @khasra, method: :delete %>
+</div>
