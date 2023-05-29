@@ -17,8 +17,11 @@
   </head>
 
   <body>
-    <%= render partial: "layouts/navbar" %>
-    <%= render partial: "layouts/alert_message", locals: {notice: flash[:notice], error: flash[:error]} %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="<%= requests_path %>">HD</a>
+      </div>
+    </nav>
     <main class="pt-4 container-fluid" data-controller="application">
       <%= yield %>
     </main>

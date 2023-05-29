@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="<%= 'requests_path' %>">HD</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<%= "#" %>">फॉर्म्स</a>
+        </li>
+        <% if current_user.present? %>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= 'requests_path' %>">राजस्व आवेदन </a>
+          </li>
+        <% end %>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <% if current_user.blank? %>
+          <li class="nav-item">
+            <a class="btn btn-outline-info txt-success" href="<%= new_user_session_path %>">
+              <i class="fa fa-right-to-bracket"></i>
+              Login
+            </a>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="btn btn-outline-info" href="<%= new_user_registration_path %>">
+              <i class="fa-solid fa-user-plus"></i>
+              Signup
+            </a>
+          </li>
+        <% else %>
+          <li class="nav-item me-2">
+            <a class="btn btn-info" href="#" role="button">
+              उपलब्ध राशि: <i class="fa-solid fa-indian-rupee-sign"></i>&nbsp;<%= current_user.payment_transactions.present? ? current_user.payment_transactions.last.amount : 0 %>
+            </a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-regular fa-user"></i>&nbsp;<%= current_user.username.capitalize %>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end user-menu-list" aria-labelledby="dropdownMenuLink">
+                <li>
+                  <%= link_to 'new_order_path', class: "p-2 btn"  do %>
+                    <i class="fa-solid fa-indian-rupee-sign"></i>&nbsp;Recharge Account
+                  <% end %>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item" href="<%= edit_user_registration_path %>">
+                    <i class="fa-solid fa-key"></i> Change Password
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <%= form_for(current_user, url: destroy_user_session_path, html: { method: :delete }) do |f| %>
+                    <button type="submit" class="btn">
+                      <i class="fa-solid fa-right-from-bracket"></i> Log out
+                    </button>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
