@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+User.create(email: "jack.jackjack25@gmail.com", username: "jack005", password: "12345678") if User.where(email: "jack.jackjack25@gmail.com").blank?

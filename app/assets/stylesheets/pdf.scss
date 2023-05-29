@@ -1,0 +1,201 @@
+.pdf-container{padding: 2% 4%;}
+.pdf{
+  div.alwaysbreak { page-break-before: always; page-break-after: always; display:block; clear:both;}
+  div.nobreak:before { clear:both; }
+  div.nobreak{ page-break-inside: avoid; }
+ /* //display:block; clear:both; page-break-after:always;*/
+  @font-face {
+    font-family: 'Helvetica';
+    font-style: normal;
+    src: asset('Helvetica Neue.otf') format('otf'),
+      asset('Helvetica Neue.ttf', font) format('truetype');
+  }
+
+  .order1-parent { position: relative; height: 740px; }
+  .order1-child { position: relative; top: 0; bottom: 0; left: 0; right: 0; height: 100%; }
+  .order2-parent { position: relative; height: 1150px;}
+  .order2-child { position: relative; top: 0; bottom: 0; left: 0; right: 0; height: 100%; }
+
+  .applicant-app-parent, .ishtihar-parent { position: relative; min-height: 1287px;  }
+  .applicant-app-child { position: relative; top: 0; bottom: 0; left: 0; right: 0; height: 100%; }
+  .kathan-parent { position: relative; min-height: 1320px; }
+  .applicant-affdvt-parent, .non-applicant-affdvt-parent{ position: relative; min-height: 1345px; }
+
+  .fnt-14 { font-size: 14px !important; }
+  .fnt-15 { font-size: 15px !important; }
+  .fnt-16 { font-size: 16px !important; }
+  .fnt-17 { font-size: 17px !important; }
+  .fnt-18 { font-size: 18px !important; }
+  .fnt-20 { font-size: 20px !important; }
+  .fnt-22 { font-size: 22px !important; }
+  .fnt-24 { font-size: 24px !important; }
+  .fnt-26 { font-size: 26px !important; }
+  .fnt-28 { font-size: 28px !important; }
+  .fnt-30 { font-size: 30px !important; }
+  .fnt-b  { font-weight: bold; }
+  .fnt-u {text-decoration: underline;}
+  .txt-center { text-align: center }
+  .ln-hgt-30 { line-height: 30px; text-align: justify; }
+  .ln-hgt-40 { line-height: 40px; text-align: justify; }
+  .txt-indent-1 {text-indent: 1cm;}
+  .txt-indent-2 {text-indent: 2cm;}
+  .txt-indent-3 {text-indent: 3cm;}
+  .txt-indent-4 {text-indent: 4cm;}
+  .pd-y-74 {padding: 4px;}
+  .pd-4 {padding: 4px;}
+  .pd-x4 { padding-left: 4px; padding-right: 4px; }
+  .mrgn-top-5{margin-top: 5px;}
+  .mrgn-top-10{margin-top: 10px;}
+  .mrgn-top-15{margin-top: 15px;}
+  .mrgn-top-20{margin-top: 20px;}
+  .padding-2 { padding-left: 2%; padding-right: 2%;}
+  .padding-3 { padding-left: 3%; padding-right: 3%;}
+  .padding-5 { padding-left: 5%; padding-right: 5%;}
+  .padding-6 { padding-left: 6%; padding-right: 6%;}
+  .padding-8 { padding-left: 8%; padding-right: 8%;}
+  .padding-10 { padding-left: 10%; padding-right: 10%;}
+  .pd-left-3{ padding-left:3%; }
+  .pd-left-5{ padding-left:5%; }
+  .pd-left-8{ padding-left:8%; }
+  .pd-left-10{ padding-left:10%; }
+  .pd-top-2{ padding-top: 2%; }
+  .pd-top-4{ padding-top: 4%; }
+  .w-15{width: 15%;}
+  .w-20{width: 20%;}
+  .w-30{width: 30%;}
+  .w-65{width: 65%;}
+  .w-70{width: 70%;}
+  .w-80{width: 80%;}
+  .w-px-30{min-width: 30px;}
+  .w-px-50{min-width: 40px;}
+  .w-px-100{min-width: 100px;}
+  .ln-hgt-35 { line-height: 35px; }
+  .ln-hgt-40 { line-height: 40px; }
+
+  .mrgn-2{ margin-left: 2%; margin-right: 2%; }
+  .mrgn-4{ margin-left: 4%; margin-right: 4%; }
+  .mrgn-6{ margin-left: 6%; margin-right: 6%; }
+  .mrgn-8{ margin-left: 8%; margin-right: 8%; }
+  .mrgn-10{ margin-left: 10%; margin-right: 10%; }
+  .mrgn-lft-5 { margin-left: 5%; }
+
+  .fLeft {float:left;}
+  .fRight{float:right;}
+
+  .pdf-mrgn-8{ margin-left: 8%; margin-right: 8%; }
+  .pdf-mrgn-10{ margin-left: 10%; margin-right: 10%; }
+  .pdf-mrgn-lft-5 { margin-left: 5%; }
+
+  .pdf-tbl-lft-12{
+    width: 12%;vertical-align: middle;
+    border-top: 2px solid gray;border-right: 2px solid gray;border-bottom: 2px solid gray;
+  }
+  .pdf-tbl-lft-15{
+    width: 15%;vertical-align: middle;
+    border-top: 2px solid gray;border-right: 2px solid gray;border-bottom: 2px solid gray;
+  }
+  
+  .pdf-tbl-center-65{
+    width: 65%;vertical-align: middle;
+    border-top: 2px solid gray;border-right: 2px solid gray;border-bottom: 2px solid gray;
+  }
+  .pdf-tbl-center-70{
+    width: 70%;vertical-align: middle;
+    border-top: 2px solid gray;border-right: 2px solid gray;border-bottom: 2px solid gray;
+  }
+  .pdf-tbl-center-76{
+     width: 76%;vertical-align: middle;
+    border-top: 2px solid gray;border-right: 2px solid gray;border-bottom: 2px solid gray;
+  }
+  .pdf-tbl-center-80{
+    width: 80%;vertical-align: middle;
+    border-top: 2px solid gray;border-right: 2px solid gray;border-bottom: 2px solid gray;
+  }
+
+  .pdf-tbl-rht-12{
+    width: 12%;vertical-align: middle;
+    border-top: 2px solid gray;border-bottom: 2px solid gray;border-left: 2px solid gray;
+  }
+  .pdf-tbl-rht-15{
+    width: 15%;vertical-align: middle;
+    border-top: 2px solid gray;border-bottom: 2px solid gray;border-left: 2px solid gray;
+  }
+  .pdf-tbl-rht-23{
+    width: 23%;vertical-align: middle;
+    border-top: 2px solid gray;border-bottom: 2px solid gray;border-left: 2px solid gray;
+  }
+
+  .pdf-paragraph-22{
+    line-height: 24px;
+    font-size: 14px;
+    text-align: justify;
+  }
+  .pdf-paragraph-28{
+    line-height: 28px;
+    font-size: 15px;
+    text-align: justify;
+  }
+  .pdf-paragraph-30{
+    line-height: 30px;
+    font-size: 16px;
+    text-align: justify;
+  }
+  .pdf-paragraph-35{
+    line-height: 35px;
+    font-size: 18px;
+    text-align: justify;
+  }
+  .pdf-paragraph-40{
+    line-height: 40px;
+    font-size: 20px;
+    text-align: justify;
+  }
+  .pdf-paragraph-45{
+    line-height: 45px;
+    font-size: 22px;
+    text-align: justify;
+  }
+
+  .bottom-pdf-left{
+    position: absolute;bottom:0;left:0;
+  }
+  .bottom-pdf-right{
+    position: absolute;bottom:0;right:0;
+  }
+  .d-table { display: table; border-collapse: collapse; }
+  .d-row { display: table-row }
+  .d-cell { display: table-cell; }
+
+  .talwana-pdf{
+    .talwana-application-txt{
+      padding-left: 10%;
+      padding-right: 10%;
+      font-size: 20px;
+      text-align: justify;
+      line-height: 35px;
+    }
+    .talwana-statement{
+      padding-left: 8%;
+      padding-right: 8%;
+    }
+    .column12{
+      width: 12%;
+      text-align: center;vertical-align: middle;font-size:20px;
+      border: 1px solid gray;padding: 8px 0px;font-weight: bold;
+    }
+    .column25{
+      width: 25%;
+      text-align: center;vertical-align: middle;font-size:20px;
+      border: 1px solid gray;padding: 8px 0px;font-weight: bold;
+    }
+    .column15{
+      width: 15%;
+      text-align: center;vertical-align: middle;font-size:20px;
+      border: 1px solid gray;padding: 8px 0px;font-weight: bold;
+    }
+    .width25{
+      width: 25%;
+      vertical-align: middle;font-size:20px;
+    }
+  }
+}

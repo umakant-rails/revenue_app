@@ -1,0 +1,229 @@
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey;
+}
+
+#progressbar .active {
+    color: #673AB7;
+}
+
+/*#progressbar{
+  padding-left: 0rem !important;
+}*/
+#progressbar li {
+  list-style-type: none;
+  font-size: 15px;
+  width: 33%;
+  float: left;
+  position: relative;
+  font-weight: 400;
+  text-align: center;
+}
+
+/*Icons in the ProgressBar*/
+#progressbar #applicant:before {
+  font-family: 'Font Awesome 6 Free';
+  content: "\f007";
+}
+
+#progressbar #non-applicant:before {
+  font-family: 'Font Awesome 6 Free';
+  content: "\f007";
+}
+
+#progressbar #khasra:before {
+  font-family: 'Font Awesome 6 Free';
+  content: "\f15b";
+}
+
+#progressbar #finish:before {
+  font-family: 'Font Awesome 6 Free';
+  content: "\f058";
+}
+
+/*Icon ProgressBar before any progress*/
+#progressbar li:before {
+  width: 50px;
+  height: 50px;
+  line-height: 45px;
+  display: block;
+  font-size: 20px;
+  color: #ffffff;
+  background: lightgray;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  padding: 2px;
+}
+
+/*ProgressBar connectors*/
+#progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: lightgray;
+  position: absolute;
+  left: 0;
+  top: 25px;
+  z-index: -1;
+}
+
+/*Color number of the step and the connector before it*/
+#progressbar li.active:before, #progressbar li.active:after {
+    background: #673AB7;
+}
+
+/*Animated Progress Bar*/
+.progress {
+  height: 20px;
+}
+
+.progress-bar {
+  background-color: #673AB7;
+}
+
+/*Fit image in bootstrap div*/
+.fit-image{
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+/* request page css */
+.anchor-no-decoration{
+  text-decoration: none;
+}
+
+.sanjara-table{
+  tr, th{
+    border-bottom: 1px solid gray;
+  }
+  tr, td {
+    border: 0px;
+  }
+}
+
+.frm-delete-btn{
+  border: 0px;background: transparent; color:red;
+}
+
+.label-hdr{
+  border-left: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+  border-bottom: 2px solid #3B7DDD;
+  border-right: 2px solid #3B7DDD;
+  border-radius: 4px; padding: 4px 6px;
+  font-size: 18px; color: #3B7DDD;
+}
+.label-txt{
+  font-size: 18px; font-color: gray;padding: 4px 6px;
+}
+.pymt-label-txt{
+  font-size: 18px; font-color: gray;padding: 4px 6px;
+  border: 1px solid lightgray; border-radius: 4px;
+}
+.file-download{
+  border: 1px solid red;
+  padding: 5px 5px 5px 12px;
+  border-radius: 50%;
+  color: white;
+  background: red;
+  margin-top: -5px;
+  font-size: 18px;
+  cursor: pointer;
+
+  &:hover{
+    color: white;
+  }
+}
+
+.file-download-disble{
+  border: 1px solid gray;
+  padding: 5px 5px 5px 12px;
+  border-radius: 50%;
+  color: white;
+  background: gray;
+  margin-top: -5px;
+  font-size: 18px;
+  cursor: pointer;
+
+  &:hover{
+    color: white;
+  }
+}
+.payment-icon{
+  border: 1px solid red;
+  padding: 5px 13px 2px 12px;
+  border-radius: 50%;
+  color: white;
+  background: red;
+  margin-top: -5px;
+  font-size: 20px;
+  cursor: pointer;
+  &:hover{
+    color: white;
+  }
+}
+
+.printer-icon{
+  border: 1px solid red;
+  padding: 5px 12px 5px 10px;
+  border-radius: 50%;
+  color: white;
+  background: red;
+  margin-top: -5px;
+  font-size: 19px;
+  cursor: pointer;
+  &:hover{
+    color: white;
+  }
+}
+.setting-icon{
+  border: 1px solid red;
+  padding: 4px 10px 4px 9px;
+  border-radius: 50%;
+  color: white;
+  background: red;
+  margin-top: -5px;
+  font-size: 19px;
+  cursor: pointer;
+  &:hover{
+    color: white;
+  }
+}
+
+.setting-disble-icon{
+  border: 1px solid gray;
+  padding: 4px 10px 4px 9px;
+  border-radius: 50%;
+  color: white;
+  background: gray;
+  margin-top: -5px;
+  font-size: 19px;
+  cursor: pointer;
+  &:hover{
+    color: white;
+  }
+}
+
+
+.d-table { display: table; border-collapse: collapse; }
+.d-row { display: table-row }
+.d-cell { display: table-cell; }
+
+.page-list li{
+  cursor: pointer;
+}
+
+.user-menu-list *, .user-menu-list button,  .user-menu-list a{
+  font-size: 14px;
+}
+.request-paid-lbl{
+  font-size: 15px; background: #228B22; color: white;
+  padding: 4px 8px; border-radius: 8px; font-weight: bold;
+}
+.request-unpaid-lbl{
+  font-size: 15px; background: red; color: white;
+  padding: 4px 8px; border-radius: 8px; font-weight: bold;
+}
