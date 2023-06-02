@@ -36,7 +36,7 @@
       </div>
       <div class="col-md-6">
         <div class="label-hdr">रजिस्ट्री की तिथि</div>
-        <div class="label-txt"><%= format_dt(request.registry_date) %></div>
+        <div class="label-txt"><%= request.registry_date.present? ? format_dt(request.registry_date) : '' %></div>
       </div>
     </div>
 

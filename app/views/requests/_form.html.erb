@@ -53,7 +53,7 @@
         <div class="mb-3 row">
           <div class="col-md-6">
             <%= form.label "आवेदन प्रकार", class: "form-label" %>
-            <%= form.select :request_type_id,  options_for_select(@request_types.collect{|r| [r.name, r.id]}), {prompt: "सम्बन्ध चुने"}, class: "form-control" %>
+            <%= form.select :request_type_id,  options_for_select(@request_types.collect{|r| [r.name, r.id]}), {prompt: "आवेदन प्रकार चुने"}, class: "form-control" %>
           </div>
           <div class="col-md-6">
             <%= form.label :year, class: "form-label" %>

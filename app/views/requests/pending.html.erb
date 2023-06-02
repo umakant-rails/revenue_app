@@ -48,9 +48,22 @@
                 <td><%= request.request_type.name %></td>
                 <td>
                   <% participant_txt = request.request_type == "नामांतरण" ? "अनावेदक जोड़े" : (request.request_type == "बटवारा" ? "हिस्सेदार जोड़े" : "वारसान जोड़े") %>
-                  <%= link_to participant_txt, new_request_participant_path(request_id: request.id), class: "btn btn-primary" %>
-                  <%= link_to "खसरा जोड़े", new_request_khasra_path(request_id: request.id), class: "btn btn-primary" %>
-                  <%= link_to "अद्यतित करे", edit_request_path(request.id), class: "btn btn-primary" %>
+
+                  <%= link_to new_request_participant_path(request_id: request.id), class: "btn btn-primary",
+                    'data-bs-toggle': "tooltip", 'data-bs-placement': "top", 'title': participant_txt do %>
+                    <i class="fa-solid fa-user-plus"></i>
+                  <% end %>
+                  <%= link_to new_request_khasra_path(request_id: request.id), class: "btn btn-primary",
+                    'data-bs-toggle': "tooltip", 'data-bs-placement': "top", 'title': "खसरा जोड़े" do %>
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                  <% end %>
+                  <%= link_to edit_request_path(request.id), class: "btn btn-primary",
+                    'data-bs-toggle': "tooltip", 'data-bs-placement': "top", 'title': "अद्यतन करे" do %>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  <% end %>
+                  <%= button_to request_path(request), method: :delete, class: "btn btn-danger", form: {class: 'ps-0 pe-0', style: "display:inline-block;"} do %>
+                   <i class="fa-solid fa-trash" ></i>
+                  <%end %>
                 </td>
               </tr>
             <% end %>

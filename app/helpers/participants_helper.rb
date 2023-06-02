@@ -1,7 +1,7 @@
 module ParticipantsHelper
   
   # def get_faut_participants(request)
-  #   request.participants.where("karanda_aam_faut=?", true)
+  #   request.participants.where("is_dead=?", true)
   # end
 
   def participant_name(participant)
@@ -56,9 +56,9 @@ module ParticipantsHelper
       status.push(participant.relation)
     end
 
-    if participant.karanda_aam_faut && participant.children.present?
+    if participant.is_dead && participant.children.present?
       status.push('फौत')
-    elsif participant.karanda_aam_faut && participant.children.blank?
+    elsif participant.is_dead && participant.children.blank?
      ['पत्नी', 'पति'].index(participant.relation_to_deceased).present? ? status.push('फौत'): status.push('ला-औलाद फौत')
     elsif participant.is_nabalig
       status.push('नाबालिग') 
@@ -77,9 +77,9 @@ module ParticipantsHelper
         if vrsn.is_nabalig
           tmp.push("#{vrsn.name} (नाबालिग)")
           balee = vrsn.balee
-        elsif vrsn.karanda_aam_faut && vrsn.children.present?
+        elsif vrsn.is_dead && vrsn.children.present?
           tmp.push("#{vrsn.name} (फौत)")
-        elsif vrsn.karanda_aam_faut && vrsn.children.blank?
+        elsif vrsn.is_dead && vrsn.children.blank?
           tmp.push("#{vrsn.name} (ला-औलाद फौत)")
         else
           tmp.push("#{vrsn.name}")

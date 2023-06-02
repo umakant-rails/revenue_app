@@ -1,5 +1,5 @@
 <div class="card" data-controller="participant request">
-  <% faut_participants = request.participants.fout_person %>
+  <% faut_participants = request.participants.fout_participants %>
   <div class="card-body">
     <div class="page-header">
       <%= (faut_participants.blank? || participant.depth == 0) ? "फौत व्यक्ति की जानकारी" : "वारसान की जानकारी" %>
@@ -18,11 +18,12 @@
         </div>
       <% end %>
 
-      <% if (faut_participants.blank? || participant.depth == 0) %>
+      <% if (faut_participants.blank? || participant.is_dead) %>
         <div class="ps-3 pe-3">
           <div class="mb-3">
             <%= form.label "आवेदक/अनावेदक प्रकार", class: "form-label" %>
-            <%= form.hidden_field :participant_type_id, value: form.object.participant_type_id, class: "form-control", 'disabled': true %>
+            <%= form.select :participant_type_id, options_for_select(participant_types.collect{|pt|[pt.name, pt.id]}, form.object.participant_type_id),{prompt: "प्रतिभागी चुने"}, class: "form-control", "data-action": "change->request#updateAnavedakFields", disabled: true %>
+            <%= hidden_field_tag "participant[participant_type_id]", form.object.participant_type_id %> 
           </div>
           <div class="mb-3 row">
             <div class="col-md-5">
@@ -41,6 +42,7 @@
           </div>
 
           <div class="row mb-3">
+            <%= hidden_field_tag "participant[is_dead]", form.object.is_dead %>
             <div class="col-md-6">
               <%= form.label 'मृत्यु दिनांक', class: "form-label" %>
               <%= form.text_field :death_date, 'data-defaultDate': form.object.death_date, 'data-defaultDate': 'd/m/Y', class: "form-control date-selector", 'data-controller': 'flatpickr' %>
@@ -58,10 +60,17 @@
               <%= form.text_field :address, value: @request.village.village, class: "form-control" %>
             </div>
           </div>
+          <%= form.hidden_field 'participant[is_dead]', value: true, class: "form-control" %>
           <%= form.hidden_field :depth, value: 0, class: "form-control" %>
         </div>
       <% else %>
         <div class="ps-3 pe-3">
+          <div class="mb-3">
+            <%= form.label "आवेदक/अनावेदक प्रकार", class: "form-label" %>
+            <%= form.select :participant_type_id, options_for_select(participant_types.collect{|pt|[pt.name, pt.id]}, form.object.participant_type_id),{prompt: "प्रतिभागी चुने"}, class: "form-control", "data-action": "change->request#updateAnavedakFields", disabled: true %>
+            <%= hidden_field_tag "participant[participant_type_id]", form.object.participant_type_id %> 
+          </div>
+
           <div class="mb-3 row ">
             <div class="col-md-6">
               <%= form.label 'फौत व्यक्ति', class: "form-label" %>
@@ -154,7 +163,7 @@
         <%= link_to new_request_khasra_path(@request), class: "fRight btn btn-primary" do %>
           Next&nbsp;&nbsp;<i class="fa-solid fa-share"></i>
         <% end %>
-        <%= link_to new_request_participant_path(@request, depth: 0), class: "fRight btn btn-primary me-2" do %>
+        <%= link_to new_request_participant_path(@request, is_dead: true), class: "fRight btn btn-primary me-2" do %>
           नया फौत व्यक्ति जोड़े&nbsp;&nbsp;<i class="fa-solid fa-share"></i>
         <% end %>
       </div>

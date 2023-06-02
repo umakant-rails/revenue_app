@@ -1,6 +1,7 @@
 class ParticipantsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_request
+  before_action :set_required_data, only: %i[new edit create update]
   before_action :set_participant, only: %i[ show edit update destroy ]
 
   # GET /participants or /participants.json
@@ -14,16 +15,14 @@ class ParticipantsController < ApplicationController
 
   # GET /participants/new
   def new
-    @participant_types  = ParticipantType.get_participants(@request)
 
-    if @request.participants.blank? || params[:depth] == '0'
-      @participant = @request.participants.new(depth: 0, is_dead: true, participant_type_id: 5)
-    else
-      @participant = @request.participants.new(participant_type_id: 6)
+    if @request.request_type.name == "फौती" && (@request.participants.blank? || params[:is_dead])
+      @participant = @request.participants.new(depth: 0, is_dead: true, participant_type_id: 4)
+    elsif @request.request_type.name == "फौती"
+      @participant = @request.participants.new(participant_type_id: 5)
+    else 
+      @participant = @request.participants.new
     end
-
-    @request = Request.find(params[:request_id])
-    @balees = @request.participants.where("balee is not null").pluck(:balee).uniq
 
     if @request.payment_transaction.present?
       respond_to do |format|
@@ -35,25 +34,18 @@ class ParticipantsController < ApplicationController
 
   # GET /participants/1/edit
   def edit
-    @participant_types  = ParticipantType.get_participants(@request)
   end
 
   # POST /participants or /participants.json
   def create
-    @participant_types  = ParticipantType.get_participants(@request)
-    @request = Request.find(params[:request_id])
-    @balees = @request.participants.where("balee is not null").pluck(:balee).uniq
-
-    if params[:participant][:parent_id].present?
-      @parent = Participant.find(params[:participant][:parent_id])
-      params[:participant][:depth] = @parent.depth+1
-    end
-
+    is_true = validate_fouti_request.present?
     @participant = @request.participants.new(participant_params)
 
     respond_to do |format|
-      if @participant.save
-        format.html { redirect_to new_request_participant_url(@request), notice: "Participant was successfully created." }
+      if @request.request_type.name == "फौती" && is_true
+        format.html { render :new, status: :unprocessable_entity }
+      elsif @participant.save
+        format.html { redirect_to new_request_participant_url, notice: "Participant was successfully created." }
         format.json { render :show, status: :created, location: @participant }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -85,7 +77,44 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  def get_balees
+    @request = Request.find(params[:request_id])
+    @balees = @request.participants.where("balee is not null").pluck(:balee).uniq
+
+    respond_to do |format|
+      format.html {}
+      format.json { head :no_content }
+    end
+    render layout: false
+  end
+
   private
+
+    def set_required_data
+      @participant_types  = ParticipantType.get_participants(@request)
+      @balees = @request.participants.where("balee is not null").pluck(:balee).uniq
+    end
+
+    def validate_fouti_request
+      is_true = false
+
+      if params[:participant][:parent_id].present?
+        @parent = Participant.find(params[:participant][:parent_id])
+        params[:participant][:depth] = @parent.depth+1
+      end
+
+      if params[:participant][:participant_type_id] == "4" && params[:participant][:death_date].blank?
+        flash[:error] = "फौत व्यक्ति की फौत दिनांक भरना आवश्यक है |"
+        is_true = true
+      elsif params[:participant][:participant_type_id] == "5" and (
+        params[:participant][:parent_id].blank? or params[:participant][:relation_to_deceased].blank?)
+        flash[:error] = "फौत व्यक्ति को चुनना एवं वारसान का मृतक से संबंध भरना अनिवार्य है |"
+        is_true = true
+      end
+
+      return is_true
+    end
+
     def remove_params_extra_space
       params[:participant].each{|k, v| params[:participant][k] = v.strip }
     end

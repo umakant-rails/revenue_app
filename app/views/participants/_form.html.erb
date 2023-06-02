@@ -37,7 +37,7 @@
             </div>
           </div>
           <div class="row mb-3">
-            <% if participant.participant_type.name ==  "अनावेदक" %>
+            <% if params[:action] == "edit" && participant.participant_type.name ==  "अनावेदक" %>
               <div class="col-md-6">
                 <%= form.label "अनावेदक (अथवा करंदा-आम) हिस्सेदार/पूर्ण भूमि स्वामी है ?", class: "form-label"  %>
                 <%= form.select :is_shareholder, options_for_select(Participant::SWAMITVA_STATUS, form.object.is_shareholder), {prompt: "स्वामित्व स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isShareHolder' %>   
