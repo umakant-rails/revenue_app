@@ -1,10 +1,57 @@
-<h1>Editing participant</h1>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-3 not-print">
+    <div class="row page-list">
+      <div class="page-header mt-4">
+        पेज की सूची
+      </div>
+      <ol class="list-group mb-4 pe-0">
+        <%= link_to new_request_path, class: "anchor-no-decoration" do %>
+          <li class="list-group-item active">
+            नवीन आवेदन
+          </li>
+        <% end %>
+        <%= link_to pending_requests_path, class: "anchor-no-decoration" do %>
+          <li class="list-group-item">
+            लंबित आवेदन
+          </li>
+        <% end %>
+        <%= link_to requests_path, class: "anchor-no-decoration" do %>
+          <li class="list-group-item">
+            आवेदन सूची
+          </li>  
+        <% end %>
+      </ol>
+    </div>
+  </div>
+  <div class="col-md-7" id="request-block">
 
-<%= render "form", participant: @participant %>
-
-<br>
-
-<div>
-  <%= link_to "Show this participant", @participant %> |
-  <%= link_to "Back to participants", participants_path %>
+    <ul id="progressbar">
+      <li class="active" id="applicant"><strong>आवेदक</strong></li>
+      <li class="active" id="non-applicant"><strong><i class="fa-solid fa-users"></i>अनावेदक</strong></li>
+      <li class="" id="khasra"><strong>खसरा विवरण</strong></li>
+    </ul>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:66%;"></div>
+    </div>
+    <br/>
+    <div id="request-form">
+      <% if @request.request_type == "फौती" %>
+        <%= render "fouti_form", request: @request, participant: @participant, participant_types: @participant_types %>
+      <% else %>
+        <%= render "form", request: @request, participant: @participant, participant_types: @participant_types %>
+      <% end %>
+    </div>
+    <div class="divider-bdr mt-3 mb-3"></div>
+    <%= link_to "आवेदन सूची", requests_path %>
+  </div>
+  <div class="col-md-1"></div>
 </div>
+<% content_for :head do %>
+  <% if @request.request_type == "फौती" %>
+    <%= javascript_import_module_tag "custom/fouti-participant-custom" %>
+  <% else %>
+    <%= javascript_import_module_tag "custom/participant-custom" %>
+  <% end %>
+<% end %>
+

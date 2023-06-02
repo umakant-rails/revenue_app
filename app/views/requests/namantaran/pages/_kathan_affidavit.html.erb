@@ -1,0 +1,54 @@
+<!-- kathan patra -->
+<div class="page-a4 only-print" data-request-target="page" data-name="kathan-affidavit" style="display: none;" >
+  <div class="col-md-12 kathan-affidavit-pdf">
+    <br/>
+    <div class="row">
+      <div class="fnt-30 fnt-b">
+        <center>कथन</center>
+      </div>
+    </div>
+    <div class="row padding-8 mrgn-top-20">
+      <div class="paragraph-35"> 
+        <table>
+          <tr>
+            <td>आवेदक का नाम : </td>
+            <td><strong><%= request.applicant %></strong></td>
+          </tr>
+          <tr>
+            <td>पिता/पति का नाम : </td>
+            <td><strong><%= @request.gaurdian %></strong></td>
+          </tr>
+          <tr>
+            <td>उम्र व्यवसाय : </td>
+            <td>- - - - - - - - - - - - - -</td>
+          </tr>
+          <tr>
+            <td>निवासी : </td>
+            <td><strong><%= request.address %></strong></td>
+          </tr>
+        </table>
+      </div>
+      <div class="paragraph-35 mrgn-top-20">
+        <div class="txt-indent-4">
+          मैं ईमान से कहता /कहती हूँ मेरे द्वारा मौजा _ _ _ _ _ _ _ <strong><%= request.village.village %></strong>_ _ _ _ _ पटवारी हल्का नंबर <strong><%= request.village.halka_number %></strong>_ _ _ _ _ में स्थित भूमि खसरा नंबर <strong><%= khasra %></strong> रकबा <strong><%= kh_rakba %></strong> में से <strong><%= sold_rakba %></strong> कुल रकबा <strong><%= total_sold_rakba %></strong> भूमि का रजिस्टर्ड बैनामा क्रमांक _ _<strong><%= request.registry_number %></strong>_ _ _ _ _ दिनांक _ _ _ _ _<strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong>_ _ _ को अनावेदक से क्रय कर भूमि  का नामांतरण  कराए जाने हेतु आवेदन पत्र पेश किया है |<br/>
+        </div>
+        <div class="txt-indent-4">
+          अतः बैनामा अनुसार नामांतरण किया जाए यही मेरे कथन है |<br/>
+        </div>
+        <div class="txt-indent-4">पढ़कर सुनाया सही पाया | </div>
+        <br/><br/><br/>
+        <div class="sign-text">
+          <div class="fRight">
+            <center>- - - - - - - - - - - - - -</center>
+            <center>
+              <strong><%= applicant_name(request) %></strong>
+            <center>
+            <center>
+              <strong>आवेदक</strong>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<!-- ishthaar patra -->
+<div class="page-a4 only-print" data-request-target="page" data-name="ishtihar" style="display: none;" >
+  <div class="col-md-12">
+    <div class="row">
+      <div class="fnt-28 fnt-b txt-center">
+        समक्ष न्यायालय श्रीमान तहसीलदार महोदय, <strong><%= request.village.tehsil %></strong>
+      </div>
+    </div>
+    <div class="row  padding-8 mrgn-top-20">
+      <div class="fnt-20">
+        <strong>राजस्व प्र. क्र.</strong>  - - - - - - - - -<%= request.village.ri %> - - - - - - - - - - - - -<br/>
+        <strong>ग्राम का नाम</strong> - - - - <%= request.village.village %>- - - - - - - - - - -<br/>
+        <strong>पटवारी हल्का नंबर</strong> - - - - - - <%= request.village.halka_number %> - - - - - - -  - - - - - - <br/>
+        <strong>रा नि मंडल</strong> - - - - - - - <%= request.village.ri %>- - - - -  - - - - - - - - - - - -<br/>
+      </div>
+      <div class="fnt-30 mrgn-top-20">
+        <center>"इश्तहार"</center>
+      </div>
+      <div class="paragraph-35 mrgn-top-20">
+        <div class="txt-indent-4">
+          सर्व साधारण एवं ग्राम पटवारी हल्का पटवारी नंबर <strong><%= request.village.halka_number %></strong> रा नि मंडल <strong><%= request.village.ri %></strong> तहसील <strong><%= request.village.tehsil %></strong>, जिला <strong><%= request.village.district %></strong> की आम जनता के जरिये इश्तिहार के सूचित किया जाता है कि - 
+          आवेदक <strong><%= applicant_name(request) %></strong> निवासी <strong><%= request.address %></strong> द्वारा मौके की भूमि खसरा नंबर <strong><%= khasra %></strong> रकबा <strong><%= kh_rakba %></strong> में से <strong><%= sold_rakba %></strong> कुल रकबा <strong><%= total_sold_rakba %></strong> भूमि का नामांतरण पंजीकृत बैनामा <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> के आधार पर कराने हेतु आवेदन प्रस्तुत किया है | <br/>
+        </div>
+        <div class="txt-indent-4">
+          उक्त संबंध में जिस किसी भी व्यक्ति को कोई आपत्ति हो तो वह अपनी आपत्ति अथवा आवेदन पत्र पेशी दिनांक _ _ _ _ _ _ _ _ तक इस न्यायलय में उपस्थित होकर स्वयं अथवा माननीय अधिवक्ता के द्वारा प्रस्तुत कर सकते है | <br/>
+        </div>
+        <div class="txt-indent-4">
+          गुजरने मियाद किसी भी आपत्ति अथवा आवेदन पत्र पर विचार नहीं किया जायेगा स्थान मेरे हस्ताक्षर एवं न्यायलय की मुद्रा एवं मुहर से दिनांक _ _ _ _ _ _ _ _ को जारी किया गया|
+        </div>
+        <br/><br/><br/>
+        <div class="bottom">
+          <div class="fRight">
+            <center>
+              <strong>तहसीलदार/नायब तहसीलदार</strong>
+            <center>
+            <center>
+              <strong>वृत्त - <%= request.village.ri %></strong>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

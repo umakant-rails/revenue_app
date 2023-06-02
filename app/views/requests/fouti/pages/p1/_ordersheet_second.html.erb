@@ -1,0 +1,74 @@
+<!-- order sheet started -->
+<div class="row pdf alwaysbreak">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="fnt-24 fnt-b txt-center">
+        राजस्व आदेश अनुवृत्ति पत्र<br/>
+        मामला क्रमांक_________ अ/6 <%= request.year %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mt-3">
+        <div class="d-table">
+          <div class="d-row mt-2">
+            <div class="d-cell pdf-tbl-lft-15 txt-center p-2">1</div>
+            <div class="d-cell pdf-tbl-center-70 txt-center p-2">2</div> 
+            <div class="d-cell pdf-tbl-rht-15 txt-center p-2">3</div>
+          </div>
+          <div class="d-row pb-2">
+            <div class="d-cell pdf-tbl-lft-15"></div>
+            <div class="d-cell pdf-tbl-center-70">
+              <div class="pd-4 <%= @templates[:ordersheet2] %>">
+                <div class="fLeft">
+                  प्रकरण पेश | 
+                </div>
+                <br/>
+                <div class="mb-8 txt-indent-3">  
+                  प्रकरण का अवलोकन किया गया | प्रकरण में आवेदक <strong><%= applicant_name(request) %></strong> निवासी <strong><%= request.address %></strong> द्वारा म. प्र. भू-राजस्व संहिता संहिता 1959 की धारा  109 -110 के तहत आवेदन पत्र प्रस्तुत कर लेख किया है कि <%= raw village_description(request) %> के खातेदार/सहखातेदार 
+                  <% if request.participants.fout_person.length > 1%>
+                    <% request.participants.fout_person.each_with_index do | f_person, indx | %>
+                      <strong><%= participant_name(f_person) %></strong> की मृत्यु दिनांक <strong><%= format_dt(f_person.faut_date).strip %></strong><%= ", " if indx < request.participants.fout_person.length-1 %>
+                    <% end %>
+                  <% else %>
+                    <% f_person = request.participants.fout_person.first %>
+                    <strong><%= participant_name(f_person) %></strong> की मृत्यु दिनांक <strong><%= f_person.faut_date.strftime("%d/%m/%Y") %></strong>
+                  <% end %>
+                  को हो जाने के कारण उनके स्थान पर उनके विधिक वारसानो के नाम दर्ज किये जाने का निवेदन किया है | 
+                </div>
+
+                <div class="mb-8 txt-indent-3"> 
+                  प्रकरण अ/6  मद में दर्ज करके ग्राम में इश्तहार का प्रकाशन किया गया, कोई आपत्ति प्राप्त नहीं हुई है | 
+                </div>
+                <div class="mb-8 txt-indent-3"> 
+                  हल्का पटवारी से मृतक के वारसानों की जानकारी ली गई, हल्का पटवारी  प्रतिवेदन में वैद्य वारसानों की जानकारी देकर वारसान हक़ से नाम दर्ज दिए जाने बाबत लेख किया है |
+                </div>
+                <%= is_shareholder = request.participants.pluck(:is_shareholder).index(true) %>
+                <div class="mb-8 txt-indent-3">  
+                  अतः म.प्र. भू-राजस्व संहिता 1959 की धारा 109-110 के अंतर्गत ग्राम <strong><%= request.village.village %></strong> पटवारी हल्का नंबर <strong><%= request.village.halka_number %></strong> खसरा नंबर <strong><%= khasra %></strong> रकबा <strong><%= kh_rakba %></strong> कुल रकबा <strong><%= total_sold_rakba %></strong> पर मृतक खातेदार 
+
+                  <% if request.participants.fout_person.length > 1%>
+                    <% request.participants.fout_person.each_with_index do | f_person, indx | %>
+                      <strong><%= participant_name(f_person) %></strong> की मृत्यु दिनांक <strong><%= f_person.faut_date.strftime("%d/%m/%Y") %></strong> <%= ", " if indx < request.participants.fout_person.length-1 %>
+                    <% end %>
+                  <% else %>
+                    <% f_person = request.participants.fout_person.first%>
+                    <strong><%= participant_name(f_person) %></strong> की मृत्यु दिनांक <strong><%= f_person.faut_date.strftime("%d/%m/%Y") %></strong>
+                  <% end %>
+
+                  को फौत  होने से उनके स्थान पर उनके वैद्य वारसानों पटवारी प्रतिवेदन <strong>प्रदर्श पी-1</strong> एवं आवेदक द्वारा प्रस्तुत शपथ-पत्र <strong>प्रदर्श पी-2</strong> अनुसार 
+                  <%= raw varsan_names1(request, false, []) %> 
+                  का नाम दर्ज किये जाने का आदेश पारित किया जाता है | <%= 'शेष खातेदार के नाम यथावत दर्ज रहेगें |' if is_shareholder %>| पटवारी अमल करें | तत्पश्चात प्रकरण नस्ती दाखिल अभिलेखागार हो | 
+                </div>
+                <br/><br/><br/>
+                <div class="mb-2 fRight">
+                  <strong>तहसीलदार/नायब तहसीलदार</strong>
+                </div>
+              </div>
+            </div> 
+            <div class="d-cell pdf-tbl-rht-15"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

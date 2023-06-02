@@ -1,0 +1,57 @@
+<div class="page-a4 only-print" data-request-target="page" data-name="request-page">
+  <div id="request-form">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="label-hdr">आवेदन प्रकार</div>
+        <div class="label-txt"><%= request.request_type.name %></div>
+      </div>
+      <div class="col-md-6">
+        <div class="label-hdr">आवेदन का वर्ष</div>
+        <div class="label-txt"><%= request.year %></div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <div class="label-txt">आवेदक की जानकारी</div>  
+      <div class="divider-bdr"></div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="label-hdr">आवेदक</div>
+        <div class="label-txt"><%= applicant_names(request, false , true) %></div>
+      </div>
+      <div class="col-md-6">
+        <div class="label-hdr">आवेदक पता</div>
+        <div class="label-txt"><%= request.participants.applicants.first.address rescue nil %></div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <div class="label-txt">रजिस्ट्री की जानकारी</div>  
+      <div class="divider-bdr"></div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="label-hdr">रजिस्ट्री का नंबर</div>
+        <div class="label-txt"><%= request.registry_number %></div>
+      </div>
+      <div class="col-md-6">
+        <div class="label-hdr">रजिस्ट्री की तिथि</div>
+        <div class="label-txt"><%= format_dt(request.registry_date) %></div>
+      </div>
+    </div>
+
+    <div class="p-2">
+      <% if @request.request_type == "नामांतरण" %>
+        <%= render "participants/participant" , request: request %>
+      <% elsif @request.request_type == "फौती" %>
+        <% request && request.participants.fout_person.each do | f_person | %>
+          <%= render "participants/sanjara", request: request, fout_person: f_person, action_display: true %>
+        <% end %>
+      <% end %>
+    </div>
+     <div class="divider-bdr"></div>
+    <div class="p-2">
+      <%= render "khasras/khasra" , request: request %>
+    </div>
+  </div>
+</div>

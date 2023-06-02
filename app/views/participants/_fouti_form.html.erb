@@ -1,0 +1,170 @@
+<div class="card" data-controller="participant request">
+  <% faut_participants = request.participants.fout_person %>
+  <div class="card-body">
+    <div class="page-header">
+      <%= (faut_participants.blank? || participant.depth == 0) ? "फौत व्यक्ति की जानकारी" : "वारसान की जानकारी" %>
+    </div>
+    <div class="dropdown-divider"></div>
+
+    <%= form_with(model: [request, participant])  do |form| %>
+      <% if participant.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(participant.errors.count, "error") %> prohibited this participant from being saved:</h2>
+          <ul>
+            <% participant.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <% if (faut_participants.blank? || participant.depth == 0) %>
+        <div class="ps-3 pe-3">
+          <div class="mb-3">
+            <%= form.label "आवेदक/अनावेदक प्रकार", class: "form-label" %>
+            <%= form.hidden_field :participant_type_id, value: form.object.participant_type_id, class: "form-control", 'disabled': true %>
+          </div>
+          <div class="mb-3 row">
+            <div class="col-md-5">
+              <%= form.label 'फौत व्यक्ति का नाम', class: "form-label" %>
+              <%= form.text_field :name, class: "form-control" %>
+            </div>
+            <div class="col-md-2">
+              <%= form.label 'सम्बन्ध', class: "form-label" %>
+              <%= form.select :relation, options_for_select(Participant::RELATIONS, form.object.relation), 
+                {prompt: "सम्बन्ध चुने"}, class: "form-control", 'data-participant-target': 'relation' %>
+            </div>
+            <div class="col-md-5">
+              <%= form.label 'अभिभावक', class: "form-label" %>
+              <%= form.text_field :gaurdian, class: "form-control", 'data-participant-target': 'gaurdian' %>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <%= form.label 'मृत्यु दिनांक', class: "form-label" %>
+              <%= form.text_field :death_date, 'data-defaultDate': form.object.death_date, 'data-defaultDate': 'd/m/Y', class: "form-control date-selector", 'data-controller': 'flatpickr' %>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <%= form.label "फौत व्यक्ति भू-अभिलेख रिकॉर्ड में सह-खातेदार है ?", class: "form-label"  %>
+              <%= form.select :is_shareholder, options_for_select([['नहीं', false], ['हाँ', true]], form.object.is_shareholder), {}, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-12">
+              <%= form.label 'पता', class: "form-label"  %>
+              <%= form.text_field :address, value: @request.village.village, class: "form-control" %>
+            </div>
+          </div>
+          <%= form.hidden_field :depth, value: 0, class: "form-control" %>
+        </div>
+      <% else %>
+        <div class="ps-3 pe-3">
+          <div class="mb-3 row ">
+            <div class="col-md-6">
+              <%= form.label 'फौत व्यक्ति', class: "form-label" %>
+              <select class="form-control" name="participant[parent_id]" id="participant_parent_id" data-participant-target="foutPerson">
+                  <option value="">फ़ौत व्यक्ति चुने</option>
+                  <% faut_participants.each do |p| %>
+                    <option value="<%= p.id %>" 
+                      data-gender="<%= ['पत्नी', 'पुत्री'].index(p.relation).present? ? 'F': 'M' %>" 
+                      data-gaurdian="<%= ['पत्नी', 'पुत्री'].index(p.relation).present? ? p.gaurdian : p.name %>"
+                      <%= "selected" if p.id == participant.parent_id%> >
+                      <%= p.name %>
+                    </option>
+                  <% end %>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <%= form.label 'वारसान का मृतक से सम्बन्ध', class: "form-label" %>
+              <%= form.select :relation_to_deceased, options_for_select(Participant::RELATIONS_TO_DECEASED, form.object.relation_to_deceased), {prompt: "सम्बन्ध चुने"}, class: "form-control", 'data-action': 'change->participant#updateRelation change->participant#feedGaurdian', 'data-participant-target': 'relationToDeceased' %>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <div class="col-md-5">
+              <%= form.label 'वारसान का नाम', class: "form-label" %>
+              <%= form.text_field :name, class: "form-control" %>
+            </div>
+            <div class="col-md-2">
+              <%= form.label 'सम्बन्ध', class: "form-label" %>
+              <%= form.select :relation, options_for_select(Participant::RELATIONS, form.object.relation), 
+                {prompt: "सम्बन्ध चुने"}, class: "form-control", 'data-participant-target': 'relation' %>
+            </div>
+            <div class="col-md-5">
+              <%= form.label 'अभिभावक', class: "form-label" %>
+              <%= form.text_field :gaurdian, class: "form-control", 'data-participant-target': 'gaurdian' %>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <%= form.label "वारसान फौत है ?", class: "form-label"  %>
+              <%= form.select :is_dead, options_for_select([['नहीं', false], ['हाँ', true]], form.object.is_dead), {}, 
+                class: "form-control", 'data-action': 'change->participant#updateBaleeStatus' %>
+            </div>
+            <div class="col-md-6">
+              <%= form.label "वारसान नाबालिग है ?", class: "form-label"  %>
+              <% if form.object.is_dead %>
+                <%= form.select :is_nabalig, options_for_select([['नहीं', false], ['हाँ', true]], form.object.is_nabalig), {}, class: "form-control", 
+                  'data-action': 'change->participant#updateBaleeInput', 
+                  'data-participant-target': 'isNabalig', 'disabled': 'disabled'
+                %>
+              <% else %>
+                <%= form.select :is_nabalig, options_for_select([['नहीं', false], ['हाँ', true]], form.object.is_nabalig), {}, class: "form-control", 
+                  'data-action': 'change->participant#updateBaleeInput', 
+                  'data-participant-target': 'isNabalig'
+                %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            
+            <div class="col-md-12">
+              <%= form.label 'बली की जानकारी', class: "form-label" %>
+              <div data-controller="autocomplete" data-autocomplete-url-value ="<%= get_balees_request_participants_path(@request) %>">
+                <% if form.object.balee.present? %>
+                  <%= form.text_field :balee, class: 'form-control','data-autocomplete-target': "input", 
+                   'spellcheck': "false", 'data-participant-target': 'balee' %>
+                  <ul class="list-group" data-autocomplete-target="results"></ul>
+                <% else %>
+                  <%= form.text_field :balee, class: 'form-control','data-autocomplete-target': "input", 
+                 'spellcheck': "false", 'data-participant-target': 'balee', disabled: 'disabled' %>
+                  <ul class="list-group" data-autocomplete-target="results"></ul>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-12">
+              <%= form.label 'पता', class: "form-label"  %>
+              <%= form.text_field :address, value: @request.village.village.split("-")[1], class: "form-control" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="mb-3">
+        <%= form.submit  "Submit participant", class: "btn btn-primary" %>
+
+        <%= link_to new_request_khasra_path(@request), class: "fRight btn btn-primary" do %>
+          Next&nbsp;&nbsp;<i class="fa-solid fa-share"></i>
+        <% end %>
+        <%= link_to new_request_participant_path(@request, depth: 0), class: "fRight btn btn-primary me-2" do %>
+          नया फौत व्यक्ति जोड़े&nbsp;&nbsp;<i class="fa-solid fa-share"></i>
+        <% end %>
+      </div>
+
+    <% end %>
+
+    <div class="row mt-4 mb-3">
+      <% request && request.participants.fout_person.each do | f_person | %>
+        <%= render "sanjara", request: request, fout_person: f_person, action_display: true %>
+      <% end %>
+    </div>
+  </div>
+</div>

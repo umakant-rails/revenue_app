@@ -1,0 +1,13 @@
+<% varsan.each_with_index do |p, index |%>
+  <div>
+    <%= index+1 %>. <%= p.name %> <%= get_varsan_status(p) %>
+    <% if action_display %>
+      <%=link_to edit_request_participant_path(p.request_id, p.id), class: 'anchor-no-decoration ps-2' do %>
+        <i class="fa-solid fa-pen-to-square"></i>
+      <% end %>
+      <%= button_to(request_participant_path(p.request_id, p.id), method: :delete, form: {class: 'ps-0 pe-0 d-iblock'}, class: "frm-delete-btn") do %>
+        <i class="fa-regular fa-trash-can"></i>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

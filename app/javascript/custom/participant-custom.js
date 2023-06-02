@@ -13,7 +13,7 @@ $(document).ready(function(){
     };
     var control =
         new google.elements.transliteration.TransliterationControl(options);
-    control.makeTransliteratable(["participant_name", "participant_gaurdian", "participant_balee", "participant_address"]);
+    control.makeTransliteratable(["participant_name", "participant_gaurdian", "participant_address"]);
   }
   google.setOnLoadCallback(onLoad);
 

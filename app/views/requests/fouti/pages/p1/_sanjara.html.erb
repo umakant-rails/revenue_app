@@ -1,0 +1,53 @@
+ <table class="table sanjara-table">
+  <thead>
+    <tr>
+      <th colspan="3">
+        <%# fout_person = request.participants.fout_person[0] %>
+        <center>
+          <%= fout_person.children.present? ? "#{fout_person.name} (फ़ौत) " : "#{fout_person.name} (ला-औलाद फौत )" %>
+          <% if action_display %>
+            <%=link_to edit_request_participant_path(fout_person.request_id, fout_person.id), class: 'anchor-no-decoration ps-2' do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+            <%= button_to(request_participant_path(fout_person.request_id, fout_person.id), method: :delete, form: {class: 'ps-0 pe-0 d-iblock'}, class: "frm-delete-btn") do %>
+              <i class="fa-regular fa-trash-can"></i>
+            <% end %>
+          <% end %>
+        </center>
+      </th>
+    </tr>
+    <tr>
+      <th style="width: 40%;">पुत्र</th>
+      <th style="width: 40%;">पुत्री</th>
+      <th style="" class="fRight">पति/पत्नी</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if fout_person.children.present? %>
+      <tr>
+        <%
+          son_list = fout_person.children.son rescue nil
+          daughter_list = fout_person.children.daughter rescue nil
+          wife_detail = fout_person.children.wife_husband rescue nil
+        %>
+        <td>
+          <%= render "participants/varsan", varsan: son_list, depth: 1, action_display: action_display %>
+        </td>
+        <td style="">
+          <%= render "participants/varsan", varsan: daughter_list, depth: 1, action_display: action_display %>
+        </td>
+        <td class="fRight">
+          <%= render "participants/varsan", varsan: wife_detail, depth: 1, action_display: action_display %>
+        </td>
+      </tr>
+      <% else %>
+        <tr>
+          <td colspan="3">
+            <center>
+              फ़ौत व्यक्ति के वरसान की जानकारी उपलब्ध नहीं है |
+            </center>
+          </td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>

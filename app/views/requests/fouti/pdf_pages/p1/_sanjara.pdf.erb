@@ -1,0 +1,38 @@
+
+<%# fout_person.each do | f_person | %>
+  <table class="table sanjara-table border-less">
+    <tbody>
+      <tr>
+        <th colspan="3">
+          <center>
+            <%= "#{fout_person.name} #{get_varsan_status(fout_person)}" %>
+          </center>
+        </th>
+      </tr>
+      <tr>
+        <th style="width: 40%;">पुत्र</th>
+        <th style="width: 40%;">पुत्री</th>
+        <th style="text-align: right;">पति/पत्नी</th>
+      </tr>
+
+      <tr>
+        <td>
+          <%= render "requests/fouti/pdf_pages/p1/varsan", varsan: fout_person.children.son, action_display: action_display %>
+        </td>
+        <td style="">
+          <%= render "requests/fouti/pdf_pages/p1/varsan", varsan: fout_person.children.daughter, action_display: action_display %>
+        </td>
+        <td class="fRight">
+          <%= render "requests/fouti/pdf_pages/p1/varsan", varsan: fout_person.children.wife_husband, action_display: action_display %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% if fout_person.children.fout_varsan.present? %>
+  <% fout_person.children.fout_varsan.each do | f_p | %>
+    <% if f_p.children.present? %>
+      <%= render "requests/fouti/pdf_pages/p1/sanjara", request: request, fout_person: f_p, action_display: false %>
+    <% end %>
+  <% end %>
+<% end %>
+<%# end %>

@@ -1,2 +1,61 @@
-<div id="<%= dom_id request %>">
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+    <th>आवेदक</th>
+    <th>रजिस्ट्री नंबर/दिनांक</th>
+    <th>आवेदन प्रकार</th>
+    <th>आवेदन दिनांक</th>
+    <th>गतिविधि</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% requests && requests.each do | request | %>
+    <tr>
+      <td>
+        <%= link_to request.title, request_path(request), class: "anchor-no-decoration"  %>
+        <span class="ms-2 <%= request.payment_transaction.present? ? 'request-paid-lbl' : 'request-unpaid-lbl' %>">
+          <%= request.payment_transaction.present? ? 'Paid' : 'Pending' %>
+        </span>
+      </td>
+      <td>
+        <% if request.request_type == "नामांतरण" %>
+          <%= request.registry_number%>/<%= request.registry_date.strftime("%d-%m-%Y")%>
+        <% else %>
+          -
+        <% end %>
+      </td>
+      <td><%= request.request_type.name %></td>
+      <td><%= format_dt(request.created_at)%></td>
+      <td>
+        <% participant_txt = request.request_type == "नामांतरण" ? "अनावेदक जोड़े" : (request.request_type == "बटवारा" ? "हिस्सेदार जोड़े" : "वारसान जोड़े") %>
+        <%= link_to new_request_participant_path(request_id: request.id), class: "btn btn-primary",
+          'data-bs-toggle': "tooltip", 'data-bs-placement': "top", 'title': participant_txt do %>
+          <i class="fa-solid fa-user-plus"></i>
+        <% end %>
+        <%= link_to new_request_khasra_path(request_id: request.id), class: "btn btn-primary",
+          'data-bs-toggle': "tooltip", 'data-bs-placement': "top", 'title': "खसरा जोड़े" do %>
+          <i class="fa-solid fa-file-circle-plus"></i>
+        <% end %>
+        <%= link_to edit_request_path(request.id), class: "btn btn-primary",
+          'data-bs-toggle': "tooltip", 'data-bs-placement': "top", 'title': "अद्यतन करे" do %>
+          <i class="fa-solid fa-pen-to-square"></i>
+        <% end %>
+        <% if request.payment_transaction.blank? %>
+          <%= link_to "javascript:void(0);", class: "btn btn-primary", 'data-controller': 'payment', 
+            'data-vl': request.id, 'data-payment-target': 'paymentBtn', 
+            'data-action': 'click->payment#openPaymentWindow', 'data-bs-toggle': "tooltip", 
+            'data-bs-placement': "top", 'title': "भुगतान करें" do %>
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+          <% end %>
+        <% else %>
+          <%= link_to "javascript:void(0);", class: "btn btn-secondary", 'data-bs-toggle': "tooltip", 
+            'data-bs-placement': "top", 'title': "भुगतान किया जा चुका है" do %>
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate requests if requests.present?%>

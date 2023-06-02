@@ -1,0 +1,39 @@
+<div class="row" data-controller="payment">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="card-body" style="box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5)">
+      <%= form_with(url: make_payment_request_path(@request)) do |form| %>
+        <div class="page-header mb-4">
+          सेवा शुल्क का विवरण 
+        </div>
+        <div class="mb-3">
+          <div class="fnt-20 label-hdr mb-2">सेवा का नाम</div>
+          <div class="pymt-label-txt"><%= @request.request_type %></div>
+        </div>
+        <div class="mb-3">
+          <div class="fnt-20 label-hdr mb-2">आवेदन संख्या</div>
+          <div class="pymt-label-txt"><%= @request.id %></div>
+        </div>
+        <div class="mb-3">
+          <div class="fnt-20 label-hdr mb-2">उपलब्ध राशि (रुपये में)</div>
+          <div class="pymt-label-txt"><%= current_user.payment_transactions.last.amount %></div>
+        </div>
+        <div class="mb-3">
+          <div class="fnt-20 label-hdr mb-2">सेवा शुल्क (रुपये में)</div>
+          <%= form.text_field :payment_amount, value: 10, class: "form-control", readonly: true, 
+            'data-requestId': @request.id, 'data-payment-target': 'paymentAmount' %>
+        </div>
+        <div class="divider-bdr mb-3"></div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <input type="button" class="form-control btn btn-primary" value="जमा करें" data-action="click->payment#makePayment" />
+          </div>
+          <div class="col-md-6">
+            <input type="button" class="form-control btn btn-danger" value="रद्द करें" data-action="click->payment#closeOpenedWindow" />
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>

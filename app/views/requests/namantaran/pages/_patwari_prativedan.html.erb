@@ -1,0 +1,48 @@
+<!-- halka patwari prativedan -->
+<div class="page-a4 only-print" data-request-target="page" data-name="patwari-prativedan" style="display: none;">
+  <div class="col-md-12 halka-patwari-prativedan-pdf">
+    <div class="row">
+      <div class="fnt-28 fnt-b">
+        <center>
+          कार्यालय पटवारी हल्का नंबर <%= request.village.halka_number %>, <%= request.village.halka_name %>
+        </center>
+      </div>
+    </div>
+    <div class="row mrgn-top-30 padding-8">
+      <div class="paragraph-35">
+        <div class="">प्रति,<br/></div>
+        <div class="padding-5">
+          श्रीमान तहसीलदार/नायब तहसीलदार महोदय <br/>
+          वृत्त <strong><%= request.village.ri %></strong>, तहसील <strong><%= request.village.tehsil %></strong>
+        </div><br/>
+        <div class="">
+          <strong>विषय &nbsp;:- </strong> नामांतरण के सम्बन्ध में प्रतिवेदन |<br/>
+          <strong>सन्दर्भ :-</strong> श्रीमान जी के आदेश दिनांक के परिपालन के सम्बन्ध में |<br/><br/>
+        </div>
+        <div class="">
+          महोदय  जी,<br/>
+        </div>
+        <div class="paragraph-35">
+          <div class="txt-indent-4">
+            उपरोक्त विषयान्तर्गत संदर्भित आदेश के परिपालन में लेख है कि आवेदक <strong><%= applicant_name(request) %></strong> जाति _ _ _ _ _ _ _ _ _ _ _निवासी <strong><%= request.address %></strong> के द्वारा मौजा <strong><%= request.village.halka_name %></strong> पटवारी हल्का नंबर <strong><%= request.village.halka_number %></strong> में स्थित खसरा नंबर <strong><%= khasra %></strong> रकबा <strong><%= kh_rakba %></strong> में से <strong><%= sold_rakba %></strong> कुल रकबा <strong><%= total_sold_rakba %></strong> भूमि का विक्रेता <strong><%= participant_names(request, true) %> </strong> से बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> के द्वारा क्रय करने से नामांतरण हेतु आवेदन पेश किया है <br/> 
+          </div>
+          <div class="txt-indent-4">
+            वर्तमान अभिलेख मौजा <strong><%= request.village.halka_name %></strong> के खसरा नंबर <strong><%= khasra %></strong> रकबा क्रमशः <strong><%= kh_rakba %></strong> हेक्ट में से <strong><%= total_sold_rakba %></strong> वर्ग फुट आवेदित भूमि, भूमिस्वामी भूमि है जिसका डायवर्सन हो चुका/नहीं हुआ है | 
+            <br/>
+          </div>
+          <div class="txt-indent-4">
+            अतः प्रतिवेदन सादर सम्प्रेषित है |
+          </div>
+        </div>
+        <br/><br/><br/>
+        <div>
+          <div class="fRight">
+            <center>- - - - - - - - - - - - - - - - -</center>
+            <center><strong>हस्ताक्षर</strong><center>
+            <center><strong>पटवारी हल्का <%= request.village.halka_name %></strong><center>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>

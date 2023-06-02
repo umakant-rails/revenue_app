@@ -1,2 +1,62 @@
-<div id="<%= dom_id khasra %>">
-</div>
+<table class="table sanjara-table">
+  <thead>
+    <tr>
+      <th colspan="6">
+        खसरा सूची
+      </th>
+    </tr>
+    <tr>
+      <td>क्रमांक</td>
+      <td>ग्राम</td>
+      <td>खसरा</td>
+      <td>रकबा</td>
+      <td>विक्रय रकबा</td>
+      <td>गतिविधि</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% khasra_list = request.khasras.where("khasra is not null") %>
+    <% if khasra_list.present? %>
+     <% khasra_list.each_with_index do | k, index | %>
+      <tr>
+        <td>
+          <%= index + 1 %>
+        </td>
+        <td>
+          <%= k.village.village %>
+        </td>
+        <td>
+          <%= k.khasra %>
+        </td>
+        <td>
+          <%= ( '%.4f' % k.rakba.to_f) %> हे.
+        </td>
+        <td>
+          <% if k.unit == 'व.फु.'%>
+            <%= "#{('%.0f' % k.sold_rakba.to_f)} #{k.unit}" %>
+          <% elsif k.unit == 'व.मी.' %>
+            <%= "#{('%.2f' % k.sold_rakba.to_f)} #{k.unit}" %>
+          <% else%>
+            <%= "#{('%.4f' % k.sold_rakba.to_f)} #{k.unit}" %>
+          <% end %>
+        </td>
+        <td>
+          <%=link_to edit_request_khasra_path(request, k), class: "fnt-20 anchor-no-decoration" do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          <%= button_to(request_khasra_path(k.request_id, k.id), method: :delete, form: {class: 'ps-0 pe-0 d-iblock'}, class: "frm-delete-btn fnt-20") do %>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    
+  <% else %>
+    <tr>
+        <td colspan="2">
+          No Data
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,20 @@
+<% varsan.each_with_index do |p, index |%>
+  <div style="margin-left: <%= (depth-1) * 10 %>%; <%#= 'border-left: 1px solid gray;' if depth != 1 %>">
+    <%= index+1 %>. <%= p.name %> <%= get_varsan_status(p) %>
+
+    <% if action_display %>
+      <%=link_to edit_request_participant_path(p.request_id, p.id), class: 'anchor-no-decoration ps-2' do %>
+        <i class="fa-solid fa-pen-to-square"></i>
+      <% end %>
+      <%= button_to(request_participant_path(p.request_id, p.id), method: :delete, form: {class: 'ps-0 pe-0 d-iblock'}, class: "frm-delete-btn") do %>
+        <i class="fa-regular fa-trash-can"></i>
+      <% end %>
+    <% end %>
+
+    <% if p.karanda_aam_faut %>
+      <% if p.children.present? %>
+        <%= render "requests/fouti/pdf_pages/p2/varsan", varsan: p.children.order("relation ASC"), depth: depth+1, action_display: action_display %>   
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-3 not-print">
+    <div class="row page-list">
+      <div class="page-header">
+        पेज की सूची
+      </div>
+      <ol class="list-group mb-4 pe-0">
+        <%= link_to new_request_path, class: "anchor-no-decoration" do %>
+          <li class="list-group-item">
+            नवीन आवेदन
+          </li>
+        <% end %> 
+        <li class="list-group-item active">
+          लंबित आवेदन
+        </li>
+        <%= link_to requests_path, class: "anchor-no-decoration" do %>
+          <li class="list-group-item">
+            आवेदन सूची
+          </li>
+         <% end %>
+      </ol>
+    </div>
+  </div>
+  <div class="col-md-7" id="request-block">
+    <div class="mb-3">
+      <table class="table">
+        <thead>
+          <tr>
+          <th>आवेदक</th>
+          <th>रजिस्ट्री नंबर/दिनांक</th>
+          <th>आवेदन प्रकार</th>
+          <th>गतिविधि</th>
+        </tr>
+        </thead>
+        <tbody>
+          <% if @requests.present? %>
+            <% @requests.each do | request | %>
+              <tr>
+                <td><%= request.title %></td>
+                <td>
+                  <% if request.registry_date.present? %>
+                    <%= request.registry_number%>/<%= request.registry_date.strftime("%d-%m-%Y")%>
+                  <% else %>
+                   -
+                  <% end %>
+                </td>
+                <td><%= request.request_type.name %></td>
+                <td>
+                  <% participant_txt = request.request_type == "नामांतरण" ? "अनावेदक जोड़े" : (request.request_type == "बटवारा" ? "हिस्सेदार जोड़े" : "वारसान जोड़े") %>
+                  <%= link_to participant_txt, new_request_participant_path(request_id: request.id), class: "btn btn-primary" %>
+                  <%= link_to "खसरा जोड़े", new_request_khasra_path(request_id: request.id), class: "btn btn-primary" %>
+                  <%= link_to "अद्यतित करे", edit_request_path(request.id), class: "btn btn-primary" %>
+                </td>
+              </tr>
+            <% end %>
+          <% else %>
+            <tr>
+              <td colspan="4">
+                <center>अभी कोई आवेदन लंबित नहीं है |</center>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="divider-bdr mt-3 mb-3"></div>
+    <%= link_to "नया आवेदन", new_request_path %>
+  </div>
+  <div class="col-md-1"></div>
+</div>

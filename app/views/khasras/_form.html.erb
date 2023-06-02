@@ -1,17 +1,77 @@
-<%= form_with(model: khasra) do |form| %>
-  <% if khasra.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(khasra.errors.count, "error") %> prohibited this khasra from being saved:</h2>
-
-      <ul>
-        <% khasra.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<% districts, tehsils, circles, villages = get_village_details(request) %>
+<div class="card">
+  <div class="card-body">
+    <div class="page-header">
+      खसरा फॉर्म 
     </div>
-  <% end %>
+    <div class="dropdown-divider"></div>
+    <div data-controller='request'>
+      <%= form_with(model: [request, khasra])  do |form| %>
+        <% if khasra.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(khasra.errors.count, "error") %> prohibited this khasra from being saved:</h2>
 
-  <div>
-    <%= form.submit %>
+            <ul>
+              <% khasra.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="mb-3">
+          <div><strong>खसरा की जानकारी</strong></div>
+          <div class="dropdown-divider"></div>
+        </div>
+        <div class="ps-3 pe-3">
+          <div class="mb-3 row">
+            <div class="col-md-3">
+              <label class="form-label">District</label>
+              <% districts, tehsils, circles, villages = get_village_details(request) %>
+              <%= select_tag :district, options_for_select(districts, (form.object.village.district rescue nil)), prompt: "जिला चुने", class: "form-control", 
+                'data-request-target': 'district', 'data-action': 'change->request#getRecords' %>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Tehsil</label>
+              <%= select_tag :tehsil, options_for_select(tehsils, (form.object.village.tehsil rescue nil) ), prompt: "तहसील चुने", class: "form-control", 'data-request-target': 'tehsil', 'data-action': 'change->request#getRecords' %>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Circle</label>
+              <%= select_tag :circle, options_for_select(circles, (form.object.village.ri rescue nil) ), prompt: "सर्किल चुने", class: "form-control", 'data-request-target': 'circle', 'data-action': 'change->request#getRecords' %>
+            </div>
+
+            <div class="col-md-3">
+              <%= form.label :village_id, class: "form-label" %>
+              <%= form.select :village_id, options_for_select(villages, (form.object.village_id rescue nil) ), {prompt: "ग्राम चुने"}, class: "form-control", 'data-request-target': 'village' %>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <div class="col-md-3">
+              <%= form.label :khasra, class: "form-label" %>
+              <%= form.text_field :khasra, class: "form-control" %>
+            </div>
+            <div class="col-md-3">
+              <%= form.label :rakba, class: "form-label" %>
+              <%= form.text_field :rakba, class: "form-control" %>
+            </div>
+            <div class="col-md-2">
+              <%= form.label "Sold Rakba", class: "form-label" %>
+              <%= form.text_field :sold_rakba, class: "form-control" %>
+            </div>
+            <div class="col-md-2">
+              <%= form.label :unit, class: "form-label" %>
+              <%= form.select :unit, options_for_select(Request::UNITS), {prompt: "इकाई चुने"} , class: "form-control" %>
+            </div>
+            <div class="col-md-2">
+              <label class="form-label" for="khasra_unit">&nbsp;</label><br/>
+              <%= form.submit  "Submit khasra", class: "btn btn-primary" %>
+            </div>
+          </div>    
+        </div>
+      <% end %>
+    </div>
+    <div class="row mt-4 mb-3">
+      <%= render "khasra" , request: request%>
+    </div>
   </div>
-<% end %>
+</div>

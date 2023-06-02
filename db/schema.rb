@@ -54,6 +54,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_073507) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "participant_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "participants", force: :cascade do |t|
     t.string "name"
     t.string "relation"
@@ -68,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_073507) do
     t.integer "depth"
     t.string "relation_to_deceased"
     t.boolean "is_shareholder", default: false
-    t.string "type"
+    t.integer "participant_type_id"
     t.boolean "total_share_sold", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -87,6 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_073507) do
   end
 
   create_table "request_types", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

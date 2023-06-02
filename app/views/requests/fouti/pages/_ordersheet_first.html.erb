@@ -1,0 +1,76 @@
+<div class="page-a4 only-print" data-request-target="page" data-name="ordersheet-first" style="display: none;">
+  <div class="row">
+    <div class="fnt-18 fnt-b">
+      <center>फार्म "अ"</center>
+    </div>
+    <div class="fnt-22 fnt-b txt-center">
+      (परिपत्र दो-१ के कणिका 6  देखिये)<br />
+      राजस्व आदेश -पत्र (रेव्हेन्यू ऑर्डर शीट )
+    </div>
+    <div class="mt-4 col-md-12 fnt-15">
+      <div>
+        तहसीलदार <strong><%= request.village.tehsil %></strong> के न्यायालय में मामला क्रमांक_ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन  <strong><%= request.year %></strong> _ _ _ _ _ _ _ _ _
+      </div>
+      <div>
+        विषय - नामांतरण बाबत_ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ __ _ _ _ _ _ प्रकरण की श्रेणी _ _ _ _ _ _ _ _ _ _ _ _ _ अ/६ वर्ष _ _ _ _ _ _
+      </div>
+
+      <div>
+        ग्राम- <strong><%= request.village.village %></strong> _ _ _ _ बंदोबस्त क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ _ पटवारी ह क्र <strong><%= request.village.halka_number %></strong> _ _ _ _ _ _ तहसील <strong><%= request.village.tehsil %></strong> _ _ _ _ _ 
+      </div>
+
+      <div>
+        कलेक्टर का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ _ सन <strong><%= request.year %></strong> अनुविभागीय अधिकारी का क्रमांक _ _ _ _ _ _ _ _ __ _ सन_ _ _ _ _ _ _ _ _
+      </div>
+
+      <div>
+        तहसीलदार का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन _ _ _ _ _ _ _ _नायब तहसीलदार का क्रमांक _ _ _ _ _ _ _ _ _सन _ _ _ _ _ _ _ _
+      </div>
+    </div>
+  </div>
+  <div class="mt-3">
+    <div class="row first-row">
+      <div class="w-15 table-left-column">
+        आदेश अथवा कार्यवाही की तारीख और स्थान 
+      </div>
+      <div  class="w-65 table-center-column">
+        पीठासीन अधिकारी के हस्ताक्षर सहित आवेदन पत्र अथवा कार्यवाही 
+      </div>
+      <div  class="w-20 table-right-column">
+        जहाँ आवश्यक हो, पर्ची व वकीलों के हस्ताक्षर आदेशों के पालन करवाकर लिपिक के संक्षित हस्ताक्षर  और प्रकरण की तारिख 
+      </div>
+    </div>
+    <div class="row seccond-row">
+      <div class="w-15 table-left-column">1</div>
+      <div class="w-65 table-center-column">2</div> 
+      <div class="w-20 table-right-column">3</div>
+    </div>
+    <div class="row pb-2">
+      <div class="w-15 table-left-column"></div>
+      <div class="w-65 table-center-column">
+        <div class="m-sm-2 fnt-17">
+          <div class="order1-desc paragraph-35">
+            <div class="txt-indent-3">
+              <% f_person = request.participants.fout_person.first %>
+              आवेदक <strong><%= applicant_name(request) %></strong> निवासी <strong><%= request.address %></strong> द्वारा <%= raw village_description(request) %> पर मेरे पिता/माता/अन्य श्री/श्रीमती <strong><%= fout_persons(request) %></strong> के नाम उक्त भूमि दर्ज है | जिनका निधन दिनांक <strong><%= format_dt(f_person.faut_date) %></strong> को है | जिनके वैध वारसान <%=raw varsan_names1(request) %> के नाम फौती दर्ज किये जाने का आवेदन प्राप्त हुआ है | 
+            </div>
+            <div class="row">
+              <div>1 . प्रकरण दर्ज हो | </div>
+              <div>2 . हल्का पटवारी से रिपोर्ट ली जाये | </div>
+              <div>3 . इश्तहार  का प्रकाशन हो | </div>
+              <div>4 . अनावेदक आहूत  हो | </div>
+            </div>
+            <br/><br/><br/>   
+            <div class="fLeft" style="position: absolute;bottom: 0; left:0;">
+              <strong>पेशी</strong>
+            </div> 
+            <div class="fRight"  style="position: absolute;bottom: 0; right:0;">
+              <strong>तहसीलदार/नायब तहसीलदार</strong>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="w-20 table-right-column"></div>
+    </div>
+  </div>
+</div>

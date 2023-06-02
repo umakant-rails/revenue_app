@@ -1,14 +1,35 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Requests</h1>
-
-<div id="requests">
-  <% @requests.each do |request| %>
-    <%= render request %>
-    <p>
-      <%= link_to "Show this request", request %>
-    </p>
-  <% end %>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-3 not-print">
+    <div class="row page-list">
+      <div class="page-header">
+        पेज की सूची
+      </div>
+      <ol class="list-group mb-4 pe-0">
+        <%= link_to new_request_path, class: "anchor-no-decoration" do %>
+          <li class="list-group-item">
+            नवीन आवेदन
+          </li>
+        <% end %> 
+          <%= link_to pending_requests_path, class: "anchor-no-decoration" do %>
+          <li class="list-group-item">
+            लंबित आवेदन
+          </li>
+        <% end %>
+        <%= link_to requests_path, class: "anchor-no-decoration" do %>
+          <li class="list-group-item active">
+            आवेदन सूची
+          </li>
+         <% end %>
+      </ol>
+    </div>
+  </div>
+  <div class="col-md-7" id="request-block">
+    <div class="mb-3">
+      <%= render "request", requests: @requests %>
+    </div>
+    <div class="divider-bdr mt-3 mb-3"></div>
+    <%= link_to "नया आवेदन", new_request_path %>
+  </div>
+  <div class="col-md-1"></div>
 </div>
-
-<%= link_to "New request", new_request_path %>

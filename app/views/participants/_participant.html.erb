@@ -1,2 +1,55 @@
-<div id="<%= dom_id participant %>">
-</div>
+ <table class="table sanjara-table">
+  <thead>
+    <tr>
+      <th colspan="5">
+        प्रतिभागी सूची
+      </th>
+    </tr>
+    <tr>
+      <td>क्रमांक</td>
+      <td>प्रतिभागी</td>
+      <td>सम्बन्ध</td>
+      <td>अभिभावक</td>
+      <td>आवेदक प्रकार</td>
+      <td>गतिविधि</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% participant_list = get_participants(request) %>
+    <% if participant_list.present? %>
+      <% participant_list.each_with_index do | p, index | %>
+        <tr>
+          <td>
+            <%= index + 1 %>
+          </td>
+          <td>
+            <%= p.name %>
+          </td>
+          <td>
+            <%= p.relation %>
+          </td>
+          <td>
+            <%= p.gaurdian %>
+          </td>
+          <td class="text-primary">
+            <%= p.participant_type.name%>
+          </td>
+          <td>
+            <%=link_to edit_request_participant_path(p.request_id, p.id), class: "fnt-20 anchor-no-decoration" do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+            <%= button_to(request_participant_path(p.request_id, p.id), method: :delete, form: {class: 'ps-0 pe-0 d-iblock'}, class: "frm-delete-btn fnt-20") do %>
+              <i class="fa-regular fa-trash-can"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>       
+    <% else %>
+      <tr>
+        <td colspan="2">
+          No Data
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

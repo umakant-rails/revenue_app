@@ -15,7 +15,7 @@ class CreateParticipants < ActiveRecord::Migration[7.0]
       t.integer   :depth
       t.string    :relation_to_deceased
       t.boolean   :is_shareholder, default: false
-      t.string    :type
+      t.integer   :participant_type_id
       t.boolean   :total_share_sold, default: false
 
       t.timestamps

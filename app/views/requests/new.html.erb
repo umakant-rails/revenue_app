@@ -1,9 +1,52 @@
-<h1>New request</h1>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-3 not-print">
+    <div class="row page-list">
+      <div class="page-header">
+        पेज की सूची
+      </div>
+      <ol class="list-group mb-4 pe-0">
+        <li class="list-group-item active">
+          नवीन आवेदन
+        </li>
+        <%= link_to pending_requests_path, class: "anchor-no-decoration" do %>
+          <li class="list-group-item">
+            लंबित आवेदन
+          </li>
+        <% end %>
+        <%= link_to requests_path, class: "anchor-no-decoration" do %>
+          <li class="list-group-item">
+            आवेदन सूची
+          </li>  
+        <% end %>
+      </ol>
+    </div>
+  </div>
+  <div class="col-md-7" id="request-block">
 
-<%= render "form", request: @request %>
-
-<br>
-
-<div>
-  <%= link_to "Back to requests", requests_path %>
+    <ul id="progressbar">
+      <li class="active" id="applicant"><strong>आवेदक</strong></li>
+      <li class="<%= @request.id.present? ? 'active' : '' %>" id="non-applicant"><strong><i class="fa-solid fa-users"></i>अनावेदक</strong></li>
+      <li class="<%= (@participant && @participant.id.present?) ? 'active' : '' %>" id="khasra"><strong>खसरा विवरण</strong></li>
+    </ul>
+    <div class="progress">
+      <% if @request.id.blank?%>
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:0%;"></div>
+      <% elsif @request.id.present? && @participants.blank?%>
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:33%;"></div>
+      <% elsif @participants.present? && @khasras.blank?%>
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:66%;"></div>
+      <% end %>
+    </div>
+    <br/>
+    <div id="request-form">
+      <%= render "form", request: @request, districts: @districts, tehsils: [], circles: [], villages: [] %>
+    </div>
+    <div class="divider-bdr mt-3 mb-3"></div>
+    <%= link_to "आवेदन सूची", requests_path %>
+  </div>
+  <div class="col-md-1"></div>
 </div>
+<% content_for :head do %>
+  <%= javascript_import_module_tag "custom/request-custom" %>
+<% end %>

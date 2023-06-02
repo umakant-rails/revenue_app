@@ -1,0 +1,27 @@
+<table class="table sanjara-table border-less">
+  <tbody>
+    <tr>
+      <th colspan="3">
+        <center>
+          <%= fout_person.present? ? "#{fout_person.name} (फ़ौत) " : "फ़ौत व्यक्ति की जानकारी दर्ज नहीं की है |  " %>
+        </center>
+      </th>
+    </tr>
+    <tr>
+      <th style="">पुत्र</th>
+      <th style="">पुत्री</th>
+      <th style="text-align: right;">पति/पत्नी</th>
+    </tr>
+    <tr>
+      <td>
+        <%= render "requests/fouti/pdf_pages/p2/varsan", varsan: fout_person.children.son, depth: 1, action_display: action_display %>
+      </td>
+      <td style="">
+        <%= render "requests/fouti/pdf_pages/p2/varsan", varsan: fout_person.children.daughter, depth: 1, action_display: action_display %>
+      </td>
+      <td class="fRight">
+        <%= render "requests/fouti/pdf_pages/p2/varsan", varsan: fout_person.children.wife_husband, depth: 1, action_display: action_display %>
+      </td>
+    </tr>
+  </tbody>
+</table>

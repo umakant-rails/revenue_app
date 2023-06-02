@@ -1,0 +1,31 @@
+var options = '';
+
+<% if params[:selected_field] != "circle" %>
+  <% @records && @records.each do | record | %>
+    options = options + '<option value="<%= record %>"><%= record %></option>'
+  <% end %>
+<% else %>
+  <% @records && @records.each do | record | %>
+    options = options + '<option value="<%= record.id %>"><%= record.village %></option>'
+  <% end %>
+<% end %>
+
+<% if params[:selected_field] == "district" %>
+  options = '<option value="">तहसील चुने</option>' + options;
+  $("#tehsil").html(options);
+<% elsif params[:selected_field] == "tehsil" %>
+  options = '<option value="">सर्किल चुने</option>' + options;
+  $("#circle").html(options);
+<% elsif params[:selected_field] == "circle" %>
+  options = '<option value="">ग्राम चुने</option>' + options;
+
+  if($("#request_village_id").length == 1 ){
+    $("#request_village_id").html(options);
+  }
+  console.log($("#participant_village_id"))
+  if($("#participant_village_id").length == 1 ){
+    $("#participant_village_id").html(options);
+  }
+<% end %>
+
+$(".spinner").css('display', 'none')

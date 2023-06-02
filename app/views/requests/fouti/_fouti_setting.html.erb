@@ -1,0 +1,45 @@
+<div class="modal fade" id="settingDialog" aria-hidden="true" 
+  aria-labelledby="exampleModalToggleLabel" tabindex="-1", data-controller = 'template'>
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header page-header">
+        फौती नामांतरण के डॉक्यूमेंट की सेटिंग
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="font-size:15px;"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <% pages_name = [['ऑर्डरशीट-प्रथम', 'ordersheet1'], ['ऑर्डरशीट-द्वितीय', 'ordersheet2'], ['आवेदक का सहमति पत्र', 'applicant_application'], ['आवेदक का शपथ पत्र', 'applicant_affidavit'], ['इश्तहार', 'ishtihar'], ['तलवाना', 'talwana'], ['पंचनामा', 'panchnama'], ['हल्का पटवारी प्रतिवेदन','patwari_prativedan'] ] %>
+            <% pages_name.each do | page | %>
+              <div class="row mb-2">
+                <label for="ordersheet1" class="col-form-label col-md-6 "><%= page[0]%></label>
+                <div class="col-md-6">
+                  <%= select_tag page[1], options_for_select(Request::TEMPLATES, 'pdf-paragraph-40'), class: "form-control", 'data-template-target': 'templateName', 'data-name': page[1] %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="col-md-6">
+            <div class="row mb-2">
+              <label for="ordersheet1" class="col-form-label col-md-4 ">आर्डर प्रारूप</label>
+              <div class="col-md-8">
+                <%= select_tag :order_praroop, options_for_select(Request::FAUTI_ORDER_PRAROOP, 'pdf-paragraph-40'), class: "form-control", 'data-template-target': 'orderTemplate', 'data-name': 'order_praroop' %>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <label for="ordersheet1" class="col-form-label col-md-4 ">संजारा प्रारूप</label>
+              <div class="col-md-8">
+                <%= select_tag :sanjara_praroop, options_for_select(Request::SANJARA_PRAROOP, 'pdf-paragraph-40'), class: "form-control", 'data-template-target': 'sanjaraTemplate', 'data-name': 'sanjara_praroop' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-action="click->template#resetUrl">Clear Setting</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-aavedan="fauti" data-action="click->template#updateUrl">Save Setting</button>
+      </div>
+    </div>
+  </div>
+</div>

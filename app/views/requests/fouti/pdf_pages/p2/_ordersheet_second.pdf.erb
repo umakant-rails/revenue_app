@@ -1,0 +1,64 @@
+<!-- order sheet started -->
+<div class="row pdf alwaysbreak">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="fnt-24 fnt-b txt-center">
+        राजस्व आदेश अनुवृत्ति पत्र<br/>
+        मामला क्रमांक_________ अ/6 <%= request.year %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mt-3">
+        <div class="d-table">
+          <div class="d-row mt-2">
+            <div class="d-cell pdf-tbl-lft-12 txt-center p-2">1</div>
+            <div class="d-cell pdf-tbl-center-76 txt-center p-2">2</div> 
+            <div class="d-cell pdf-tbl-rht-12 txt-center p-2">3</div>
+          </div>
+          <div class="d-row pb-2">
+            <div class="d-cell pdf-tbl-lft-12"></div>
+            <div class="d-cell pdf-tbl-center-76">
+              <div class="pd-4 <%= @templates[:ordersheet2] %>">
+                <div class="fLeft">
+                  प्रकरण पेश | 
+                </div>
+                <br/>
+                <div class="mb-8 txt-indent-2">
+                  प्रकरण का संक्षिप्त विवरण इस प्रकार है कि आवेदक <strong><%= applicant_name(request, true) %></strong> तहसील <strong><%= request.village.tehsil %></strong> जिला <strong><%= request.village.district %></strong> द्वारा <%= raw village_description(request) %> पर मृतक खातेदार का नाम ख़ारिज  किये जाने बावत सहपत्रो सहित आवेदन पत्र प्रस्तुत किया गया है |
+                </div>
+                <div class="txt-indent-2">
+                  प्रकरण पंजीवद्ध करके ग्राम में इश्तहार का प्रकाशन कराकर आपत्तियां आमंत्रित की गई | नियत दिनांक एवं आज दिनांक तक कोई आपत्ति प्राप्त नहीं हुई | 
+                </div>
+                <div class="mb-8 txt-indent-2"> 
+                  प्रकरण में आवेदक द्वारा शपथ पत्र  प्रस्तुत आवेदन पत्र अनुसार फौती दर्ज किये जाने बावत लेख किया है | 
+                </div>
+                <div class="mb-8 txt-indent-3"> 
+                  प्रकरण में हल्का पटवारी से प्रतिवेदन लिया गया | हल्का पटवारी द्वारा अपने प्रतिवेदन में लेख किया है कि ग्राम <strong><%= request.village.village %></strong> प.ह.न. <strong><%= request.village.halka_number %></strong> में भूमि खसरा नंबर <strong><%= khasra %></strong> रकबा <strong><%= kh_rakba %></strong> कुल रकबा <strong><%= total_sold_rakba %></strong> पर <%= fout_persons(request) %> के नाम अभिलेख में दर्ज है |
+                </div>
+                <% request.participants.fout_person.each do | f_person | %>
+                  <div class="mb-2">
+                    यह कि खातेदार <strong><%= participant_name(f_person) %></strong> दिनांक <strong><%= format_dt(f_person.faut_date)%></strong> को फौत हो चुके है | उनके वारसान का संजारा निम्नानुसार है :-
+                    <%= render "requests/fouti/pdf_pages/#{@templates[:sanjara_praroop]}/sanjara", request: request, fout_person: f_person, action_display: false %>
+                  </div>
+                <% end %>
+                 <%= is_shareholder = request.participants.pluck(:is_shareholder).index(true) %>
+                <div class="mb-8 txt-indent-3">  
+                  प्रकरण में संलग्न दस्तावेजों, आवेदन पत्र, खसरा-बी१ नक़ल, शपथ पत्र, मृत्यु प्रमाण पत्र एवं हल्का पटवारी द्वारा प्रस्तुत प्रतिवेदन के आधार पर म.प्र. भू-राजस्व संहिता 1959 की धारा 109-110 के अंतर्गत <%= raw village_description(request) %> पर मृतक खातेदार 
+                  <strong><%= fout_persons(request) %></strong>
+                  के फौत होने से उनके स्थान पर उनके वैद्य वारसानों पटवारी प्रतिवेदन <strong>प्रदर्श पी-1</strong> एवं आवेदक द्वारा प्रस्तुत शपथ-पत्र <strong>प्रदर्श पी-2</strong> अनुसार 
+                  <%= raw varsan_names1(request, false, []) %> 
+                  का नाम दर्ज किये जाने का आदेश पारित किया जाता है | <%= 'शेष खातेदार के नाम यथावत दर्ज रहेगें |' if is_shareholder %> पटवारी अमल करें | तत्पश्चात प्रकरण नस्ती दाखिल अभिलेखागार हो | 
+                </div>
+                <br/><br/><br/>
+                <div class="mb-2 fRight">
+                  <strong>तहसीलदार/नायब तहसीलदार</strong>
+                </div>
+              </div>
+            </div> 
+            <div class="d-cell pdf-tbl-rht-12"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

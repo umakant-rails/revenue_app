@@ -1,0 +1,55 @@
+<!-- aavedak sapath patra -->
+<div class="page-a4 only-print" data-request-target="page" data-name="applicant-affidavit" style="display: none;">
+  <div class="col-md-12 applicant-app-parent">
+    <div class="row">
+      <div class="fnt-24 fnt-b fnt-u">
+        <center>श्रीमान नोटरी अधिकारी महोदय <%= request.village.district %> मध्यप्रदेश </center>
+      </div>
+      <div class="fnt-24 fnt-b mrgn-top-10">
+        <center>//शपथ पत्र//</center>
+      </div>
+    </div>
+    <div class="row padding-5">
+      <div class="paragraph-35">
+        <div class="txt-indent-2">
+          मैं <strong><%= applicant_name(request) %></strong> उम्र <strong>45</strong> वर्ष निवासी <strong><%= request.address %></strong>  शपथपूर्वक कथन करता हूँ |<br/> 
+        
+          1.  यह कि मेरे माता/पिता/अन्य के नाम <strong><%= fout_persons(request) %></strong>
+          <%= raw village_description(request) %> भूमि राजस्व रिकॉर्ड में दर्ज है|<br/> 
+          2. यह कि मेरे पिता/माता/अन्य <strong><%= fout_persons(request) %></strong> की मृत्यु दिनांक <strong><%= request.participants.fout_person.collect{ |p| [format_dt(p.faut_date)] }.join(", ") %></strong>  को हो चुकी है, जिनके वैध वारसान संजरा निम्न अनुसार है |
+        </div>
+        <% request && request.participants.fout_person.each do | f_person | %>
+          <strong><%= participant_name(f_person) %></strong> के वैध वारसान संजरा निम्न अनुसार है :-
+          <%= render "participants/sanjara", request: request, fout_person: f_person, action_display: false %>
+        <% end %>
+        <div class="mb-3">
+          3. यह कि उक्त भूमि पर ऊपर दर्शित संजरा अनुसार वारसान राजस्व रिकॉर्ड में दर्ज किये जायें एवं उल्लेखित  वारसान के अलावा अन्य कोई वारसान नहीं है <br/>
+        </div>
+        <div class="mb-3">
+          <div class="fLeft">
+            स्थान :- <strong><%= request.village.tehsil %></strong><br/>
+            दिनांक :- _ _ _ _ _ _ _
+          </div>
+          <div class="fRight">
+            <center>- - - - - - - - - - - -</center>
+            <center><strong>हस्ताक्षर शपथकर्ता</strong><center>
+          </div>
+        </div>
+        <br/><br/>
+        <div class="txt-indent-2">
+          मैं उपरोक्त शपथकर्ता सत्यापित करता/करती हूँ कि शपथपत्र की कंडिका 01 से 03 में अंकित कथन मेरे स्वतः के ज्ञान व अनुभव के अनुसार सही व सत्य है | <br/><br/>
+        </div>
+        <div class="">
+          <div class="fLeft">
+            स्थान :- <strong><%= request.village.tehsil %></strong><br/>
+            दिनांक :- _ _ _ _ _ _ _
+          </div>
+          <div class="fRight">
+            <center>- - - - - - - - - - - -</center>
+            <center><strong>हस्ताक्षर शपथकर्ता</strong><center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

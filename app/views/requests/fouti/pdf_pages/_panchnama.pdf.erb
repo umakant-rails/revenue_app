@@ -1,0 +1,47 @@
+<!-- aavedak sapath patra -->
+<div class="row pdf alwaysbreak">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="fnt-24 fnt-b fnt-u">
+        <br/><br/>
+        <center>पंचनामा</center>
+      </div>
+    </div>
+    <br/>
+    <div class="row padding-5 <%= @templates[:panchnama] %>">
+      <div class="txt-indent-3">
+        हम सभी अधोहस्ताक्षरकर्ता व्यक्ति मौजा <strong><%= request.village.village %></strong> प. ह. न. <strong><%= request.village.halka_number %></strong> रा.नि.म. <strong><%= request.village.ri %></strong> तहसील <strong><%= request.village.tehsil %></strong> जिला <strong><%= request.village.district %></strong> तस्दीक करते है कि ग्राम के निवासी कृषक
+        <% request.participants.fout_person && request.participants.fout_person.each_with_index do |f_person,indx |%>
+          <%= ", " if indx > 0 %>
+          <strong><%= participant_name(f_person) %></strong> जाति _ _ _ _ _ _ _ _ _ की मृत्यु दिनांक <strong><%= format_dt(f_person.faut_date) %></strong>
+        <% end %>
+
+        को हो चुकी है तथा इनके वैध वारिसों के नाम संजरा अनुसार निम्न है :- 
+      </div>
+      <% request && request.participants.fout_person.each do | f_person | %>
+        <%= render "requests/fouti/pdf_pages/#{@templates[:sanjara_praroop]}/sanjara", request: request, fout_person: f_person, action_display: false %>
+      <% end %>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="w-20">नाम</th>
+            <th class="w-20">पिता का नाम</th>
+            <th class="w-15">जाति</th>
+            <th class="w-30">निवास</th>
+            <th  class="w-15">हस्ताक्षर</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div></div>
+</div>
+<div></div>

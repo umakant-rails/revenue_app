@@ -1,0 +1,87 @@
+<div class="row pdf alwaysbreak">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="fnt-20 txt-center">
+        फार्म "अ"
+      </div>
+      <div class="fnt-24 txt-center fnt-b">
+        (परिपत्र दो-१ के कणिका 6  देखिये)<br/>
+        राजस्व आदेश -पत्र (रेव्हेन्यू ऑर्डर शीट )
+      </div>
+      <div class="mt-2 pdf-paragraph-35">
+        <div >
+          तहसीलदार <strong><%= request.village.tehsil %></strong> के न्यायालय में मामला क्रमांक_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन <strong><%= request.year %></strong> _ _ _ _ _ _ 
+        </div>
+        <div>
+          विषय - <b>फौती दर्ज कराने बाबत</b>_ _ _ _ _ _ _ _ _ _ _ _ _ प्रकरण की श्रेणी_ _ _ _ _ _ _ _ _ _ _ _ अ/६ वर्ष _ _ _ _ _ _ _ _
+        </div>
+
+        <div>
+          ग्राम - <strong><%= request.village.village %></strong>_ _ _ _ बंदोबस्त क्रमांक _ _ _ _ _ _ पटवारी हल्का क्रमांक <strong><%= request.village.halka_number %></strong> _ _ _ तहसील <strong><%= request.village.tehsil %></strong> _ _
+        <div>
+
+        <div>
+          कलेक्टर का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ सन <strong><%= request.year %></strong> अनुविभागीय अधिकारी का क्रमांक _ _ _ _ _सन&nbsp; _ _ _ _ _ _ _ _
+        </div>
+        <div>
+          तहसीलदार का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन_ _ _ _ _ _ नायब तहसीलदार का क्रमांक _ _ _ _ _सन _ _ _ _ _ _ 
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mt-2">
+        <div class="d-table">
+          <div class="d-row fnt-18">
+            <div class="d-cell pdf-tbl-lft-12 txt-center">
+              आदेश अथवा कार्यवाही की तारीख और स्थान 
+            </div>
+            <div class="d-cell pdf-tbl-center-65 txt-center">
+              पीठासीन अधिकारी के हस्ताक्षर सहित आवेदन पत्र अथवा कार्यवाही 
+            </div>
+            <div class="d-cell pdf-tbl-rht-23 txt-center">
+              जहाँ आवश्यक हो, पर्ची व वकीलों के हस्ताक्षर आदेशों के पालन करवाकर लिपिक के संक्षित हस्ताक्षर  और प्रकरण की तारिख 
+            </div>
+          </div>
+          <div class="mt-2 d-row">
+            <div class="d-cell pdf-tbl-lft-12 txt-center">1</div>
+            <div class="d-cell pdf-tbl-center-65 txt-center">2</div> 
+            <div class="d-cell pdf-tbl-rht-23 txt-center">3</div>
+          </div>
+          <div class="pb-2 d-row">
+            <div class="d-cell pdf-tbl-lft-12"></div>
+            <div class="d-cell pdf-tbl-center-65">
+              <div class="m-sm-4 padding-2 order1-parent" >
+                <div class="<%= @templates[:ordersheet1] %> txt-indent-3 order1-child">
+                  <% f_persons = request.participants.fout_person%>
+                  आवेदक/आवेदिका &nbsp;<strong><%= applicant_name(request) %></strong> &nbsp;
+                  निवासी <strong><%= request.address %></strong> द्वारा 
+                  <%= raw village_description(request) %> 
+                  पर मेरे पिता/माता/अन्य श्री/श्रीमती <strong><%= fout_persons(request) %></strong> के नाम उक्त भूमि दर्ज है | जिनका निधन दिनांक क्रमशः 
+                  <% if f_persons.length > 1 %>
+                    <strong><%= f_persons.collect{ |p| p.faut_date.strftime("%d/%m/%Y") }.join(", ") %></strong> 
+                  <% else %>
+                    <strong><%= format_dt(f_persons.first.faut_date) %></strong> 
+                  <% end %>
+                  को हो गया है |  जिनके वैध वारसान <strong><%= varsan_names1(request, true) %></strong> के नाम फौती दर्ज किये जाने का आवेदन प्राप्त हुआ है | 
+                  <br/>
+                  1 . प्रकरण दर्ज हो | <br/>
+                  2 . हल्का पटवारी से रिपोर्ट ली जाये | <br/>
+                  3 . इश्तहार  का प्रकाशन हो | <br/>
+                  4  . अनावेदक आहूत  हो | <br/>
+                </div> 
+                <div class="mb-2 bottom-pdf-left">
+                  <strong>पेशी</strong>
+                </div>
+                <div class="mb-2 bottom-pdf-right">
+                  <strong>तहसीलदार/नायब तहसीलदार</strong>
+                </div>
+              </div>
+            </div> 
+            <div class="d-cell pdf-tbl-rht-23"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/><br/>
+</div>

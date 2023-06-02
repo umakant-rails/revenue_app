@@ -1,17 +1,85 @@
-<%= form_with(model: request) do |form| %>
-  <% if request.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
-
-      <ul>
-        <% request.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="card">
+  <div class="card-body">
+    <div class="page-header">
+      आवेदक जानकारी फॉर्म 
     </div>
-  <% end %>
+    <div class="dropdown-divider"></div>
+    <div data-controller='request'>
+      <%= form_with(model: request) do |form| %>
+        <% if request.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
 
-  <div>
-    <%= form.submit %>
+            <ul>
+              <% request.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="mb-3 row">
+          <div class="col-md-3">
+            <label class="form-label">District</label>
+
+            <%= select_tag :district, options_for_select(districts, (form.object.village.district rescue nil)), prompt: "जिला चुने", class: "form-control", 
+              'data-request-target': 'district', 'data-action': 'change->request#getRecords' %>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Tehsil</label>
+            <%= select_tag :tehsil, options_for_select(tehsils, (form.object.village.tehsil rescue nil) ), prompt: "तहसील चुने", class: "form-control", 'data-request-target': 'tehsil', 'data-action': 'change->request#getRecords' %>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Circle</label>
+            <%= select_tag :circle, options_for_select(circles, (form.object.village.ri rescue nil) ), prompt: "सर्किल चुने", class: "form-control", 'data-request-target': 'circle', 'data-action': 'change->request#getRecords' %>
+          </div>
+
+          <div class="col-md-3">
+            <% village_list = villages.present? ? villages.collect{|v| [v.village, v.id]} : [] %>
+            <%= form.label :village_id, class: "form-label" %>
+            <%= form.select :village_id, options_for_select(village_list, (form.object.village_id rescue nil) ), {prompt: "ग्राम चुने"}, class: "form-control", 'data-request-target': 'village' %>
+          </div>
+        </div>
+
+        <div class="row spinner" style="display:none;">
+          <div class="offset-md-5 col-md-2 spinner-border text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <%= form.label "आवेदन का नाम/शीर्षक", class: "form-label" %>
+          <%= form.text_field :title, class: "form-control" %>
+        </div>
+        <div class="mb-3 row">
+          <div class="col-md-6">
+            <%= form.label "आवेदन प्रकार", class: "form-label" %>
+            <%= form.select :request_type_id,  options_for_select(@request_types.collect{|r| [r.name, r.id]}), {prompt: "सम्बन्ध चुने"}, class: "form-control" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :year, class: "form-label" %>
+            <%= form.text_field :year, class: "form-control" %>
+          </div>   
+        </div>
+        <div class="mb-3">
+          <strong>बैनामा / पंजीकृत दस्तावेज़ की जानकारी</strong>
+          <div class="dropdown-divider"></div>
+        </div>
+        <div class="ps-3 pe-3">
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <%= form.label "रजिस्ट्री / पंजीकृत दस्तावेज़ नंबर", class: "form-label" %>
+              <%= form.text_field :registry_number, class: "form-control" %>
+            </div>
+            <div class="col-md-6">
+              <%= form.label "रजिस्ट्री / पंजीकृत दस्तावेज़ दिनांक", class: "form-label" %>
+              <%= form.text_field :registry_date, class: "form-control date-selector", 'data-controller': 'flatpickr' %>
+            </div>
+          </div>
+        </div>
+        <div>
+          <%= form.submit  "Submit request", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

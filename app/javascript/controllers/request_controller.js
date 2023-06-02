@@ -4,7 +4,8 @@ import ApplicationController from "./application_controller";
 
 // Connects to data-controller="namantaran"
 export default class extends Controller {
-  static targets = ['paymentstatus', 'paymentNotDone', 'district', 'tehsil', 'circle', 'village', 'page', 'gaurdian'];
+  static targets = ['paymentstatus', 'paymentNotDone', 'district', 'tehsil', 'circle', 'village', 
+    'page', 'gaurdian', 'totalShareSold', 'isShareHolder'];
 
   connect() {
     this.params = {}
@@ -56,6 +57,17 @@ export default class extends Controller {
       } else {
         page.style.display ='none';
       }
+    }
+  }
+  
+  updateAnavedakFields(event){
+    var participantType = event.target.value;
+    if(participantType == 2){
+      this.totalShareSoldTarget.disabled = false;
+      this.isShareHolderTarget.disabled = false;
+    } else {
+      this.totalShareSoldTarget.disabled = true;
+      this.isShareHolderTarget.disabled = true;
     }
   }
 

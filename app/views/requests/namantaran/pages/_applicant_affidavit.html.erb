@@ -1,0 +1,50 @@
+<!-- aavedak sapath patra -->
+<div class="page-a4 only-print" data-request-target="page" data-name="applicant-affidavit" style="display: none;">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="fnt-24 fnt-b">
+        <center>श्रीमान नोटरी अधिकारी महोदय <strong><%= request.village.tehsil %></strong> मध्यप्रदेश </center>
+      </div>
+      <div class="fnt-20 fnt-b">
+        <center>//शपथ पत्र//</center>
+      </div>
+    </div>
+    <br/><br/>
+    <div class="row padding-8">
+      <div class="paragraph-35">
+        <div class="txt-indent-3">
+          मैं <strong><%= applicant_name(request) %></strong> उम्र <strong>45</strong> वर्ष निवासी <strong><%= request.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
+        </div>
+        <div class="padding-5">
+          1.  यह कि मौजा <strong><%= request.village.village %></strong> पटवारी हल्का नंबर <strong><%= request.village.halka_number %></strong> तहसील <strong><%= request.village.tehsil %></strong> में स्थित खसरा नंबर <strong><%= khasra %></strong> रकबा <strong><%= kh_rakba %></strong> में से <strong><%= sold_rakba %></strong> कुल रकबा <strong><%= total_sold_rakba %></strong> भूमि का बेचवार <strong><%= participant_name(request.participants.first) %></strong> से पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> को खरीद किया है |<br/> 
+          2. यह कि हमारी उक्त भूमि का संपूर्ण प्रतिफल विक्रेता को देकर उक्त भूमि पर कब्ज़ा प्राप्त कर लिया गया है उक्त भूमि पर किसी प्रकार का कोई विवाद नहीं है भूमि हमारे रजिस्टर्ड बैनामा से क्रय की गई है अतः बैनामा अनुसार नाम दर्ज कराना है |<br/>
+          <div class="txt-indent-4">
+            यह कि मैं वैनामा अनुसार आवेदक का नाम दर्ज होने हेतु सहमति में शपथ पत्र प्रस्तुत है |
+          </div>
+        </div>
+        <br/>
+        <div class="">
+          <div class="fRight">
+            <center>- - - - - - - - - - - -</center>
+            <center><strong>हस्ताक्षर शपथकर्ता</strong><center>
+          </div>
+        </div>
+        <br/><br/><br/>
+        <div class="txt-indent-4">
+          मैं <strong><%= applicant_name(request) %></strong> पिता <strong><%= applicant_name(request) %></strong> द्वारा प्रस्तुत शपथ पत्र विवरण सही है 
+        </div>
+        <br/><br/>
+        <div>
+          <div class="fLeft">
+            <strong>स्थान</strong> - - - - - - - -<br/>
+            <strong>दिनांक </strong> - - - - - - - - 
+          </div>
+          <div class="fRight">
+            - - - - - - - - - - - -<br/>
+            <center><strong>हस्ताक्षर शपथकर्ता</strong><center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

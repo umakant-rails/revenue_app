@@ -1,0 +1,55 @@
+<!-- aavedak application patra -->
+<div class="row pdf alwaysbreak">
+  <div class="col-md-12">
+    <div class="row mrgn-top-20 mrgn-4">
+      <div class="<%= @templates[:applicant_application] %>">
+        <div class="">प्रति,<br/></div>
+        <div class="fnt-b">
+          <div class="txt-indent-2 fnt-b">
+            श्रीमान तहसीलदार/नायब तहसीलदार महोदय
+          </div>
+          <div class="txt-indent-2">
+            वृत्त:- <%= request.village.ri %> तहसील <%= request.village.tehsil %>
+          </div>
+        </div>
+        <div class="">
+          <strong>विषय &nbsp;:- </strong> फौती / नामांतरण वाबत |<br/>
+        </div>
+        
+        <div class="">
+          महोदय  जी,<br/>
+        </div>
+
+        <div class="txt-indent-2">
+          विनम्र निवेदन है कि  मैं <strong><%= applicant_name(request) %></strong> निवासी <strong><%= request.address %></strong> पटवारी हल्का न <strong><%= request.village.halka_name %></strong> का निवासी हूँ और मेरे पिता/माता/अन्य 
+          <% if request.participants.fout_person.length > 1 %>
+            <strong><%= fout_persons(request) %></strong> के नाम <%= raw village_description(request) %> पर दर्ज है, जो कि दिनांक क्रमशः  <strong><%= request.participants.fout_person.collect{ |p| [format_dt(p.faut_date)] }.join(", ") %></strong>             
+          <% else %>
+            <% f_person = request.participants.fout_person.first %>
+            <strong><%= fout_persons(request) %></strong> के नाम <%= raw village_description(request) %> पर दर्ज है, जो कि दिनांक <strong><%= format_dt(f_person.faut_date) %></strong>
+          <% end %>
+          को फौत हो चुके है जिनके वैध वारसान निम्न संजरा अनुसार है :-
+        </div>
+         <% request && request.participants.fout_person.each do | f_person | %>
+          <strong><%= participant_name(f_person)%></strong> के वारसान का संजरा निम्नानुसार है :-
+          <%= render "requests/fouti/pdf_pages/#{@templates[:sanjara_praroop]}/sanjara", request: request, fout_person: f_person, action_display: false %>
+        <% end %>
+        <div>
+          उपरोक्त संजरा में उल्लिखित वारिसों के अलावा कोई अन्य वारसान नहीं है यदि भविष्य में कोई दावा करता है और ऐसी पुष्टि होती है तो मैं स्वयं व्यक्तिगत रूप से जिम्मेदार माना जाऊंगा अन्य कोई नहीं |  <br/> 
+        </div>
+        <br/><br/>
+        <div class="">
+          <div class="fLeft">
+            <center>&nbsp;</center>
+            <center>दिनांक :- _ _ _ _ _ _ _ _</center>
+          </div>
+          <div class="fRight">
+            <center>आवेदक</center>
+            <center>नाम :- <strong><%= applicant_name(@request) %></strong></center>
+            <center>निवासी :- <strong><%= @request.address %></strong></center>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
