@@ -8,7 +8,7 @@
         </div>
         <div class="mb-3">
           <div class="fnt-20 label-hdr mb-2">सेवा का नाम</div>
-          <div class="pymt-label-txt"><%= @request.request_type %></div>
+          <div class="pymt-label-txt"><%= @request.request_type.name %></div>
         </div>
         <div class="mb-3">
           <div class="fnt-20 label-hdr mb-2">आवेदन संख्या</div>
@@ -23,6 +23,7 @@
           <%= form.text_field :payment_amount, value: 10, class: "form-control", readonly: true, 
             'data-requestId': @request.id, 'data-payment-target': 'paymentAmount' %>
         </div>
+        <input type="hidden" value="<%= form_authenticity_token %>" id="csrf_token" data-payment-target='crsfToken' />
         <div class="divider-bdr mb-3"></div>
         <div class="row mb-3">
           <div class="col-md-6">

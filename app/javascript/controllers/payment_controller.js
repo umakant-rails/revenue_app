@@ -77,12 +77,13 @@ export default class extends ApplicationController {
   makePayment(){
     var amount = this.paymentAmountTarget.value;
     var requestId = this.paymentAmountTarget.dataset.requestid;
+    var crsfToken = this.crsfTokenTarget.value;
 
     $.ajax({
       url: "/requests/"+requestId+"/make_payment",
       method: 'POST',
       dataType: 'json',
-      data: {payment_amount: amount}
+      data: {payment_amount: amount, authenticity_token: crsfToken}
     }).then(res => {
       let my_window = open(location, '_self');
       my_window.close();

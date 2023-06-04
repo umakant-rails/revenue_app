@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-2 not-print">
+    <div class="row page-list">
+      <div class="page-header">
+        गतिविधि सूची
+      </div>
+      <ol class="list-group mb-4 pe-0">
+        <%= link_to new_order_path, class: "anchor-no-decoration" do %>
+          <li class="list-group-item">
+            रिचार्ज खाता
+          </li>
+        <% end %>
+        <%= link_to "javascript:void(0);", class: "anchor-no-decoration" do %>
+          <li class="list-group-item active">
+            स्टेटमेंट विवरण
+          </li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+  <div class="col-md-8" id="request-block">
+    <div id="transaction-list">
+      <table class="table table-bordered">
+        <thead>
+          <tr> 
+            <th scope="col">क्रमांक</th>
+            <th scope="col">दिनांक</th>
+            <th scope="col">आवेदन संख्या</th>
+            <th scope="col">देय राशि</th>
+            <th scope="col">प्राप्त राशि</th>
+            <th scope="col">उपलब्ध/शेष राशि</th>
+            <th scope="col">गतिविधि</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @transactions.each_with_index do | transaction, index | %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= transaction.created_at.strftime("%d/%m/%Y") %></td>
+              <td><%= transaction.app_number %></td>
+              <td><%= transaction.debit %></td>
+              <td><%= transaction.credit %></td>
+              <td><%= transaction.amount %></td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>      
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+
+
