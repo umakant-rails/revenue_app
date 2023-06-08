@@ -38,7 +38,7 @@ module ParticipantsHelper
     request.participants.each do | p | 
       tmp = [p.name]
       tmp.push(p.relation + " " + p.gaurdian) if with_parent_name
-      tmp.push(", निवासी " + p.address) if with_address
+      tmp.push(" निवासी " + p.address) if with_address
       arr.push(tmp.join(" "))
     end
     return arr

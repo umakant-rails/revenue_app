@@ -2,8 +2,11 @@ module RequestsHelper
 
   def applicant_name(request, with_address=false)
     arr = []
-    arr.push(request.applicant + " " + request.relation + " " + request.gaurdian)
-    arr.push("निवासी " + request.address) if with_address
+    # arr.push(request.applicant + " " + request.relation + " " + request.gaurdian)
+    # arr.push("निवासी " + request.address) if with_address
+    request.participants.applicants.each do | app |
+      arr.push(app.name + " " + app.relation + " " + app.gaurdian + "निवासी " + app.address)
+    end
     return arr.join(" ")
   end
 
