@@ -33,8 +33,9 @@ RequestType.create(name: "फौती") if RequestType.where(name: "फौत�
 #   bat_req_type.participant_types.create(name: "नए हिस्सेदार") if bat_req_type.participant_types.where(name: "नए हिस्सेदार").blank?
 # end
 
-ParticipantType.create(name: "आवेदक") if ParticipantType.where(name: "आवेदक").blank?
-ParticipantType.create(name: "अनावेदक") if ParticipantType.where(name: "अनावेदक").blank?
+# ParticipantType.create(name: "आवेदक") if ParticipantType.where(name: "आवेदक").blank?
+ParticipantType.create(name: "क्रेता") if ParticipantType.where(name: "क्रेता").blank?
+ParticipantType.create(name: "विक्रेता") if ParticipantType.where(name: "विक्रेता").blank?
 ParticipantType.create(name: "करांदा-आम") if ParticipantType.where(name: "करांदा-आम").blank?
 ParticipantType.create(name: "फौत व्यक्ति") if ParticipantType.where(name: "फौत व्यक्ति").blank?
 ParticipantType.create(name: "वारसान") if ParticipantType.where(name: "वारसान").blank?

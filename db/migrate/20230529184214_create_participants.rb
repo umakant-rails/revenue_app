@@ -17,6 +17,7 @@ class CreateParticipants < ActiveRecord::Migration[7.0]
       t.boolean   :is_shareholder, default: false
       t.integer   :participant_type_id
       t.boolean   :total_share_sold, default: false
+      t.boolean   :is_applicant, default: false
 
       t.timestamps
     end

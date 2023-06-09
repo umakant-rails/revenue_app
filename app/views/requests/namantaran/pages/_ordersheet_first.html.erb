@@ -9,7 +9,7 @@
     </div>
     <div class="mt-4 col-md-12 fnt-16">
       <div>
-        तहसीलदार <strong><%= request.village.tehsil %></strong> के न्यायालय में मामला क्रमांक_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन  <strong><%= request.year %></strong> _ _ _ _ _ _ _ _
+        तहसीलदार <strong><%= request.village.tehsil %></strong> के न्यायालय में मामला क्रमांक_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन  <strong><%= request.year %></strong> _ _ _ _ _ _ _ _ _ _
       </div>
       <div>
         विषय - नामांतरण बाबत_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ प्रकरण की श्रेणी _ _ _ _ _ _ _ _ _ _ _ _ अ/६ वर्ष _ _ _ _ _ _
@@ -52,7 +52,7 @@
           <div class="order1-desc paragraph-35">
             <div class="txt-indent-3">
               आवेदक/आवेदिका &nbsp;<strong><%= applicant_name(request) %></strong>
-              निवासी <strong><%= request.address %></strong>
+              निवासी <strong><%= request.participants.applicant.address %></strong>
                द्वारा मौजा <strong><%= request.village.village %> </strong> पटवारी हल्का न <strong><%= request.village.halka_number %></strong>
               में स्थित भूमि खसरा नम्बर <strong><%= khasra %></strong> रकबा <strong><%= kh_rakba %></strong>
               में से रकबा <strong><%= sold_rakba %> </strong> कुल रकबा <strong><%= total_sold_rakba %></strong> का आवेदक द्वारा रजिस्टर्ड

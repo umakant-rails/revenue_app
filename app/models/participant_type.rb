@@ -7,11 +7,11 @@ class ParticipantType < ApplicationRecord
 
   def self.get_participants(request)
     if request.request_type.name == "नामांतरण"
-      self.where("name in (?)", ["आवेदक", "अनावेदक", "करांदा-आम"])
+      self.where("name in (?)", ["क्रेता", "विक्रेता", "करांदा-आम"])
     elsif request.request_type.name == "फौती"
-      self.where("name in (?)", ["आवेदक", "फौत व्यक्ति", "वारसान"])
+      self.where("name in (?)", ["फौत व्यक्ति", "वारसान"])
     elsif request.request_type.name == "बटवारा"
-      self.where("name in (?)", ["आवेदक", "मूल भू स्वामी", "नए हिस्सेदार"])
+      self.where("name in (?)", ["मूल भू स्वामी", "नए हिस्सेदार"])
     end
   end
 

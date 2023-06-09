@@ -1,0 +1,11 @@
+
+<%= render "form", order_template: @order_template %>
+
+<br>
+
+<div>
+  <%= link_to "Back to order templates", order_templates_path %>
+</div>
+<% content_for :head do %>
+  <%= javascript_import_module_tag "custom/tinymce-custom" %>
+<% end %> 

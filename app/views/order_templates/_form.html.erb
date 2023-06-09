@@ -1,0 +1,61 @@
+<%= form_with(model: order_template) do |form| %>
+  <div class="mb-3" data-controller="request">
+    <% if order_template.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(order_template.errors.count, "error") %> prohibited this order template from being saved:</h2>
+
+        <ul>
+          <% order_template.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row mb-3">
+      <div class="col-md-2"></div>
+      <div class="col-md-3">
+        <%= form.select :category, options_for_select(OrderTemplate::CATEGORIES), {prompt: 'Select Category'}, class: "form-control" %>
+      </div>
+      <div class="col-md-3">
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+      <div class="col-md-2">
+        <%= form.submit class: "btn btn-primary" %>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <center>
+          <%= form.text_area :template, class: 'tinymce', style: "width:14.6cm;height:29.7cm;", 'data-action': 'keyup#setOrderContent change#setOrderContent'%>
+        </center>
+      </div>
+      <div class="col-md-6">
+        <div class="page-a4">
+          <div class="row">
+            <div class="fnt-22 fnt-b txt-center">
+              राजस्व आदेश अनुवृत्ति पत्र<br/>
+              मामला क्रमांक_ _ _ _ _ _ _ अ/6 _ _ _ _ _ _ _ 
+            </div>
+          </div>
+          <div class="row">
+            <div class="row mt-2 first-row">
+              <div class="w-15 table-left-column">1</div>
+              <div class="w-70 table-center-column">2</div> 
+              <div class="w-15 table-right-column">3</div>
+            </div>
+            <div class="row pb-2">
+              <div class="w-15 table-left-column"></div>
+              <div class="w-70 table-center-column">
+                <div class="order_details" style="min-height:100px;">
+                  
+                </div>
+              </div> 
+              <div class="w-15 table-right-column"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

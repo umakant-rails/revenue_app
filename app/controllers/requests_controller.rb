@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
 
   # GET /requests or /requests.json
   def index
-    @requests = Request.all.page(params[:page])
+    @requests = current_user.requests.joins([:participants, :khasras]).order("created_At DESC").distinct.page(params[:page])
   end
 
   # GET /requests/1 or /requests/1.json
@@ -58,7 +58,7 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if (@request.request_type.name == "नामांतरण") && 
-      (params[:request][:registry_number].blank? || params[:request][:registry_number].blank?)
+      (params[:request][:registry_number].blank? || params[:request][:registry_date].blank?)
         flash[:error] =  "नामांतरण के लिए रजिस्ट्री की नंबर एवं रजिस्ट्री दिनांक आवश्यक है |"
         format.html { render :new, status: :unprocessable_entity }
       elsif @request.save

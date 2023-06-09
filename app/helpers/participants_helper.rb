@@ -1,53 +1,80 @@
 module ParticipantsHelper
   
-  # def get_faut_participants(request)
-  #   request.participants.where("is_dead=?", true)
+  def applicant_name(request, with_address=false)
+    applicant = request.participants.applicant
+
+    applicant_str = applicant.name + " " + applicant.relation + " " + applicant.gaurdian 
+    applicant_str = applicant_str + " निवासी " + applicant.address if with_address 
+    return applicant_str
+  end
+  
+  def participant_names(request, type, with_address=false, is_short=false)
+    arr = []
+    participant_arr = ''
+
+    if type == "buyer"
+      participant_arr = request.participants.buyers
+    elsif type == "seller"
+      participant_arr = request.participants.sellers
+    end
+
+    participant_arr && participant_arr.each do | participant |
+      participant_tmp_str = "<strong>" + participant.name + " " + participant.relation + " " + participant.gaurdian + "</strong>"
+      participant_tmp_str = participant_tmp_str + " निवासी <strong>" + participant.address + "</strong>" if with_address
+      arr.push(participant_tmp_str) 
+    end
+    
+    if is_short and arr.length > 1
+      return arr[0] + " एवं अन्य " + (arr.length - 1).to_s
+    else
+      return arr.join(", ")
+    end
+  end
+
+  # def participant_name(participant)
+  #   [participant.name, participant.relation, participant.gaurdian].join(" ")
   # end
 
-  def participant_name(participant)
-    [participant.name, participant.relation, participant.gaurdian].join(" ")
-  end
+  # def add_evm_suffix(arr)
+  #   return [arr[0..arr.length-2].join(", "), "एवं " + arr[arr.length-1]].join(", ") if arr.length > 2
+  #   return [arr[0], "एवं " + arr[arr.length-1]].join(" ") if arr.length > 1
+  #   return arr[0]
+  # end
 
-  def add_evm_suffix(arr)
-    return [arr[0..arr.length-2].join(", "), "एवं " + arr[arr.length-1]].join(", ") if arr.length > 2
-    return [arr[0], "एवं " + arr[arr.length-1]].join(" ") if arr.length > 1
-    return arr[0]
-  end
+  # def fout_persons(request)
+  #   arr = []
+  #   f_persons = request.participants.fout_person
 
-  def fout_persons(request)
-    arr = []
-    f_persons = request.participants.fout_person
+  #   if f_persons.length > 2
+  #     f_persons.fout_person.each do | f_person |
+  #       arr.push(participant_name(f_person))
+  #     end
+  #   elsif f_persons.length > 1
+  #     f_persons.fout_person.each do | f_person |
+  #       arr.push(participant_name(f_person))
+  #     end
+  #   else
+  #     f_person = f_persons.first
+  #     arr.push([f_person.name, f_person.relation, f_person.gaurdian].join(" "))
+  #   end
+  #   add_evm_suffix(arr)
+  # end
 
-    if f_persons.length > 2
-      f_persons.fout_person.each do | f_person |
-        arr.push(participant_name(f_person))
-      end
-    elsif f_persons.length > 1
-      f_persons.fout_person.each do | f_person |
-        arr.push(participant_name(f_person))
-      end
-    else
-      f_person = f_persons.first
-      arr.push([f_person.name, f_person.relation, f_person.gaurdian].join(" "))
-    end
-    add_evm_suffix(arr)
-  end
+  # def participant_names_arr(request, with_parent_name=false, with_address=false)
+  #   arr = []
+  #   request.participants.each do | p | 
+  #     tmp = [p.name]
+  #     tmp.push(p.relation + " " + p.gaurdian) if with_parent_name
+  #     tmp.push(" निवासी " + p.address) if with_address
+  #     arr.push(tmp.join(" "))
+  #   end
+  #   return arr
+  # end
 
-  def participant_names_arr(request, with_parent_name=false, with_address=false)
-    arr = []
-    request.participants.each do | p | 
-      tmp = [p.name]
-      tmp.push(p.relation + " " + p.gaurdian) if with_parent_name
-      tmp.push(" निवासी " + p.address) if with_address
-      arr.push(tmp.join(" "))
-    end
-    return arr
-  end
-
-  def participant_names(request, with_address=false)
-    arr = participant_names_arr(request, true, with_address)
-    return arr.join(", ")
-  end
+  # def participant_names(request, with_address=false)
+  #   arr = participant_names_arr(request, true, with_address)  
+  #   return arr.join(", ")
+  # end
 
   def get_varsan_status(participant, relation_dipslay=false)
     status = []

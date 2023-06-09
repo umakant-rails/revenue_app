@@ -6,7 +6,7 @@
         पेज की सूची
       </div>
       <ol class="list-group mb-4 pe-0 page-list" data-request-target="paymentstatus" 
-            data-vl="<%= @request.payment_transaction.present? ? 'true' : 'false' %>">
+            data-vl="<%= !@request.payment_transaction.present? ? 'true' : 'false' %>">
         <li class="list-group-item active" data-action="click->request#showPage" data-pagename="request-page">
           आवेदन विवरण
         </li>
@@ -104,12 +104,13 @@
       <% 
         hs = get_khasra_detail(@request) rescue nil
       %>
-      <% if @request.payment_transaction.blank? %>
-        <%= render partial: "requests/payment_not_done",locals: hs %>
-      <% end %>
-      <% if @request.payment_transaction.present? && @request.request_type == "नामांतरण" %>
+      <%# if @request.payment_transaction.blank? %>
+        <%#= render partial: "requests/payment_not_done",locals: hs %>
+      <%# end %>
+      <% if @request.request_type.name == "नामांतरण" %>
         <%= render partial: "requests/namantaran/pages/ordersheet_first",locals: hs %>
         <%= render partial: "requests/namantaran/pages/ordersheet_second",locals: hs %>
+        <%#= render partial: "requests/namantaran/pages/ordersheet_second_extra",locals: hs %>
         <%= render partial: "requests/namantaran/pages/applicant_application",locals: hs %>
         <%= render partial: "requests/namantaran/pages/non_applicant_application",locals: hs %>
         <%= render partial: "requests/namantaran/pages/ishtihar",locals: hs %>
@@ -118,7 +119,7 @@
         <%= render partial: "requests/namantaran/pages/applicant_affidavit",locals: hs %>
         <%= render partial: "requests/namantaran/pages/non_applicant_affidavit",locals: hs %>
         <%= render partial: "requests/namantaran/pages/patwari_prativedan",locals: hs %>
-      <% elsif @request.payment_transaction.present? && @request.request_type == "फौती" %>
+      <% elsif @request.request_type.name == "फौती" %>
         <%= render partial: "requests/fouti/pages/ordersheet_first",locals: hs %>
         <%= render partial: "requests/fouti/pages/ordersheet_second",locals: hs %>
         <%= render partial: "requests/fouti/pages/applicant_application",locals: hs %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_30_073507) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_08_131445) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_073507) do
     t.string "unit"
     t.integer "request_id"
     t.integer "village_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_templates", force: :cascade do |t|
+    t.string "category"
+    t.string "name"
+    t.text "template"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,6 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_073507) do
     t.boolean "is_shareholder", default: false
     t.integer "participant_type_id"
     t.boolean "total_share_sold", default: false
+    t.boolean "is_applicant", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

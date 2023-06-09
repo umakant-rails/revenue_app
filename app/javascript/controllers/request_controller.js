@@ -5,7 +5,7 @@ import ApplicationController from "./application_controller";
 // Connects to data-controller="namantaran"
 export default class extends Controller {
   static targets = ['paymentstatus', 'paymentNotDone', 'district', 'tehsil', 'circle', 'village', 
-    'page', 'gaurdian', 'totalShareSold', 'isShareHolder'];
+    'page', 'gaurdian', 'totalShareSold', 'isShareHolder', 'isApplicant'];
 
   connect() {
     this.params = {}
@@ -47,9 +47,9 @@ export default class extends Controller {
       }
     }
 
-    if(paymentStatus != 'true'){
-      this.paymentNotDoneTarget.style.display ='block';
-    }
+    // if(paymentStatus != 'true'){
+    //   this.paymentNotDoneTarget.style.display ='block';
+    // }
     
     for(var page of this.pageTargets){
       if(page.dataset['name'] == pageName){
@@ -62,12 +62,14 @@ export default class extends Controller {
   
   updateAnavedakFields(event){
     var participantType = event.target.value;
-    if(participantType == 2){
+    if(participantType == 2 || participantType == 3){
       this.totalShareSoldTarget.disabled = false;
       this.isShareHolderTarget.disabled = false;
+      this.isApplicantTarget.disabled = true;
     } else {
       this.totalShareSoldTarget.disabled = true;
       this.isShareHolderTarget.disabled = true;
+      this.isApplicantTarget.disabled = false;
     }
   }
 

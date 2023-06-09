@@ -37,23 +37,34 @@
             </div>
           </div>
           <div class="row mb-3">
-            <% if params[:action] == "edit" && participant.participant_type.name ==  "अनावेदक" %>
+            <div class="col-md-12">
+              <% if params[:action] == "edit" && participant.participant_type.name ==  "क्रेता" %>
+                <%= form.label "यह क्रेता आवेदक है ?", class: "form-label"  %>
+                <%= form.select :is_applicant, options_for_select(Participant::BOOLEAN_STATUS, form.object.is_applicant), {prompt: "क्रेता स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isApplicant' %>
+              <% else %>
+                <%= form.label "यह क्रेता आवेदक है ?", class: "form-label"  %>
+                <%= form.select :is_applicant, options_for_select(Participant::BOOLEAN_STATUS), {prompt: "क्रेता स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isApplicant', disabled: true %>
+              <% end %>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <% if params[:action] == "edit" && participant.participant_type.name ==  "विक्रेता" %>
               <div class="col-md-6">
-                <%= form.label "अनावेदक (अथवा करंदा-आम) हिस्सेदार/पूर्ण भूमि स्वामी है ?", class: "form-label"  %>
+                <%= form.label "विक्रेता (अथवा करंदा-आम) हिस्सेदार/पूर्ण भूमि स्वामी है ?", class: "form-label"  %>
                 <%= form.select :is_shareholder, options_for_select(Participant::SWAMITVA_STATUS, form.object.is_shareholder), {prompt: "स्वामित्व स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isShareHolder' %>   
               </div>
               <div class="col-md-6">
-                <%= form.label "अनावेदक (अथवा करंदा-आम) ने अपना सम्पूर्ण हिस्सा विक्रय किया है ?", class: "form-label"  %>
-                <%= form.select :total_share_sold, options_for_select(Participant::SOLD_SHARE_STATUS, form.object.total_share_sold), {prompt: "स्वामित्व स्टेटस चुने"}, class: "form-control", 'data-request-target': 'totalShareSold' %>
+                <%= form.label "विक्रेता (अथवा करंदा-आम) ने अपना सम्पूर्ण हिस्सा विक्रय किया है ?", class: "form-label"  %>
+                <%= form.select :total_share_sold, options_for_select(Participant::BOOLEAN_STATUS, form.object.total_share_sold), {prompt: "हिस्सा स्टेटस चुने"}, class: "form-control", 'data-request-target': 'totalShareSold' %>
               </div>
             <% else %>
               <div class="col-md-6">
-                <%= form.label "अनावेदक (अथवा करंदा-आम) हिस्सेदार/पूर्ण भूमि स्वामी है ?", class: "form-label"  %>
+                <%= form.label "विक्रेता (अथवा करंदा-आम) हिस्सेदार/पूर्ण भूमि स्वामी है ?", class: "form-label"  %>
                 <%= form.select :is_shareholder, options_for_select(Participant::SWAMITVA_STATUS), {prompt: "स्वामित्व स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isShareHolder', disabled: true %>   
               </div>
               <div class="col-md-6">
-                <%= form.label "अनावेदक (अथवा करंदा-आम) ने अपना सम्पूर्ण हिस्सा विक्रय किया है ?", class: "form-label"  %>
-                <%= form.select :total_share_sold, options_for_select(Participant::SOLD_SHARE_STATUS), {prompt: "स्वामित्व स्टेटस चुने"}, class: "form-control", 'data-request-target': 'totalShareSold', disabled: true  %>
+                <%= form.label "विक्रेता (अथवा करंदा-आम) ने अपना सम्पूर्ण हिस्सा विक्रय किया है ?", class: "form-label"  %>
+                <%= form.select :total_share_sold, options_for_select(Participant::BOOLEAN_STATUS), {prompt: "स्वामित्व स्टेटस चुने"}, class: "form-control", 'data-request-target': 'totalShareSold', disabled: true  %>
               </div>
             <% end %>
           </div>

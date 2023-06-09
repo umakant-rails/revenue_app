@@ -6,8 +6,10 @@ class Participant < ApplicationRecord
   belongs_to :request
   belongs_to :participant_type
   
-  scope :applicants, -> () { where("participant_type_id = 1")}
-  
+  scope :applicant, -> () { find_by_is_applicant(true)}
+  scope :buyers, -> () { where("participant_type_id = 1")}
+  scope :sellers, -> () { where("participant_type_id = 2")}
+
   scope :fout_person, ->() { where('parent_id is null') }
   scope :fout_varsan, ->() { where('karanda_aam_faut=? and parent_id is not null', true) }
   scope :fout_participants, ->() { where('is_dead=?', true) }
@@ -16,12 +18,11 @@ class Participant < ApplicationRecord
   scope :wife_husband, ->() { where("relation_to_deceased='पत्नी' or relation_to_deceased='पति'")}
   scope :varsan, ->() { where("parent_id is not null")}
 
-  validates :name, :relation, :gaurdian,  presence: true 
+  validates :name, :relation, :gaurdian, :address,  presence: true 
 
   RELATIONS = ['पुत्र','पुत्री', 'पत्नी']
   RELATIONS_TO_DECEASED = ['पुत्र','पुत्री', 'पत्नी', 'पति', 'अन्य']
-  PARTICIPANT_TYPES = ["आवेदक", "अनावेदक", "करंदा-आम", "वारसान", "फौत व्यक्ति"]
   SWAMITVA_STATUS=[["पूर्ण भूमि स्वामी", false], ["सह-खातेदार", true]]
-  SOLD_SHARE_STATUS=[["नहीं ", false], ["हाँ", true]]
+  BOOLEAN_STATUS =[["नहीं ", false], ["हाँ", true]]
 
 end

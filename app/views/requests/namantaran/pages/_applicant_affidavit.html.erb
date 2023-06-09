@@ -13,10 +13,11 @@
     <div class="row padding-8">
       <div class="paragraph-35">
         <div class="txt-indent-3">
-          मैं <strong><%= applicant_name(request) %></strong> उम्र <strong>45</strong> वर्ष निवासी <strong><%= request.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
+          <% applicant = request.participants.applicant %>
+          मैं <strong><%= applicant_name(request) %></strong> उम्र <strong>45</strong> वर्ष निवासी <strong><%= applicant.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
         </div>
         <div class="padding-5">
-          1.  यह कि मौजा <strong><%= request.village.village %></strong> पटवारी हल्का नंबर <strong><%= request.village.halka_number %></strong> तहसील <strong><%= request.village.tehsil %></strong> में स्थित खसरा नंबर <strong><%= khasra %></strong> रकबा <strong><%= kh_rakba %></strong> में से <strong><%= sold_rakba %></strong> कुल रकबा <strong><%= total_sold_rakba %></strong> भूमि का बेचवार <strong><%= participant_name(request.participants.first) %></strong> से पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> को खरीद किया है |<br/> 
+          1.  यह कि <%= raw khasra_description(request) %> भूमि का बेचवार <strong><%=raw participant_names(request, "seller", false, false) %></strong> से पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> को खरीद किया है |<br/> 
           2. यह कि हमारी उक्त भूमि का संपूर्ण प्रतिफल विक्रेता को देकर उक्त भूमि पर कब्ज़ा प्राप्त कर लिया गया है उक्त भूमि पर किसी प्रकार का कोई विवाद नहीं है भूमि हमारे रजिस्टर्ड बैनामा से क्रय की गई है अतः बैनामा अनुसार नाम दर्ज कराना है |<br/>
           <div class="txt-indent-4">
             यह कि मैं वैनामा अनुसार आवेदक का नाम दर्ज होने हेतु सहमति में शपथ पत्र प्रस्तुत है |

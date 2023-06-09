@@ -1,28 +1,5 @@
 module RequestsHelper
 
-  def applicant_name(request, with_address=false)
-    arr = []
-    # arr.push(request.applicant + " " + request.relation + " " + request.gaurdian)
-    # arr.push("निवासी " + request.address) if with_address
-    request.participants.applicants.each do | app |
-      arr.push(app.name + " " + app.relation + " " + app.gaurdian + "निवासी " + app.address)
-    end
-    return arr.join(" ")
-  end
-
-  def applicant_names(request, with_address=false, is_short=false)
-    arr = []
-    request.participants.applicants.each do | applicant |
-      arr.push(applicant.name + " " + applicant.relation + " " + applicant.gaurdian)
-      arr.push("निवासी " + applicant.address) if with_address
-    end
-    if is_short and arr.length > 1
-      return arr[0] + " एवं अन्य " + (arr.length - 1).to_s
-    else
-      return arr.join(", ")
-    end
-  end
-
   def cal_rakba(request)
     arr = []
     rkba = []
@@ -75,29 +52,36 @@ module RequestsHelper
     }
   end
 
-  def village_description(request)
-    villages =  request.khasras.pluck(:village_id).uniq
+  def khasara_string(village, khasras)
+    if khasras.length > 1
+      return "मौजा <strong>#{village.village}</strong> पटवारी हल्का नंबर <strong>#{village.halka_number}</strong>" + 
+        " में स्थित भूमि खसरा नंबर <strong>#{khasras.pluck(:khasra).join(', ') }</strong> "+
+        "रकबा क्रमशः <strong>#{khasras.collect{ |k| ('%.4f' %k.rakba) + " हे." }.join(', ') }</strong> " + 
+        "में से क्रय रकबा क्रमशः <strong>#{khasras.collect{ |k| ('%.4f' % k.sold_rakba) + " "+ k.unit }.join(', ') }</strong> कुल रकबा "+
+        "<strong>#{'%.4f' % khasras.collect{ |k| k.sold_rakba.to_f }.sum } हे.</strong>"
+    else
+      return "मौजा <strong>#{village.village}</strong> पटवारी हल्का नंबर " + 
+        "<strong>#{village.halka_number}</strong> में स्थित भूमि खसरा नंबर <strong>#{khasras.pluck(:khasra).join(', ') }</strong> "+
+        "रकबा <strong>#{ '%.4f' % khasras[0].rakba }</strong> हे. में से रकबा <strong>#{khasras.collect{ |k| ('%.4f' %k.sold_rakba) + " "+ k.unit }.join(', ') }</strong>"
+    end
+  end
+
+  def khasra_description(request)
+    villages =   Village.where("id in (?)", request.khasras.pluck(:village_id))
     village_details = ""
 
     if villages.length > 1
-      villages.each_with_index do | village_id, indx |
-        village = Village.find(village_id)
+      villages.each_with_index do | village, indx |
         khasras = request.khasras.where(village_id: village.id)
         suffix = (indx > 0 && indx < villages.length-1) ? ", " :(indx == villages.length-1 ? " एवं " : "")
 
         village_details = village_details + (suffix.present? ? suffix : "")
+        village_details = village_details + khasara_string(village, khasras)
 
-        village_details = village_details + "ग्राम <strong>#{village.village}</strong> पटवारी हल्का नंबर " + 
-        "<strong>#{village.halka_number}</strong> खसरा नंबर <strong>#{khasras.pluck(:khasra).join(', ') }</strong> "+
-        "रकबा <strong>#{khasras.collect{ |k| k.sold_rakba + " "+ k.unit }.join(', ') }</strong> कुल रकबा "+
-        "<strong>#{khasras.collect{ |k| k.rakba.to_f }.sum } हे.</strong>"
       end 
     else
-      khasras = request.khasras
-      village_details = "ग्राम <strong> #{request.village.village}</strong> पटवारी हल्का नंबर " +
-      "<strong>#{request.village.halka_number }</strong> खसरा नंबर <strong>#{khasras.pluck(:khasra).join(', ') }</strong> रकबा "+
-      "<strong>#{khasras.collect{ |k| k.sold_rakba + " " +k.unit }.join(', ') }</strong> कुल रकबा "+
-      "<strong>#{khasras.collect{ |k| k.rakba.to_f }.sum} हे.</strong>" 
+      khasras = request.khasras.where(village_id: villages[0].id)
+      village_details = village_details + khasara_string(villages[0], khasras)
     end 
     village_details
   end

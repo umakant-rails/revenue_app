@@ -9,14 +9,14 @@
     <div class="row padding-2 mrgn-top-20">
       <div class="fnt-20 padding-5">
           <div>1.&nbsp;<strong><%= applicant_name(request) %></strong></div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.address %> </div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.applicant.address %> </div>
           <div class="fRight">- - - - - - - - - - - - - - - - - </div><br/>
           <div class="fRight">आवेदक</div>
           <div class="mrgn-top-20">
             <center><strong>बनाम</strong></center>
           </div>
-          <div class="mrgn-top-20">2.&nbsp;<strong><%= participant_name(request.participants.first)  %></strong></div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.first.address %></div>
+          <div class="mrgn-top-20">2.&nbsp;<strong><%=raw participant_names(request, "seller", false, true) %></strong></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.sellers.first.address %></div>
           <div class="fRight">- - - - - - - - - - - - - - - - -</div><br/>
           <div class="fRight">अनावेदक</div>
       </div>
@@ -28,7 +28,7 @@
       </div>
       <div class="mb-8 paragraph-35">
         <div class="txt-indent-4">
-          निवेदन है की आवेदक के द्वारा मौजा <strong><%= request.village.village %></strong> पटवारी हल्का नंबर <strong><%= request.village.halka_number %></strong> तहसील <strong><%= request.village.tehsil %></strong> में भूमि खसरा नंबर <strong><%= khasra %></strong> रकबा <strong><%= kh_rakba %></strong> में से <strong><%= sold_rakba %></strong> कुल रकबा <strong><%= total_sold_rakba %></strong> भूमि पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> आवेदक को विक्रय किया है |<br/>
+          निवेदन है की आवेदक के द्वारा <%= raw khasra_description(request) %> भूमि पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> आवेदक को विक्रय किया है |<br/>
           3. यह कि मेरे द्वारा उक्त भूमि का सम्पूर्ण प्रतिफल क्रेता से प्राप्त कर भूमि पर कब्ज़ा क्रेता को दे दिया गया है अन्य कोई भूमि की कीमत बकाया नहीं है भूमि पर कब्ज़ा का कोई विवाद आदि नहीं है जो बैनामा अनुसार आवेदक का नाम राजस्व अभिलेख में दर्ज होने से हम सहमत है| <br/>
         </div>
         <div class="txt-indent-4">
@@ -42,7 +42,9 @@
           </div>
           <div class="fRight">
             <center>- - - - - - - - - - - -</center>
-            <center><strong><%= participant_name(request.participants.first) %></strong></center>
+            <% request.participants.sellers.each do | participant | %>
+              <center><strong><%= participant.name %></strong></center>
+            <% end %>
             <center><strong>अनावेदक</strong></center>
           </div>
         </div>

@@ -17,11 +17,11 @@
     <div class="row mb-3">
       <div class="col-md-6">
         <div class="label-hdr">आवेदक</div>
-        <div class="label-txt"><%= applicant_names(request, false , true) %></div>
+        <div class="label-txt"><%= applicant_name(request, false) %></div>
       </div>
       <div class="col-md-6">
         <div class="label-hdr">आवेदक पता</div>
-        <div class="label-txt"><%= request.participants.applicants.first.address rescue nil %></div>
+        <div class="label-txt"><%= request.participants.applicant.first.address rescue nil %></div>
       </div>
     </div>
 
@@ -49,7 +49,11 @@
         <% end %>
       <% end %>
     </div>
-     <div class="divider-bdr"></div>
+    <div class="divider-bdr"></div>
+    <div class="p-2">
+      <%= render "participants/participant" , request: request %>
+    </div>
+    <div class="divider-bdr"></div>
     <div class="p-2">
       <%= render "khasras/khasra" , request: request %>
     </div>

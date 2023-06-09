@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'welcome#index'
   
   devise_for :users, controllers: {
@@ -19,6 +20,9 @@ Rails.application.routes.draw do
     get '/pdf/export' => "requests#export", as: :export_pdf, on: :member
     get '/payment' => "requests#payment_page", as: :payment_page, on: :member
     post '/make_payment' => "requests#make_payment", as: :make_payment, on: :member
+
+    get '/order_page' => "requests#order_page", as: :order_page, on: :member
+    get '/create_order' => "requests#order_page", as: :create_order, on: :member
   end
 
   resources :orders do 
@@ -26,4 +30,7 @@ Rails.application.routes.draw do
     post '/webhook' => "orders#webhook", as: :webhook, on: :collection
     get '/transactions' => "orders#transactions", as: :transactions, on: :collection
   end
+
+  resources :order_templates
+
 end

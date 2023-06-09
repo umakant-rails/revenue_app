@@ -15,7 +15,6 @@ class ParticipantsController < ApplicationController
 
   # GET /participants/new
   def new
-
     if @request.request_type.name == "फौती" && (@request.participants.blank? || params[:is_dead])
       @participant = @request.participants.new(depth: 0, is_dead: true, participant_type_id: 4)
     elsif @request.request_type.name == "फौती"
@@ -38,7 +37,15 @@ class ParticipantsController < ApplicationController
 
   # POST /participants or /participants.json
   def create
-    is_true = validate_fouti_request.present?
+    is_true = validate_fouti_request
+
+    if @request.participants.buyers.blank? && params[:participant][:participant_type_id] == '1'
+      params[:participant][:is_applicant] = true
+    elsif @request.participants.applicant.present? && params[:participant][:participant_type_id] == '1' &&
+      params[:participant][:is_applicant] == 'true'
+      @request.participants.applicant.update(is_applicant: false)
+    end
+
     @participant = @request.participants.new(participant_params)
 
     respond_to do |format|
@@ -72,7 +79,7 @@ class ParticipantsController < ApplicationController
     @participant.destroy
 
     respond_to do |format|
-      format.html { redirect_to participants_url, notice: "Participant was successfully destroyed." }
+      format.html { redirect_to new_request_participant_url(@request), notice: "Participant was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -131,6 +138,6 @@ class ParticipantsController < ApplicationController
     def participant_params
       params.fetch(:participant).permit(:name, :relation, :gaurdian, :address, :is_dead, :death_date,
         :is_nabalig, :balee, :parent_id, :request_id, :depth, :relation_to_deceased, :is_shareholder,
-        :participant_type_id, :total_share_sold)
+        :participant_type_id, :total_share_sold, :is_applicant)
     end
 end

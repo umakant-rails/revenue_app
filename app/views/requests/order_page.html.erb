@@ -1,0 +1,35 @@
+<div class="row" data-controller="request">
+  <div class="col-md-6">
+    <%= text_area_tag 'order', nil, style: "width:14.6cm;height:29.7cm;", class: 'tinymce',
+     'data-action': 'keyup#setOrderContent'%>
+  </div>
+  <div class="col-md-6">
+    <div class="page-a4">
+      <div class="row">
+        <div class="fnt-22 fnt-b txt-center">
+          राजस्व आदेश अनुवृत्ति पत्र<br/>
+          मामला क्रमांक_ _ _ _ _ _ _ अ/6 _ _ _ _ _ _ _ 
+        </div>
+      </div>
+      <div class="row">
+        <div class="row mt-2 first-row">
+          <div class="w-15 table-left-column">1</div>
+          <div class="w-70 table-center-column">2</div> 
+          <div class="w-15 table-right-column">3</div>
+        </div>
+        <div class="row pb-2">
+          <div class="w-15 table-left-column"></div>
+          <div class="w-70 table-center-column">
+            <div class="order_details" style="min-height:100px;">
+              
+            </div>
+          </div> 
+          <div class="w-15 table-right-column"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% content_for :head do %>
+  <%= javascript_import_module_tag "custom/tinymce-custom" %>
+<% end %>

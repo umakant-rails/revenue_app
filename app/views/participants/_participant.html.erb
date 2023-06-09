@@ -1,7 +1,7 @@
  <table class="table sanjara-table">
   <thead>
     <tr>
-      <th colspan="5">
+      <th colspan="6">
         प्रतिभागी सूची
       </th>
     </tr>
@@ -10,35 +10,35 @@
       <td>प्रतिभागी</td>
       <td>सम्बन्ध</td>
       <td>अभिभावक</td>
-      <td>आवेदक प्रकार</td>
+      <td>प्रतिभागी प्रकार</td>
       <td>गतिविधि</td>
     </tr>
   </thead>
   <tbody>
     <% participant_list = get_participants(request) %>
     <% if participant_list.present? %>
-      <% participant_list.each_with_index do | p, index | %>
+      <% participant_list.each_with_index do | participant, index | %>
         <tr>
           <td>
             <%= index + 1 %>
           </td>
           <td>
-            <%= p.name %>
+            <%= participant.name %>
           </td>
           <td>
-            <%= p.relation %>
+            <%= participant.relation %>
           </td>
           <td>
-            <%= p.gaurdian %>
+            <%= participant.gaurdian %>
           </td>
           <td class="text-primary">
-            <%= p.participant_type.name%>
+            <%= participant.participant_type.name %> <%= '(आवेदक)' if participant.is_applicant %> 
           </td>
           <td>
-            <%=link_to edit_request_participant_path(p.request_id, p.id), class: "fnt-20 anchor-no-decoration" do %>
+            <%=link_to edit_request_participant_path(participant.request_id, participant.id), class: "fnt-20 anchor-no-decoration" do %>
               <i class="fa-solid fa-pen-to-square"></i>
             <% end %>
-            <%= button_to(request_participant_path(p.request_id, p.id), method: :delete, form: {class: 'ps-0 pe-0 d-iblock'}, class: "frm-delete-btn fnt-20") do %>
+            <%= button_to(request_participant_path(participant.request_id, participant.id), method: :delete, form: {class: 'ps-0 pe-0 d-iblock'}, class: "frm-delete-btn fnt-20") do %>
               <i class="fa-regular fa-trash-can"></i>
             <% end %>
           </td>
