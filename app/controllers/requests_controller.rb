@@ -9,6 +9,20 @@ class RequestsController < ApplicationController
 
   # GET /requests/1 or /requests/1.json
   def show
+    applicant = @request.participants.find_by_is_applicant(true)
+
+    respond_to do |format|
+      if applicant.blank?
+        if @request.request_type.name = "फौती"
+          flash[:error] = "कृपया पहले किसी वारसान को आवेदक बनाये, अभी इस आवेदन में कोई भी आवेदक नहीं है |"
+        elsif @request.request_type.name == "नामांतरण" 
+          flash[:erorr] = "कृपया पहले किसी क्रेता को आवेदक बनाये, अभी इस आवेदन में कोई भी आवेदक नहीं है |"
+        end
+        format.html { redirect_to new_request_participant_path(@request) } 
+      else
+        format.html{}
+      end
+    end
   end
 
   # GET /requests/new

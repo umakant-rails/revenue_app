@@ -17,11 +17,11 @@
     <div class="row mb-3">
       <div class="col-md-6">
         <div class="label-hdr">आवेदक</div>
-        <div class="label-txt"><%= applicant_name(request, false) %></div>
+        <div class="label-txt"><%=raw applicant_name(request, false) %></div>
       </div>
       <div class="col-md-6">
         <div class="label-hdr">आवेदक पता</div>
-        <div class="label-txt"><%= request.participants.applicant.first.address rescue nil %></div>
+        <div class="label-txt"><%= request.participants.applicant.address rescue nil %></div>
       </div>
     </div>
 
@@ -32,11 +32,11 @@
     <div class="row mb-3">
       <div class="col-md-6">
         <div class="label-hdr">रजिस्ट्री का नंबर</div>
-        <div class="label-txt"><%= request.registry_number %></div>
+        <div class="label-txt"><%= request.registry_number.present? ? request.registry_number : '-' %></div>
       </div>
       <div class="col-md-6">
         <div class="label-hdr">रजिस्ट्री की तिथि</div>
-        <div class="label-txt"><%= request.registry_date.present? ? format_dt(request.registry_date) : '' %></div>
+        <div class="label-txt"><%= request.registry_date.present? ? format_dt(request.registry_date) : '-' %></div>
       </div>
     </div>
 

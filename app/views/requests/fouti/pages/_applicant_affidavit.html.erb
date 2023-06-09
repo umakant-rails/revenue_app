@@ -12,14 +12,16 @@
     <div class="row padding-5">
       <div class="paragraph-35">
         <div class="txt-indent-2">
-          मैं <strong><%= applicant_name(request) %></strong> उम्र <strong>45</strong> वर्ष निवासी <strong><%= request.address %></strong>  शपथपूर्वक कथन करता हूँ |<br/> 
+          <% dead_persons = request.participants.fout_person %>
+
+          मैं <%=raw applicant_name(request) %> उम्र <strong>45</strong> वर्ष निवासी <strong><%= request.participants.applicant.address %></strong>  शपथपूर्वक कथन करता हूँ |<br/> 
         
-          1.  यह कि मेरे माता/पिता/अन्य के नाम <strong><%= fout_persons(request) %></strong>
-          <%= raw village_description(request) %> भूमि राजस्व रिकॉर्ड में दर्ज है|<br/> 
-          2. यह कि मेरे पिता/माता/अन्य <strong><%= fout_persons(request) %></strong> की मृत्यु दिनांक <strong><%= request.participants.fout_person.collect{ |p| [format_dt(p.faut_date)] }.join(", ") %></strong>  को हो चुकी है, जिनके वैध वारसान संजरा निम्न अनुसार है |
+          1.  यह कि मेरे माता/पिता/अन्य के नाम <%=raw dead_persons.collect{ |p| [participant_name(p)] }.join(", ") %>
+          <%= raw khasra_description(request) %> भूमि राजस्व रिकॉर्ड में दर्ज है|<br/> 
+          2. यह कि मेरे पिता/माता/अन्य <%=raw dead_persons.collect{ |p| [participant_name(p)] }.join(", ") %> की मृत्यु दिनांक <%= 'क्रमशः' if dead_persons.length > 1 %> <strong><%= dead_persons.collect{ |p| [format_dt(p.death_date)] }.join(", ") %></strong>  को हो चुकी है, जिनके वैध वारसान संजरा निम्न अनुसार है |
         </div>
         <% request && request.participants.fout_person.each do | f_person | %>
-          <strong><%= participant_name(f_person) %></strong> के वैध वारसान संजरा निम्न अनुसार है :-
+          <%=raw participant_name(f_person) %> के वैध वारसान संजरा निम्न अनुसार है :-
           <%= render "participants/sanjara", request: request, fout_person: f_person, action_display: false %>
         <% end %>
         <div class="mb-3">

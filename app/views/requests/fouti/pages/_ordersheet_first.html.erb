@@ -52,7 +52,7 @@
           <div class="order1-desc paragraph-35">
             <div class="txt-indent-3">
               <% f_person = request.participants.fout_person.first %>
-              आवेदक <strong><%= applicant_name(request) %></strong> निवासी <strong><%= request.address %></strong> द्वारा <%= raw village_description(request) %> पर मेरे पिता/माता/अन्य श्री/श्रीमती <strong><%= fout_persons(request) %></strong> के नाम उक्त भूमि दर्ज है | जिनका निधन दिनांक <strong><%= format_dt(f_person.faut_date) %></strong> को है | जिनके वैध वारसान <%=raw varsan_names1(request) %> के नाम फौती दर्ज किये जाने का आवेदन प्राप्त हुआ है | 
+              आवेदक <%=raw applicant_name(request, true) %> द्वारा <%= raw khasra_description(request) %> पर मेरे पिता/माता/अन्य श्री/श्रीमती <%= raw participant_name(f_person) %> के नाम उक्त भूमि दर्ज है | जिनका निधन दिनांक <strong><%= format_dt(f_person.death_date) %></strong> को है | जिनके वैध वारसान <%=raw dead_persions_varsan(request, true) %> के नाम फौती दर्ज किये जाने का आवेदन प्राप्त हुआ है | 
             </div>
             <div class="row">
               <div>1 . प्रकरण दर्ज हो | </div>

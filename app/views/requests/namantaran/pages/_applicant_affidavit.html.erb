@@ -14,7 +14,7 @@
       <div class="paragraph-35">
         <div class="txt-indent-3">
           <% applicant = request.participants.applicant %>
-          मैं <strong><%= applicant_name(request) %></strong> उम्र <strong>45</strong> वर्ष निवासी <strong><%= applicant.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
+          मैं <%=raw applicant_name(request) %> उम्र <strong>45</strong> वर्ष निवासी <strong><%= applicant.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
         </div>
         <div class="padding-5">
           1.  यह कि <%= raw khasra_description(request) %> भूमि का बेचवार <strong><%=raw participant_names(request, "seller", false, false) %></strong> से पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> को खरीद किया है |<br/> 
@@ -32,7 +32,7 @@
         </div>
         <br/><br/><br/>
         <div class="txt-indent-4">
-          मैं <strong><%= applicant_name(request) %></strong> पिता <strong><%= applicant_name(request) %></strong> द्वारा प्रस्तुत शपथ पत्र विवरण सही है 
+          मैं <%=raw applicant_name(request) %> द्वारा प्रस्तुत शपथ पत्र विवरण सही है 
         </div>
         <br/><br/>
         <div>

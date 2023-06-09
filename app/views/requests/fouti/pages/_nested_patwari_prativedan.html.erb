@@ -23,13 +23,15 @@
           महोदय  जी,<br/>
         </div>
         <div class="txt-indent-3">
-          उक्त विषयान्तर्गत लेख है कि, मौजा <strong><%= request.village.halka_name %></strong> प.ह.न. <strong><%= request.village.halka_number %></strong> तहसील <strong><%= request.village.tehsil %></strong> जिला <strong><%= request.village.district %></strong> के आवेदक <strong><%= applicant_name(request) %></strong> निवास <strong><%= request.address %></strong> द्वारा अपने माता/पिता/अन्य
+          <% dead_persons = request.participants.fout_person %>
+
+          उक्त विषयान्तर्गत लेख है कि, मौजा <strong><%= request.village.halka_name %></strong> प.ह.न. <strong><%= request.village.halka_number %></strong> तहसील <strong><%= request.village.tehsil %></strong> जिला <strong><%= request.village.district %></strong> के आवेदक <%= raw applicant_name(request, true) %> द्वारा अपने माता/पिता/अन्य
 
           <% if request.participants.fout_person.length > 1 %>
-            <strong><%= fout_persons(request) %></strong> की मृत्यु दिनांक क्रमशः <strong><%= request.participants.fout_person.collect{ |p| [format_dt(p.faut_date)] }.join(", ") %></strong>
+            <%=raw dead_persons.collect{ |p| [participant_name(p)] }.join(", ") %> की मृत्यु दिनांक क्रमशः <strong><%= request.participants.fout_person.collect{ |p| [format_dt(p.death_date)] }.join(", ") %></strong>
           <% else %>
             <% f_person = request.participants.fout_person.first %>
-            <strong><%= fout_persons(request) %></strong> की मृत्यु दिनांक <strong><%= request.participants.fout_person.collect{ |p| [format_dt(p.faut_date)] }.join(", ") %></strong>
+            <strong><%= fout_persons(request) %></strong> की मृत्यु दिनांक <strong><%= request.participants.fout_person.collect{ |p| [format_dt(p.death_date)] }.join(", ") %></strong>
           <% end %> 
 
            को हो जाने के कारण नामांतरण/फौती हेतु आवेदन पत्र श्रीमान जी के समक्ष प्रतुत किया है | 
@@ -38,7 +40,7 @@
         <% khasras = request.khasras.where(village_id: village.id) %>
         <div class="txt-indent-3">
           यह कि मौजा <strong><%= village.halka_name %></strong> प.ह.न. <strong><%= village.halka_number %></strong> तहसील <strong><%= village.tehsil %></strong> जिला <strong><%= village.district %></strong> की भूमि खसरा नंबर <strong><%= khasras.pluck(:khasra).join(", ") %></strong> रकबा <strong><%= khasras.collect{ |k| k.rakba + " हे."}.join(", ") %></strong> कुल रकबा <strong><%= khasras.collect{ |k| k.rakba.to_f}.sum %> हे.</strong> पर वर्तमान अभिलेख में 
-            <strong><%= fout_persons(request) %></strong> का/के नाम दर्ज है| 
+            <%=raw dead_persons.collect{ |p| [participant_name(p)] }.join(", ") %> का/के नाम दर्ज है| 
         </div>
         <div class="txt-indent-3">
           चूकिं मृतक ग्राम <strong><%= village.village %></strong> का निवासी नहीं है मृतक <strong><%= request.village.village %></strong> ग्राम का निवासी है अतः मृतक के वारसान की जानकारी पटवारी हल्का <strong><%= request.village.halka_name %></strong> से लिया जाना उचित होगा | 

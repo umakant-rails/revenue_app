@@ -7,7 +7,7 @@
   </div>
   <div class="row padding-2 mrgn-top-20">
     <div class="fnt-20 padding-5">
-      <div>1.&nbsp;<strong><%= applicant_name(request) %></strong></div>
+      <div>1.&nbsp;<%=raw applicant_name(request) %></div>
         <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.applicant.address %> </div>
         <div class="fRight">- - - - - - - - - - - - - - - - - </div><br/>
         <div class="fRight">आवेदक</div>
@@ -48,7 +48,7 @@
         </div>
         <div class="fRight">
           <center>- - - - - - - - - - - -</center>
-          <center><strong><%= applicant_name(request) %></strong></center>
+          <center><%=raw applicant_name(request) %></center>
           <center><strong>आवेदक</strong></center>
         </div>
       </div>

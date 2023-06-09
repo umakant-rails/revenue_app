@@ -29,7 +29,7 @@
       <div class="mrgn-top-20">
         <div class="txt-indent-4">
           सर्व साधारण एवं ग्राम पटवारी हल्का पटवारी नंबर <strong><%= request.village.halka_number %></strong> रा नि मंडल <strong><%= request.village.ri %></strong> तहसील <strong><%= request.village.tehsil %></strong>, जिला <strong><%= request.village.district %></strong> की आम जनता के जरिये इश्तिहार के सूचित किया जाता है कि - 
-          आवेदक <strong><%= applicant_name(request) %></strong> निवासी <strong><%= request.address %></strong> द्वारा <%= raw village_description(request) %> भूमि का नामांतरण फौती के आधार पर कराने हेतु आवेदन प्रस्तुत किया है |  <br/>
+          आवेदक <%=raw applicant_name(request) %> निवासी <strong><%= request.participants.applicant.address %></strong> द्वारा <%= raw khasra_description(request) %> भूमि का नामांतरण फौती के आधार पर कराने हेतु आवेदन प्रस्तुत किया है |  <br/>
         </div>
         <div class="txt-indent-4">
           उक्त संबंध में जिस किसी भी व्यक्ति को कोई आपत्ति हो तो वह अपनी आपत्ति अथवा आवेदन पत्र पेशी दिनांक _ _ _ _ _ _ _ _ _ तक इस न्यायलय में उपस्थित होकर स्वयं अथवा माननीय अधिवक्ता के द्वारा प्रस्तुत कर सकते है | <br/>

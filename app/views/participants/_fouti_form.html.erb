@@ -131,7 +131,6 @@
           </div>
 
           <div class="row mb-3">
-            
             <div class="col-md-12">
               <%= form.label 'बली की जानकारी', class: "form-label" %>
               <div data-controller="autocomplete" data-autocomplete-url-value ="<%= get_balees_request_participants_path(@request) %>">
@@ -150,8 +149,20 @@
 
           <div class="row mb-3">
             <div class="col-md-12">
+              <% if params[:action] == "edit" && form.object.participant_type.name ==  "वारसान" %>
+                <%= form.label "यह वारसान आवेदक है ?", class: "form-label"  %>
+                <%= form.select :is_applicant, options_for_select(Participant::BOOLEAN_STATUS, form.object.is_applicant), {prompt: "क्रेता स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isApplicant' %>
+              <% else %>
+                <%= form.label "यह वारसान आवेदक है ?", class: "form-label"  %>
+                <%= form.select :is_applicant, options_for_select(Participant::BOOLEAN_STATUS), {prompt: "क्रेता स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isApplicant', disabled: true %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-12">
               <%= form.label 'पता', class: "form-label"  %>
-              <%= form.text_field :address, value: @request.village.village.split("-")[1], class: "form-control" %>
+              <%= form.text_field :address, value: @request.village.village, class: "form-control" %>
             </div>
           </div>
         </div>

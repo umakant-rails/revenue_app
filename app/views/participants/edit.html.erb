@@ -36,9 +36,9 @@
     </div>
     <br/>
     <div id="request-form">
-      <% if @request.request_type == "फौती" %>
+      <% if @request.request_type.name == "फौती" %>
         <%= render "fouti_form", request: @request, participant: @participant, participant_types: @participant_types %>
-      <% else %>
+      <% elsif @request.request_type.name == "नामांतरण" %>
         <%= render "form", request: @request, participant: @participant, participant_types: @participant_types %>
       <% end %>
     </div>

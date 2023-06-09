@@ -38,7 +38,7 @@
           </div>
           <div class="row mb-3">
             <div class="col-md-12">
-              <% if params[:action] == "edit" && participant.participant_type.name ==  "क्रेता" %>
+              <% if params[:action] == "edit" && form.object.participant_type.name ==  "क्रेता" %>
                 <%= form.label "यह क्रेता आवेदक है ?", class: "form-label"  %>
                 <%= form.select :is_applicant, options_for_select(Participant::BOOLEAN_STATUS, form.object.is_applicant), {prompt: "क्रेता स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isApplicant' %>
               <% else %>
