@@ -24,4 +24,9 @@ class Request < ApplicationRecord
     year = (year_range === Date.today) ? "#{Date.today.strftime("%Y").to_s}-#{Date.today.next_year.strftime("%y").to_s}" :  nil
   end
 
+  def applicant_name
+    applicant = self.participants.applicant
+    applicant.name + " " + applicant.relation + " " + applicant.gaurdian
+  end
+
 end

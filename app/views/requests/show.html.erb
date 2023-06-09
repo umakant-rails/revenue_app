@@ -73,7 +73,7 @@
   <div class="col-md-7 ms-5">
     <div class="page-header mb-3">
       आवेदन विवरण
-      <% if @request.payment_transaction.present? %>
+      <% if !@request.payment_transaction.present? %>
         <%=link_to "javascript:void(0);", class: "fRight setting-icon anchor-no-decoration", 'data-bs-toggle': "modal", href: "#settingDialog" do %>
           <i class="fa-solid fa-gear"></i>
         <% end %>

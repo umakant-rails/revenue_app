@@ -21,12 +21,16 @@ module RequestsHelper
       end
     end
 
+    total_sold_rakba = rkba.sum
     if unit == 'व.फु.'
-      total_sold_rakba = ('%.0f' % rkba.sum).to_s + " " + unit
+      # total_sold_rakba = ('%.0f' % rkba.sum).to_s + " " + unit
+      (total_sold_rakba/107639).round(4)
     elsif unit == 'व.मी.'
-      total_sold_rakba = ('%.2f' % rkba.sum).to_s + " " + unit
+      (total_sold_rakba/10000).round(4)
+      # total_sold_rakba = ('%.2f' % rkba.sum).to_s + " " + unit
     else
-      total_sold_rakba = ('%.4f' % rkba.sum).to_s + " " + unit
+      total_sold_rakba
+      # total_sold_rakba = ('%.4f' % rkba.sum).to_s + " " + unit
     end
 
     return [arr.join(", "), total_sold_rakba]

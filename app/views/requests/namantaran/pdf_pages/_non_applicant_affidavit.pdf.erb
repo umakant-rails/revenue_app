@@ -12,12 +12,12 @@
       </div>
     </div>
     <div class="row pdf-mrgn-8 mrgn-top-30">
-      <div class="p<%= @templates[:non_applicant_affidavit] %>">
+      <div class="<%= @templates[:non_applicant_affidavit] %>">
         <div class="txt-indent-4">
-          मैं <strong><%= participant_names(request) %></strong> उम्र <strong> _ _ _ _ _</strong> वर्ष निवासी <strong><%= request.participants.first.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
+          मैं <strong><%= raw participant_names(request, "seller", false, true) %></strong> उम्र <strong> _ _ _ _ _</strong> वर्ष निवासी <strong><%= request.participants.applicant.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
         </div>
         <div class="padding-3">
-          1.  यह कि मौजा <strong><%= request.village.village %></strong> पटवारी हल्का नंबर <strong><%= request.village.halka_number %></strong> तहसील <strong><%= request.village.tehsil %></strong> में स्थित भूमि खसरा नम्बर <strong><%= khasra %></strong> रकबा <strong><%= kh_rakba %></strong> में से रकबा <strong><%= sold_rakba %> </strong> कुल रकबा <strong><%= total_sold_rakba %></strong> हमारे द्वारा श्री/श्रीमती <strong><%= applicant_name(request) %></strong> को पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> को विक्रय  किया गया है |<br/> 
+          1.  यह कि <%= raw khasra_description(request) %> हमारे द्वारा श्री/श्रीमती <%=raw applicant_name(request) %> को पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> को विक्रय  किया गया है |<br/> 
           2. यह कि हमारी उक्त भूमि का संपूर्ण प्रतिफल प्राप्त कर भूमि का कब्ज़ा खरीदार को सौप दिया गया है भूमि पर कब्ज़ा तथा प्रतिफल संपत्ति कोई विवाद नहीं रहा भूमि, हमारी भूमि थी वह रहन व्यय नहीं थी हमारे द्वारा विक्रय की गई है |<br/>
           <div class="txt-indent-4">
             यह कि मैं वैनामा अनुसार आवेदक का नाम दर्ज होने हेतु सहमति में सपथ पत्र प्रस्तुत है 
@@ -32,7 +32,7 @@
         </div>
         <br/><br/><br/>
         <div class="txt-indent-4">
-          मैं <strong><%= participant_names(request) %></strong> द्वारा प्रस्तुत शपथ पत्र विवरण सही है 
+          मैं <%=raw participant_names(request, "seller", false, true) %> द्वारा प्रस्तुत शपथ पत्र विवरण सही है 
         </div>
         <br/>
         <div>

@@ -3,7 +3,7 @@
     # hs = {request: @request, khasra: khasra, rakba: rakba, sold_rakba: sold_rakba_with_unit, total_sold_rakba: sold_rakba, is_complete_rakba_sold: is_complete_rakba_sold}
     hs = get_khasra_detail(@request)
   %>
-  <% if @request.request_type == "नामांतरण" %>
+  <% if @request.request_type.name == "नामांतरण" %>
     <%= render partial: "requests/namantaran/pdf_pages/ordersheet_first", locals: hs %>
     <%= render partial: "requests/namantaran/pdf_pages/#{@templates[:order_praroop]}/ordersheet_second", locals: hs  %>
     <%= render partial: "requests/namantaran/pdf_pages/applicant_application", locals: hs  %>
@@ -14,7 +14,7 @@
     <%= render partial: "requests/namantaran/pdf_pages/applicant_affidavit", locals: hs  %>
     <%= render partial: "requests/namantaran/pdf_pages/non_applicant_affidavit", locals: hs  %> 
     <%= render partial: "requests/namantaran/pdf_pages/patwari_prativedan", locals: hs  %>
-  <% elsif @request.request_type == "फौती" %>
+  <% elsif @request.request_type.name == "फौती" %>
     <%= render partial: "requests/fouti/pdf_pages/ordersheet_first", locals: hs %>
     <%= render partial: "requests/fouti/pdf_pages/#{@templates[:order_praroop]}/ordersheet_second",locals: hs %>
     <%= render partial: "requests/fouti/pdf_pages/applicant_application",locals: hs %>

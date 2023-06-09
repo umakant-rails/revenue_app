@@ -37,7 +37,7 @@ class ParticipantsController < ApplicationController
 
   # POST /participants or /participants.json
   def create
-    is_true = validate_fouti_request
+    is_true = @request.request_type.name == "फौती" ? validate_fouti_request : false
 
     if @request.participants.buyers.blank? && params[:participant][:participant_type_id] == '1'
       params[:participant][:is_applicant] = true
@@ -49,7 +49,7 @@ class ParticipantsController < ApplicationController
     @participant = @request.participants.new(participant_params)
 
     respond_to do |format|
-      if @request.request_type.name == "फौती" && is_true
+      if is_true
         format.html { render :new, status: :unprocessable_entity }
       elsif @participant.save
         format.html { redirect_to new_request_participant_url, notice: "Participant was successfully created." }
