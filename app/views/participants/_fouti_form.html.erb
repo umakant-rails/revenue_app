@@ -51,7 +51,13 @@
           <div class="row mb-3">
             <div class="col-md-6">
               <%= form.label "फौत व्यक्ति भू-अभिलेख रिकॉर्ड में सह-खातेदार है ?", class: "form-label"  %>
-              <%= form.select :is_shareholder, options_for_select([['नहीं', false], ['हाँ', true]], form.object.is_shareholder), {}, class: "form-control" %>
+
+              <!-- for entry for after one fout person, share holder status must be sah-khatedar-->
+              <% if form.object.id.blank? && request.participants.fout_person.length > 0 %>
+                <%= form.select :is_shareholder, options_for_select([['सह खातेदार', true]], true), {prompt: "स्टेटस चुने"}, class: "form-control" %>
+              <% else %>
+                <%= form.select :is_shareholder, options_for_select([['पूर्ण भूस्वामी', false], ['सह खातेदार', true]], form.object.is_shareholder), {prompt: "स्टेटस चुने"}, class: "form-control" %>
+              <% end %>
             </div>
           </div>
           <div class="row mb-3">

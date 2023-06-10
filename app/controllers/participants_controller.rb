@@ -23,10 +23,17 @@ class ParticipantsController < ApplicationController
       @participant = @request.participants.new
     end
 
-    if @request.payment_transaction.present?
-      respond_to do |format|
+    dead_persons = @request.participants.fout_person
+
+    respond_to do |format|
+      if dead_persons.length == 1 && !dead_persons[0].is_shareholder && (params[:is_dead] == 'true')
+        flash[:error] = "इसके पहले जोड़े गए  फौत व्यक्ति को आपने पूर्ण हिस्सेदार के रूप में दर्ज किया है, यदि आप नया फौत व्यक्ति जोड़ना चाहते है तो पूर्व में जोड़े गए व्यक्ति को संशोधित कर सहखातेदार के रूप में दर्ज करें |"
+        format.html { redirect_back_or_to new_request_participant_path(@request) } 
+      elsif @request.payment_transaction.present?
         flash[:error] = "इस आवेदन का भुगतान कर दिया गया है, अब इसकी जानकारी में कोई परिवर्तन नहीं किया जा सकता है |" 
         format.html { redirect_back_or_to requests_path } 
+      else
+        format.html{}
       end
     end
   end
