@@ -13,15 +13,15 @@
     <br/>
     <div class="row padding-5">
       <div class="<%= @templates[:applicant_affidavit] %>">
-        <% f_person = request.participants.fout_person.first%>
+        <% dead_persons = request.participants.fout_person%>
 
-        मैं <strong><%= applicant_name(request) %></strong> उम्र <strong>45</strong> वर्ष निवासी <strong><%= request.address %></strong>  शपथपूर्वक कथन करता हूँ |<br/> 
+        मैं <%=raw applicant_name(request) %> उम्र <strong>45</strong> वर्ष निवासी <strong><%= request.participants.applicant.address %></strong>  शपथपूर्वक कथन करता हूँ |<br/> 
       
-        1.  यह कि मेरे माता/पिता/अन्य <strong><%= fout_persons(request) %></strong> के नाम भूमि <%= raw village_description(request) %> भूमि राजस्व रिकॉर्ड में दर्ज है|<br/> 
-        2.  यह कि मेरे पिता/माता/अन्य <strong><%= fout_persons(request) %></strong> की मृत्यु दिनांक <strong><%= request.participants.fout_person.collect{ |p| [format_dt(p.faut_date)] }.join(", ") %></strong> को हो चुकी है, जिनके वैध वारसान संजरा निम्न अनुसार है |
+        1.  यह कि मेरे माता/पिता/अन्य <%=raw participant_names(request, "dead_person") %> के नाम भूमि <%= raw khasra_description(request) %> भूमि राजस्व रिकॉर्ड में दर्ज है|<br/> 
+        2.  यह कि मेरे पिता/माता/अन्य <%=raw participant_names(request, "dead_person") %> की मृत्यु दिनांक <%= 'क्रमशः ' if dead_persons.length > 1 %> <strong><%= dead_persons.collect{ |p| [format_dt(p.death_date)] }.join(", ") %></strong> को हो चुकी है, जिनके वैध वारसान संजरा निम्न अनुसार है |
         <br/>
-        <% request && request.participants.fout_person.each do | f_person | %>
-          <strong><%= participant_name(f_person) %></strong> के वैध वारसान संजरा निम्न अनुसार है :-
+        <% request && dead_persons.each do | f_person | %>
+          <%=raw participant_name(f_person) %> के वैध वारसान संजरा निम्न अनुसार है :-
           <%= render "requests/fouti/pdf_pages/#{@templates[:sanjara_praroop]}/sanjara", request: request, fout_person: f_person, action_display: false %>
         <% end %>
 

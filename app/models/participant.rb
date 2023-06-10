@@ -12,7 +12,7 @@ class Participant < ApplicationRecord
 
   scope :fout_person, ->() { where('parent_id is null and death_date is not null') }
 
-  scope :fout_varsan, ->() { where('karanda_aam_faut=? and parent_id is not null', true) }
+  scope :fout_varsan, ->() { where('is_dead=? and parent_id is not null', true) }
   scope :fout_participants, ->() { where('is_dead=?', true) }
   scope :son, ->() { where("relation_to_deceased='पुत्र'")}
   scope :daughter, ->() { where("relation_to_deceased='पुत्री'")}

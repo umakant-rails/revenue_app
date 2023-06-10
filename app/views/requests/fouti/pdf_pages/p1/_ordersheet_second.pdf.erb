@@ -23,16 +23,13 @@
                   प्रकरण पेश | 
                 </div>
                 <br/>
-                <div class="mb-8 txt-indent-3">  
-                  प्रकरण का अवलोकन किया गया | प्रकरण में आवेदक <strong><%= applicant_name(request) %></strong> निवासी <strong><%= request.address %></strong> द्वारा म. प्र. भू-राजस्व संहिता संहिता 1959 की धारा  109 -110 के तहत आवेदन पत्र प्रस्तुत कर लेख किया है कि 
-                  <%= raw village_description(request) %> के खातेदार/सहखातेदार 
-                  <% if request.participants.fout_person.length > 1%>
-                    <% request.participants.fout_person.each_with_index do | f_person, indx | %>
-                      <strong><%= participant_name(f_person) %></strong> की मृत्यु दिनांक <strong><%= format_dt(f_person.faut_date).strip %></strong><%= ", " if indx < request.participants.fout_person.length-1 %>
-                    <% end %>
-                  <% else %>
-                    <% f_person = request.participants.fout_person.first %>
-                    <strong><%= participant_name(f_person) %></strong> की मृत्यु दिनांक <strong><%= f_person.faut_date.strftime("%d/%m/%Y") %></strong>
+                <div class="mb-8 txt-indent-3"> 
+                  <% dead_persons = request.participants.fout_person %>
+
+                  प्रकरण का अवलोकन किया गया | प्रकरण में आवेदक <%=raw applicant_name(request, true) %> द्वारा म. प्र. भू-राजस्व संहिता संहिता 1959 की धारा  109 -110 के तहत आवेदन पत्र प्रस्तुत कर लेख किया है कि 
+                  <%= raw khasra_description(request) %> के खातेदार/सहखातेदार
+                  <% dead_persons.each_with_index do | f_person, indx | %>
+                    <%=raw participant_name(f_person) %> की मृत्यु दिनांक <strong><%= f_person.death_date.strftime("%d/%m/%Y") %></strong> <%= ", " if indx < dead_persons.length-1 %>
                   <% end %>
                   को हो जाने के कारण उनके स्थान पर उनके विधिक वारसानो के नाम दर्ज किये जाने का निवेदन किया है | 
                 </div>
@@ -47,21 +44,15 @@
                 <div class="mb-8 txt-indent-3">  
                   अतः म.प्र. भू-राजस्व संहिता 1959 की धारा 109-110 के अंतर्गत 
 
-                  <%= raw village_description(request) %>
+                  <%= raw khasra_description(request) %>
 
                   पर मृतक खातेदार 
-
-                  <% if request.participants.fout_person.length > 1%>
-                    <% request.participants.fout_person.each_with_index do | f_person, indx | %>
-                      <strong><%= participant_name(f_person) %></strong> की मृत्यु दिनांक <strong><%= f_person.faut_date.strftime("%d/%m/%Y") %></strong> <%= ", " if indx < request.participants.fout_person.length-1 %>
-                    <% end %>
-                  <% else %>
-                    <% f_person = request.participants.fout_person.first%>
-                    <strong><%= participant_name(f_person) %></strong> की मृत्यु दिनांक <strong><%= f_person.faut_date.strftime("%d/%m/%Y") %></strong>
+                  <% dead_persons.each_with_index do | f_person, indx | %>
+                    <%=raw participant_name(f_person) %> की मृत्यु दिनांक <strong><%= f_person.death_date.strftime("%d/%m/%Y") %></strong> <%= ", " if indx < dead_persons.length-1 %>
                   <% end %>
 
                   को फौत  होने से उनके स्थान पर उनके वैद्य वारसानों पटवारी प्रतिवेदन <strong>प्रदर्श पी-1</strong> एवं आवेदक द्वारा प्रस्तुत शपथ-पत्र <strong>प्रदर्श पी-2</strong> अनुसार 
-                  <%= raw varsan_names1(request, false, []) %> 
+                  <%= raw dead_persions_varsan(request, false) %> 
                   का नाम दर्ज किये जाने का आदेश पारित किया जाता है | <%= 'शेष खातेदार के नाम यथावत दर्ज रहेगें |' if is_shareholder %> पटवारी अमल करें | तत्पश्चात प्रकरण नस्ती दाखिल अभिलेखागार हो | 
                 </div>
                 <br/><br/><br/>

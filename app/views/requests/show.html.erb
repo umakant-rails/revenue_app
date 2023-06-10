@@ -135,8 +135,8 @@
   </div>
   <div class="col-md-1"></div>
 </div>
-<% if @request.payment_transaction.present? && @request.request_type == "फौती" %>
+<% if @request.request_type.name == "फौती" %>
   <%= render partial: "requests/fouti/fouti_setting" %>
-<% elsif @request.payment_transaction.present? && @request.request_type == "नामांतरण" %>
+<% elsif @request.request_type.name == "नामांतरण" %>
   <%= render partial: "requests/namantaran/namantaran_setting" %>
 <% end %>

@@ -11,7 +11,7 @@
       <% end %>
     <% end %>
 
-    <% if p.karanda_aam_faut %>
+    <% if p.is_dead %>
       <% if p.children.present? %>
         <%= render "requests/fouti/pdf_pages/p2/varsan", varsan: p.children.order("relation ASC"), depth: depth+1, action_display: action_display %>   
       <% end %>

@@ -10,10 +10,10 @@
       </div>
       <div class="mt-2 pdf-paragraph-35">
         <div >
-          तहसीलदार <strong><%= request.village.tehsil %></strong> के न्यायालय में मामला क्रमांक_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन <strong><%= request.year %></strong> _ _ _ _ _ _ 
+          तहसीलदार <strong><%= request.village.tehsil %></strong> के न्यायालय में मामला क्रमांक_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन <strong><%= request.year %></strong> _ _ _ _ _ _ _ _ _ _
         </div>
         <div>
-          विषय - <b>फौती दर्ज कराने बाबत</b>_ _ _ _ _ _ _ _ _ _ _ _ _ प्रकरण की श्रेणी_ _ _ _ _ _ _ _ _ _ _ _ अ/६ वर्ष _ _ _ _ _ _ _ _
+          विषय - <b>फौती दर्ज कराने बाबत</b>_ _ _ _ _ _ _ _ _ _ _ _ _ प्रकरण की श्रेणी_ _ _ _ _ _ _ _ _ _ _ _ अ/६ वर्ष _ _ _ _ _ _ _ _ _ _ _
         </div>
 
         <div>
@@ -21,10 +21,10 @@
         <div>
 
         <div>
-          कलेक्टर का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ सन <strong><%= request.year %></strong> अनुविभागीय अधिकारी का क्रमांक _ _ _ _ _सन&nbsp; _ _ _ _ _ _ _ _
+          कलेक्टर का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ सन <strong><%= request.year %></strong> अनुविभागीय अधिकारी का क्रमांक _ _ _ _ _सन&nbsp;_ _ _ _ _ _ _ _ _ _ _
         </div>
         <div>
-          तहसीलदार का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन_ _ _ _ _ _ नायब तहसीलदार का क्रमांक _ _ _ _ _सन _ _ _ _ _ _ 
+          तहसीलदार का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन_ _ _ _ _ _ नायब तहसीलदार का क्रमांक _ _ _ _ _सन _ _ _ _ _ _ _ _ _ 
         </div>
       </div>
     </div>
@@ -52,17 +52,14 @@
             <div class="d-cell pdf-tbl-center-65">
               <div class="m-sm-4 padding-2 order1-parent" >
                 <div class="<%= @templates[:ordersheet1] %> txt-indent-3 order1-child">
-                  <% f_persons = request.participants.fout_person%>
-                  आवेदक/आवेदिका &nbsp;<strong><%= applicant_name(request) %></strong> &nbsp;
-                  निवासी <strong><%= request.address %></strong> द्वारा 
-                  <%= raw village_description(request) %> 
-                  पर मेरे पिता/माता/अन्य श्री/श्रीमती <strong><%= fout_persons(request) %></strong> के नाम उक्त भूमि दर्ज है | जिनका निधन दिनांक क्रमशः 
-                  <% if f_persons.length > 1 %>
-                    <strong><%= f_persons.collect{ |p| p.faut_date.strftime("%d/%m/%Y") }.join(", ") %></strong> 
-                  <% else %>
-                    <strong><%= format_dt(f_persons.first.faut_date) %></strong> 
-                  <% end %>
-                  को हो गया है |  जिनके वैध वारसान <strong><%= varsan_names1(request, true) %></strong> के नाम फौती दर्ज किये जाने का आवेदन प्राप्त हुआ है | 
+                  <% dead_persons = request.participants.fout_person %>
+
+                  आवेदक/आवेदिका &nbsp;<%= raw applicant_name(request) %> &nbsp;
+                  निवासी <strong><%= request.participants.applicant.address %></strong> द्वारा 
+                  <%= raw khasra_description(request) %> 
+                  पर मेरे पिता/माता/अन्य श्री/श्रीमती <%= raw participant_names(request, "dead_person") %> के नाम उक्त भूमि दर्ज है | जिनका निधन दिनांक <%= 'क्रमशः ' if dead_persons.length > 1 %> 
+                  <strong><%= dead_persons.collect{ |p| p.death_date.strftime("%d/%m/%Y") }.join(", ") %></strong> 
+                  को हो गया है |  जिनके वैध वारसान <%=raw dead_persions_varsan(request, true) %> के नाम फौती दर्ज किये जाने का आवेदन प्राप्त हुआ है | 
                   <br/>
                   1 . प्रकरण दर्ज हो | <br/>
                   2 . हल्का पटवारी से रिपोर्ट ली जाये | <br/>
