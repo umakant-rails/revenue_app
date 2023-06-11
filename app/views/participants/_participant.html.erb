@@ -32,7 +32,13 @@
             <%= participant.gaurdian %>
           </td>
           <td class="text-primary">
-            <%= participant.participant_type.name %> <%= '(आवेदक)' if participant.is_applicant %> 
+            <% if participant.participant_type == "फौत व्यक्ति" %>
+              <%= participant.participant_type.name %>
+            <% else %>
+              <%= participant.participant_type.name %> 
+              <%= "(आवेदक)" if participant.is_applicant %>
+              <%= get_varsan_status(participant) if !participant.is_applicant && request.request_type.name == "फौती" %> 
+            <% end %>
           </td>
           <td>
             <%=link_to edit_request_participant_path(participant.request_id, participant.id), class: "fnt-20 anchor-no-decoration" do %>

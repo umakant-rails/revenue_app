@@ -3,14 +3,33 @@ import { Controller } from "@hotwired/stimulus"
 import ApplicationController from "./application_controller";
 
 // Connects to data-controller="namantaran"
-export default class extends Controller {
+export default class extends ApplicationController {
   static targets = ['paymentstatus', 'paymentNotDone', 'district', 'tehsil', 'circle', 'village', 
-    'page', 'gaurdian', 'totalShareSold', 'isShareHolder', 'isApplicant'];
+    'page', 'gaurdian', 'totalShareSold', 'isShareHolder', 'isApplicant', 'requestType', 'requestTitle'];
 
   connect() {
     this.params = {}
   }
 
+  checkVillageStatus(){
+    var villageName = this.villageTarget.options[this.villageTarget.selectedIndex].text;
+    var requestType = event.target.options[event.target.selectedIndex].text;
+
+    if(villageName.length == 0){
+      super.showErrorsByLayout("कृपया पहले ग्राम चुने |");
+      event.target.value = '';
+    } else {
+      var requestTitle = villageName + " का " + requestType + " हेतु आवेदन";
+      this.requestTitleTarget.value = requestTitle;
+    }
+  }
+  updateRequestTitle(){
+    var applicant = event.target.value;
+    var requestType = this.requestTypeTarget.options[this.requestTypeTarget.selectedIndex].text;
+    var requestTitle = applicant + " का " + requestType + " आवेदन";
+
+    this.requestTitleTarget.value = requestTitle;
+ } 
   getRecords(event){
     this.params = {};
     let targetName = event.target.name;

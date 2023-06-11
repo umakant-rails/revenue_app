@@ -50,7 +50,7 @@ class ParticipantsController < ApplicationController
       params[:participant][:is_applicant] = true
     elsif @request.participants.applicant.present? && params[:participant][:participant_type_id] == '1' &&
       params[:participant][:is_applicant] == 'true'
-      @request.participants.applicant.update(is_applicant: false)
+      @applicant = @request.participants.applicant
     end
 
     @participant = @request.participants.new(participant_params)
@@ -59,6 +59,7 @@ class ParticipantsController < ApplicationController
       if is_true
         format.html { render :new, status: :unprocessable_entity }
       elsif @participant.save
+        update_applicant_request_title if @participant.is_applicant
         format.html { redirect_to new_request_participant_url, notice: "Participant was successfully created." }
         format.json { render :show, status: :created, location: @participant }
       else
@@ -70,8 +71,11 @@ class ParticipantsController < ApplicationController
 
   # PATCH/PUT /participants/1 or /participants/1.json
   def update
+    @applicant = @request.participants.applicant
+
     respond_to do |format|
       if @participant.update(participant_params)
+        update_applicant_request_title if @participant.is_applicant
         format.html { redirect_to new_request_participant_url(@request), notice: "Participant was successfully updated." }
         format.json { render :show, status: :ok, location: @participant }
       else
@@ -103,6 +107,13 @@ class ParticipantsController < ApplicationController
   end
 
   private
+
+    def update_applicant_request_title
+      @applicant.update(is_applicant: false) if @applicant.present? && @applicant.id.to_s != params[:id]
+
+      new_title = @participant.name + " का " + @request.request_type.name + " हेतु आवेदन";
+      @participant.request.update(title: new_title)
+    end
 
     def set_required_data
       @participant_types  = ParticipantType.get_participants(@request)

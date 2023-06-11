@@ -2,7 +2,7 @@
   <% faut_participants = request.participants.fout_participants %>
   <div class="card-body">
     <div class="page-header">
-      <%= (faut_participants.blank? || participant.depth == 0) ? "फौत व्यक्ति की जानकारी" : "वारसान की जानकारी" %>
+      <%= (faut_participants.blank? || participant.depth == 0) ? "फौत व्यक्ति की जानकारी" : "वारसान की जानकारी" %> (आवेदन का नाम : <%= request.title %>)
     </div>
     <div class="dropdown-divider"></div>
 
@@ -18,7 +18,7 @@
         </div>
       <% end %>
 
-      <% if (faut_participants.blank? || participant.is_dead) %>
+      <% if (faut_participants.blank? || (participant.is_dead && participant.parent_id.blank?)) %>
         <div class="ps-3 pe-3">
           <div class="mb-3">
             <%= form.label "आवेदक/अनावेदक प्रकार", class: "form-label" %>
@@ -157,10 +157,10 @@
             <div class="col-md-12">
               <% if params[:action] == "edit" && form.object.participant_type.name ==  "वारसान" %>
                 <%= form.label "यह वारसान आवेदक है ?", class: "form-label"  %>
-                <%= form.select :is_applicant, options_for_select(Participant::BOOLEAN_STATUS, form.object.is_applicant), {prompt: "क्रेता स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isApplicant' %>
+                <%= form.select :is_applicant, options_for_select(Participant::BOOLEAN_STATUS, form.object.is_applicant), {prompt: "क्रेता स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isApplicant','data-participant-target': 'isApplicant', disabled: form.object.is_applicant %>
               <% else %>
                 <%= form.label "यह वारसान आवेदक है ?", class: "form-label"  %>
-                <%= form.select :is_applicant, options_for_select(Participant::BOOLEAN_STATUS), {prompt: "क्रेता स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isApplicant', disabled: true %>
+                <%= form.select :is_applicant, options_for_select(Participant::BOOLEAN_STATUS), {prompt: "क्रेता स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isApplicant', 'data-participant-target': 'isApplicant' %>
               <% end %>
             </div>
           </div>

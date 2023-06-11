@@ -46,19 +46,24 @@
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
-        <div class="mb-3">
-          <%= form.label "आवेदन का नाम/शीर्षक", class: "form-label" %>
-          <%= form.text_field :title, class: "form-control" %>
-        </div>
         <div class="mb-3 row">
           <div class="col-md-6">
             <%= form.label "आवेदन प्रकार", class: "form-label" %>
-            <%= form.select :request_type_id,  options_for_select(@request_types.collect{|r| [r.name, r.id]}), {prompt: "आवेदन प्रकार चुने"}, class: "form-control" %>
+            <%= form.select :request_type_id,  options_for_select(@request_types.collect{|r| [r.name, r.id]}), {prompt: "आवेदन प्रकार चुने"}, class: "form-control", 'data-action': 'change->request#checkVillageStatus', 'data-request-target': 'requestType' %>
           </div>
           <div class="col-md-6">
             <%= form.label :year, class: "form-label" %>
             <%= form.text_field :year, class: "form-control" %>
           </div>   
+        </div>
+        <div class="mb-3">
+          <%= form.label "आवेदक का नाम", class: "form-label" %>
+          <%= form.text_field :applicant, class: "form-control", 'data-action': 'focusout->request#updateRequestTitle' %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label "आवेदन का नाम/शीर्षक", class: "form-label" %>
+          <%= form.text_field :title, class: "form-control", readonly: true, 'data-request-target':'requestTitle' %>
         </div>
         <div class="mb-3">
           <strong>बैनामा / पंजीकृत दस्तावेज़ की जानकारी</strong>

@@ -4,7 +4,7 @@ import ApplicationController from "./application_controller";
 
 // Connects to data-controller="namantaran"
 export default class extends ApplicationController {
-  static targets = ['balee', 'gaurdian', 'isNabalig', 'relation', 'foutPerson', 'relationToDeceased'];
+  static targets = ['balee', 'gaurdian', 'isNabalig', 'relation', 'foutPerson', 'isApplicant', 'relationToDeceased'];
 
   connect() {
     this.params = {}
@@ -26,8 +26,12 @@ export default class extends ApplicationController {
         this.relationTarget.value = '';
         this.gaurdianTarget.value = '';
       }
+      this.isApplicantTarget.disabled = true;
+      this.isApplicantTarget.value = false;
     } else {
       this.isNabaligTarget.disabled = false;
+      this.isApplicantTarget.disabled = false;
+      this.isApplicantTarget.value = '';
     }
   }
 
