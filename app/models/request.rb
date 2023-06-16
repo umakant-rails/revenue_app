@@ -7,6 +7,7 @@ class Request < ApplicationRecord
   belongs_to :request_type
   has_many :participant_types, through: :request_type
   has_one :payment_transaction, as: :transactionable
+  has_many :khasra_battanks
 
   paginates_per 10
 

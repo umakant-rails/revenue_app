@@ -11,7 +11,7 @@ class ParticipantType < ApplicationRecord
     elsif request.request_type.name == "फौती"
       self.where("name in (?)", ["फौत व्यक्ति", "वारसान"])
     elsif request.request_type.name == "बटवारा"
-      self.where("name in (?)", ["मूल भू स्वामी", "नए हिस्सेदार"])
+      self.where("name in (?)", ["मूल भू स्वामी", "नए हिस्सेदार", "मूल भू स्वामी एवं हिस्सेदार"])
     end
   end
 

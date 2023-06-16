@@ -1,0 +1,3 @@
+$("#khasra_list").html("<%= escape_javascript(render 'khasra_list', khasras: @khasras) %>");
+$("#new_khasra_list").html("<%= escape_javascript(render 'new_khasra_list', request: @request,  khasra_battank: @khasra_battank, new_khasra_battanks: @new_khasra_battanks, hissedars: @hissedars) %>");
+$("#alloted_khasra_list").html("<%= escape_javascript(render "alloted_khasra_list", request: @request) %>");

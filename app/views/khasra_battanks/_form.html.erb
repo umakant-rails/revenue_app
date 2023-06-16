@@ -1,0 +1,44 @@
+<div class="mb-3" data-controller="khbattank">
+  <div class="row mb-3">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="page-header mt-4 mb-3">
+        पेज की सूची
+      </div>
+      <div class="row p-3">
+        <div class="col-md-4 land-owner">
+          <div class="page-sub-header mb-2">
+            मूल भू-स्वामी
+          </div>
+          <% @land_owners.each do | land_owner | %>
+            <div class="participant">
+              <%=raw participant_name(land_owner) %>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-md-8 land-owner" id="khasra_list">
+          <%= render "khasra_list", khasras: @khasras %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" id="new_khasra_list">
+      <%= render "new_khasra_list", request: request, khasra_battank: khasra_battank, new_khasra_battanks: @new_khasra_battanks, hissedars: @hissedars %>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="row p-2" id="alloted_khasra_list" data-khbattank-target="allotedKhasraBlock">
+        <%= render "alloted_khasra_list", request: request %>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

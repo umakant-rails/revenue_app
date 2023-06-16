@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="page-header mt-4">
+      पेज की सूची
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <% @land_owners.each do | land_owner | %>
+          <%=raw participant_name(land_owner) %>
+        <% end %>
+        <hr>
+        <% @hissedars.each do | hissedar | %>
+          <%=raw participant_name(hissedar) %><br>
+        <% end %>
+      </div>
+      <div class="col-md-7">
+        
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+</div>

@@ -6,8 +6,11 @@ module ParticipantsHelper
   end
 
   def participant_name(participant, with_address=false)
-    participant_str = "<strong>" + participant.name + " " + participant.relation + " " + participant.gaurdian + "</strong>"
-    participant_str = participant_str + " निवासी <strong>" + participant.address + "</strong>" if with_address 
+    participant_str = ''
+    if participant.present?
+      participant_str = "<strong>" + participant.name + " " + participant.relation + " " + participant.gaurdian + "</strong>"
+      participant_str = participant_str + " निवासी <strong>" + participant.address + "</strong>" if with_address 
+    end
     return participant_str
   end
   

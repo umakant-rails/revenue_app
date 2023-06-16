@@ -4,8 +4,9 @@ import ApplicationController from "./application_controller";
 
 // Connects to data-controller="namantaran"
 export default class extends ApplicationController {
-  static targets = ['paymentstatus', 'paymentNotDone', 'district', 'tehsil', 'circle', 'village', 
-    'page', 'gaurdian', 'totalShareSold', 'isShareHolder', 'isApplicant', 'requestType', 'requestTitle'];
+  static targets = ['paymentstatus', 'paymentNotDone', 'district', 'tehsil', 'circle', 
+    'village', 'page', 'gaurdian', 'totalShareSold', 'isShareHolder', 'isApplicant', 'requestType', 
+    'applicant', 'requestTitle', 'year'];
 
   connect() {
     this.params = {}
@@ -13,21 +14,33 @@ export default class extends ApplicationController {
 
   checkVillageStatus(){
     var villageName = this.villageTarget.options[this.villageTarget.selectedIndex].text;
-    var requestType = event.target.options[event.target.selectedIndex].text;
 
     if(villageName.length == 0){
       super.showErrorsByLayout("कृपया पहले ग्राम चुने |");
       event.target.value = '';
     } else {
-      var requestTitle = villageName + " का " + requestType + " हेतु आवेदन";
+      var requestType = event.target.options[event.target.selectedIndex].text;
+      var year = this.yearTarget.value;
+
+      var requestTitle = villageName + " का " + requestType + " हेतु आवेदन, वर्ष " + year;
       this.requestTitleTarget.value = requestTitle;
     }
   }
   updateRequestTitle(){
-    var applicant = event.target.value;
+    var requestTitle = '';
+    var applicant = this.applicantTarget.value;
+    var villageName = this.villageTarget.options[this.villageTarget.selectedIndex].text;
     var requestType = this.requestTypeTarget.options[this.requestTypeTarget.selectedIndex].text;
-    var requestTitle = applicant + " का " + requestType + " आवेदन";
-
+    var year = this.yearTarget.value;
+    
+    if(villageName == "ग्राम चुने"){
+      super.showErrorsByLayout("कृपया पहले ग्राम चुने |");
+      this.villageTarget.value = '';
+    } else if(applicant.length === 0 ){
+      requestTitle = villageName + " का " + requestType + " हेतु आवेदन, वर्ष " + year;
+    } else {
+      requestTitle = applicant + " का " + requestType + " हेतु आवेदन, वर्ष " + year;
+    }
     this.requestTitleTarget.value = requestTitle;
  } 
   getRecords(event){

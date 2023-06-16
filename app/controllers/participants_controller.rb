@@ -19,6 +19,8 @@ class ParticipantsController < ApplicationController
       @participant = @request.participants.new(depth: 0, is_dead: true, participant_type_id: 4)
     elsif @request.request_type.name == "फौती"
       @participant = @request.participants.new(participant_type_id: 5)
+    elsif @request.request_type.name == "बटवारा"
+      @participant = @request.participants.new
     else 
       @participant = @request.participants.new
     end
@@ -27,7 +29,7 @@ class ParticipantsController < ApplicationController
 
     respond_to do |format|
       if dead_persons.length == 1 && !dead_persons[0].is_shareholder && (params[:is_dead] == 'true')
-        flash[:error] = "इसके पहले जोड़े गए  फौत व्यक्ति को आपने पूर्ण हिस्सेदार के रूप में दर्ज किया है, यदि आप नया फौत व्यक्ति जोड़ना चाहते है तो पूर्व में जोड़े गए व्यक्ति को संशोधित कर सहखातेदार के रूप में दर्ज करें |"
+        flash[:error] = "इसके पहले जोड़े गए फौत व्यक्ति को आपने पूर्ण हिस्सेदार के रूप में दर्ज किया है, यदि आप नया फौत व्यक्ति जोड़ना चाहते है तो पूर्व में जोड़े गए व्यक्ति को संशोधित कर सहखातेदार के रूप में दर्ज करें |"
         format.html { redirect_back_or_to new_request_participant_path(@request) } 
       elsif @request.payment_transaction.present?
         flash[:error] = "इस आवेदन का भुगतान कर दिया गया है, अब इसकी जानकारी में कोई परिवर्तन नहीं किया जा सकता है |" 
@@ -109,9 +111,13 @@ class ParticipantsController < ApplicationController
   private
 
     def update_applicant_request_title
-      @applicant.update(is_applicant: false) if @applicant.present? && @applicant.id.to_s != params[:id]
+      if @applicant.present? && @applicant.id.to_s != params[:id]
+        @applicant.update(is_applicant: false)
+      else
+        @participant.update(is_applicant: true)
+      end
 
-      new_title = @participant.name + " का " + @request.request_type.name + " हेतु आवेदन";
+      new_title = @participant.name + " का " + @request.request_type.name + " हेतु आवेदन, वर्ष" + @request.year;
       @participant.request.update(title: new_title)
     end
 

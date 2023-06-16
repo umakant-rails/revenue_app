@@ -19,7 +19,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_131445) do
     t.string "new_khasra"
     t.float "rakba"
     t.integer "request_id"
-    t.integer "participant_id"
+    t.string "participant_ids"
+    t.string "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

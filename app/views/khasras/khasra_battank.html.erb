@@ -1,0 +1,90 @@
+<div class="row mb-5" data-controller="khbattank">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="page-header mt-4 mb-3">
+      पेज की सूची
+    </div>
+    <div class="row p-3">
+      <div class="col-md-4 land-owner">
+        <div class="page-sub-header mb-2">
+          मूल भू-स्वामी
+        </div>
+        <% @land_owners.each do | land_owner | %>
+          <div class="participant">
+            <%=raw participant_name(land_owner) %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-8 land-owner">
+        <div class="page-sub-header mb-2">
+          खसरा सूची 
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Khasra</th>
+              <th>Area</th>
+              <th>बटांक संख्या</th>
+              <th>गतिविधि</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @khasras.each do | khasra | %>
+              <tr>
+                <td>
+                  <%= khasra.khasra %>
+                </td>
+                <td>
+                  <%= "#{'%.4f' %  khasra.rakba}  हे." %>
+                </td>
+                <td style="width:20%">
+                  <input type="number" name="battank_sankhya" min="1" class='form-control' data-khbattank-target="battankSankhya" />
+                </td>
+                <td>
+                  <input type="button" value="बटांक करे" class="btn btn-primary" data-action="click->khbattank#createKhasraBattanks" />
+                </td>
+              </tr>  
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<div class="row mb-5">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="row p-2">
+      <div class="col-md-4 land-owner">
+        <div class="page-sub-header mb-2">
+          नए हिस्सेदार
+        </div>
+        <% @hissedars.each do | hissedar | %>
+          <div class="participant mb-1">
+            <%=raw participant_name(hissedar) %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-8 land-owner" data-khbattank-target="">
+        <div class="page-sub-header mb-2">
+          नई खसरा सूची
+        </div>
+        <% @hissedars.each do | land_owner | %>
+          <p>
+            <%=raw participant_name(land_owner) %>
+          </p>
+        <% end %>
+      </div>
+      <div class="col-md-8 land-owner" style="display:block;">
+        <div class="page-sub-header mb-2">
+          नई खसरा सूची
+        </div>
+        <%= form_with(model: [request, khasra])  do |form| %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>

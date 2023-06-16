@@ -22,4 +22,10 @@ export default class extends Controller {
     element.innerHTML = msg;
   }
 
+  showSuccessMsgByLayout(msg){
+    alert('error layout')
+    let element = $("#successAlert")[0];
+    element.parentElement.style.display = 'block';
+    element.innerHTML = msg;
+  }
 }

@@ -14,8 +14,15 @@ Rails.application.routes.draw do
       get '/balees' => "participants#get_balees", as: :get_balees, on: :collection
     end
 
-    resources :khasras    
+    resources :khasras
+
+    resources :khasra_battanks do
+      post '/add_participants' => "khasra_battanks#add_participants", as: :add_participants, on: :collection
+      post '/remove_participant' => "khasra_battanks#remove_participant", as: :remove_participant, on: :member
+    end
+
     get '/pending' => "requests#pending", as: :pending, on: :collection
+    # get '/pending' => "requests#pending_request", as: :pending_request, on: :member
     get '/get_records' => "requests#get_records", as: :get_records, on: :collection
     get '/pdf/export' => "requests#export", as: :export_pdf, on: :member
     get '/payment' => "requests#payment_page", as: :payment_page, on: :member

@@ -1,0 +1,146 @@
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-3 not-print">
+    <div class="row page-list">
+      <div class="page-header">
+        पेज की सूची
+      </div>
+      <ol class="list-group mb-4 pe-0">
+        <%= link_to new_request_path, class: "anchor-no-decoration" do %>
+          <li class="list-group-item">
+            नवीन आवेदन
+          </li>
+        <% end %> 
+        <li class="list-group-item active">
+          लंबित आवेदन
+        </li>
+        <%= link_to requests_path, class: "anchor-no-decoration" do %>
+          <li class="list-group-item">
+            आवेदन सूची
+          </li>
+         <% end %>
+      </ol>
+    </div>
+  </div>
+  <div class="col-md-7" id="request-block">
+      <div class="page-a4">
+      <% request = @request %>
+      <div class="page-header mb-3">
+         आवेदन का नाम: <%= request.title %>
+      </div>
+      <div id="request-form">
+        <div class="mb-3">
+          <div class="label-txt">आवेदक की जानकारी</div>  
+          <div class="divider-bdr"></div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="label-hdr">आवेदक</div>
+            <div class="label-txt"><%=raw applicant_name(request, false) %></div>
+          </div>
+          <div class="col-md-6">
+            <div class="label-hdr">आवेदक पता</div>
+            <div class="label-txt"><%= request.participants.applicant.address rescue nil %></div>
+          </div>
+        </div>
+        <% if @request.request_type == "नामांतरण"  %>
+          <div class="mb-3">
+            <div class="label-txt">रजिस्ट्री की जानकारी</div>  
+            <div class="divider-bdr"></div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <div class="label-hdr">रजिस्ट्री का नंबर</div>
+              <div class="label-txt"><%= request.registry_number.present? ? request.registry_number : '-' %></div>
+            </div>
+            <div class="col-md-6">
+              <div class="label-hdr">रजिस्ट्री की तिथि</div>
+              <div class="label-txt"><%= request.registry_date.present? ? format_dt(request.registry_date) : '-' %></div>
+            </div>
+          </div>
+        <% end %>
+        <div class="p-2">
+          <% if @request.request_type == "नामांतरण" %>
+            <%= render "participants/participant" , request: request %>
+          <% elsif @request.request_type == "फौती" %>
+            <% request && request.participants.fout_person.each do | f_person | %>
+              <%= render "participants/sanjara", request: request, fout_person: f_person, action_display: true %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="divider-bdr"></div>
+        <div class="p-2">
+          <%= render "participants/participant" , request: request %>
+        </div>
+        <div class="divider-bdr"></div>
+        <div class="p-2">
+          <%= render "khasras/khasra" , request: request %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>>
+<div class="row">
+  <div class="col-md-6">
+    <div class="page-a4">
+      <% request = @request %>
+      <div class="page-header mb-3">
+         आवेदन का नाम: <%= request.title %>
+      </div>
+      <div id="request-form">
+        <div class="mb-3">
+          <div class="label-txt">आवेदक की जानकारी</div>  
+          <div class="divider-bdr"></div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="label-hdr">आवेदक</div>
+            <div class="label-txt"><%=raw applicant_name(request, false) %></div>
+          </div>
+          <div class="col-md-6">
+            <div class="label-hdr">आवेदक पता</div>
+            <div class="label-txt"><%= request.participants.applicant.address rescue nil %></div>
+          </div>
+        </div>
+        <% if @request.request_type == "नामांतरण"  %>
+          <div class="mb-3">
+            <div class="label-txt">रजिस्ट्री की जानकारी</div>  
+            <div class="divider-bdr"></div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <div class="label-hdr">रजिस्ट्री का नंबर</div>
+              <div class="label-txt"><%= request.registry_number.present? ? request.registry_number : '-' %></div>
+            </div>
+            <div class="col-md-6">
+              <div class="label-hdr">रजिस्ट्री की तिथि</div>
+              <div class="label-txt"><%= request.registry_date.present? ? format_dt(request.registry_date) : '-' %></div>
+            </div>
+          </div>
+        <% end %>
+        <div class="p-2">
+          <% if @request.request_type == "नामांतरण" %>
+            <%= render "participants/participant" , request: request %>
+          <% elsif @request.request_type == "फौती" %>
+            <% request && request.participants.fout_person.each do | f_person | %>
+              <%= render "participants/sanjara", request: request, fout_person: f_person, action_display: true %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="divider-bdr"></div>
+        <div class="p-2">
+          <%= render "participants/participant" , request: request %>
+        </div>
+        <div class="divider-bdr"></div>
+        <div class="p-2">
+          <%= render "khasras/khasra" , request: request %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <center>
+      <%#= render "request_detail", request: @request, action_display: true %>
+    </center>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Khasra battanks</h1>
+
+<div id="khasra_battanks">
+  <% @khasra_battanks.each do |khasra_battank| %>
+    <%= render khasra_battank %>
+    <p>
+      <%= link_to "Show this khasra battank", khasra_battank %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New khasra battank", new_khasra_battank_path %>

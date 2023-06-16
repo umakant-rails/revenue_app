@@ -1,0 +1,42 @@
+<div class="page-sub-header mb-2">
+  खसरा सूची 
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Khasra</th>
+      <th>Area</th>
+      <th>बटांक संख्या</th>
+      <th>गतिविधि</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% khasras.each_with_index do | khasra, index | %>
+      <tr>
+        <td style="width: 20%;">
+          <%= khasra.khasra %>
+        </td>
+        <td style="width: 20%;">
+          <%= "#{'%.4f' %  khasra.rakba}  हे." %>
+          <input type="hidden" name="khasra" data-khbattank-target="khasra" value="<%= khasra.khasra%>" 
+            data-id="<%= khasra.id %>" data-requestid="<%= khasra.request_id %>" data-rakba="<%= khasra.rakba %>"/>
+        </td>
+        <td style="width:20%">
+          <input type="number" name="battank_sankhya" min="2" class='form-control' data-khbattank-target="battankSankhya" data-indx="<%= index %>" />
+        </td>
+        <% if khasra.khasra_battanks.present? %>
+          <td style="width: 40%;">
+            <input type="button" value="बटांक करे" class="btn btn-secondary" />
+            <input type="button" value="नंबर जोड़े" class="btn btn-secondary" />
+          </td>
+        <% else %>
+          <td style="width: 40%;">
+            <input type="button" value="बटांक करे" class="btn btn-primary" data-action="click->khbattank#createKhasraBattanksHtml" data-indx="<%= index %>" />
+            <input type="button" value="नंबर जोड़े" class="btn btn-primary" data-action="click->khbattank#addNewKhasraBattank" data-indx="<%= index %>" />
+          </td>
+        <% end %>
+      </tr>  
+    <% end %>
+  </tbody>
+</table>
+    

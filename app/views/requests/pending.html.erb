@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-1"></div>
-  <div class="col-md-3 not-print">
+  <div class="col-md-2 not-print">
     <div class="row page-list">
       <div class="page-header">
         पेज की सूची
@@ -22,7 +22,7 @@
       </ol>
     </div>
   </div>
-  <div class="col-md-7" id="request-block">
+  <div class="col-md-8" id="request-block">
     <div class="mb-3">
       <table class="table">
         <thead>
@@ -37,7 +37,10 @@
           <% if @requests.present? %>
             <% @requests.each do | request | %>
               <tr>
-                <td><%= request.title %></td>
+                <td>
+                  <%#= link_to request.title, pending_request_request_path(request) %>
+                  <%= request.title %>
+                </td>
                 <td>
                   <% if request.registry_date.present? %>
                     <%= request.registry_number%>/<%= request.registry_date.strftime("%d-%m-%Y")%>
@@ -60,6 +63,12 @@
                   <%= link_to edit_request_path(request.id), class: "btn btn-primary",
                     'data-bs-toggle': "tooltip", 'data-bs-placement': "top", 'title': "अद्यतन करे" do %>
                     <i class="fa-solid fa-pen-to-square"></i>
+                  <% end %>
+                  <% if request.request_type.name == "बटवारा" %>
+                    <%= link_to khasra_battank_request_khasras_path(request), class: "btn btn-primary",
+                    'data-bs-toggle': "tooltip", 'data-bs-placement': "top", 'title': "अद्यतन करे" do %>
+                      <i class="fa-solid fa-scissors"></i>
+                    <% end %>
                   <% end %>
                   <%= button_to request_path(request), method: :delete, class: "btn btn-danger", form: {class: 'ps-0 pe-0', style: "display:inline-block;"} do %>
                    <i class="fa-solid fa-trash" ></i>

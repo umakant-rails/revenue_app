@@ -10,8 +10,10 @@ class Participant < ApplicationRecord
   scope :buyers, -> () { where("participant_type_id = 1")}
   scope :sellers, -> () { where("participant_type_id = 2")}
 
-  scope :fout_person, ->() { where('parent_id is null and death_date is not null') }
+  scope :land_owner, -> () { where("participant_type_id in (?)", [6,7]) }
+  scope :hissedar, -> (){ where("participant_type_id in (?)", [7,8]) }
 
+  scope :fout_person, ->() { where('parent_id is null and death_date is not null') }
   scope :fout_varsan, ->() { where('is_dead=? and parent_id is not null', true) }
   scope :fout_participants, ->() { where('is_dead=?', true) }
   scope :son, ->() { where("relation_to_deceased='पुत्र'")}

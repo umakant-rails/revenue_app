@@ -1,6 +1,6 @@
 class KhasrasController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_request
+  before_action :set_request 
   before_action :set_khasra, only: %i[ show edit update destroy ]
 
   # GET /khasras or /khasras.json
@@ -59,7 +59,7 @@ class KhasrasController < ApplicationController
       elsif @khasra.sold_rakba.present? && @khasra.unit.blank?
         flash[:error] =  "अगर आपने विक्रय रकबा भरा है तो बिक्रय रकबा की इकाई चुनना आवश्यक है |"
         format.html { render :new, status: :unprocessable_entity }
-      elsif inserted_khasra.blank? && @khasra.sold_rakba.blank?
+      elsif @request.request_type.name != "बटवारा" && inserted_khasra.blank? && @khasra.sold_rakba.blank?
         flash[:error] =  "खसरा में क्रय/विक्रय किया गया रकबा भरना अनिवार्य है |"
         format.html { render :new, status: :unprocessable_entity }
       elsif sold_rakba > total_rakba

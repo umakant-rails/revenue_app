@@ -1,0 +1,114 @@
+<div class="row p-2" data-khbattank-target="newkhasraListBlock">
+  <div class="col-md-4 land-owner">
+    <div class="page-sub-header mb-2">
+      नए हिस्सेदार
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>हिस्सेदार</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% hissedars.each do | hissedar | %>
+          <tr class="participant mb-1">
+            <td>
+              <input type="checkbox" name="khasra" class="form-check-input" data-khbattank-target="hissedar" data-hissedar-id="<%= hissedar.id %>">
+            </td>
+            <td>
+              <%=raw participant_name(hissedar) %> 
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-8">
+    <div class="page-sub-header mb-2">
+      नई खसरा सूची
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Khasra</th>
+          <th>Area</th>
+          <th>गतिविधि</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if new_khasra_battanks.present? %>
+          <% new_khasra_battanks.each do | khbattank | %>
+            <tr>
+              <td>
+                <input type="checkbox" name="khasra" class="form-check-input" 
+                  data-khbattank-target="newBattank" data-id="<%= khbattank.id%>" 
+                  data-rakba="<%= khbattank.rakba %>" data-action="change->khbattank#calculateAllotedRakba" >
+              </td>
+              <td><%= khbattank.new_khasra%></td>
+              <td><%= khbattank.rakba%> हे.</td>
+              <td>
+                <%= button_to(request_khasra_battank_path(khbattank.request_id, khbattank.id), method: :delete, form: {class: 'ps-0 pe-0 d-iblock'}, class: "frm-delete-btn fnt-20") do %>
+                  <i class="fa-regular fa-trash-can"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+          <tr>
+            <td><strong>आवंटित रकबा : </strong></td>
+            <td></td>
+            <td>
+              <strong>
+                <span data-khbattank-target="allotedRakba" class="text-primary">0.0 हे.</span>
+              </strong>
+            </td>
+            <td></td>
+          </tr>
+        <% else %>
+          <tr>
+            <td colspan="4">
+              <center>अभी कोई खसरा बटांक उपलब्ध नहीं है |</center>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% khasra_reminaining_to_battanks = request.khasras.pluck(:id) -  request.khasra_battanks.pluck(:khasra_id).uniq %>
+    <% if khasra_reminaining_to_battanks.blank? %>
+      <input type="button" value="खसरा आवंटित करे" class="btn btn-primary fRight" 
+        data-action="click->khbattank#allotKhasraToNewHissedar" data-request-id="<%= request.id %>" />
+    <% end %>
+  </div>
+</div>
+<div class="row p-2" id="form-block" style="display:none;" data-khbattank-target="newkhasraFormBlock">
+  <div class="offset-md-4 col-md-8 land-owner" >
+    <div class="page-sub-header mb-2">
+      नई खसरा सूची
+    </div>
+    <%= form_with(model: [request, khasra_battank], html: {
+        'data-khbattank-target': 'newBattankForm', 'data-action': 'khbattank#submitForm'})  do |form| %>
+      <% if khasra_battank.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(khasra_battank.errors.count, "error") %> prohibited this khasra_battank from being saved:</h2>
+          <ul>
+            <% khasra_battank.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <input type="hidden" value="<%= form_authenticity_token %>" id="csrf_token" data-khbattank-target='crsfToken' />
+      <div class="mb-3" data-khbattank-target="battankBlock">
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <%= form.submit "Create New Battank", class: "btn btn-primary", 'data-khbattank-target': 'submitBtn' %>
+        </div>
+        <div class="col-md-4">
+          <%= button_tag "Cancel New Battank", type: "button", class: "btn btn-danger", 'data-action': 'khbattank#resetKhasraBattanksHtml' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

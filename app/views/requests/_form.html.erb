@@ -48,17 +48,18 @@
         </div>
         <div class="mb-3 row">
           <div class="col-md-6">
+            <% request_types = @request_types.collect{|r| [r.name, r.id]} %>
             <%= form.label "आवेदन प्रकार", class: "form-label" %>
-            <%= form.select :request_type_id,  options_for_select(@request_types.collect{|r| [r.name, r.id]}), {prompt: "आवेदन प्रकार चुने"}, class: "form-control", 'data-action': 'change->request#checkVillageStatus', 'data-request-target': 'requestType' %>
+            <%= form.select :request_type_id,  options_for_select(request_types, (form.object.request_type.name rescue nil) ), {prompt: "आवेदन प्रकार चुने"}, class: "form-control", 'data-action': 'change->request#updateRequestTitle', 'data-request-target': 'requestType' %>
           </div>
           <div class="col-md-6">
             <%= form.label :year, class: "form-label" %>
-            <%= form.text_field :year, class: "form-control" %>
+            <%= form.text_field :year, class: "form-control", 'data-request-target': 'year', 'data-action': 'focusout->request#updateRequestTitle' %>
           </div>   
         </div>
         <div class="mb-3">
           <%= form.label "आवेदक का नाम", class: "form-label" %>
-          <%= form.text_field :applicant, class: "form-control", 'data-action': 'focusout->request#updateRequestTitle' %>
+          <%= form.text_field :applicant, class: "form-control", 'data-request-target': 'applicant', 'data-action': 'focusout->request#updateRequestTitle' %>
         </div>
 
         <div class="mb-3">
