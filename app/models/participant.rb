@@ -6,7 +6,8 @@ class Participant < ApplicationRecord
   belongs_to :request
   belongs_to :participant_type
   
-  scope :applicant, -> () { find_by_is_applicant(true)}
+  # scope :applicant, -> () { find_by_is_applicant(true)}
+  scope :applicant, -> () { where("is_applicant=?", true)[0]}
   scope :buyers, -> () { where("participant_type_id = 1")}
   scope :sellers, -> () { where("participant_type_id = 2")}
 

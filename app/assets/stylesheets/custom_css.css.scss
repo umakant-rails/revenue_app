@@ -4,6 +4,12 @@
   padding: 2%;
   margin-bottom: 20px;
 }
+.page-landscape {
+  width: 29.7cm;
+  height: 21cm; 
+  padding: 2%;
+  margin-bottom: 20px;
+}
 page[size="A4"] {  
   width: 21cm;
   height: 29.7cm; 
@@ -17,6 +23,14 @@ page[size="A4"] {
   box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
   margin-bottom: 20px;
   overflow-y: auto;
+}
+.page-a4-landscape {  
+  width: 29.7cm;
+  height: 21cm; 
+  padding: 2%;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+  overflow-x: auto;
 }
 
 page[size="A4"][layout="landscape"] {
@@ -116,7 +130,6 @@ page[size="A4"][layout="landscape"] {
   }
 }
 
-
 .first-row{ 
   .table-left-column{
     text-align: center;vertical-align: middle;font-size:16px;
@@ -153,7 +166,7 @@ page[size="A4"][layout="landscape"] {
 }
 
 .order1-desc{
-  min-height: 650px; position: relative;
+  min-height: 620px; position: relative;
 }
 
 .column12{

@@ -1,0 +1,52 @@
+<!-- aavedak application patra -->
+<div class="row pdf alwaysbreak">
+  <div class="col-md-12 ">
+    
+    <div class="row pdf-mrgn-8 <%= @templates[:applicant_application] %>">
+      <div class="row mb-3">
+        <div class="fnt-24 fnt-b fnt-u txt-center">
+          समक्ष न्यायालय श्रीमान तहसीलदार महोदय, <strong><%= request.village.tehsil %></strong>
+        </div>
+      </div>
+      <div class="padding-5">
+        1.&nbsp;<%=raw applicant_name(request) %><br/>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.applicant.address %> </div>
+          <div class="fRight">- - - - - - - - - - - - - - - - - </div><br/>
+          <div class="fRight">आवेदक</div><br/>
+          <div>
+            <center><strong>बनाम</strong></center>
+          </div>
+        2.&nbsp;<strong>म. प्र. शासन</strong>
+      </div>
+      <div class="fnt-20 fnt-b fnt-u mrgn-top-30">
+        आवेदक पत्र वास्ते अंतर्गत धारा 109 -110 म.प्र. भू-राजस्व संहिता 1959
+      </div>
+      <div class="mrgn-top-20 fnt-20">
+        महोदय<br/>
+      </div>
+      <div class="mb-8">
+        <div class="txt-indent-4">
+          निवेदन है की आवेदक के द्वारा <%= raw khasra_description(request) %> भूमि पर आवेदक <%= raw applicant_name(request) %> एवं अन्य सहखातेदार के नाम दर्ज है | आवेदक एवं अन्य सह-खातेदारों ने आपसी सहमति से उक्त भूमि का आपस में बटवारा कर लिया है और खाता पृथक-पृथक कराना चाहतें है, उक्त भूमि का मौका कब्जा अनुसार बटवारा लिया है, उसी के अनुसार काबिज होकर कृषि कार्य कर  रहे है | आपसी सहमति व मौका कब्जा अनुसार बटवारा किया जाये |
+        </div>
+        <div class="txt-indent-4" >
+          अतः श्रीमान से प्रार्थना है की बैनामा अनुसार आवेदक का नाम राजस्व अभिलेख में दर्ज किये जाने का आदेश प्रदान करें |
+        </div>
+        <br/><br/>
+      </div>
+      <div class="fnt-20">
+        <div class="fLeft">
+          <strong>स्थान : </strong><%= request.village.tehsil %>
+          <br/>
+          <strong>दिनांक :</strong> - - - - - - - - 
+        </div>
+        <div class="fRight">
+          - - - - - - - - - - - -<br/>
+          <center><strong>आवेदक</strong></center>
+          <center><%=raw applicant_name(request) %></center>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div></div>

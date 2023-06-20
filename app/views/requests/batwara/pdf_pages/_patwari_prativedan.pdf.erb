@@ -1,0 +1,53 @@
+<!-- halka patwari prativedan -->
+<div class="row pdf alwaysbreak">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="fnt-24 fnt-b fnt-u">
+        <br/><br/>
+        <center>
+          कार्यालय पटवारी हल्का नंबर <%= request.village.halka_number %>, <%= request.village.halka_name %>
+        </center>
+      </div>
+    </div>
+    <div class="row mrgn-top-30 pdf-mrgn-8">
+      <div class="<%= @templates[:patwari_prativedan] %>">
+        <div class="fnt-20">प्रति,<br/></div>
+        <div class="padding-5">
+          श्रीमान तहसीलदार/नायब तहसीलदार महोदय<br/>
+          वृत्त <strong><%= request.village.ri %></strong>, तहसील <strong><%= request.village.tehsil %></strong>
+        </div><br/>
+        <div class="">
+          <strong>विषय &nbsp;:- </strong> सह-खातेदारों के बीच आपसी सहमति से बटवारे के सम्बन्ध में प्रतिवेदन प्रस्तुत करने बाबत |<br/>
+          <strong>सन्दर्भ :-</strong> श्रीमान जी के आदेश दिनांक के परिपालन के सम्बन्ध में |<br/><br/>
+        </div>
+        <div class="">
+          महोदय  जी,<br/>
+        </div>
+        <div class="txt-indent-2">
+          <% applicant = request.participants.applicant %>
+          उपरोक्त विषयान्तर्गत संदर्भित आदेश के परिपालन में लेख है कि <%= raw khasra_description(request) %> भूमि पर वर्तमान अभिलेख में <%= raw participant_names(request, "hissedar") %> के नाम दर्ज है  है <br/> 
+        </div>
+        <div class="txt-indent-2">
+          उक्त भूमि का सह-खातेदार द्वारा आपसी बटवारे का आवेदन न्यायलय में प्रस्तुत है 
+        </div>
+        <div class="txt-indent-2">
+          अतः  प्रकरण में संलग्न प्रस्तावित फर्द जो कि  सहखातेदारों की सहमति से मौका कब्ज़ा अनुसार  तैयार की गई है, अतः संलग्न बटवारा फर्द अनुसार बटवारा करने हेतु  प्रतिवेदन श्रीमान जी की ओर सादर सम्प्रेषित है | 
+          <br/>
+        </div>
+        <div class="txt-indent-0">
+          <strong>संलग्न :</strong><br/>
+          1. प्रस्तावित बटवारा फर्द (पी-१)<br/>
+          2. प्रस्तावित नक्शा बटांक फर्द (पी-२) 
+        </div>
+        <br/><br/>
+        <div>
+          <div class="fRight">
+            <center>- - - - - - - - - - - - - - - - -</center>
+            <center><strong>हस्ताक्षर</strong><center>
+            <center><strong>पटवारी हल्का <%= request.village.halka_name %></strong><center>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>

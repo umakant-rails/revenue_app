@@ -1,0 +1,40 @@
+<!-- order sheet started -->
+<div class="page-a4 only-print" data-request-target="page" data-name="ordersheet-second" style="display: none;">
+  <div class="row">
+    <div class="fnt-22 fnt-b txt-center">
+      राजस्व आदेश अनुवृत्ति पत्र<br/>
+      मामला क्रमांक_ _ _ _ _ _ _ अ/6 <%= request.year %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row mt-2 first-row">
+      <div class="w-15 table-left-column">1</div>
+      <div class="w-70 table-center-column">2</div> 
+      <div class="w-15 table-right-column">3</div>
+    </div>
+    <div class="row pb-2">
+      <div class="w-15 table-left-column"></div>
+      <div class="w-70 table-center-column">
+        <div id="order-details" class="">
+          <% order_str = OrderTemplate.first.template %>
+          <% order_str = order_str.sub('ANAVEDAK_NAMES', participant_names(request, true)) %>
+          <%# order_str = order_str.sub('ANAVEDAK_ADDRESSES', participant_names(request, true)) %>
+          <%# order_str = order_str.sub('KHASRA_DETAIL_STRING', request.village.village) %>
+          <% order_str = order_str.sub('VILLAGE_NAME', request.village.village) %>
+          <% order_str = order_str.sub('HALKA_NUMBER', request.village.halka_number) %>
+          <% order_str = order_str.sub('KHASRA_LIST', khasra) %>
+          <% order_str = order_str.sub('KHASRA_RAKBA_LIST', kh_rakba) %>
+          <% order_str = order_str.sub('KRAYA_RAKBA_LIST', sold_rakba) %>
+          <% order_str = order_str.sub('TOTAL_KRAYA_RAKBA', total_sold_rakba) %>
+          <% order_str = order_str.sub('REGISTERED_DOCS_NUMBER',request.registry_number) %>
+          <% order_str = order_str.sub('REGISTERED_DOCS_DATE', request.registry_date.strftime("%d/%m/%Y")) %>
+          <% order_str = order_str.sub('AAVEDAK_WITH_ADDRESS', applicant_name(request)) %>
+          <% order_str = order_str.gsub('\n', '<br/>') %>
+          <%=raw order_str %>
+        </div>
+      </div> 
+      <div class="w-15 table-right-column"></div>
+    </div>
+  </div>
+</div>
+

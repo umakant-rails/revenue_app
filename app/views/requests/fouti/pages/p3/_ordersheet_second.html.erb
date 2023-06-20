@@ -44,7 +44,7 @@
                 </div>
                 <%= is_shareholder = request.participants.pluck(:is_shareholder).index(true) %>
                 <div class="mb-8 txt-indent-3">  
-                  अतः म.प्र. भू-राजस्व संहिता 1959 की धरा 109-110 के अंतर्गत ग्राम <strong><%= request.village.village %></strong> पटवारी हल्का नंबर <strong><%= request.village.halka_number %></strong> खसरा नंबर <strong><%= khasra %></strong> रकबा <strong><%= kh_rakba %></strong> कुल रकबा <strong><%= total_sold_rakba %></strong> पर मृतक खातेदार 
+                  अतः म.प्र. भू-राजस्व संहिता 1959 की धारा 109-110 के अंतर्गत ग्राम <strong><%= request.village.village %></strong> पटवारी हल्का नंबर <strong><%= request.village.halka_number %></strong> खसरा नंबर <strong><%= khasra %></strong> रकबा <strong><%= kh_rakba %></strong> कुल रकबा <strong><%= total_sold_rakba %></strong> पर मृतक खातेदार 
 
                   <% if request.participants.fout_person.length > 1%>
                     <% request.participants.fout_person.each_with_index do | f_person, indx | %>

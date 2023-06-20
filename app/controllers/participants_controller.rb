@@ -77,7 +77,7 @@ class ParticipantsController < ApplicationController
 
     respond_to do |format|
       if @participant.update(participant_params)
-        update_applicant_request_title if @participant.is_applicant
+        update_applicant_request_title if @applicant.present?
         format.html { redirect_to new_request_participant_url(@request), notice: "Participant was successfully updated." }
         format.json { render :show, status: :ok, location: @participant }
       else

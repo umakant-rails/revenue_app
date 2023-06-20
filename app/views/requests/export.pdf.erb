@@ -23,4 +23,14 @@
     <%= render partial: "requests/fouti/pdf_pages/ishtihar",locals: hs %>
     <%= render partial: "requests/fouti/pdf_pages/panchnama",locals: hs %>
     <%= render partial: "requests/fouti/pdf_pages/patwari_prativedan",locals: hs %>
+  <% elsif @request.request_type.name == "बटवारा" %>
+    <%= render partial: "requests/batwara/pdf_pages/ordersheet_first", locals: hs %>
+    <%= render partial: "requests/batwara/pdf_pages/#{@templates[:order_praroop]}/ordersheet_second",locals: hs %>
+    <%= render partial: "requests/batwara/pdf_pages/applicant_application",locals: hs %>
+    <%#= render partial: "requests/batwara/pdf_pages/applicant_affidavit",locals: hs %>
+    <%= render partial: "requests/batwara/pdf_pages/talwana",locals: hs %>
+    <%#= render partial: "requests/batwara/pdf_pages/ishtihar",locals: hs %>
+    <%#= render partial: "requests/batwara/pdf_pages/panchnama",locals: hs %>
+    <%= render partial: "requests/batwara/pdf_pages/patwari_prativedan",locals: hs %>
+    <%= render partial: "requests/batwara/pdf_pages/batwara_fard",locals: hs %>
   <% end %>

@@ -24,6 +24,10 @@ module ParticipantsHelper
       participant_arr = request.participants.sellers
     elsif type == "dead_person"
       participant_arr = request.participants.fout_person
+    elsif type == "hissedar"
+      participant_arr = request.participants.hissedar
+     elsif type == "land_owner"
+      participant_arr = request.participants.land_owner
     end
 
     participant_arr && participant_arr.each do | participant |

@@ -1,0 +1,77 @@
+<div class="page-a4 only-print" data-request-target="page" data-name="ordersheet-first" style="display: none;">
+  <div class="row">
+    <div class="fnt-18 fnt-b">
+      <center>फार्म "अ"</center>
+    </div>
+    <div class="fnt-22 fnt-b txt-center">
+      (परिपत्र दो-१ के कणिका 6  देखिये)<br />
+      राजस्व आदेश -पत्र (रेव्हेन्यू ऑर्डर शीट )
+    </div>
+    <div class="mt-4 col-md-12 fnt-16">
+      <div>
+        तहसीलदार <strong><%= request.village.tehsil %></strong> के न्यायालय में मामला क्रमांक_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन  <strong><%= request.year %></strong> _ _ _ _ _ _ _ _ _
+      </div>
+      <div>
+        विषय - <strong>आपसी सहमति से बॅटवारा</strong>_ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ प्रकरण की श्रेणी _ _ _ _ _ _ _ _ _ _ _ _ अ/27 वर्ष _ _ _ _ _ _
+      </div>
+
+      <div>
+        ग्राम- <strong><%= request.village.village %></strong> बंदोबस्त क्रमांक _ _ _ _ _ _ _ _ _ _ पटवारी ह क्र <strong><%= request.village.halka_number %></strong> _ _ _ _ _ _ तहसील <strong><%= request.village.tehsil %></strong> _ _ _ _ _ _ _
+      </div>
+
+      <div>
+        कलेक्टर का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ सन <strong><%= request.year %></strong> अनुविभागीय अधिकारी का क्रमांक _ _ _ _ _ _ _  _ _ सन_ _ _ _ _ _ _ _
+      </div>
+
+      <div>
+        तहसीलदार का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ सन _ _ _ _ _ _ _ _ _नायब तहसीलदार का क्रमांक _ _ _ _ _ _ _सन _ _ _ _ _ _ _ _
+      </div>
+    </div>
+  </div>
+  <div class="mt-3">
+    <div class="row first-row">
+      <div class="w-15 table-left-column">
+        आदेश अथवा कार्यवाही की तारीख और स्थान 
+      </div>
+      <div  class="w-65 table-center-column">
+        पीठासीन अधिकारी के हस्ताक्षर सहित आवेदन पत्र अथवा कार्यवाही 
+      </div>
+      <div  class="w-20 table-right-column">
+        जहाँ आवश्यक हो, पर्ची व वकीलों के हस्ताक्षर आदेशों के पालन करवाकर लिपिक के संक्षित हस्ताक्षर  और प्रकरण की तारिख 
+      </div>
+    </div>
+    <div class="row seccond-row">
+      <div class="w-15 table-left-column txt-center">1</div>
+      <div class="w-65 table-center-column txt-center">2</div> 
+      <div class="w-20 table-right-column txt-center">3</div>
+    </div>
+    <div class="row pb-2">
+      <div class="w-15 table-left-column"></div>
+      <div class="w-65 table-center-column">
+        <div class="m-sm-2 fnt-17">
+          <div class="order1-desc paragraph-35">
+            <div class="txt-indent-3">
+              आवेदक/आवेदिका &nbsp;<%=raw applicant_name(request,true) %> द्वारा आवेदन पत्र प्रस्तुत कर लेख किया है | कि <%=raw khasra_description(request) %>
+              भूमि पर आवेदक एवं अन्य खातेदारों के नाम भूमि अभिलेख में दर्ज है | यह है कि आवेदक एवं अन्य खातेदारों ने उक्त भूमि का आपसी सहमति से बटवारा कर लिया है | आपसी सहमति एवं मौका कब्ज़ा अनुसार बटवारा किये बाबत आवेदन पत्र में लेख किया है | 
+            </div>
+            <div class="row">
+              <div>1 . प्रकरण दर्ज हो | </div>
+              <div>2 . हल्का पटवारी से रिपोर्ट ली जाये | </div>
+              <div>3 . इश्तहार  का प्रकाशन हो | </div>
+              <div>4  . अनावेदक आहूत  हो | </div>
+            </div>
+
+ 
+            <div class="fLeft" style="position: absolute;bottom: 0; left:0;">
+              <strong>पेशी</strong>
+            </div> 
+            <div class="fRight"  style="position: absolute;bottom: 0; right:0;">
+              <strong>तहसीलदार/नायब तहसीलदार</strong>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="w-20 table-right-column"></div>
+    </div>
+  </div>
+</div>

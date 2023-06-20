@@ -2,4 +2,6 @@
   <%= render partial: "requests/fouti/fouti_show" %>
 <% elsif @request.request_type.name == "नामांतरण" %>
   <%= render partial: "requests/namantaran/namantaran_show" %>
+<% elsif @request.request_type.name == "बटवारा" %>
+  <%= render partial: "requests/batwara/batwara_show" %>
 <% end %>
