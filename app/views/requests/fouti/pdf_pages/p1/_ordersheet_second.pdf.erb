@@ -40,7 +40,7 @@
                 <div class="mb-8 txt-indent-3"> 
                   हल्का पटवारी से मृतक के वारसानों की जानकारी ली गई, हल्का पटवारी  प्रतिवेदन में वैद्य वारसानों की जानकारी देकर वारसान हक़ से नाम दर्ज दिए जाने बाबत लेख किया है |
                 </div>
-                <%= is_shareholder = request.participants.pluck(:is_shareholder).index(true) %>
+                <% is_shareholder = request.participants.pluck(:is_shareholder).index(true) %>
                 <div class="mb-8 txt-indent-3">  
                   अतः म.प्र. भू-राजस्व संहिता 1959 की धारा 109-110 के अंतर्गत 
 

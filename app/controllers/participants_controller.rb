@@ -73,7 +73,7 @@ class ParticipantsController < ApplicationController
 
   # PATCH/PUT /participants/1 or /participants/1.json
   def update
-    @applicant = @request.participants.applicant
+    @applicant = @request.participants.where("is_applicant=?", true)[0]
 
     respond_to do |format|
       if @participant.update(participant_params)
@@ -111,6 +111,7 @@ class ParticipantsController < ApplicationController
   private
 
     def update_applicant_request_title
+
       if @applicant.present? && @applicant.id.to_s != params[:id]
         @applicant.update(is_applicant: false)
       else

@@ -86,18 +86,18 @@ module RequestsHelper
     villages =   Village.where("id in (?)", request.khasras.pluck(:village_id))
     village_details = ""
 
-    #if villages.length > 1
+    if villages.length > 1
       villages.each_with_index do | village, indx |
         khasras = request.khasras.where(village_id: village.id)
-        suffix = (indx > 0 && indx < villages.length-1) ? ", " :(indx == villages.length-1 ? " एवं " : "")
+        suffix = (indx > 0 && indx < villages.length-1) ? ", " : (indx == villages.length-1 ? " एवं " : "")
 
         village_details = village_details + (suffix.present? ? suffix : "")
         village_details = village_details + khasara_string(request,village, khasras)
       end 
-    # else
-    #   khasras = request.khasras.where(village_id: villages[0].id)
-    #   village_details = village_details + khasara_string(request, villages[0], khasras)
-    # end 
+    else
+      khasras = request.khasras.where(village_id: villages[0].id)
+      village_details = village_details + khasara_string(request, villages[0], khasras)
+    end 
     village_details
   end
 
