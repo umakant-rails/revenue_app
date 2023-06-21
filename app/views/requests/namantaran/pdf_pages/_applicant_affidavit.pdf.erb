@@ -1,8 +1,8 @@
 <!-- aavedak sapath patra -->
-<div class="row pdf alwaysbreak">
+<div class="row alwaysbreak page">
   <div class="col-md-12">
     <div class="row">
-      <div class="fnt-24 fnt-b fnt-u">
+      <div class="fnt-24 fnt-b fnt-u page">
         <br/><br/>
         <center>श्रीमान पब्लिक नोटरी अधिकारी महोदय <strong><%= request.village.tehsil %></strong> मध्यप्रदेश </center>
       </div>
@@ -16,7 +16,7 @@
         <div class="txt-indent-4">
           मैं <%= raw applicant_name(request) %> उम्र <strong>45</strong> वर्ष निवासी <strong><%= request.participants.applicant.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
         </div>
-        <div class="padding-3">
+        <div class="padding-2">
           1.  यह कि <%= raw khasra_description(request) %> बेचवार <strong><%= request.participants.first.name %></strong>  से पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> को खरीद किया है |<br/> 
           2. यह कि हमारी उक्त भूमि का संपूर्ण प्रतिफल विक्रेता को देकर उक्त भूमि पर कब्ज़ा प्राप्त कर लिया गया है उक्त भूमि पर किसी प्रकार का कोई विवाद नहीं है भूमि हमारे रजिस्टर्ड बैनामा से क्रय की गई है अतः बैनामा अनुसार नाम दर्ज कराना है |<br/>
           <div class="txt-indent-4">

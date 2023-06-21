@@ -1,13 +1,13 @@
 <!-- anavedak application patra -->
-<div class="row pdf alwaysbreak">
+<div class="row alwaysbreak page">
   <div class="col-md-12">
-    <div class="row pdf-mrgn-8 <%= @templates[:non_applicant_application] %>">
+    <div class="row pdf-mrgn-4 <%= @templates[:non_applicant_application] %>">
       <div class=" mb-3">
         <div class="fnt-24 fnt-b fnt-u txt-center">
           समक्ष न्यायालय श्रीमान तहसीलदार महोदय, <strong><%= request.village.tehsil %></strong>
         </div>
       </div>
-      <div class="pdf-mrgn-lft-5 mb-3">
+      <div class="padding-5 mb-3">
         1.&nbsp;<%=raw applicant_name(request) %><br/>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.applicant.address %> </div><br/>
           <div class="fRight">- - - - - - - - - - - - - - - - - </div><br/>
@@ -27,11 +27,11 @@
         महोदय<br/>
       </div>
       <div class="mb-8">
-        <div class="txt-indent-4">
+        <div class="txt-indent-3">
           निवेदन है कि अनावेदक के द्वारा <%= raw khasra_description(request) %> आवेदक को विक्रय किया है |<br/><br/>
           3. यह कि मेरे द्वारा उक्त भूमि का सम्पूर्ण प्रतिफल क्रेता से प्राप्त कर भूमि पर कब्ज़ा करता को दे दिया गया है अन्य कोई भूमि की कीमत बकाया नहीं है भूमि पर कब्ज़ा का कोई विवाद आदि नहीं है जो बैनामा अनुसार आवेदक का नाम राजस्व अभिलेख में दर्ज होने से हम सहमत है| <br/>
         </div>
-        <div class="txt-indent-4">
+        <div class="txt-indent-3">
           अतः श्रीमान जी से प्रार्थना है  कि बैनामा अनुसार अभिलेख में आवेदक का नाम राजस्व अभिलेख में दर्ज किये जाने पर हम सहमत है  |
         </div>
         <br/><br/>

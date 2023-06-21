@@ -1,4 +1,4 @@
-.pdf-container{padding: 2% 4%;}
+/*.pdf-container{padding: 2% 0% 2% 2%;}*/
 .pdf{
   div.alwaysbreak { page-break-before: always; page-break-after: always; display:block; clear:both;}
   div.nobreak:before { clear:both; }
@@ -11,15 +11,26 @@
       asset('Helvetica Neue.ttf', font) format('truetype');
   }
 
+  .page-a4 {
+    width: 21cm;
+    height: 29.7cm; 
+  }
+  .page-landscape {
+    width: 29.7cm;
+    height: 21cm; 
+    padding: 2%;
+    margin-bottom: 20px;
+  }
+
   .order1-parent { position: relative; height: 740px; }
   .order1-child { position: relative; top: 0; bottom: 0; left: 0; right: 0; height: 100%; }
-  .order2-parent { position: relative; height: 1150px;}
+  .order2-parent { position: relative; height: 1120px;}
   .order2-child { position: relative; top: 0; bottom: 0; left: 0; right: 0; height: 100%; }
 
-  .applicant-app-parent, .ishtihar-parent { position: relative; min-height: 1287px;  }
+  /*.applicant-app-parent, .ishtihar-parent { position: relative; min-height: 1287px;  }
   .applicant-app-child { position: relative; top: 0; bottom: 0; left: 0; right: 0; height: 100%; }
   .kathan-parent { position: relative; min-height: 1320px; }
-  .applicant-affdvt-parent, .non-applicant-affdvt-parent{ position: relative; min-height: 1345px; }
+  .applicant-affdvt-parent, .non-applicant-affdvt-parent{ position: relative; min-height: 1345px; }*/
 
   .fnt-14 { font-size: 14px !important; }
   .fnt-15 { font-size: 15px !important; }
@@ -82,7 +93,9 @@
   .fLeft {float:left;}
   .fRight{float:right;}
 
-  .pdf-mrgn-8{ margin-left: 8%; margin-right: 8%; }
+  
+  .pdf-mrgn-4{ margin-left: 4%; margin-right:4%; }
+  .pdf-mrgn-8{ margin-left: 8%; margin-right:8%; }
   .pdf-mrgn-10{ margin-left: 10%; margin-right: 10%; }
   .pdf-mrgn-lft-5 { margin-left: 5%; }
 
@@ -171,38 +184,45 @@
   .d-row { display: table-row }
   .d-cell { display: table-cell; }
 
-  .talwana-pdf{
-    .talwana-application-txt{
-      padding-left: 10%;
-      padding-right: 10%;
-      font-size: 20px;
-      text-align: justify;
-      line-height: 35px;
-    }
-    .talwana-statement{
-      padding-left: 8%;
-      padding-right: 8%;
-    }
-    .column12{
-      width: 12%;
-      text-align: center;vertical-align: middle;font-size:20px;
-      border: 1px solid gray;padding: 8px 0px;font-weight: bold;
-    }
-    .column25{
-      width: 25%;
-      text-align: center;vertical-align: middle;font-size:20px;
-      border: 1px solid gray;padding: 8px 0px;font-weight: bold;
-    }
-    .column15{
-      width: 15%;
-      text-align: center;vertical-align: middle;font-size:20px;
-      border: 1px solid gray;padding: 8px 0px;font-weight: bold;
-    }
-    .width25{
-      width: 25%;
-      vertical-align: middle;font-size:20px;
-    }
+  
+  .talwana-application-txt{
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 20px;
+    text-align: justify;
+    line-height: 35px;
   }
+  .talwana-statement{
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  .column12{
+    width: 12%;
+    text-align: center;vertical-align: middle;font-size:20px;
+    border: 1px solid gray;padding: 8px 0px;font-weight: bold;
+  }
+  .column25{
+    width: 25%;
+    text-align: center;vertical-align: middle;font-size:20px;
+    border: 1px solid gray;padding: 8px 0px;font-weight: bold;
+  }
+  .column15{
+    width: 15%;
+    text-align: center;vertical-align: middle;font-size:20px;
+    border: 1px solid gray;padding: 8px 0px;font-weight: bold;
+  }
+  .width24{
+    width: 24%;
+    vertical-align: middle;font-size:20px;
+  }
+  .width25{
+    width: 25%;
+    vertical-align: middle;font-size:20px;
+  }
+  
+}
+.i-block{
+  display :inline-block;
 }
 
 .txt-primary{

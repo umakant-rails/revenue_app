@@ -1,8 +1,7 @@
 <!-- aavedak application patra -->
-<div class="row pdf alwaysbreak">
+<div class="row alwaysbreak page">
   <div class="col-md-12 ">
-    
-    <div class="row pdf-mrgn-8 <%= @templates[:applicant_application] %>">
+    <div class="row pdf-mrgn-4 <%= @templates[:applicant_application] %>">
       <div class="row mb-3">
         <div class="fnt-24 fnt-b fnt-u txt-center">
           समक्ष न्यायालय श्रीमान तहसीलदार महोदय, <strong><%= request.village.tehsil %></strong>
@@ -28,12 +27,12 @@
         महोदय<br/>
       </div>
       <div class="mb-8">
-        <div class="txt-indent-4">
+        <div class="txt-indent-3">
           निवेदन है की आवेदक के द्वारा <%= raw khasra_description(request) %> पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> को अनावेदकों से क्रय किया है |<br/><br/>
           3. यह कि मेरे द्वारा उक्त भूमि का संपूर्ण प्रतिफल विक्रेता को देखकर भूमि  पर कब्ज़ा प्राप्त कर लिया गया है अन्य कोई भूमि की कीमत बकाया नहीं है भूमि कही रहन/बंधक आदि नहीं है भूमि पर कब्ज़ा का कोई विवाद नहीं है आवेदक को बैनामा अनुसार राजस्व अभिलेख में नाम दर्ज कराना हैा <br/><br/>
           4. यह कि भूमि हमारे पंजीकृत बैनामा से खरीद की गई है भूमि पर रहन व्यय आदि नहीं है विक्रेता द्वारा भूमि स्वामी हक़ की भूमि विक्रय की गई है भूमि पट्टा आदि की नहीं है अनुसूचित जनजाति समुदाय की नहीं है जो बैनामा के अनुसार आवेदक को अभिलेख में नाम दर्ज कराना है | <br/>
         </div>
-        <div class="txt-indent-4" >
+        <div class="txt-indent-3" >
           अतः श्रीमान से प्रार्थना है की बैनामा अनुसार आवेदक का नाम राजस्व अभिलेख में दर्ज किये जाने का आदेश प्रदान करें |
         </div>
         <br/><br/>
