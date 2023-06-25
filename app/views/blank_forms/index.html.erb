@@ -7,6 +7,10 @@
   </div>
   <div class="col-md-7" id="blank-form-block">
     <%= render partial: "blank_forms/forms/income_certificate_form" %>
+    <%#= render partial: "blank_forms/forms/domicile_certificate_form" %>
   </div>
   <div class="col-md-1"></div>
 </div>
+<% content_for :head do %>
+  <%= javascript_import_module_tag "custom/translate-custom" %>
+<% end %>
