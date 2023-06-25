@@ -1,0 +1,2 @@
+module BlankFormsHelper
+end

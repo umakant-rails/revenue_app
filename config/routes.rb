@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   root 'welcome#index'
   
   devise_for :users, controllers: {
@@ -39,5 +39,14 @@ Rails.application.routes.draw do
   end
 
   resources :order_templates
+
+  resources :blank_forms, only: :index do 
+    # namespace: 'revenue' do
+    #   get '/' => 'blank_forms#index', as: :revenue, on: :collection
+    # end
+    get '/departments' => "blank_forms#get_departments", as: :get_department, on: :collection
+    get '/:department/' => 'blank_forms#index', as: :index,  on: :collection
+    get '/:department/:id' => 'blank_forms#show', as: :show, on: :collection
+  end
 
 end

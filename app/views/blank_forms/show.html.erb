@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @blank_form %>
+
+<div>
+  <%= link_to "Edit this blank form", edit_blank_form_path(@blank_form) %> |
+  <%= link_to "Back to blank forms", blank_forms_path %>
+
+  <%= button_to "Destroy this blank form", @blank_form, method: :delete %>
+</div>

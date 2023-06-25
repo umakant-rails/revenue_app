@@ -1,0 +1,55 @@
+<div class="page-a4 only-print" data-namantaran-target="page" data-name="namantaran">
+  <div class="namantaran_detail">
+    <div class="card-body">
+      <div class="page-header">
+        नामांतरण की जानकारी
+      </div>
+      <div class="dropdown-divider"></div>
+      <div class="m-sm-4" data-controller='namantaran'>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="label-hdr">क्रेता का नाम </div>
+            <div class="form-label"><%= buyer_name(@namantaran)%></div>
+          </div>
+          <div class="col-md-6">
+            <div class="label-hdr">विक्रेता का नाम </div>
+            <div class="form-label"><%= @namantaran.seller %></div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="label-hdr">क्रेता का पता </div>
+            <div class="form-label"><%= @namantaran.buyer_address %></div>
+          </div>
+          <div class="col-md-6">
+            <div class="label-hdr">विक्रेता का पता </div>
+            <div class="form-label"><%= @namantaran.seller_address %></div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="label-hdr">रजिस्ट्री का क्रमांक</div>
+            <div class="form-label"><%= @namantaran.registry_number %></div>
+          </div>
+          <div class="col-md-6">
+            <div class="label-hdr">रजिस्ट्री की दिनांक </div>
+            <div class="form-label"><%= @namantaran.registry_date %></div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="label-hdr">रजिस्ट्री के खसरे</div>
+            <div class="form-label"><%= @namantaran.khasra %></div>
+          </div>
+          <div class="col-md-6">
+            <div class="label-hdr">रजिस्ट्री का क्रय रकबा </div>
+            <div class="form-label"><%= "#{@namantaran.sold_rakba} #{@namantaran.unit}" %></div>
+          </div>
+        </div>
+        <br/>
+        <div class="dropdown-divider"></div>
+        <%= link_to "Back to namantarans", namantarans_path %>
+      </div>
+    </div>
+  </div>
+</div>

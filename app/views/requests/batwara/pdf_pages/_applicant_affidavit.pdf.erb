@@ -14,7 +14,7 @@
     <div class="row padding-5">
       <div class="<%= @templates[:applicant_affidavit] %>">
         <div class="txt-indent-4">
-          मैं <%= raw applicant_name(request) %> उम्र <strong>45</strong> वर्ष निवासी <strong><%= request.participants.applicant.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
+          मैं <%= raw applicant_name(request) %> उम्र <strong> _ _ _ _</strong> वर्ष निवासी <strong><%= request.participants.applicant.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
         </div>
         <div class="padding-3">
           1.  यह कि <%= raw khasra_description(request) %> बेचवार <strong><%= request.participants.first.name %></strong>  से पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> को खरीद किया है |<br/> 

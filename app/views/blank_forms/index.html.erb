@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-3">
+    <%= select_tag "form_name", options_from_collection_for_select(@blank_forms, "id", "hindi_name"), 
+      class: "form-control", prompt: "Select Form" %>
+    <input type="button" value="print" class="form-control btn btn-primary mt-2" />
+  </div>
+  <div class="col-md-7" id="blank-form-block">
+    <%= render partial: "blank_forms/forms/income_certificate_form" %>
+  </div>
+  <div class="col-md-1"></div>
+</div>
