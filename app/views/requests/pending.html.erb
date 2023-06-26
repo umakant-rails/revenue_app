@@ -65,7 +65,7 @@
                     <i class="fa-solid fa-pen-to-square"></i>
                   <% end %>
                   <% if request.request_type.name == "बटवारा" %>
-                    <%= link_to khasra_battank_request_khasras_path(request), class: "btn btn-primary",
+                    <%= link_to new_request_khasra_battank_path(request), class: "btn btn-primary",
                     'data-bs-toggle': "tooltip", 'data-bs-placement': "top", 'title': "अद्यतन करे" do %>
                       <i class="fa-solid fa-scissors"></i>
                     <% end %>

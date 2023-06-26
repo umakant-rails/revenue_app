@@ -7,7 +7,8 @@ export default class extends ApplicationController {
   static targets = ['inputField', 'textField', 'textHolder'];
 
   connect() {
-    this.params = {}
+    this.params = {};
+    this.prevElement='';
   }
 
   addRemoveElement(element, actionType){
@@ -27,6 +28,7 @@ export default class extends ApplicationController {
       return ;
     }
     
+    this.prevElement = element;
     if(element.dataset.isRead == undefined){
       element.dataset.blankText = element.textContent;
       element.dataset.isRead = true;
@@ -49,12 +51,14 @@ export default class extends ApplicationController {
   }
 
   createInput(event){
-    if(this.hasInputFieldTarget 
-      && this.inputFieldTarget.parentNode != event.target 
-      && event.target.dataset.blnkFrmTarget == 'textHolder'
+    var parentNodeElement = this.textFieldTarget.parentNode;
+
+    if(event.target.dataset.blnkFrmTarget == parentNodeElement.dataset.blnkFrmTarget &&
+      this.textFieldTarget.parentNode != event.target
     ){
-      var vl = this.inputFieldTarget.value
-      this.inputFieldTarget.innerHTML = (vl == '') ? this.inputFieldTarget.parentNode.dataset.blankText: vl;
+      var vl = this.textFieldTarget.value;
+      this.addRemoveElement(null, 'restore');
+      parentNodeElement.innerHTML = (vl == '') ? parentNodeElement.dataset.blankText : vl;
     }
 
     if(event.target.dataset.blnkFrmTarget == 'textHolder'){
@@ -68,17 +72,16 @@ export default class extends ApplicationController {
 
     if(event.keyCode == 13){
       this.textFieldTarget.value = '';
-      this.addRemoveElement(null, 'restore')
+      this.addRemoveElement(null, 'restore');
       parentNodeElement.innerHTML = (vl!='') ? vl : parentNodeElement.dataset.blankText;
     }
   }
 
   // showAsItis(event){
-  //   if(event.target.value == ''){
-  //     this.prevElement.innerHTML = this.prevElement.dataset.blankText;
-  //   } else {
-  //     this.prevElement.innerHTML = this.prevElement.value;
-  //   }
+  //   var vl = this.prevElement.children[0].value;
+  //   this.textFieldTarget.value = '';
+  //   this.addRemoveElement(null, 'restore')
+  //   this.prevElement.innerHTML = (vl == '') ? this.prevElement.dataset.blankText : vl;
   // }
 
   nextInput(event){
