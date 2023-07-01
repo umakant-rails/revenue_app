@@ -87,11 +87,17 @@ class KhasraBattanksController < ApplicationController
 
   def add_participants
     khasra_battank_ids = params[:khasra_battank][:khasra_ids]
-    participant_ids = params[:khasra_battank][:hissedar_ids].join(",")
-    @khasra_battanks = KhasraBattank.where("id in (?)", khasra_battank_ids)
+    participant_ids = params[:khasra_battank][:hissedar_ids].sort.join(",")
+    @khasra_battanks = @request.khasra_battanks.where("id in (?)", khasra_battank_ids)
+    group_id = Time.now.to_i 
+
+    existing_group_for_user = @request.khasra_battanks.where(participant_ids: participant_ids)
+    if existing_group_for_user.present?
+      group_id = existing_group_for_user.last.group_id
+    end
 
     respond_to do |format|
-      if @khasra_battanks.update_all(group_id: Time.now.to_i, participant_ids: participant_ids)
+      if @khasra_battanks.update_all(group_id: group_id, participant_ids: participant_ids)
         set_required_data
         format.html { redirect_to new_request_khasra_battank_path(@request), notice: "Khasra battank was successfully destroyed." }
         format.js
@@ -106,7 +112,8 @@ class KhasraBattanksController < ApplicationController
     khasra_battank = @request.khasra_battanks.where(id: params[:id]).first rescue nil
     
     respond_to do |format|
-      if KhasraBattank.where("group_id =?",khasra_battank.group_id).update(group_id: nil, participant_ids: nil)
+      #if KhasraBattank.where("group_id =?",khasra_battank.group_id).update(group_id: nil, participant_ids: nil)
+      if khasra_battank.update(group_id: nil, participant_ids: nil)
         set_required_data
 
         format.html { redirect_to new_request_khasra_battank_path(@request), notice: "Khasra battank was successfully destroyed." }

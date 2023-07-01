@@ -8,6 +8,7 @@
     <thead>
       <tr>
         <th>हिस्सेदार</th>
+        <th>ग्राम</th>
         <th>Khasra</th>
         <th>Area</th>
         <th></th>
@@ -29,6 +30,9 @@
                   <%= index1+1 %>. <%=raw hissedar_names.join("<br/>") %>
                 </td>
               <% end %>
+              <td>
+                <%= khbattank.khasra.village.village %>
+              </td>
               <td>
                 <%= khbattank.new_khasra %>
               </td>

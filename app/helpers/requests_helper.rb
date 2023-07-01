@@ -82,8 +82,9 @@ module RequestsHelper
     tmp_string
   end
 
-  def khasra_description(request)
-    villages =   Village.where("id in (?)", request.khasras.pluck(:village_id))
+  def khasra_description(request, village=nil)
+
+    villages =  village.blank? ? Village.where("id in (?)", request.khasras.pluck(:village_id)) : [village]
     village_details = ""
 
     if villages.length > 1

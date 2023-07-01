@@ -12,7 +12,8 @@ class Participant < ApplicationRecord
   scope :sellers, -> () { where("participant_type_id = 2")}
 
   scope :land_owner, -> () { where("participant_type_id in (?)", [6,7]) }
-  scope :hissedar, -> (){ where("participant_type_id in (?)", [7,8]) }
+  scope :hissedar, -> () { where("participant_type_id in (?)", [7,8]) }
+  scope :batwara_daughters, -> () { where("relation =? and depth != 0", "पुत्री")}
 
   scope :fout_person, ->() { where('parent_id is null and death_date is not null') }
   scope :fout_varsan, ->() { where('is_dead=? and parent_id is not null', true) }

@@ -1,0 +1,57 @@
+<!-- aavedak sapath patra -->
+
+  <div class="row pdf alwaysbreak">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="fnt-28 fnt-b fnt-u">
+          <center>श्रीमान नोटरी अधिकारी महोदय <strong><%= request.village.tehsil %></strong> मध्यप्रदेश </center>
+        </div>
+        <div class="fnt-24 fnt-b mrgn-top-20">
+          <center>//शपथ पत्र//</center>
+        </div>
+      </div>
+      <br/><br/>
+      <div class="row padding-5">
+        <div class="<%= @templates[:applicant_affidavit] %>">
+          <div class="txt-indent-">
+            मैं <%= raw participant_name(applicant, false) %> उम्र <strong> _ _ _ _</strong> वर्ष निवासी <strong><%= request.participants.applicant.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
+          </div>
+          <div class="padding-5">
+            1. यह कि आवेदक, बटवारा हेतु आवेदित भूमि पर सह-खातेदार के रूप में भू-अभिलेख रिकॉर्ड में दर्ज है एवं मौजा <strong><%= request.village.village %></strong> पटवारी हल्का नंबर <strong><%= request.village.halka_number %></strong> में बटवारा हेतु आवेदित भूमि अवस्थित है | <br/>
+            2. यह कि <%= raw khasra_description(request) %> पर आवेदक <%=raw participant_name(applicant, false) %> का नाम सह-खातेदार के रूप में भू-अभिलेख में दर्ज है |<br/>
+            3. यह कि आवेदक <%=raw participant_name(applicant, false) %> एवं अन्य सह-खातेदारों ने आपसी सहमति से उक्त भूमि का आपस में बटवारा कर लिया है, पूर्व में आपसी सहमति एवं मौखिक विभाजन कर तद-अनुसार कब्ज़ा स्वीकृत है एवं उसी अनुसार हम सभी खेती कर मौके पर काबिज है | इस पर हम सभी आवेदक सहमत है| <br/>
+            4. यह कि आपसी सहमति के अनुरूप हुए विभाजन एवं तद  अनुसार कब्जे की स्वीकृति अनुसार राजस्व अभिलेख अद्यतन कर बटवारा दर्ज कराना है |<br/>
+            5. यह कि हम आवेदकगणों के मध्य पारिवारिक व्यवस्था के अनुरूप हुए बटवारे का विवरण इस प्रकार है :-<br/>          
+          </div>
+            <%= render partial: "requests/batwara/pdf_pages/batwara_fard_tbl", locals: {request: request} %>
+          <div class="padding-5">
+            <div class="txt-indent-4">
+              यह कि उक्त प्रस्तावित बटवारा फर्द अनुसार नए हिस्सेदारों के नाम दर्ज होने हेतु सहमति में सपथ पत्र प्रस्तुत है |
+            </div>
+          </div>
+          <br/>
+          <div class="">
+            <div class="fRight">
+              <center>- - - - - - - - - - - -</center>
+              <center><strong>हस्ताक्षर शपथकर्ता</strong><center>
+            </div>
+          </div>
+          <br/><br/><br/>
+          <div class="txt-indent-4">
+            मैं <strong><%=raw applicant_name(request) %></strong> द्वारा प्रस्तुत शपथ पत्र विवरण सही है 
+          </div>
+          <br/>
+          <div>
+            <div class="fLeft">
+              <center>&nbsp;</center>
+              <strong>दिनांक </strong> - - - - - - - - 
+            </div>
+            <div class="fRight">
+              - - - - - - - - - - - -<br/>
+              <center><strong>हस्ताक्षर शपथकर्ता</strong><center>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

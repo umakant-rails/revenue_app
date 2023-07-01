@@ -7,7 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 RequestType.create(name: "नामांतरण") if RequestType.where(name: "नामांतरण").blank?
-RequestType.create(name: "बटवारा") if RequestType.where(name: "बटवारा").blank?
+RequestType.create(name: "बटवारा (पिता-पुत्र)") if RequestType.where(name: "बटवारा (पिता-पुत्र)").blank?
+RequestType.create(name: "बटवारा (आपसी सहमति)") if RequestType.where(name: "बटवारा (आपसी सहमति)").blank?
 RequestType.create(name: "फौती") if RequestType.where(name: "फौती").blank?
 
 # ParticipantType.create(name: "आवेदक") if ParticipantType.where(name: "आवेदक").blank?

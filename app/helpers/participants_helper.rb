@@ -28,6 +28,8 @@ module ParticipantsHelper
       participant_arr = request.participants.hissedar
      elsif type == "land_owner"
       participant_arr = request.participants.land_owner
+    elsif type == "batwara_daughters"
+      participant_arr = request.participants.batwara_daughters
     end
 
     participant_arr && participant_arr.each do | participant |
