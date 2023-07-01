@@ -74,15 +74,15 @@
       <%# if @request.payment_transaction.blank? %>
         <%#= render partial: "requests/payment_not_done",locals: hs %>
       <%# end %>
-      <%= render partial: "requests/batwara/pages/ordersheet_first", locals: hs %>
-      <%= render partial: "requests/batwara/pages/ordersheet_second",locals: hs %>
+      <%= render partial: "requests/batwara/pages/pita_putra/ordersheet_first", locals: hs %>
+      <%= render partial: "requests/batwara/pages/pita_putra/ordersheet_second",locals: hs %>
       <%#= render partial: "requests/batwara/pages/ordersheet_second_extra",locals: hs %>
-      <%= render partial: "requests/batwara/pages/applicant_application",locals: hs %>
-      <%= render partial: "requests/batwara/pages/ishtihar",locals: hs %>
+      <%= render partial: "requests/batwara/pages/pita_putra/applicant_application",locals: hs %>
+      <%= render partial: "requests/batwara/pages/pita_putra/ishtihar",locals: hs %>
       <%#= render partial: "requests/batwara/pages/talwana",locals: hs %>
       <%#= render partial: "requests/batwara/pages/applicant_affidavit",locals: hs %>
-      <%= render partial: "requests/batwara/pages/patwari_prativedan",locals: hs %> 
-      <%= render partial: "requests/batwara/pages/batwara_fard",locals: { request: @request } %>
+      <%= render partial: "requests/batwara/pages/pita_putra/patwari_prativedan",locals: hs %> 
+      <%= render partial: "requests/batwara/pages/pita_putra/batwara_fard",locals: { request: @request } %>
     </div>
     <div class="divider-bdr"></div>
     <%= link_to "आवेदन सूची", requests_path %>

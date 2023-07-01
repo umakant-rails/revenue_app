@@ -1,0 +1,92 @@
+<div class="row pt-4" data-controller="request">
+  <div class="col-md-1"></div>
+  <div class="col-md-2 not-print">
+    <div class="row page-list">
+      <div class="page-header">
+        पेज की सूची
+      </div>
+      <ol class="list-group mb-4 pe-0 page-list" data-request-target="paymentstatus" 
+            data-vl="<%= !@request.payment_transaction.present? ? 'true' : 'false' %>">
+        <li class="list-group-item active" data-action="click->request#showPage" data-pagename="request-page">
+          आवेदन विवरण
+        </li>
+        <li class="list-group-item" data-action="click->request#showPage" data-pagename="ordersheet-first">
+          ऑर्डरशीट-प्रथम
+        </li>
+        <li class="list-group-item" data-action="click->request#showPage" data-pagename="ordersheet-second">
+          ऑर्डरशीट-द्वितीय
+        </li>
+        <li class="list-group-item" data-action="click->request#showPage" data-pagename="applicant-application">
+          आवेदक का सहमति पत्र
+        </li>
+        <li class="list-group-item" data-action="click->request#showPage" data-pagename="ishtihar">
+          इश्तहार
+        </li>
+        <li class="list-group-item" data-action="click->request#showPage" data-pagename="talwana">
+          तलवाना
+        </li>
+        <li class="list-group-item" data-action="click->request#showPage" data-pagename="applicant-affidavit">
+          आवेदक का शपथ पत्र
+        </li>
+        <li class="list-group-item" data-action="click->request#showPage" data-pagename="patwari-prativedan">
+          हल्का पटवारी प्रतिवेदन
+        </li>
+        <li class="list-group-item" data-action="click->request#showPage" data-pagename="batwara-fard">
+          बटवारा फर्द
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="col-md-8 ms-2">
+    <div class="page-header mb-3">
+      आवेदन विवरण
+      <% if !@request.payment_transaction.present? %>
+        <%=link_to "javascript:void(0);", class: "fRight setting-icon anchor-no-decoration", 'data-bs-toggle': "modal", href: "#settingDialog" do %>
+          <i class="fa-solid fa-gear"></i>
+        <% end %>
+        <%=link_to export_pdf_request_path(@request, format: :pdf), class: "fRight file-download anchor-no-decoration me-2" do %>
+          <i class="fa-solid fa-file-export"></i>
+        <% end %>
+      <% else %>
+        <%=link_to "javascript:void(0);", class: "fRight setting-disble-icon anchor-no-decoration", 'data-bs-toggle': "modal", href: "#settingDialog" do %>
+          <i class="fa-solid fa-gear"></i>
+        <% end %>
+        <%=link_to "javascript:void(0);", class: "fRight file-download-disble anchor-no-decoration me-2" do %>
+          <i class="fa-solid fa-file-export"></i>
+        <% end %>
+      <% end %>
+
+      <span class="fRight payment-icon me-2" data-controller="payment" 
+        data-payment-target="paymentBtn" data-action="click->payment#openPaymentWindow" 
+         data-vl="<%= @request.id %>">
+        <i class="fa-solid fa-indian-rupee-sign"></i>
+      </span>
+      <span class="fRight printer-icon me-2" data-action="click->application#printPage">
+        <i class="fa-solid fa-print"></i>
+      </span>
+    </div>
+
+    <div id="page-block">
+      <%= render "request_detail", request: @request, action_display: true %>
+      <% 
+        hs = get_khasra_detail(@request) rescue nil
+      %>
+      <%# if @request.payment_transaction.blank? %>
+        <%#= render partial: "requests/payment_not_done",locals: hs %>
+      <%# end %>
+      <%= render partial: "requests/batwara/pages/sah-khatedar/ordersheet_first", locals: hs %>
+      <%= render partial: "requests/batwara/pages/sah-khatedar/ordersheet_second",locals: hs %>
+      <%#= render partial: "requests/batwara/pages/ordersheet_second_extra",locals: hs %>
+      <%= render partial: "requests/batwara/pages/sah-khatedar/applicant_application",locals: hs %>
+      <%= render partial: "requests/batwara/pages/sah-khatedar/ishtihar",locals: hs %>
+      <%#= render partial: "requests/batwara/pages/talwana",locals: hs %>
+      <%#= render partial: "requests/batwara/pages/applicant_affidavit",locals: hs %>
+      <%= render partial: "requests/batwara/pages/sah-khatedar/patwari_prativedan",locals: hs %> 
+      <%= render partial: "requests/batwara/pages/sah-khatedar/batwara_fard",locals: { request: @request } %>
+    </div>
+    <div class="divider-bdr"></div>
+    <%= link_to "आवेदन सूची", requests_path %>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+<%= render partial: "requests/batwara/batwara_setting" %>

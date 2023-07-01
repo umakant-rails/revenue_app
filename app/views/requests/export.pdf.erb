@@ -23,17 +23,25 @@
     <%= render partial: "requests/fouti/pdf_pages/ishtihar",locals: hs %>
     <%= render partial: "requests/fouti/pdf_pages/panchnama",locals: hs %>
     <%= render partial: "requests/fouti/pdf_pages/patwari_prativedan",locals: hs %>
-  <% elsif @request.request_type.name.index("बटवारा") %>
-    <% applicant_affidavit = (@request.request_type.name != "बटवारा (पिता-पुत्र)") ? "applicant_affidavit_first" : "applicant_affidavit_second"%>
-    <%= render partial: "requests/batwara/pdf_pages/ordersheet_first", locals: hs %>
-    <%= render partial: "requests/batwara/pdf_pages/#{@templates[:order_praroop]}/ordersheet_second",locals: hs %>
-    <%= render partial: "requests/batwara/pdf_pages/applicant_application",locals: hs %>
-    <%= render partial: "requests/batwara/pdf_pages/talwana",locals: hs %>
+  <% elsif @request.request_type.name == "बटवारा (पिता-पुत्र)" %>
+    <%= render partial: "requests/batwara/pdf_pages/pita_putra/ordersheet_first", locals: hs %>
+    <%= render partial: "requests/batwara/pdf_pages/pita_putra/#{@templates[:order_praroop]}/ordersheet_second",locals: hs %>
+    <%= render partial: "requests/batwara/pdf_pages/pita_putra/applicant_application",locals: hs %>
+    <%= render partial: "requests/batwara/pdf_pages/pita_putra/talwana",locals: hs %>
+
+    <%= render partial: "requests/batwara/pdf_pages/pita_putra/applicant_affidavit",locals: {request: @request} %>
+    <%= render partial: "requests/batwara/pdf_pages/pita_putra/patwari_prativedan",locals: hs %>
+    <%= render partial: "requests/batwara/pdf_pages/pita_putra/batwara_fard",locals: hs %>
+  <% elsif @request.request_type.name == "बटवारा (आपसी सहमति)" %>
+    <%= render partial: "requests/batwara/pdf_pages/sah-khatedar/ordersheet_first", locals: hs %>
+    <%= render partial: "requests/batwara/pdf_pages/sah-khatedar/#{@templates[:order_praroop]}/ordersheet_second",locals: hs %>
+    <%= render partial: "requests/batwara/pdf_pages/sah-khatedar/applicant_application",locals: hs %>
+    <%= render partial: "requests/batwara/pdf_pages/sah-khatedar/talwana",locals: hs %>
 
     <% hissedars = @request.participants.hissedar %>
     <% hissedars && hissedars.each do | hissedar | %>
-      <%= render partial: "requests/batwara/pdf_pages/#{applicant_affidavit}",locals: {request: @request, applicant: hissedar} %>
+      <%= render partial: "requests/batwara/pdf_pages/sah-khatedar/#{applicant_affidavit}",locals: {request: @request, applicant: hissedar} %>
     <% end %>
-    <%= render partial: "requests/batwara/pdf_pages/patwari_prativedan",locals: hs %>
-    <%= render partial: "requests/batwara/pdf_pages/batwara_fard",locals: hs %>
+    <%= render partial: "requests/batwara/pdf_pages/sah-khatedar/patwari_prativedan",locals: hs %>
+    <%= render partial: "requests/batwara/pdf_pages/sah-khatedar/batwara_fard",locals: hs %>
   <% end %>

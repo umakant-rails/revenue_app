@@ -1,0 +1,113 @@
+<% villages = request.khasras.pluck(:village_id).uniq %>
+<% villages && villages.each_with_index do | village_id, index | %>
+  <% village = Village.where(id: village_id).first %>
+
+  <% group_ids = request.khasra_battanks.pluck(:group_id).uniq - [nil] %>
+  <div class="row pdf alwaysbreak">
+    <div class="col-md-12">
+      <div class="page-sub-header mb-2">
+        <center>
+          <div class="fnt-22 fnt-b">
+          कार्यालय पटवारी हल्का नंबर <%= village.halka_number %>, <%= village.halka_name %>
+          <div>
+          <div class="fnt-18">(प्रस्तावित बटवारा फर्द)</div>
+        </center>
+      </div>
+      <div class="mb-3 paragraph-35">
+        <table class="table table-custom">
+        <thead>
+          <tr>
+            <th colspan="3"><center>वर्तमान अभिलेख</center></th>
+            <th colspan="4"><center>प्रस्तावित बटवारा फर्द</center></th>
+          </tr>
+          <tr>
+            <th style="width: 18%;">मूल खातेदार</th>
+            <th style="width: 12%;">खसरा</th>
+            <th style="width: 11%;">रकबा</th>
+            <th style="width: 21%;">प्रस्तावित हिस्सेदार</th>
+            <th style="width: 13%;">खसरा</th>
+            <th style="width: 11%;">रकबा</th>
+            <th style="width: 14%;">हस्ताक्षर</th>
+          </tr>
+          </thead>
+          <tbody>
+            <% khasras = request.khasras.where("village_id=?", village_id) %>
+            <% kh_battanks = request.khasra_battanks.where("khasra_id in (?)", khasras.pluck(:id)) %> 
+            <% account_rakba, indx = 0, 0 %>
+            
+            <% group_ids.each_with_index do | group_id, index1 | %>
+              <% khasra_battanks = request.khasra_battanks.where("group_id=? and khasra_id in (?)", group_id, khasras.pluck(:id)) %>
+              <% hissedars = @request.participants.where("id in (?)", khasra_battanks[0].participant_ids.split(",")) %>
+              <% hissedar_names = hissedars.collect{ |h| participant_name(h) } %>
+              <% sub_acc_rakba = 0 %>
+
+              <% khasra_battanks &&  khasra_battanks.each_with_index do | khbattank, index2 | %>
+                <tr>
+                  <% tbl_str, tmp_rakba = batwara_fard_land_owner_tbl(request, khasras, kh_battanks, group_ids, indx) %>
+                  <%= raw tbl_str %>
+                  <% account_rakba = account_rakba + tmp_rakba %>
+                  
+                  <% indx = indx + 1 %>
+                  <% if index2 == 0%>
+                    <td rowspan="<%= khasra_battanks.length %>">
+                      <%= index1+1 %>. <%=raw hissedar_names.join("<br/>") %>
+                    </td>
+                  <% end %>
+                  <td>
+                    <%= khbattank.new_khasra %>
+                  </td>
+                  <td>
+                    <%= '%.4f' % khbattank.rakba %>
+                  </td>
+                  <% if index2 == 0%>
+                    <td rowspan="<%= khasra_battanks.length %>"></td>
+                  <% end %>
+                </tr>
+                <% sub_acc_rakba = sub_acc_rakba + khbattank.rakba.to_f*10000 %>
+              <% end %>
+              <tr>
+                <% tbl_str, tmp_rakba = batwara_fard_land_owner_tbl(request, khasras, kh_battanks, group_ids, indx) %>
+                <%= raw tbl_str %>
+                <% account_rakba = account_rakba + tmp_rakba %>
+
+                <% indx = indx + 1%>
+                <td></td>
+                <td class="txt-primary"><strong>खाते का रकबा</strong></td>
+                <td>
+                  <strong>
+                    <span class="txt-primary"><%='%.4f' % (sub_acc_rakba/10000) %> हे.</span>
+                  </strong>
+                </td>
+                <td></td>
+              </tr>
+            <% end %>
+            <tr>
+              <td></td>
+              <td class="txt-primary"><strong>कुल रकबा</strong></td>
+              <td>
+                <strong>
+                  <span class="txt-primary"><%='%.4f' % (account_rakba/10000) %> हे.</span>
+                </strong>
+              </td>
+              <td></td>
+              <td class="txt-primary"><strong>कुल रकबा</strong></td>
+              <td>
+                <strong>
+                  <span class="txt-primary"><%='%.4f' % (account_rakba/10000) %> हे.</span>
+                </strong>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="fRight">
+          <div class="fnt-b">
+            <center>_ _ _ _ _  _ _ _ _ _ _ </center>
+            <center>पटवारी, हल्का नंबर <%= request.village.halka_number %></center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
