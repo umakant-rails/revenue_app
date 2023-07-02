@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-1"></div>
-  <div class="col-md-3 not-print">
+  <div class="col-md-2 not-print">
     <div class="row page-list">
       <div class="page-header mt-4">
         पेज की सूची
@@ -24,7 +24,7 @@
       </ol>
     </div>
   </div>
-  <div class="col-md-7" id="request-block">
+  <div class="col-md-8" id="request-block">
 
     <ul id="progressbar">
       <li class="active" id="applicant"><strong>आवेदक</strong></li>
@@ -38,6 +38,8 @@
     <div id="request-form">
       <% if @request.request_type.name == "फौती" %>
         <%= render "fouti_form", request: @request, participant: @participant, participant_types: @participant_types %>
+      <% elsif @request.request_type.name.index("बटवारा") >= 0 %>
+        <%= render "batwara_form", request: @request, participant: @participant, participant_types: @participant_types %>
       <% else %>
         <%= render "form", request: @request, participant: @participant, participant_types: @participant_types %>
       <% end %>

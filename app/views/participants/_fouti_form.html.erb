@@ -187,7 +187,7 @@
 
     <% end %>
 
-    <div class="row mt-4 mb-3">
+    <div class="row mt-4 mb-3 p-3">
       <% request && request.participants.fout_person.each do | f_person | %>
         <%= render "sanjara", request: request, fout_person: f_person, action_display: true %>
       <% end %>

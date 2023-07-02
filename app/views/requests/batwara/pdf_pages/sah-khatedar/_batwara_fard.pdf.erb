@@ -7,28 +7,28 @@
     <div class="col-md-12">
       <div class="page-sub-header mb-2">
         <center>
-          <div class="fnt-22 fnt-b">
+          <div class="fnt-26 fnt-b">
           कार्यालय पटवारी हल्का नंबर <%= village.halka_number %>, <%= village.halka_name %>
           <div>
-          <div class="fnt-18">(प्रस्तावित बटवारा फर्द)</div>
+          <div class="fnt-20">(प्रस्तावित बटवारा फर्द)</div>
         </center>
       </div>
       <div class="mb-3 paragraph-35">
-        <table class="table table-custom">
-        <thead>
-          <tr>
-            <th colspan="3"><center>वर्तमान अभिलेख</center></th>
-            <th colspan="4"><center>प्रस्तावित बटवारा फर्द</center></th>
-          </tr>
-          <tr>
-            <th style="width: 18%;">मूल खातेदार</th>
-            <th style="width: 12%;">खसरा</th>
-            <th style="width: 11%;">रकबा</th>
-            <th style="width: 21%;">प्रस्तावित हिस्सेदार</th>
-            <th style="width: 13%;">खसरा</th>
-            <th style="width: 11%;">रकबा</th>
-            <th style="width: 14%;">हस्ताक्षर</th>
-          </tr>
+        <table class="table table-custom fnt-18">
+          <thead>
+            <tr>
+              <th colspan="3"><center>वर्तमान अभिलेख</center></th>
+              <th colspan="4"><center>प्रस्तावित बटवारा फर्द</center></th>
+            </tr>
+            <tr>
+              <th style="width: 18%;">मूल खातेदार</th>
+              <th style="width: 12%;">खसरा</th>
+              <th style="width: 11%;">रकबा</th>
+              <th style="width: 21%;">प्रस्तावित हिस्सेदार</th>
+              <th style="width: 13%;">खसरा</th>
+              <th style="width: 11%;">रकबा</th>
+              <th style="width: 14%;">हस्ताक्षर</th>
+            </tr>
           </thead>
           <tbody>
             <% khasras = request.khasras.where("village_id=?", village_id) %>
@@ -100,9 +100,10 @@
             </tr>
           </tbody>
         </table>
-        <div class="fRight">
+        <br/>
+        <div class="fRight fnt-20">
           <div class="fnt-b">
-            <center>_ _ _ _ _  _ _ _ _ _ _ </center>
+            <center>_ _ _ _ _  _ _ _ _ _ _ </center><br/>
             <center>पटवारी, हल्का नंबर <%= request.village.halka_number %></center>
           </div>
         </div>

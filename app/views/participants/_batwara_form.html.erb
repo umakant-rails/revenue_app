@@ -1,0 +1,69 @@
+<div class="card">
+  <div class="card-body">
+    <div class="page-header">
+      आवेदक/अनावेदक जानकारी फॉर्म 
+    </div>
+    <div class="dropdown-divider"></div>
+    <div data-controller='request'>
+      <%= form_with(model: [request, participant])  do |form| %>
+        <% if participant.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(participant.errors.count, "error") %> prohibited this participant from being saved:</h2>
+
+            <ul>
+              <% participant.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="ps-3 pe-3">
+          <div class="mb-3 row">
+            <div class="col-md-6">
+              <%= form.label "आवेदक/अनावेदक प्रकार", class: "form-label" %>
+              <%= form.select :participant_type_id, options_for_select(participant_types.collect{|pt|[pt.name, pt.id]}, form.object.participant_type_id),{prompt: "प्रतिभागी चुने"}, class: "form-control", "data-action": "change->request#updateAnavedakFields" %>
+            </div>
+            <div class="col-md-6">
+              <% if params[:action] == "edit" && form.object.participant_type.name != "विक्रेता" %>
+                <%= form.label "यह क्रेता आवेदक है ?", class: "form-label"  %>
+                <%= form.select :is_applicant, options_for_select(Participant::BOOLEAN_STATUS, form.object.is_applicant), {prompt: "क्रेता स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isApplicant' %>
+              <% else %>
+                <%= form.label "यह क्रेता आवेदक है ?", class: "form-label"  %>
+                <%= form.select :is_applicant, options_for_select(Participant::BOOLEAN_STATUS), {prompt: "क्रेता स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isApplicant', disabled: true %>
+              <% end %>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <div class="col-md-5">
+              <%= form.label :name, class: "form-label" %>
+              <%= form.text_field :name, class: "form-control" %>
+            </div>
+            <div class="col-md-2">
+              <%= form.label :relation, class: "form-label" %>
+              <%= form.select :relation, options_for_select(Participant::RELATIONS, form.object.relation), {prompt: "सम्बन्ध चुने"}, class: "form-control" %>
+            </div>
+            <div class="col-md-5">
+              <%= form.label :gaurdian, class: "form-label" %>
+              <%= form.text_field :gaurdian, class: "form-control", 'data-request-target': 'gaurdian' %>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-12">
+              <%= form.label :address, class: "form-label"  %>
+              <%= form.text_field :address, value: @request.village.village, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div>
+          <%= form.submit  "Submit participant", class: "btn btn-primary" %>
+          <%= link_to new_request_khasra_path(@request), class: "fRight btn btn-primary" do %>
+            Next&nbsp;&nbsp;<i class="fa-solid fa-share"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="row mt-4 mb-3 p-3">
+      <%= render "participant", request: request %>
+    </div>
+  </div>
+</div>

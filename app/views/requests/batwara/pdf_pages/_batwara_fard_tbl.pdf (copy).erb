@@ -2,8 +2,8 @@
 <% villages && villages.each_with_index do | village_id, index | %>
   <% village = Village.where(id: village_id).first %>
   <% group_ids = request.khasra_battanks.pluck(:group_id).uniq - [nil] %>
-  <%= "#{index+1}." if villages.length > 1 %> ग्राम <strong><%= village.village %></strong> की प्रस्तावित बॅटवारा फर्द 
-  <table class="table table-custom fnt-18">
+  <%= index+1 if villages.length > 1 %>. <strong><%= village.village %></strong> ग्राम की प्रस्तावित बॅटवारा फर्द 
+  <table class="table table-custom fnt-16">
     <thead>
       <tr>
         <th colspan="3"><center>वर्तमान अभिलेख</center></th>
@@ -12,10 +12,11 @@
       <tr>
         <th style="width: 18%;">मूल खातेदार</th>
         <th style="width: 12%;">खसरा</th>
-        <th style="width: 15%;">रकबा</th>
-        <th style="width: 25%;">प्रस्तावित हिस्सेदार</th>
-        <th style="width: 15%;">खसरा</th>
-        <th style="width: 15%;">रकबा</th>
+        <th style="width: 11%;">रकबा</th>
+        <th style="width: 21%;">प्रस्तावित हिस्सेदार</th>
+        <th style="width: 13%;">खसरा</th>
+        <th style="width: 11%;">रकबा</th>
+        <th style="width: 14%;">हस्ताक्षर</th>
       </tr>
     </thead>
     <tbody>
@@ -47,6 +48,9 @@
             <td>
               <%= '%.4f' % khbattank.rakba %>
             </td>
+            <% if index2 == 0%>
+              <td rowspan="<%= khasra_battanks.length %>"></td>
+            <% end %>
           </tr>
           <% sub_acc_rakba = sub_acc_rakba + khbattank.rakba.to_f*10000 %>
         <% end %>
@@ -63,6 +67,7 @@
               <span class="txt-primary"><%='%.4f' % (sub_acc_rakba/10000) %> हे.</span>
             </strong>
           </td>
+          <td></td>
         </tr>
       <% end %>
       <tr>
@@ -80,6 +85,7 @@
             <span class="txt-primary"><%='%.4f' % (account_rakba/10000) %> हे.</span>
           </strong>
         </td>
+        <td></td>
       </tr>
     </tbody>
   </table>
