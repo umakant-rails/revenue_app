@@ -23,7 +23,7 @@
     <%= render partial: "requests/fouti/pdf_pages/ishtihar",locals: hs %>
     <%= render partial: "requests/fouti/pdf_pages/panchnama",locals: hs %>
     <%= render partial: "requests/fouti/pdf_pages/patwari_prativedan",locals: hs %>
-  <% elsif !@request.request_type.name == "बटवारा (पिता-पुत्र)" %>
+  <% elsif @request.request_type.name == "बटवारा (पिता-पुत्र)" %>
     <%= render partial: "requests/batwara/pdf_pages/pita_putra/ordersheet_first", locals: hs %>
     <%= render partial: "requests/batwara/pdf_pages/pita_putra/#{@templates[:order_praroop]}/ordersheet_second",locals: hs %>
     <%= render partial: "requests/batwara/pdf_pages/pita_putra/applicant_application",locals: hs %>
@@ -32,7 +32,7 @@
     <%= render partial: "requests/batwara/pdf_pages/pita_putra/applicant_affidavit",locals: {request: @request} %>
     <%= render partial: "requests/batwara/pdf_pages/pita_putra/patwari_prativedan",locals: hs %>
     <%= render partial: "requests/batwara/pdf_pages/pita_putra/batwara_fard",locals: hs %>
-  <% elsif true || @request.request_type.name == "बटवारा (आपसी सहमति)" %>
+  <% elsif @request.request_type.name == "बटवारा (आपसी सहमति)" %>
     <%= render partial: "requests/batwara/pdf_pages/sah-khatedar/ordersheet_first", locals: hs %>
     <%= render partial: "requests/batwara/pdf_pages/sah-khatedar/#{@templates[:order_praroop]}/ordersheet_second",locals: hs %>
     <%= render partial: "requests/batwara/pdf_pages/sah-khatedar/applicant_application",locals: hs %>

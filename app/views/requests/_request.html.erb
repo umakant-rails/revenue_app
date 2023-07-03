@@ -27,9 +27,8 @@
       <td><%= request.request_type.name %></td>
       <td><%= format_dt(request.created_at)%></td>
       <td>
-        <% participant_txt = request.request_type == "नामांतरण" ? "अनावेदक जोड़े" : (request.request_type == "बटवारा" ? "हिस्सेदार जोड़े" : "वारसान जोड़े") %>
         <%= link_to new_request_participant_path(request_id: request.id), class: "btn btn-primary",
-          'data-bs-toggle': "tooltip", 'data-bs-placement': "top", 'title': participant_txt do %>
+          'data-bs-toggle': "tooltip", 'data-bs-placement': "top", 'title': "प्रतिभागी जोड़े" do %>
           <i class="fa-solid fa-user-plus"></i>
         <% end %>
         <%= link_to new_request_khasra_path(request_id: request.id), class: "btn btn-primary",

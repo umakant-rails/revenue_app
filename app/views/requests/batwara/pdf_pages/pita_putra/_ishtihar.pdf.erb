@@ -26,8 +26,10 @@
       </div>
       <div class="<%= @templates[:ishtihar] %> mrgn-top-30">
         <div class="txt-indent-3">
-          सर्व साधारण एवं ग्राम पटवारी हल्का पटवारी नंबर <strong><%= request.village.halka_number %></strong> रा नि मंडल <strong><%= request.village.ri %></strong> तहसील <strong><%= request.village.tehsil %></strong>, जिला <strong><%= request.village.district %></strong> की आम जनता के जरिये इश्तिहार के सूचित किया जाता है कि - <br/>
-          आवेदक <%=raw applicant_name(request, true) %> द्वारा <%= raw khasra_description(request) %> भूमि का आवेदन बटवारा (पिता-पुत्र) हेतु प्रस्तुत किया है | <br/>
+          सर्व साधारण एवं ग्राम पटवारी हल्का पटवारी नंबर <strong><%= request.village.halka_number %></strong> रा नि मंडल <strong><%= request.village.ri %></strong> तहसील <strong><%= request.village.tehsil %></strong>, जिला <strong><%= request.village.district %></strong> की आम जनता के जरिये इश्तिहार के सूचित किया जाता है कि - 
+        </div>
+        <div class="txt-indent-3">
+          <%=raw khasra_description(request) %> भूमि का आवेदक एवं उसके पुत्र/पुत्रो ने आपसी सहमति से उक्त भूमि का आपस में बटवारा कर लिया है और खाता पृथक-पृथक कराना चाहतें है, उक्त भूमि का मौका कब्जा अनुसार बटवारा लिया है | आपसी सहमति अनुसार बटवारा किये जाने हेतु आवेदन पत्र में लेख किया है |
         </div>
         <div class="txt-indent-3">
           उक्त संबंध में जिस किसी भी व्यक्ति को कोई आपत्ति हो तो वह अपनी आपत्ति अथवा आवेदन पत्र पेशी दिनांक _ _ _ _ _ _ _ तक इस न्यायलय में उपस्थित होकर स्वयं अथवा माननीय अधिवक्ता के द्वारा प्रस्तुत कर सकते है | <br/>

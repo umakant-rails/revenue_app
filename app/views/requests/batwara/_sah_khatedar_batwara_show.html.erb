@@ -17,7 +17,7 @@
           ऑर्डरशीट-द्वितीय
         </li>
         <li class="list-group-item" data-action="click->request#showPage" data-pagename="applicant-application">
-          आवेदक का सहमति पत्र
+          आवेदक का आवेदन
         </li>
         <li class="list-group-item" data-action="click->request#showPage" data-pagename="ishtihar">
           इश्तहार
@@ -79,8 +79,8 @@
       <%#= render partial: "requests/batwara/pages/ordersheet_second_extra",locals: hs %>
       <%= render partial: "requests/batwara/pages/sah-khatedar/applicant_application",locals: hs %>
       <%= render partial: "requests/batwara/pages/sah-khatedar/ishtihar",locals: hs %>
-      <%#= render partial: "requests/batwara/pages/talwana",locals: hs %>
-      <%#= render partial: "requests/batwara/pages/applicant_affidavit",locals: hs %>
+      <%= render partial: "requests/batwara/pages/sah-khatedar/talwana",locals: hs %>
+      <%= render partial: "requests/batwara/pages/sah-khatedar/applicant_affidavit",locals: hs %>
       <%= render partial: "requests/batwara/pages/sah-khatedar/patwari_prativedan",locals: hs %> 
       <%= render partial: "requests/batwara/pages/sah-khatedar/batwara_fard",locals: { request: @request } %>
     </div>

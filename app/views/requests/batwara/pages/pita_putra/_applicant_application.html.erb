@@ -1,20 +1,20 @@
 <!-- aavedak application patra -->
 <div class="page-a4 only-print" data-request-target="page" data-name="applicant-application" style="display: none;">
   <div class="row">
-    <div class="fnt-28 fnt-b txt-center">
+    <div class="fnt-26 fnt-b fnt-u txt-center">
       समक्ष न्यायालय श्रीमान तहसीलदार महोदय, <strong><%= request.village.tehsil %></strong>
     </div>
   </div>
   <div class="row padding-2 mrgn-top-20">
     <div class="fnt-20 padding-5">
       <div>1.&nbsp;<%=raw applicant_name(request) %></div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.applicant.address %> </div>
-        <div class="fRight">- - - - - - - - - - - - - - - - - </div><br/>
-        <div class="fRight">आवेदक</div><br/>
-        <div class="margn-top-20">
-          <center><strong>बनाम</strong></center>
-        </div>
-        <div class="margn-top-20">2.&nbsp;<strong>म. प्र. शासन</strong></div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.applicant.address %> </div>
+      <div class="fRight">- - - - - - - - - - - - - - - - - </div><br/>
+      <div class="fRight">आवेदक</div><br/>
+      <div class="margn-top-20">
+        <center><strong>बनाम</strong></center>
+      </div>
+      <div class="margn-top-20">2.&nbsp;<strong>म. प्र. शासन</strong></div>
     </div>
     <div class="fnt-18 fnt-b fnt-u mrgn-top-20">
       आवेदक पत्र वास्ते अंतर्गत धारा 109 -110 म.प्र. भू-राजस्व संहिता 1959
@@ -22,13 +22,20 @@
     <div class="fnt-20 mrgn-top-5">
       महोदय<br/>
     </div>
-    <div class="mb-8 paragraph-35">
-
+    <div class="mb-2 paragraph-35">
       <div class="txt-indent-3">
-        निवेदन है की आवेदक के द्वारा <%= raw khasra_description(request) %> भूमि पर आवेदक <%= raw applicant_name(request) %> एवं अन्य सहखातेदार के नाम दर्ज है | आवेदक एवं अन्य सह-खातेदारों ने आपसी सहमति से उक्त भूमि का आपस में बटवारा कर लिया है और खाता पृथक-पृथक कराना चाहतें है, उक्त भूमि का मौका कब्जा अनुसार बटवारा लिया है, उसी के अनुसार काबिज होकर कृषि कार्य कर  रहे है | आपसी सहमति व मौका कब्जा अनुसार बटवारा किया जाये | 
+        निवेदन है की आवेदक के द्वारा <%= raw khasra_description(request) %> भूमि पर आवेदक <%= raw applicant_name(request) %> का नाम भू-अभिलेख में दर्ज है | आवेदक एवं उसके पुत्र/पुत्रो ने आपसी सहमति से उक्त भूमि का आपस में बटवारा कर लिया है और खाता पृथक-पृथक कराना चाहतें है, उक्त भूमि का मौका कब्जा अनुसार बटवारा लिया है, उसी के अनुसार काबिज होकर कृषि कार्य कर  रहे है | आपसी सहमति व मौका कब्जा अनुसार बटवारा किया जाये |
       </div>
-      <br/><br/><br/>
-      <div class="bottom">
+      आवेदकगण की आपसी सहमति अनुसार प्रस्तावित बॅटवारा फर्द :-<br/>
+      <div class="mb-2">
+        <%= render partial: "requests/batwara/pages/batwara_fard_tbl", locals: {request: request} %>
+      </div>
+      <br/>
+      <div class="mb-2 txt-indent-3" >
+        अतः श्रीमान से प्रार्थना है की उक्त प्रस्तावित बटवारा फर्द अनुसार आवेदकों/हिस्सेदारों के नाम राजस्व अभिलेख में दर्ज किये जाने का आदेश प्रदान करें |
+      </div>
+      <br/>
+      <div class="">
         <div class="fLeft">
           <strong>स्थान : </strong><%= request.village.tehsil %>
           <br/>

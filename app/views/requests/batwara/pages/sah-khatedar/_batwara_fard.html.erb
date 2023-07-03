@@ -1,40 +1,42 @@
-<% group_ids = request.khasra_battanks.pluck(:group_id).uniq - [nil] %>
-
-<div class="page-a4-landscape only-print" data-request-target="page" data-name="batwara-fard"  style="display: none;">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="page-sub-header mb-2">
-        <center>
-          <div class="fnt-22">
-          कार्यालय पटवारी हल्का नंबर <%= request.village.halka_number %>, <%= request.village.halka_name %>
-          <div>
-          <div class="fnt-18">(प्रस्तावित बटवारा फर्द)</div>
-        </center>
-      </div>
-      <div class="mb-3 paragraph-34">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th colspan="3"><center>वर्तमान अभिलेख</center></th>
-              <th colspan="3"><center>प्रस्तावित बटवारा फर्द</center></th>
-            </tr>
-            <tr>
-              <th>हिस्सेदार</th>
-              <th>खसरा</th>
-              <th>रकबा</th>
-              <th>हिस्सेदार</th>
-              <th>खसरा</th>
-              <th>रकबा</th>
-              <th>हस्ताक्षर</th>
-            </tr>
+<% villages = request.khasras.pluck(:village_id).uniq %>
+<% villages && villages.each_with_index do | village_id, index | %>
+  <% village = Village.where(id: village_id).first %>
+  <% group_ids = request.khasra_battanks.pluck(:group_id).uniq - [nil] %>
+  <div class="page-a4-landscape only-print" data-request-target="page" data-name="batwara-fard"  style="display: none;">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-sub-header mb-2">
+          <center>
+            <div class="fnt-22">
+              कार्यालय पटवारी हल्का नंबर <%= village.halka_number %>, <%= village.halka_name %>
+            <div>
+            <div class="fnt-18">(प्रस्तावित बटवारा फर्द)</div>
+          </center>
+        </div>
+        <div class="mb-3 paragraph-34">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th colspan="3"><center>वर्तमान अभिलेख</center></th>
+                <th colspan="4"><center>प्रस्तावित बटवारा फर्द</center></th>
+              </tr>
+              <tr>
+                <th>हिस्सेदार</th>
+                <th>खसरा</th>
+                <th>रकबा</th>
+                <th>हिस्सेदार</th>
+                <th>खसरा</th>
+                <th>रकबा</th>
+                <th>हस्ताक्षर</th>
+              </tr>
             </thead>
             <tbody>
-              <% khasras = request.khasras %>
-              <% kh_battanks = request.khasra_battanks %> 
+              <% khasras = request.khasras.where("village_id=?", village_id) %>
+              <% kh_battanks = request.khasra_battanks.where("khasra_id in (?)", khasras.pluck(:id)) %>
               <% acc_rakba, indx = 0, 0 %>
               
               <% group_ids.each_with_index do | group_id, index1 | %>
-                <% khasra_battanks = request.khasra_battanks.where("group_id=?", group_id) %>
+                <% khasra_battanks = request.khasra_battanks.where("group_id=? and khasra_id in (?)", group_id, khasras.pluck(:id)) %>
                 <% hissedars = @request.participants.where("id in (?)", khasra_battanks[0].participant_ids.split(",")) %>
                 <% hissedar_names = hissedars.collect{ |h| participant_name(h) } %>
                 <% account_rakba = 0 %>
@@ -43,15 +45,15 @@
                   <tr>
 
                     <% if indx == 0 %>
-                      <td rowspan="<%= kh_battanks.length + group_ids.length - 1 %>"> 
+                      <td rowspan="<%= kh_battanks.length + group_ids.length %>"> 
                         <%= raw participant_names(request, "land_owner") %>
                       </td>
                     <% end %>
                     <% if khasras.length == indx + 1 %>
-                      <td rowspan="<%= kh_battanks.length + group_ids.length - khasras.length %>">
+                      <td rowspan="<%= kh_battanks.length + group_ids.length - khasras.length + 1 %>">
                         <%= khasras[indx].khasra %>
                       </td>
-                      <td rowspan="<%= kh_battanks.length + group_ids.length - khasras.length %>">
+                      <td rowspan="<%= kh_battanks.length + group_ids.length - khasras.length + 1 %>">
                         <%='%.4f' % khasras[indx].rakba %>
                       </td>
                       <% acc_rakba = acc_rakba + (khasras[indx].rakba.to_f*10000) %>
@@ -80,10 +82,10 @@
                 <% end %>
                 <tr>
                   <% if khasras.length == indx + 1 %>
-                    <td rowspan="<%= kh_battanks.length + group_ids.length - khasras.length %>">
+                    <td rowspan="<%= kh_battanks.length + group_ids.length - khasras.length + 1 %>">
                       <%= khasras[indx].khasra %>
                     </td>
-                    <td rowspan="<%= kh_battanks.length + group_ids.length - khasras.length %>">
+                    <td rowspan="<%= kh_battanks.length + group_ids.length - khasras.length + 1 %>">
                       <%='%.4f' % khasras[indx].rakba %>
                     </td>
                     <% acc_rakba = acc_rakba + (khasras[indx].rakba.to_f*10000) %>
@@ -91,16 +93,7 @@
                     <td><%= khasras[indx].khasra %></td>
                     <td><%='%.4f' % khasras[indx].rakba %></td>
                     <% acc_rakba = acc_rakba + (khasras[indx].rakba.to_f*10000) %>
-                  <% elsif kh_battanks.length + group_ids.length == indx + 1 %>
-                    <td></td>
-                    <td rowspan="<%= kh_battanks.length + group_ids.length - khasras.length %>">
-                      <span class="text-primary fnt-b">आवंटित रकबा : </span>
-                    </td>
-                    <td rowspan="<%= kh_battanks.length + group_ids.length - khasras.length %>">
-                      <span class="text-primary fnt-b"><%='%.4f' % (acc_rakba/10000) %> हे.</span>
-                    </td>
                   <% end %>
-                  
                   <% indx = indx + 1%>
 
                   <td></td>
@@ -113,6 +106,23 @@
                   <td></td>
                 </tr>
               <% end %>
+              <tr>
+                <td></td>
+                <td class="text-primary"><strong>कुल रकबा : </strong></td>
+                <td>
+                  <strong>
+                    <span class="text-primary"><%='%.4f' % (acc_rakba/10000) %> हे.</span>
+                  </strong>
+                </td>
+                <td></td>
+                <td class="text-primary"><strong>कुल रकबा : </strong></td>
+                <td>
+                  <strong>
+                    <span class="text-primary"><%='%.4f' % (acc_rakba/10000) %> हे.</span>
+                  </strong>
+                </td>
+                <td></td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -125,4 +135,4 @@
       </div>
     </div>
   </div>
-</div>
+<% end %>

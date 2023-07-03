@@ -15,7 +15,7 @@
         <div class="txt-indent-">
           मैं <%= raw applicant_name(request) %> उम्र <strong> _ _ _ _</strong> वर्ष निवासी <strong><%= request.participants.applicant.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
         </div>
-        <div class="padding-5">
+        <div class="padding-3">
           1. यह कि आवेदकगण संयुक्त परिवार के सदस्य (पिता-पुत्र) है एवं मौजा <strong><%= request.village.village %></strong> पटवारी हल्का नंबर <strong><%= request.village.halka_number %></strong> में आवेदकगणो की कृषि भूमि अवस्थित है | <br/>
           2. यह कि <%= raw khasra_description(request) %> पर आवेदक <%=raw applicant_name(request, false) %> का नाम भूमि अभिलेख में दर्ज है |<br/>
           3. यह कि आवेदकगण एक ही संयुक्त परिवार  के सदस्य है, पारिवारिक व्यवस्था अनुरूप पूर्व में मौखिक विभाजन कर तद-अनुसार कब्ज़ा स्वीकृत है एवं उसी अनुसार हम सभी खेती कर मौके पर काबिज है | इस पर हम सभी आवेदकगण सहमत है| <br/>
@@ -30,13 +30,11 @@
           <% else %>
             5. यह कि हम आवेदकगणों के मध्य पारिवारिक व्यवस्था के अनुरूप हुए बटवारे का विवरण इस प्रकार है :-<br/>
           <% end %>
-          
         </div>
           <%= render partial: "requests/batwara/pdf_pages/batwara_fard_tbl", locals: {request: request} %>
-        <div class="padding-5">
-          <div class="txt-indent-4">
-            यह कि उक्त प्रस्तावित बटवारा फर्द अनुसार नए हिस्सेदारों के नाम दर्ज होने हेतु सहमति में सपथ पत्र प्रस्तुत है |
-          </div>
+      
+        <div class="txt-indent-2">
+          उक्त प्रस्तावित बटवारा फर्द अनुसार नए हिस्सेदारों के नाम दर्ज होने हेतु सहमति में सपथ पत्र प्रस्तुत है |
         </div>
         <br/>
         <div class="">

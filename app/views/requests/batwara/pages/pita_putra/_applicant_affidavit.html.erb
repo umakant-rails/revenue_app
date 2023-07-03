@@ -12,29 +12,41 @@
     <br/><br/>
     <div class="row padding-8">
       <div class="paragraph-35">
-        <div class="txt-indent-3">
-          <% applicant = request.participants.applicant %>
-          मैं <%=raw applicant_name(request) %> उम्र <strong>45</strong> वर्ष निवासी <strong><%= applicant.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
+        <div class="txt-indent-">
+          मैं <%= raw applicant_name(request) %> उम्र <strong> _ _ _ _</strong> वर्ष निवासी <strong><%= request.participants.applicant.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
         </div>
-        <div class="padding-5">
-          1.  यह कि <%= raw khasra_description(request) %> भूमि का बेचवार <strong><%=raw participant_names(request, "seller", false, false) %></strong> से पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> को खरीद किया है |<br/> 
-          2. यह कि हमारी उक्त भूमि का संपूर्ण प्रतिफल विक्रेता को देकर उक्त भूमि पर कब्ज़ा प्राप्त कर लिया गया है उक्त भूमि पर किसी प्रकार का कोई विवाद नहीं है भूमि हमारे रजिस्टर्ड बैनामा से क्रय की गई है अतः बैनामा अनुसार नाम दर्ज कराना है |<br/>
-          <div class="txt-indent-4">
-            यह कि मैं वैनामा अनुसार आवेदक का नाम दर्ज होने हेतु सहमति में शपथ पत्र प्रस्तुत है |
-          </div>
+        <div class="padding-3">
+          1. यह कि आवेदकगण संयुक्त परिवार के सदस्य (पिता-पुत्र) है एवं मौजा <strong><%= request.village.village %></strong> पटवारी हल्का नंबर <strong><%= request.village.halka_number %></strong> में आवेदकगणो की कृषि भूमि अवस्थित है | <br/>
+          2. यह कि <%= raw khasra_description(request) %> पर आवेदक <%=raw applicant_name(request, false) %> का नाम भूमि अभिलेख में दर्ज है |<br/>
+          3. यह कि आवेदकगण एक ही संयुक्त परिवार  के सदस्य है, पारिवारिक व्यवस्था अनुरूप पूर्व में मौखिक विभाजन कर तद-अनुसार कब्ज़ा स्वीकृत है एवं उसी अनुसार हम सभी खेती कर मौके पर काबिज है | इस पर हम सभी आवेदकगण सहमत है| <br/>
+          4. यह कि पारिवारिक व्यवस्था अनुरूप हुए विभाजन एवं तद  अनुसार कब्जे की स्वीकृति अनुसार राजस्व अभिलेख अद्यतन कर बटवारा दर्ज कराना है |<br/>
+          <% daughters = request.participants.batwara_daughters %>
+          <% if daughters.length > 1 %>
+            5. यह कि मेरे पुत्रो के अतिरिक्त मेरी पुत्रियां <strong><%= participant_names(request, "batwara_daughters") %></strong> है जिनको में <strong><%= participant_name(request.participants.land_owner) %></strong> उनकी शादी के समय अन्य चल सम्पत्तियो के रूप में उनका/उसका हिस्सा प्रदाय कर चुका हूँ | इस बटवारें में उनका किसी भी प्रकार का कोई हक़ एवं हिस्सा नहीं है, न ही किसी प्रकार का कोई  कृषि कार्य किया जाता है | इस पारिवारिक व्यवस्थानुसार उक्त बटवारे में मेरी पुत्रियों की सहमति है |<br/>
+            6. यह कि हम आवेदकगणों के मध्य पारिवारिक व्यवस्था के अनुरूप हुए बटवारे का विवरण इस प्रकार है :-<br/>
+          <% elsif daughters.length == 1 %>
+            5. यह कि मेरे पुत्रो के अतिरिक्त मेरी पुत्री <strong><%= participant_name(daughters[0]) %></strong> है जिसको में <strong><%= participant_name(request.participants.land_owner) %></strong>, उसकी शादी के समय अन्य चल सम्पत्तियो के रूप में उसका हिस्सा प्रदाय कर चुका हूँ | इस बटवारें में उसका किसी भी प्रकार का कोई हक़ एवं हिस्सा नहीं है, न ही किसी प्रकार का कोई  कृषि कार्य किया जाता है | इस पारिवारिक व्यवस्थानुसार उक्त बटवारे में मेरी पुत्री की सहमति है |<br/>
+            6. यह कि हम आवेदकगणों के मध्य पारिवारिक व्यवस्था के अनुरूप हुए बटवारे का विवरण इस प्रकार है :-<br/>
+          <% else %>
+            5. यह कि हम आवेदकगणों के मध्य पारिवारिक व्यवस्था के अनुरूप हुए बटवारे का विवरण इस प्रकार है :-<br/>
+          <% end %>
         </div>
-        <br/>
-        <div class="">
+        <%= render partial: "requests/batwara/pages/batwara_fard_tbl", locals: {request: request} %>
+        <div class="txt-indent-2">
+          उक्त प्रस्तावित बटवारा फर्द अनुसार नए हिस्सेदारों के नाम दर्ज होने हेतु सहमति में सपथ पत्र प्रस्तुत है |
+        </div>
+
+        <div class="mt-2">
           <div class="fRight">
             <center>- - - - - - - - - - - -</center>
             <center><strong>हस्ताक्षर शपथकर्ता</strong><center>
           </div>
         </div>
-        <br/><br/><br/>
-        <div class="txt-indent-4">
+        <br/>
+        <div class="txt-indent-2">
           मैं <%=raw applicant_name(request) %> द्वारा प्रस्तुत शपथ पत्र विवरण सही है 
         </div>
-        <br/><br/>
+        <br/>
         <div>
           <div class="fLeft">
             <strong>स्थान</strong> - - - - - - - -<br/>
