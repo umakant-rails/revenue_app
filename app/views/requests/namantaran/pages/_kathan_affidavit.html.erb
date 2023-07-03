@@ -7,36 +7,28 @@
         <center>कथन</center>
       </div>
     </div>
-    <div class="row padding-8 mrgn-top-20">
-      <div class="paragraph-35"> 
-        <table>
+    <div class="row padding-2 mrgn-top-20">
+      <div class="paragraph-35 padding-6"> 
+        <div class="row">
           <% applicant = request.participants.applicant %>
-          <tr>
-            <td>आवेदक का नाम : </td>
-            <td><strong><%= applicant.name %></strong></td>
-          </tr>
-          <tr>
-            <td>पिता/पति का नाम : </td>
-            <td><strong><%= applicant.gaurdian %></strong></td>
-          </tr>
-          <tr>
-            <td>उम्र व्यवसाय : </td>
-            <td>- - - - - - - - - - - - - -</td>
-          </tr>
-          <tr>
-            <td>निवासी : </td>
-            <td><strong><%= applicant.address %></strong></td>
-          </tr>
-        </table>
+          <div class="col-md-3">आवेदक का नाम : </div>
+          <div class="col-md-9"><strong><%= applicant.name %></strong></div>
+          <div class="col-md-3">पिता/पति का नाम : </div>
+          <div class="col-md-9"><strong><%= applicant.gaurdian %></strong></div>
+          <div class="col-md-3">उम्र व्यवसाय : </div>
+          <div class="col-md-9">- - - - - - - - - - - - - -</div>
+          <div class="col-md-3">निवासी : </div>
+          <div class="col-md-9"><strong><%= applicant.address %></strong></div> 
+        </div>
       </div>
       <div class="paragraph-35 mrgn-top-20">
-        <div class="txt-indent-4">
+        <div class="txt-indent-2">
           मैं ईमान से कहता /कहती हूँ मेरे द्वारा <%= raw khasra_description(request) %> भूमि का रजिस्टर्ड बैनामा क्रमांक _ _<strong><%= request.registry_number %></strong>_ _ _ _ _ दिनांक _ _ _ _ _<strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong>_ _ _ को अनावेदक से क्रय कर भूमि  का नामांतरण  कराए जाने हेतु आवेदन पत्र पेश किया है |<br/>
         </div>
-        <div class="txt-indent-4">
+        <div class="txt-indent-2">
           अतः बैनामा अनुसार नामांतरण किया जाए यही मेरे कथन है |<br/>
         </div>
-        <div class="txt-indent-4">पढ़कर सुनाया सही पाया | </div>
+        <div class="txt-indent-2">पढ़कर सुनाया सही पाया | </div>
         <br/><br/><br/>
         <div class="sign-text">
           <div class="fRight">

@@ -7,34 +7,35 @@
       </div>
     </div>
     <div class="row padding-2 mrgn-top-20">
-      <div class="fnt-20 padding-5">
-          <div>1.&nbsp;<%=raw applicant_name(request) %></div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.applicant.address %> </div>
-          <div class="fRight">- - - - - - - - - - - - - - - - - </div><br/>
-          <div class="fRight">आवेदक</div>
-          <div class="mrgn-top-20">
-            <center><strong>बनाम</strong></center>
-          </div>
-          <div class="mrgn-top-20">2.&nbsp;<strong><%=raw participant_names(request, "seller", false, true) %></strong></div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.sellers.first.address %></div>
-          <div class="fRight">- - - - - - - - - - - - - - - - -</div><br/>
-          <div class="fRight">अनावेदक</div>
+      <div class="fnt-18 padding-6">
+        <div>1.&nbsp;<%=raw applicant_name(request) %></div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.applicant.address %> </div>
+        <div class="fRight">- - - - - - - - - - - - - - - - - </div><br/>
+        <div class="fRight">आवेदक</div>
+        <div class="mrgn-top-20">
+          <center><strong>बनाम</strong></center>
+        </div>
+        <div class="mrgn-top-20">2.&nbsp;<strong><%=raw participant_names(request, "seller", false, true) %></strong></div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.sellers.first.address %></div>
+        <div class="fRight">- - - - - - - - - - - - - - - - -</div><br/>
+        <div class="fRight">अनावेदक</div>
       </div>
-      <div class="fnt-20 fnt-b fnt-u mrgn-top-30">
-        विषय - नामांतरण सहमति बाबत
-      </div>
-      <div class="mrgn-top-20 fnt-20">
-        महोदय<br/>
-      </div>
-      <div class="mb-8 paragraph-35">
-        <div class="txt-indent-4">
+      
+      <div class="mb-8 paragraph-35 padding-2">
+        <div class="fnt-18 fnt-b fnt-u mrgn-top-30">
+          विषय - नामांतरण सहमति बाबत
+        </div>
+        <div class="mrgn-top-18 fnt-18">
+          महोदय<br/>
+        </div>
+        <div class="txt-indent-2">
           निवेदन है की आवेदक के द्वारा <%= raw khasra_description(request) %> भूमि पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> आवेदक को विक्रय किया है |<br/>
           3. यह कि मेरे द्वारा उक्त भूमि का सम्पूर्ण प्रतिफल क्रेता से प्राप्त कर भूमि पर कब्ज़ा क्रेता को दे दिया गया है अन्य कोई भूमि की कीमत बकाया नहीं है भूमि पर कब्ज़ा का कोई विवाद आदि नहीं है जो बैनामा अनुसार आवेदक का नाम राजस्व अभिलेख में दर्ज होने से हम सहमत है| <br/>
         </div>
-        <div class="txt-indent-4">
+        <div class="txt-indent-2">
           अतः श्रीमान जी से प्रार्थना है  कि बैनामा अनुसार अभिलेख में आवेदक का नाम राजस्व अभिलेख में दर्ज किये जाने पर हम सहमत है  |
         </div>
-        <br/><br/><br/>
+        <br/><br/>
         <div class="bottom">
           <div class="fLeft">
            <strong>स्थान : </strong><%= request.village.tehsil %>
