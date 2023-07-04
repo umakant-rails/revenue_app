@@ -28,7 +28,7 @@
             उपरोक्त विषयान्तर्गत संदर्भित आदेश के परिपालन में लेख है कि आवेदक <%=raw applicant_name(request) %> जाति _ _ _ _ _ _ _ _ _ _ _निवासी <strong><%= applicant.address %></strong> के द्वारा <%= raw khasra_description(request) %> भूमि का विक्रेता <strong><%= raw participant_names(request, "seller", true) %> </strong> से बैनामा क्रमांक <strong><%=raw request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> के द्वारा क्रय करने से नामांतरण हेतु आवेदन पेश किया है <br/> 
           </div>
           <div class="txt-indent-3">
-            वर्तमान अभिलेख मौजा <strong><%= request.village.halka_name %></strong> के खसरा नंबर <strong><%= khasra %></strong> रकबा क्रमशः <strong><%= kh_rakba %></strong> हेक्ट में से <strong><%= total_sold_rakba %></strong> वर्ग फुट आवेदित भूमि, भूमिस्वामी भूमि है जिसका डायवर्सन हो चुका/नहीं हुआ है | 
+            वर्तमान अभिलेख मौजा <strong><%= request.village.halka_name %></strong> के खसरा नंबर <strong><%= khasra %></strong> रकबा क्रमशः <strong><%= kh_rakba %></strong> हेक्ट आवेदित भूमि, भूमिस्वामी मद भूमि है जिसका डायवर्सन हो चुका/नहीं हुआ है | 
             <br/>
           </div>
           <div class="txt-indent-3">
