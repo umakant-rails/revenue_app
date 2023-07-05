@@ -59,7 +59,7 @@ class KhasrasController < ApplicationController
       elsif @khasra.sold_rakba.present? && @khasra.unit.blank?
         flash[:error] =  "अगर आपने विक्रय रकबा भरा है तो बिक्रय रकबा की इकाई चुनना आवश्यक है |"
         format.html { render :new, status: :unprocessable_entity }
-      elsif @request.request_type.name != "बटवारा" && inserted_khasra.blank? && @khasra.sold_rakba.blank?
+      elsif @request.request_type.name == "नामांतरण" && inserted_khasra.blank? && @khasra.sold_rakba.blank?
         flash[:error] =  "खसरा में क्रय/विक्रय किया गया रकबा भरना अनिवार्य है |"
         format.html { render :new, status: :unprocessable_entity }
       elsif sold_rakba > total_rakba
