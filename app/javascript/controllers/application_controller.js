@@ -5,8 +5,14 @@ export default class extends Controller {
 
   printPage(){
     var restorePage = $('body').html();
-    var printContent = $('.only-print').removeClass("page-a4").addClass("page").not(':hidden').clone();
-    // var printContent = $('.only-print').not(':hidden').clone();
+    var printContent = '';
+
+    if($('.only-print:visible').hasClass("page-a4")){
+      printContent = $('.only-print').removeClass("page-a4").addClass("page").not(':hidden').clone();
+    } else {
+      printContent = $('.only-print').removeClass("page-a4-landscape").addClass("page-landscape").not(':hidden').clone();
+    }
+
     $('body').empty().html(printContent);
     window.print();
     $('body').html(restorePage);
