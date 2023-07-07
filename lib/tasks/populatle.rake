@@ -10,9 +10,10 @@ task :populate_villages => [ :environment ] do
   worksheets.each do |worksheet|
     num_rows = 0
     worksheet.rows.each do |row|
-      if row[1] == 'Sagar'
+      # if row[1] == 'Sagar'
         halka_number, halka_name = row[5].split("-")
         lgd_code = row[9]
+        
         Village.create(                                                  
           district: row[0].index("-").present? ? row[0][row[0].index("-")+1..row[0  ].length] : row[0],                                                
           district_eng: row[1],                                            
@@ -30,7 +31,7 @@ task :populate_villages => [ :environment ] do
         ) if Village.where(lgd_code: lgd_code).blank?
         num_rows = num_rows + 1
         puts "#{num_rows} is entered"
-      end
+      # end
     end
   end
 
