@@ -10,14 +10,14 @@
       <div class="padding-5 mb-3">
         1.&nbsp;<%=raw applicant_name(request) %><br/>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.applicant.address %> </div><br/>
-          <div class="fRight">- - - - - - - - - - - - - - - </div><br/>
+          <div class="fRight">- - - - - - - - - - - - - </div><br/>
           <div class="fRight">आवेदक</div><br/>
           <div>
             <center><strong>बनाम</strong></center>
           </div>
         2.&nbsp;<%=raw participant_names(request, "seller", false, true ) %><br/>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.sellers.first.address %></div><br/>
-          <div class="fRight">- - - - - - - - - - - - - - -</div><br/>
+          <div class="fRight">- - - - - - - - - - - - -</div><br/>
           <div class="fRight">अनावेदक</div><br/>
       </div>
       <div class="fnt-20 fnt-b fnt-u">
@@ -39,10 +39,10 @@
       <div class="fnt-20">
         <div class="fLeft">
           <strong>स्थान : </strong><%= request.village.tehsil %>
-          <br/><strong>दिनांक :</strong> - - - - - - - 
+          <br/><strong>दिनांक :</strong> - - - - - - 
         </div>
         <div class="fRight">
-          <center>- - - - - - - - - - </center>
+          <center>- - - - - - - - - </center>
             <strong>
               <% request.participants.sellers.each do |anavedak|%>
                 <center><%= anavedak.name %><br/></center>
