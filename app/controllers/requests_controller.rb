@@ -129,7 +129,7 @@ class RequestsController < ApplicationController
       format.html{}
       format.pdf do
         render pdf: @request.applicant_name,
-          :save_to_file => Rails.root.join("#{@request.applicant_name}.pdf"),
+          # :save_to_file => Rails.root.join("#{@request.applicant_name}.pdf"),
           template: "requests/export",
           layout: "pdf_layout",
           margin: {top: 10, bottom: 10, left: 8, right: 8},
