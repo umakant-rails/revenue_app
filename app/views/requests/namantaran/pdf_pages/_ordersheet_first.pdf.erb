@@ -9,18 +9,18 @@
         राजस्व आदेश -पत्र (रेव्हेन्यू ऑर्डर शीट )
       </div>
       <div class="mt-2 pdf-paragraph-35 fnt-18">
-        <div >
-          तहसीलदार <strong><%= request.village.tehsil %></strong> के न्यायालय में मामला क्रमांक_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन <strong><%= request.year %></strong> _ _ _ _ _ _ _ _
+        <div>
+          तहसीलदार <div style="width: 150px; display:inline-block;"><strong><%= request.village.tehsil %></strong></div> के न्यायालय में मामला क्रमांक_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन <strong><%= request.year %></strong> _ _ _ _ _ _ _ _
         <div>
           विषय - नामांतरण बाबत_ _ _ _ _ _ _ _ _ _ _ _ _ _ प्रकरण की श्रेणी _ _ _ _ _ _ _ _ _ _ _ _ अ/६ वर्ष _ _ _ _ _ _ _ _ _ _ _ _ _ _
         </div>
 
         <div>
-          ग्राम - <strong><%= request.village.village %></strong>_ _ _ _ _ _ बंदोबस्त क्रमांक _ _ _ _ _ _ _ _ _ पटवारी हल्का क्रमांक <strong><%= request.village.halka_number %></strong> _ _ _ तहसील <strong><%= request.village.tehsil %></strong> _ _ _ _
+          ग्राम - <div style="width: 200px; display:inline-block;"><strong><%= request.village.village %></strong></div> बंदोबस्त क्रमांक _ _ _ _ _ _ _ _ _ पटवारी हल्का क्रमांक <strong><%= request.village.halka_number %></strong> _ _ _ _ तहसील <div style="width: 150px; display:inline-block;"><strong><%= request.village.tehsil %></strong> <span class="fRight"> _ _</span></div>
         <div>
 
         <div>
-          कलेक्टर का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ सन <strong><%= request.year %></strong> अनुविभागीय अधिकारी का क्रमांक _ _ _ _ _ _ _ सन_ _ _ _ _ _ _ _ _
+          कलेक्टर का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ सन <strong><%= request.year %></strong> अनुविभागीय अधिकारी का क्रमांक _ _ _ _ _ _ _ सन_ _ _ _ _ _ _ _ _ _ _
         </div>
         <div>
           तहसीलदार का क्रमांक _ _ _ _ _ _ _ _ _ सन_ _ _ _ _ _ नायब तहसीलदार का क्रमांक _ _ _ _ _ _ _ _ _ सन_ _ _ _ _ _ _ _ _ _ _ _
@@ -51,7 +51,7 @@
             <div class="d-cell pdf-tbl-center-65">
               <div class="m-sm-4 pd-4 order1-parent <%= @templates[:ordersheet1] %>" >
                 <div class="txt-indent-3 order1-child">
-                  आवेदक/आवेदिका &nbsp;<%=raw applicant_name(request, true) %> द्वारा मौजा <strong><%= request.village.village %> </strong> पटवारी हल्का न <strong><%= request.village.halka_number %></strong> में स्थित भूमि खसरा नम्बर <strong><%= khasra %></strong> रकबा <strong><%= kh_rakba %></strong> में से रकबा <strong><%= sold_rakba %> </strong> कुल रकबा <strong><%= total_sold_rakba %></strong> का आवेदक द्वारा रजिस्टर्ड बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> के आधार पर नामांतरण कराये जाने बाबत आवेदन पेश किया है |
+                  आवेदक/आवेदिका &nbsp;<%=raw applicant_name(request, true) %> द्वारा <%=raw khasra_description(request) %> का आवेदक द्वारा रजिस्टर्ड बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> के आधार पर नामांतरण कराये जाने बाबत आवेदन पेश किया है |
                   <br/>
                   1 . प्रकरण दर्ज हो | <br/>
                   2 . हल्का पटवारी से रिपोर्ट ली जाये | <br/>
