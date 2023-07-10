@@ -56,6 +56,7 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 5.1.3'
 gem 'wicked_pdf'
 gem "wkhtmltopdf-binary", group: :production
+gem "wkhtmltopdf-heroku", group: :production
 gem 'razorpay'
 gem 'kaminari'
 
