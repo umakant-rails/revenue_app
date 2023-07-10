@@ -10,14 +10,14 @@
       <div class="padding-5">
         1.&nbsp;<%=raw applicant_name(request) %><br/>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.applicant.address %> </div>
-          <div class="fRight">- - - - - - - - - - - - -</div><br/>
+          <div class="fRight w-8">- - - - - - - - - - - - -</div><br/>
           <div class="fRight">आवेदक</div><br/>
           <div>
             <center><strong>बनाम</strong></center>
           </div>
         2.&nbsp;<%=raw participant_names(request, "seller", false, true ) %>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.sellers.first.address %></div>
-          <div class="fRight">- - - - - - - - - - - - -</div><br/>
+          <div class="fRight w-8">- - - - - - - - - - - - -</div><br/>
           <div class="fRight">अनावेदक</div><br/>
       </div>
       <div class="fnt-20 fnt-b fnt-u mrgn-top-30">
@@ -28,7 +28,7 @@
       </div>
       <div class="mb-8">
         <div class="txt-indent-3">
-          निवेदन है की आवेदक के द्वारा <%= raw khasra_description(request) %> पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> को अनावेदकों से क्रय किया है |<br/><br/>
+          निवेदन है की आवेदक के द्वारा <%= raw khasra_description(request) %> पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= format_dt(request.registry_date) %></strong> को अनावेदकों से क्रय किया है |<br/><br/>
           3. यह कि मेरे द्वारा उक्त भूमि का संपूर्ण प्रतिफल विक्रेता को देखकर भूमि  पर कब्ज़ा प्राप्त कर लिया गया है अन्य कोई भूमि की कीमत बकाया नहीं है भूमि कही रहन/बंधक आदि नहीं है भूमि पर कब्ज़ा का कोई विवाद नहीं है आवेदक को बैनामा अनुसार राजस्व अभिलेख में नाम दर्ज कराना हैा <br/><br/>
           4. यह कि भूमि हमारे पंजीकृत बैनामा से खरीद की गई है भूमि पर रहन व्यय आदि नहीं है विक्रेता द्वारा भूमि स्वामी हक़ की भूमि विक्रय की गई है भूमि पट्टा आदि की नहीं है अनुसूचित जनजाति समुदाय की नहीं है जो बैनामा के अनुसार आवेदक को अभिलेख में नाम दर्ज कराना है | <br/>
         </div>
