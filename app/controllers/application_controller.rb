@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  layout :set_layouts
+  # layout :set_layouts
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 
