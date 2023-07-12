@@ -29,7 +29,7 @@
                 <%= form.select :is_applicant, options_for_select(Participant::BOOLEAN_STATUS, form.object.is_applicant), {prompt: "क्रेता स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isApplicant' %>
               <% else %>
                 <%= form.label "यह क्रेता आवेदक है ?", class: "form-label"  %>
-                <%= form.select :is_applicant, options_for_select(Participant::BOOLEAN_STATUS), {prompt: "क्रेता स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isApplicant', disabled: true %>
+                <%= form.select :is_applicant, options_for_select(Participant::BOOLEAN_STATUS), {prompt: "क्रेता स्टेटस चुने"}, class: "form-control", 'data-request-target': 'isApplicant' %>
               <% end %>
             </div>
           </div>
