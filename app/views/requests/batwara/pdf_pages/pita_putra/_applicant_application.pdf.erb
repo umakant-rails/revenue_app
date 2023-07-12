@@ -10,12 +10,12 @@
       </div>
       <div class="padding-5">
         1.&nbsp;<%=raw applicant_name(request) %><br/>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.applicant.address %> </div>
-          <div class="fRight">- - - - - - - - - - - - - - - - - </div><br/>
-          <div class="fRight">आवेदक</div><br/>
-          <div>
-            <center><strong>बनाम</strong></center>
-          </div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.applicant.address %> </div>
+        <div class="fRight w-25">- - - - - - - - - - - - </div><br/>
+        <div class="fRight">आवेदक</div><br/>
+        <div>
+          <center><strong>बनाम</strong></center>
+        </div>
         2.&nbsp;<strong>म. प्र. शासन</strong>
       </div>
       <div class="fnt-20 fnt-b fnt-u mrgn-top-30">
@@ -36,12 +36,12 @@
         <br/><br/>
       </div>
       <div class="fnt-20">
-        <div class="fLeft">
+        <div class="fLeft w-25">
           <strong>स्थान : </strong><%= request.village.tehsil %>
           <br/>
           <strong>दिनांक :</strong> - - - - - - - - 
         </div>
-        <div class="fRight">
+        <div class="fRight w-25">
           - - - - - - - - - - - -<br/>
           <center><strong>आवेदक</strong></center>
           <center><%=raw applicant_name(request) %></center>

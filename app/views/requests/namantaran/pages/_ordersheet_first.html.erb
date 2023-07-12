@@ -9,16 +9,20 @@
     </div>
     <div class="mt-4 col-md-12 fnt-16">
       <div>
-        तहसीलदार <div style="width:150px;display:inline-block;"><strong><%= request.village.tehsil %></strong></div> के न्यायालय में मामला क्रमांक_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन  <strong><%= request.year %></strong> _ _ _ _ _
+        तहसीलदार <div class="i-block w-20">
+          <strong><%= request.village.tehsil %></strong>
+        </div> के न्यायालय में मामला क्रमांक_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन  <strong><%= request.year %></strong> _ _ _ _ _
       </div>
       <div>
         विषय - नामांतरण बाबत_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ प्रकरण की श्रेणी _ _ _ _ _ _ _ _ _ _ _ _ अ/६ वर्ष _ _ _ _ _ _
       </div>
 
       <div>
-        ग्राम- <div style="width:150px;display:inline-block;">
+        ग्राम- <div class="i-block w-20">
           <strong><%= request.village.village %></strong>
-        </div> बंदोबस्त क्रमांक _ _ _ _ _ _ _ _ _ _ पटवारी ह क्र <strong><%= request.village.halka_number %></strong> _ _ _ _ _ _ तहसील <div style="width:150px;display:inline-block;">
+        </div> बंदोबस्त क्रमांक _ _ _ _ _ _ _ _ _ _ पटवारी ह क्र <div class="i-block w-6">
+          <strong><%= request.village.halka_number %></strong> 
+        </div> _ _ _ तहसील <div class="i-block w-20">
           <strong><%= request.village.tehsil %></strong> <span class="fRight">_ _ _</span>
         </div>
       </div>
