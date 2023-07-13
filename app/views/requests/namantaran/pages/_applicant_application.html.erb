@@ -14,10 +14,18 @@
       <div class="margn-top-20">
         <center><strong>बनाम</strong></center>
       </div>
-      <div class="margn-top-20">2.&nbsp;<strong><%=raw participant_names(request, "seller", false, true) %></strong></div>
-      <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.sellers.first.address %></div>
-      <div class="fRight">- - - - - - - - - - - - - - - - -</div><br/>
-      <div class="fRight">अनावेदक</div>
+      <% karanda_aam = request.participants.karanda_aam.first %>
+      <% if karanda_aam.present? %>
+        <div class="margn-top-20">2.&nbsp;<strong>कारन्दाआम <%=raw participant_name(karanda_aam) %></strong></div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= karanda_aam.address %></div>
+         <div class="fRight">- - - - - - - - - - - - - - - - -</div><br/>
+        <div class="fRight">अनावेदक</div>
+      <% else %>
+        <div class="margn-top-20">2.&nbsp;<strong><%=raw participant_names(request, "seller", false, true) %></strong></div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.sellers.first.address %></div>
+        <div class="fRight">- - - - - - - - - - - - - - - - -</div><br/>
+        <div class="fRight">अनावेदक</div>
+      <% end %>
     </div>
     <div class="mb-8 paragraph-35 padding-2">
       <div class="fnt-18 fnt-b fnt-u mrgn-top-20">

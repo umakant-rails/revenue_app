@@ -8,17 +8,25 @@
         </div>
       </div>
       <div class="padding-5 mb-3">
-        1.&nbsp;<%=raw applicant_name(request) %><br/>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.applicant.address %> </div><br/>
-          <div class="fRight w-25">- - - - - - - - - - - - - -</div><br/>
-          <div class="fRight">आवेदक</div><br/>
-          <div>
-            <center><strong>बनाम</strong></center>
-          </div>
-        2.&nbsp;<%=raw participant_names(request, "seller", false, true ) %><br/>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.sellers.first.address %></div><br/>
-          <div class="fRight w-25">- - - - - - - - - - - - - -</div><br/>
-          <div class="fRight">अनावेदक</div><br/>
+        <div>1.&nbsp;<%=raw applicant_name(request) %></div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.applicant.address %> </div><br/>
+        <div class="fRight w-25">- - - - - - - - - - - - - -</div><br/>
+        <div class="fRight">आवेदक</div><br/>
+        <div>
+          <center><strong>बनाम</strong></center>
+        </div>
+        <% karanda_aam = request.participants.karanda_aam.first %>
+        <% if karanda_aam.present? %>
+          <div class="margn-top-20">2.&nbsp;<strong>कारन्दाआम <%=raw participant_name(karanda_aam) %></strong></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= karanda_aam.address %></div>
+           <div class="fRight">- - - - - - - - - - - - - - - - -</div><br/>
+          <div class="fRight">अनावेदक</div>
+        <% else %>
+          <div class="mrgn-top-20">2.&nbsp;<strong><%=raw participant_names(request, "seller", false, true) %></strong></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी - <%= request.participants.sellers.first.address %></div>
+          <div class="fRight">- - - - - - - - - - - - - - - - -</div><br/>
+          <div class="fRight">अनावेदक</div>
+        <% end %>
       </div>
       <div class="fnt-20 fnt-b fnt-u">
         विषय - नामांतरण सहमति बाबत

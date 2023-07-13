@@ -1,5 +1,6 @@
 <!-- aavedak sapath patra -->
 <div class="row alwaysbreak page">
+  <br/>
   <div class="col-md-12">
     <div class="row">
       <div class="fnt-24 fnt-b fnt-u page">
@@ -17,7 +18,14 @@
           मैं <%= raw applicant_name(request) %> उम्र <strong>_ _ _ _ </strong> वर्ष निवासी <strong><%= request.participants.applicant.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 
         </div>
         <div class="padding-3">
-          1.  यह कि <%= raw khasra_description(request) %> बेचवार <strong><%= request.participants.first.name %></strong>  से पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> को खरीद किया है |<br/> 
+          1.  यह कि <%= raw khasra_description(request) %> बेचवार 
+          <% karanda_aam = request.participants.karanda_aam.first %>
+          <% if karanda_aam.present? %> 
+             <strong>कारन्दाआम <%=raw participant_name(karanda_aam) %> </strong> 
+          <% else %>
+            <strong><%=raw participant_names(request, "seller", false, false) %></strong> 
+          <% end %>
+          से पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> को खरीद किया है |<br/> 
           2. यह कि हमारी उक्त भूमि का संपूर्ण प्रतिफल विक्रेता को देकर उक्त भूमि पर कब्ज़ा प्राप्त कर लिया गया है उक्त भूमि पर किसी प्रकार का कोई विवाद नहीं है भूमि हमारे रजिस्टर्ड बैनामा से क्रय की गई है अतः बैनामा अनुसार नाम दर्ज कराना है |<br/>
         </div>
         <div class="txt-indent-3">

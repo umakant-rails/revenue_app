@@ -9,7 +9,8 @@ class Participant < ApplicationRecord
   # scope :applicant, -> () { find_by_is_applicant(true)}
   scope :applicant, -> () { where("is_applicant=?", true)[0]}
   scope :buyers, -> () { where("participant_type_id = 1")}
-  scope :sellers, -> () { where("participant_type_id in (?)", [2,3])}
+  scope :sellers, -> () { where("participant_type_id = 2")}
+  scope :karanda_aam, -> () { where("participant_type_id = 3")}
 
   scope :land_owner, -> () { where("participant_type_id in (?)", 
     ParticipantType.where("name in (?)", ["मूल भू स्वामी", "मूल भू स्वामी एवं हिस्सेदार"]).pluck(:id)) }
