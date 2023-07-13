@@ -26,11 +26,15 @@
                 <div class="mb-8 txt-indent-3">                  
                   प्रकरण का अवलोकन किया गया | प्रकरण में प्रस्तुत आवेदक के आवेदन पत्र हल्का पटवारी प्रतिवेदन, अनावेदक 
                   <% karanda_aam = request.participants.karanda_aam.first %>
-                  <% if request.participants.sellers.present? %>
+                  <% seller_list = request.participants.sellers %>
+                  <% if seller_list.present? %>
                     <u><%=raw participant_names(request, "seller", true) %> </u>
                   <% end %>
+                  <% if seller_list.present? && karanda_aam.present? %>
+                    <u><strong>से मार्फ़त </strong></u>
+                  <% end %>
                   <% if karanda_aam.present? %> 
-                    <u><strong>से मार्फ़त कारन्दाआम</strong>, <%=raw participant_name(karanda_aam, true) %></u> 
+                    <u><strong>कारन्दाआम</strong>, <%=raw participant_name(karanda_aam, true) %></u> 
                   <% end %>
                   के जबाब व प्रकाशन में आये अन्य दस्तावेजों के आधार पर मध्यप्रदेश भू -राजस्व संहिता १९५९ की धारा 109 -110 के तहत <%= raw khasra_description(request) %> भूमि पर पंजीकृत बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> के अनुसार आवेदक <%=raw participant_names(request, "buyer", true) %> का नाम 
                     <% if is_complete_rakba_sold %>

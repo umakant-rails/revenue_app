@@ -27,11 +27,15 @@
             <% applicant = request.participants.applicant %>
             उपरोक्त विषयान्तर्गत संदर्भित आदेश के परिपालन में लेख है कि आवेदक <%=raw applicant_name(request) %> जाति _ _ _ _ _ _ _ _ _ _ _निवासी <strong><%= applicant.address %></strong> के द्वारा <%= raw khasra_description(request) %> भूमि का विक्रेता 
             <% karanda_aam = request.participants.karanda_aam.first %>
-            <% if request.participants.sellers.present? %>
+            <% seller_list = request.participants.sellers %>
+            <% if seller_list.present? %>
               <u><strong><%=raw participant_names(request, "seller", false, false) %></strong> </u> 
             <% end %>
+            <% if seller_list.present? && karanda_aam.present? %>
+              <u><strong>से मार्फ़त </strong></u>
+            <% end %>
             <% if karanda_aam.present? %> 
-               <u><strong>से मार्फ़त कारन्दाआम <%=raw participant_name(karanda_aam) %> </strong></u> 
+               <u><strong>कारन्दाआम <%=raw participant_name(karanda_aam) %> </strong></u> 
             <% end %>
             से बैनामा क्रमांक <strong><%=raw request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> के द्वारा क्रय करने से नामांतरण हेतु आवेदन पेश किया है <br/> 
           </div>
