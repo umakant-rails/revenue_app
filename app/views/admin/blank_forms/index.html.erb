@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Blank forms</h1>
+
+<div id="admin_blank_forms">
+  <% @admin_blank_forms.each do |admin_blank_form| %>
+    <%= render admin_blank_form %>
+    <p>
+      <%= link_to "Show this blank form", admin_blank_form %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New blank form", new_admin_blank_form_path %>

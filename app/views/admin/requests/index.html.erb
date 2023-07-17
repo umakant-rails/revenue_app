@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Requests</h1>
+
+<div id="admin_requests">
+  <% @admin_requests.each do |admin_request| %>
+    <%= render admin_request %>
+    <p>
+      <%= link_to "Show this request", admin_request %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New request", new_admin_request_path %>

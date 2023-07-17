@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @admin_request %>
+
+<div>
+  <%= link_to "Edit this request", edit_admin_request_path(@admin_request) %> |
+  <%= link_to "Back to requests", admin_requests_path %>
+
+  <%= button_to "Destroy this request", @admin_request, method: :delete %>
+</div>
