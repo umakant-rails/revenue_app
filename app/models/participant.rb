@@ -23,12 +23,12 @@ class Participant < ApplicationRecord
   scope :fout_participants, ->() { where('is_dead=?', true) }
   scope :son, ->() { where("relation_to_deceased='पुत्र'")}
   scope :daughter, ->() { where("relation_to_deceased='पुत्री'")}
-  scope :wife_husband, ->() { where("relation_to_deceased='पत्नी' or relation_to_deceased='पति'")}
+  scope :wife_husband, ->() { where("relation_to_deceased in (?) ", ['पत्नी', 'बेवा', 'पति']  )}
   scope :varsan, ->() { where("parent_id is not null")}
 
   validates :name, :relation, :gaurdian, :address,  presence: true 
 
-  RELATIONS = ['पुत्र','पुत्री', 'पत्नी']
+  RELATIONS = ['पुत्र','पुत्री', 'पत्नी', 'बेवा']
   RELATIONS_TO_DECEASED = ['पुत्र','पुत्री', 'पत्नी', 'पति', 'अन्य']
   SWAMITVA_STATUS=[["पूर्ण भूमि स्वामी", false], ["सह-खातेदार", true]]
   BOOLEAN_STATUS =[["नहीं ", false], ["हाँ", true]]
