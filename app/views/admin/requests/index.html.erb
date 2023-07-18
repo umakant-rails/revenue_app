@@ -1,14 +1,10 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Requests</h1>
-
-<div id="admin_requests">
-  <% @admin_requests.each do |admin_request| %>
-    <%= render admin_request %>
-    <p>
-      <%= link_to "Show this request", admin_request %>
-    </p>
-  <% end %>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10" id="request-block">
+    <div class="mb-3" id="request-block">
+      <%= render "request", requests: @requests %>
+    </div>
+    <div class="divider-bdr mt-3 mb-3"></div>
+  </div>
+  <div class="col-md-1"></div>
 </div>
-
-<%= link_to "New request", new_admin_request_path %>

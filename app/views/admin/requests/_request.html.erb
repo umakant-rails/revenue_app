@@ -1,2 +1,36 @@
-<div id="<%= dom_id request %>">
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>आवेदक</th>
+      <th>रजिस्ट्री नंबर/दिनांक</th>
+      <th>आवेदन प्रकार</th>
+      <th>आवेदन दिनांक</th>
+      <th>उपयोगकर्ता</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% requests && requests.each do | request | %>
+    <tr>
+      <td>
+        <%= link_to request.title, request_path(request), class: "anchor-no-decoration"  %>
+        <span class="ms-2 <%= request.payment_transaction.present? ? 'request-paid-lbl' : 'request-unpaid-lbl' %>">
+          <%= request.payment_transaction.present? ? 'Paid' : 'Pending' %>
+        </span>
+      </td>
+      <td>
+        <% if request.request_type.name == "नामांतरण" %>
+          <%= request.registry_number %>/<%= request.registry_date.strftime("%d-%m-%Y")%>
+        <% else %>
+          -
+        <% end %>
+      </td>
+      <td><%= request.request_type.name %></td>
+      <td><%= format_dt(request.created_at)%></td>
+      <td>
+        <%= request.user.username %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate requests if requests.present?%>
