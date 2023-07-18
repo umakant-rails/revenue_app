@@ -82,7 +82,7 @@ module RequestsHelper
 
     elsif request.request_type.name == "फौती"
       tmp_string = tmp_string +  " कुल रकबा "
-      tmp_string = tmp_string +  "<strong>#{'%.4f' % khasras.collect{ |k| k.sold_rakba.to_f }.sum } हे.</strong>"
+      tmp_string = tmp_string +  "<strong>#{'%.4f' % khasras.collect{ |k| k.rakba.to_f }.sum } हे.</strong>"
     else
       tmp_string = tmp_string +  " कुल रकबा "
       tmp_string = tmp_string +  "<strong>#{'%.4f' % khasras.collect{ |k| k.rakba.to_f }.sum } हे.</strong>"
