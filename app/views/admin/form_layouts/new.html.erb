@@ -1,0 +1,13 @@
+<h1>New form layout</h1>
+
+<%= render "form", order_template: @order_template %>
+
+<br>
+
+<div>
+  <%= link_to "Back to form layouts", admin_form_layouts_path %>
+</div>
+
+<% content_for :head do %>
+  <%= javascript_import_module_tag "custom/tinymce-custom" %>
+<% end %> 
