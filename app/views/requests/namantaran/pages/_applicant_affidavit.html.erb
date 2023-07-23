@@ -4,15 +4,14 @@
   <div class="col-md-12">
     <div class="row">
       <div class="fnt-24 fnt-b fnt-u">
-        <center>श्रीमान नोटरी अधिकारी महोदय <strong><%= request.village.tehsil %></strong> मध्यप्रदेश </center>
+        <center>श्रीमान पब्लिक नोटरी अधिकारी महोदय <strong><%= request.village.tehsil %></strong> मध्यप्रदेश </center>
       </div>
-      <div class="fnt-20 fnt-b">
+      <div class="fnt-20 fnt-b mt-2">
         <center>//शपथ पत्र//</center>
       </div>
     </div>
-    <br/><br/>
-    <div class="row padding-2">
-      <div class="paragraph-35">
+    <div class="row padding-2 mrgn-top-20">
+      <div class="paragraph-35 mrgn-top-10">
         <div class="txt-indent-3">
           <% applicant = request.participants.applicant %>
           मैं <%=raw applicant_name(request) %> उम्र <strong>_ _ _ _</strong> वर्ष निवासी <strong><%= applicant.address %></strong> शपथपूर्वक कथन करता हूँ |<br/> 

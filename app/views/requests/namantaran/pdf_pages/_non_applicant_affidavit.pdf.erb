@@ -1,5 +1,6 @@
 <!-- anavedak sapath patra -->
-<% sellers = @request.participants.sellers %>
+<% karanda_aam = @request.participants.karanda_aam %>
+<% sellers = karanda_aam.present? ? karanda_aam : @request.participants.sellers %>
 <% sellers && sellers.each do | seller | %>
   <div class="row alwaysbreak page">
     <br/><br/>
