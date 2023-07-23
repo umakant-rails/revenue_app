@@ -1,6 +1,6 @@
 $(document).ready(function(){
   tinyMCE.activeEditor.on('change keyup', function(ed, e) {
-    var content = tinyMCE.get("order_template_template").getContent();
+    var content = tinyMCE.get("form_template_template").getContent();
 
     $(".order_details").html(content);
   });
@@ -18,7 +18,7 @@ $(document).ready(function(){
     };
     var control =
         new google.elements.transliteration.TransliterationControl(options);
-    control.makeTransliteratable(["order_template_template_ifr"]);
+    control.makeTransliteratable(["form_template_template_ifr"]);
   }
   google.setOnLoadCallback(onLoad);
 });

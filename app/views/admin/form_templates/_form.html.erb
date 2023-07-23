@@ -1,11 +1,11 @@
-<%= form_with(model: order_template) do |form| %>
+<%= form_with(model: [:admin, form_template]) do |form| %>
   <div class="mb-3" data-controller="request">
-    <% if order_template.errors.any? %>
+    <% if form_template.errors.any? %>
       <div style="color: red">
-        <h2><%= pluralize(order_template.errors.count, "error") %> prohibited this order template from being saved:</h2>
+        <h2><%= pluralize(form_template.errors.count, "error") %> prohibited this order template from being saved:</h2>
 
         <ul>
-          <% order_template.errors.each do |error| %>
+          <% form_template.errors.each do |error| %>
             <li><%= error.full_message %></li>
           <% end %>
         </ul>
@@ -14,7 +14,7 @@
     <div class="row mb-3">
       <div class="col-md-2"></div>
       <div class="col-md-3">
-        <%= form.select :category, options_for_select(OrderTemplate::CATEGORIES), {prompt: 'Select Category'}, class: "form-control" %>
+        <%= form.select :category, options_for_select(FormTemplate::CATEGORIES), {prompt: 'Select Category'}, class: "form-control" %>
       </div>
       <div class="col-md-3">
         <%= form.text_field :name, class: "form-control" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_17_094422) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_23_150504) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_17_094422) do
   create_table "departments", force: :cascade do |t|
     t.string "eng_name"
     t.string "hindi_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "form_templates", force: :cascade do |t|
+    t.string "category"
+    t.string "name"
+    t.text "template"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,14 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_17_094422) do
     t.string "unit"
     t.integer "request_id"
     t.integer "village_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "order_templates", force: :cascade do |t|
-    t.string "category"
-    t.string "name"
-    t.text "template"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
