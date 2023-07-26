@@ -69,6 +69,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_150504) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_templates", force: :cascade do |t|
+    t.string "category"
+    t.string "name"
+    t.text "template"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.string "payment_id"
