@@ -12,9 +12,14 @@
         </center>
       </div>
     </div>
-    <span id="hidden_input" style="display:none;">
+     <span id="translatable" style="display:none;">
       <input id="input1" name="inputText" type="text" value="" 
-        class="hidden-field" data-blnk-frm-target="textField"
+        class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+        data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+    </span>
+    <span id="not-translatable" style="display:none;">
+      <input id="input2" name="inputText" type="text" value="" 
+        class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
         data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
     </span>
     <div class="row mrgn-top-10 mrgn-2">

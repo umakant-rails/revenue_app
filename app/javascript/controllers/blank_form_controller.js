@@ -8,96 +8,105 @@ export default class extends ApplicationController {
 
   connect() {
     this.params = {};
-    this.prevElement='';
+    this.liveInputElement = undefined;
   }
 
-  addRemoveElement(element, actionType){
+  addRemoveElement(parentElement, elementToAdd, actionType){
     if(actionType == 'add'){
-      $(element).html(this.textFieldTargets[0]);
+      $(parentElement).html(elementToAdd);
     } else if(actionType == 'restore'){
-      $("#hidden_input").html(this.textFieldTargets[0]);
-      this.textHolderTarget.value = '';
+      elementToAdd.value = '';
+      if(elementToAdd.dataset.translatable == "true"){
+        $("#translatable").html(elementToAdd);
+      } else {
+        $("#not-translatable").html(elementToAdd);
+      }
+      this.liveInputElement = undefined;
     }
   }
 
-  inputCreation(element){
+  inputCreation(parentElement, inputElement){
     var inputFieldVal = '';
     var inputField = '';
 
-    if(element.dataset.blnkFrmTarget != 'textHolder'){
+    if(parentElement.dataset.blnkFrmTarget != 'textHolder'){
       return ;
     }
-    
-    this.prevElement = element;
-    if(element.dataset.isRead == undefined){
-      element.dataset.blankText = element.textContent;
-      element.dataset.isRead = true;
-    } else if(element.dataset.isRead && (element.dataset.blankText == element.textContent)) {
-      this.textFieldTarget.value = '';
+
+    if(parentElement.dataset.isRead == undefined){
+      parentElement.dataset.blankText = parentElement.textContent;
+      parentElement.dataset.isRead = true;
+    } else if(parentElement.dataset.isRead && (parentElement.dataset.blankText == parentElement.textContent)) {
+      inputElement.value = '';
     } else {
-      this.textFieldTarget.value = element.textContent.trim();
+      inputElement.value = parentElement.textContent.trim();
     }
-    // inputField = `        
-    //   <input id="input1" name="inputText" type="text" value="${inputFieldVal}" style="display: inline-block;" 
-    //   data-blnk-frm-target="inputField" 
-    //   data-action="blur1->blnk-frm#showAsItis keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />   
-    // `;
-     
-    this.addRemoveElement(element, 'add');
+    this.addRemoveElement(parentElement, inputElement, 'add');
 
     setTimeout(()=>{
-      element.children[0].focus();
+      parentElement.children[0].focus();
     },100);
   }
 
   createInput(event){
-    var parentNodeElement = this.textFieldTarget.parentNode;
-
-    if(event.target.dataset.blnkFrmTarget == parentNodeElement.dataset.blnkFrmTarget &&
-      this.textFieldTarget.parentNode != event.target
+    var parentElement = (this.liveInputElement == undefined ) ? undefined : this.liveInputElement.parentNode;
+    if(parentElement && event.target.dataset.blnkFrmTarget == parentElement.dataset.blnkFrmTarget 
+      && this.liveInputElement && this.liveInputElement.parentNode != event.target
     ){
-      var vl = this.textFieldTarget.value;
-      this.addRemoveElement(null, 'restore');
-      parentNodeElement.innerHTML = (vl == '') ? parentNodeElement.dataset.blankText : vl;
+      var vl = this.liveInputElement.value.trim();
+      this.addRemoveElement(null, this.liveInputElement, 'restore');
+      parentElement.innerHTML = (vl == '') ? parentElement.dataset.blankText : vl;
     }
 
     if(event.target.dataset.blnkFrmTarget == 'textHolder'){
-      this.inputCreation(event.target);
+      var translatableStatus = event.target.dataset.translatable;
+      this.liveInputElement = this.textFieldTargets.find(target => target.dataset.translatable == translatableStatus);
+      this.inputCreation(event.target, this.liveInputElement);   
     } else{return;}
   }
 
   typingText(event){
     var vl = event.target.value;
-    var parentNodeElement = event.target.parentNode;
+    var parentElement = event.target.parentNode;
 
     if(event.keyCode == 13){
-      this.textFieldTarget.value = '';
-      this.addRemoveElement(null, 'restore');
-      parentNodeElement.innerHTML = (vl!='') ? vl : parentNodeElement.dataset.blankText;
+      this.liveInputElement.value = '';
+      this.addRemoveElement(null, event.target, 'restore');
+      parentElement.innerHTML = (vl!='') ? vl : parentElement.dataset.blankText;
     }
   }
-
-  // showAsItis(event){
-  //   var vl = this.prevElement.children[0].value;
-  //   this.textFieldTarget.value = '';
-  //   this.addRemoveElement(null, 'restore')
-  //   this.prevElement.innerHTML = (vl == '') ? this.prevElement.dataset.blankText : vl;
-  // }
 
   nextInput(event){
     var elements = this.textHolderTargets;
     var indx = elements.indexOf(event.target.parentNode);
 
     if(this.hasTextFieldTarget){
-      var vl = this.textFieldTarget.value;
-      var parentNodeElement = this.textFieldTarget.parentNode;
-      this.textFieldTarget.value = '';
-      this.addRemoveElement(null, 'restore')
-      parentNodeElement.innerHTML = (vl == '') ? parentNodeElement.dataset.blankText : vl;
+      var vl = this.liveInputElement.value.trim();
+      var parentElement = this.liveInputElement.parentNode;
+      this.liveInputElement.value = '';
+      this.addRemoveElement(null, this.liveInputElement, 'restore')
+      parentElement.innerHTML = (vl == '') ? parentElement.dataset.blankText : vl;
     }
 
     if(elements.length > indx+1){
-      this.inputCreation(elements[indx+1])
+      var translatableStatus = elements[indx+1].dataset.translatable;
+      this.liveInputElement = this.textFieldTargets.find(target => target.dataset.translatable == translatableStatus);
+      this.inputCreation(elements[indx+1], this.liveInputElement)
     }
+  }
+
+  downloadPDF(event){
+    var element = document.getElementsByClassName("page-a4")[0];
+
+    var options = {
+        margin: 0,
+        filename: 'PMKisan.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: 'avoid-all', before: '.page-a4' }
+    };
+    html2pdf().from(element).set(options).save();
+
   }
 }

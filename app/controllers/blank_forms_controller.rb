@@ -7,6 +7,7 @@ class BlankFormsController < ApplicationController
 
   # GET /blank_forms or /blank_forms.json
   def index
+    @districts = Village.all.pluck(:district).uniq
     @department = Department.where(eng_name: params[:department])[0]
     @blank_forms = @department.present? ? @department.blank_forms  : []
   end

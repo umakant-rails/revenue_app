@@ -6,7 +6,7 @@ var options = '';
   <% end %>
 <% else %>
   <% @records && @records.each do | record | %>
-    options = options + '<option value="<%= record.id %>"><%= record.village %></option>'
+    options = options + '<option value="<%= record.id %>" halka_number="<%= record.halka_number%>" halka_name="<%= record.halka_name%>"><%= record.village %></option>'
   <% end %>
 <% end %>
 

@@ -10,8 +10,9 @@ import FlatPickerController from './flatpickr_controller';
 import ParticipantController from  './participant_controller';
 import TemplateController from  './template_controller';
 import PaymentController from "./payment_controller";
-import KhasraBattankController from "./khasra_battank_controller"
-import BlankFormController from "./blank_form_controller"
+import KhasraBattankController from "./khasra_battank_controller";
+import BlankFormController from "./blank_form_controller";
+import MiscController from "./misc_controller";
 import { Autocomplete } from "stimulus-autocomplete";
 
 application.register("application", ApplicationController);
@@ -23,3 +24,4 @@ application.register("autocomplete", Autocomplete);
 application.register("payment", PaymentController);
 application.register("khbattank", KhasraBattankController);
 application.register("blnk-frm", BlankFormController);
+application.register("misc", MiscController);
