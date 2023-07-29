@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Role.create(name: 'Admin') if Role.where(name: 'Admin')
+Role.create(name: 'Public User') if Role.where(name: 'Public User')
+
 RequestType.create(name: "नामांतरण") if RequestType.where(name: "नामांतरण").blank?
 RequestType.create(name: "बटवारा (पिता-पुत्र)") if RequestType.where(name: "बटवारा (पिता-पुत्र)").blank?
 RequestType.create(name: "बटवारा (आपसी सहमति)") if RequestType.where(name: "बटवारा (आपसी सहमति)").blank?

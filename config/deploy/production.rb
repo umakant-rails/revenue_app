@@ -9,10 +9,9 @@ server "68.183.84.146", user: "deploy", roles: %w{app db web}, primary: :true
 
 set :rails_env, "production"
 
-
 # role-based syntax
 # ==================
-
+set :deploy_to, "/home/deploy/apps/revenueapp"
 # Defines a role with one or multiple servers. The primary server in each
 # group is considered to be the first unless any hosts have the primary
 # property set. Specify the username and a domain or IP for the server.
@@ -43,9 +42,9 @@ set :rails_env, "production"
 # Global options
 # --------------
  set :ssh_options, {
-   # keys: %w(/home/user_name/.ssh/id_rsa),
+   # keys: %w(/home/deploy/.ssh/id_rsa),
    forward_agent: false,
-   auth_methods: %w(publickey)
+   auth_methods: %w(password)
  }
 #
 # The server-based syntax can be used to override options:

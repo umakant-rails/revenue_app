@@ -76,8 +76,13 @@ page[size="A4"][layout="landscape"] {
 .pd-left-5{ padding-left:5%; }
 .pd-left-8{ padding-left:8%; }
 .pd-left-10{ padding-left:10%; }
+.w-6{width: 6%;}
+.w-8{width: 8%;}
+.w-10{width: 10%;}
 .w-15{width: 15%;}
 .w-20{width: 20%;}
+.w-25{width: 25%;}
+.w-30{width: 30%;}
 .w-70{width: 70%;}
 .w-65{width: 65%;}
 .ln-hgt-35 { line-height: 35px; }
@@ -201,4 +206,14 @@ page[size="A4"][layout="landscape"] {
 
 .text-right{
   text-align: right;
+}
+.i-block{
+  display: inline-block;
+}
+
+.order_details p {
+  line-height: 30px;
+  font-size: 18px;
+  text-align: justify;
+  margin-top:0px ; margin-bottom:0px;
 }

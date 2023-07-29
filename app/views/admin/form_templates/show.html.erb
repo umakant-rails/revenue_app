@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @admin_form_template %>
+
+<div>
+  <%= link_to "Edit this form template", edit_admin_form_template_path(@admin_form_template) %> |
+  <%= link_to "Back to form templates", admin_form_templates_path %>
+
+  <%= button_to "Destroy this form template", @admin_form_template, method: :delete %>
+</div>

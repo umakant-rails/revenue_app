@@ -73,6 +73,8 @@ module RequestsHelper
         khasra = khasras.where("sold_rakba != ''")[0]
         s_rakba = (khasra.unit != "हे.") ? khasra.sold_rakba : ('%.4f' % khasra.sold_rakba)
         tmp_string = tmp_string +  "में से क्रय रकबा <strong>#{ s_rakba + " "+ khasra.unit  }</strong>"
+      elsif khasras.length == 1 && khasras[0].unit  != "हे."
+        tmp_string = tmp_string +  "में से क्रय रकबा <strong>#{ khasras[0].sold_rakba + " "+ khasras[0].unit  }</strong>"
       else
         tmp_string = tmp_string +  "में से क्रय रकबा क्रमशः <strong>#{khasras.collect{ |k| ('%.4f' % k.sold_rakba) + " "+ k.unit }.join(', ') }</strong> कुल रकबा "
         tmp_string = tmp_string +  "<strong>#{'%.4f' % khasras.collect{ |k| k.sold_rakba.to_f }.sum } हे.</strong>"
@@ -80,7 +82,7 @@ module RequestsHelper
 
     elsif request.request_type.name == "फौती"
       tmp_string = tmp_string +  " कुल रकबा "
-      tmp_string = tmp_string +  "<strong>#{'%.4f' % khasras.collect{ |k| k.sold_rakba.to_f }.sum } हे.</strong>"
+      tmp_string = tmp_string +  "<strong>#{'%.4f' % khasras.collect{ |k| k.rakba.to_f }.sum } हे.</strong>"
     else
       tmp_string = tmp_string +  " कुल रकबा "
       tmp_string = tmp_string +  "<strong>#{'%.4f' % khasras.collect{ |k| k.rakba.to_f }.sum } हे.</strong>"

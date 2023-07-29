@@ -112,11 +112,11 @@ class ParticipantsController < ApplicationController
 
     def update_applicant_request_title
 
-      if @applicant.present? && @applicant.id.to_s != params[:id]
-        @applicant.update(is_applicant: false)
-      else
-        @participant.update(is_applicant: true)
-      end
+      # if @applicant.present? && @applicant.id.to_s != params[:id]
+      #   @applicant.update(is_applicant: false)
+      # else
+      #   @participant.update(is_applicant: true)
+      # end
 
       new_title = @participant.name + " का " + @request.request_type.name + " हेतु आवेदन, वर्ष" + @request.year;
       @participant.request.update(title: new_title)

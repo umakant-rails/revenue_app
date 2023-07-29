@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Form templates</h1>
+
+<div id="admin_form_templates">
+  <% @admin_form_templates.each do |admin_form_template| %>
+    <%= render admin_form_template %>
+    <p>
+      <%= link_to "Show this form template", admin_form_template %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New form template", new_admin_form_template_path %>

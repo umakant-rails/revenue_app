@@ -44,7 +44,7 @@
           </div>
           <div class="fRight">
             <center>आवेदक</center>
-            <center>नाम :- <strong><%= applicant_name(@request) %></strong></center>
+            <center>नाम :- <strong><%=raw applicant_name(@request) %></strong></center>
             <center>निवासी :- <strong><%= @request.participants.applicant.address %></strong></center>
           </div>
         </div> 

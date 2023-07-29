@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  namespace :admin do
+    resources :form_templates
+    resources :requests
+  end
   
   root 'welcome#index'
   

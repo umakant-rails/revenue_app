@@ -8,7 +8,9 @@ module ParticipantsHelper
   def participant_name(participant, with_address=false)
     participant_str = ''
     if participant.present?
-      participant_str = "<strong>" + participant.name + " " + participant.relation + " " + participant.gaurdian + "</strong>"
+      relation_txt = ['पुत्र','पुत्री'].index(participant.relation).present? ? "पिता" : participant.relation
+      
+      participant_str = "<strong>" + participant.name + " " + relation_txt + " " + participant.gaurdian + "</strong>"
       participant_str = participant_str + " निवासी <strong>" + participant.address + "</strong>" if with_address 
     end
     return participant_str
@@ -72,6 +74,8 @@ module ParticipantsHelper
       gaurdian = ''
       tmp = []
       balee = ''
+      relation_txt = ''
+
       varsans.each do | vrsn |
         gaurdian = vrsn.gaurdian
         if vrsn.is_nabalig
@@ -85,7 +89,16 @@ module ParticipantsHelper
           tmp.push("#{vrsn.name}")
         end
       end
-      arr.push([tmp.join(", "), relation, gaurdian.strip, balee].join(" ")) if tmp.present?
+
+      if ['पुत्र','पुत्री'].index(relation).present?
+        relation_txt = ['पुत्र','पुत्री'].index(relation).present? ? "पिता" : relation
+      elsif ['पत्नी'].index(relation).present? and varsans.length == 1
+        relation_txt = varsans[0].relation
+      elsif ['पति'].index(relation).present? and varsans.length == 1
+        relation_txt = ['पुत्र','पुत्री'].index(varsans[0].relation).present? ? "पिता" : varsans[0].relation
+      end
+
+      arr.push([tmp.join(", "), relation_txt, gaurdian.strip, balee].join(" ")) if tmp.present?
     end
 
     participant.children.fout_participants.each do | f_person |
@@ -100,7 +113,6 @@ module ParticipantsHelper
     str = ''
     arr = request.participants.fout_person.collect { | f_person | varsan_names(f_person) }
     arr = arr.flatten
-
     if is_short
       str =  arr.length>3 ? [arr[0..2].join(", "), "वगैरह"].join(" ") : arr.join(", ")
       str = "<strong>#{str}</strong>"
