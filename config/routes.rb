@@ -49,9 +49,11 @@ Rails.application.routes.draw do
     # namespace: 'revenue' do
     #   get '/' => 'blank_forms#index', as: :revenue, on: :collection
     # end
+    get '/get_records' => "blank_forms#get_records", as: :get_records, on: :collection 
     get '/departments' => "blank_forms#get_departments", as: :get_department, on: :collection
-    get '/:department/' => 'blank_forms#index', as: :index,  on: :collection
-    get '/:department/:id' => 'blank_forms#show', as: :show, on: :collection
+    get '/departments/:department' => 'blank_forms#index', as: :index,  on: :collection
+    get '/departments/:department/:id' => 'blank_forms#show', as: :show, on: :collection
+
   end
 
 end

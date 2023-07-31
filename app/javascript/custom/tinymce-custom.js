@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 $(document).ready(function(){
   tinyMCE.activeEditor.on('change keyup', function(ed, e) {
     var content = tinyMCE.get("form_template_template").getContent();

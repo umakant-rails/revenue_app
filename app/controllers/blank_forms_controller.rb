@@ -64,6 +64,16 @@ class BlankFormsController < ApplicationController
     end
   end
 
+  def get_records
+    if params[:selected_field] == "district"
+      @records = Village.where(district: params[:selected_value]).pluck(:tehsil).uniq
+    elsif params[:selected_field] == "tehsil"
+      @records = Village.where(tehsil: params[:selected_value]).pluck(:ri).uniq
+    elsif params[:selected_field] == "circle"
+      @records = Village.where(ri: params[:selected_value])
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blank_form

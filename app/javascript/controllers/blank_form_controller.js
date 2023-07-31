@@ -43,9 +43,13 @@ export default class extends ApplicationController {
     }
     this.addRemoveElement(parentElement, inputElement, 'add');
 
-    setTimeout(()=>{
-      parentElement.children[0].focus();
-    },100);
+    if(parentElement.children.length > 0){
+      setTimeout(()=>{
+        parentElement.children[0].focus();
+      },100);
+    } else{
+      console.log('error');
+    }
   }
 
   createInput(event){
@@ -66,13 +70,13 @@ export default class extends ApplicationController {
   }
 
   typingText(event){
-    var vl = event.target.value;
     var parentElement = event.target.parentNode;
 
     if(event.keyCode == 13){
+      var vl = event.target.value;
       this.liveInputElement.value = '';
       this.addRemoveElement(null, event.target, 'restore');
-      parentElement.innerHTML = (vl!='') ? vl : parentElement.dataset.blankText;
+      parentElement.innerHTML = (vl.length != 0) ? vl : parentElement.dataset.blankText;
     }
   }
 
@@ -109,4 +113,6 @@ export default class extends ApplicationController {
     html2pdf().from(element).set(options).save();
 
   }
+
+
 }

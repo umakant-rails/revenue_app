@@ -7,9 +7,8 @@ import "bootstrap";
 import "popper";
 import "controllers";
 import "tinymce";
-
-Rails.start();
-
+import './formjs-custom';
+// import "formjs";
 
 $(document).ready(function(){
   tinymce.init({
@@ -34,3 +33,5 @@ $(document).ready(function(){
     toolbar2: 'table tablecellprops tablecopyrow tablecutrow tabledelete tabledeletecol tabledeleterow tableinsertdialog tableinsertcolafter tableinsertcolbefore tableinsertrowafter tableinsertrowbefore tablemergecells tablepasterowafter tablepasterowbefore tableprops tablerowprops tablesplitcells tableclass tablecellclass tablecellvalign tablecellborderwidth tablecellborderstyle tablecaption tablecellbackgroundcolor tablecellbordercolor tablerowheader tablecolheader',
    });
 });
+
+Rails.start();
