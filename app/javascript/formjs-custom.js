@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 $(document).ready(function(){
 
-  $(".print-btn").on('click', function(){
+  $(document).on('click', ".print-btn", function(){
     var restorePage = $('body').html();
     var printContent = '';
 
@@ -14,7 +14,15 @@ $(document).ready(function(){
 
     $('body').empty().html(printContent);
     window.print();
-    $('body').html(restorePage);
+    $('body').empty().html(restorePage);
+  });
+
+  $(".selection-criteria-box").on("change", function(){
+    var targets = $(this).data('target');
+    var selectedParameter = $(this).val();
+
+    $(targets).css('display', 'none');
+    $("#"+selectedParameter).css('display', 'block'); 
   });
 
   $(".set-pmkisan-data").on("change", function(){  
@@ -25,59 +33,29 @@ $(document).ready(function(){
     var halka_name = $("#request_village_id").find(':selected').attr('halka_name');
     var halka_number = $("#request_village_id").find(':selected').attr('halka_number');
 
+    $(".district").attr({'data-is-read': true, 'data-blank-text': $(".district").text()}).text(district);
     $(".tehsil").attr({'data-is-read': true, 'data-blank-text': $(".tehsil").text()}).text(tehsil);
+    $(".circle").attr({'data-is-read': true, 'data-blank-text': $(".circle").text()}).text(circle);
     $(".halka_number").attr({'data-is-read': true, 'data-blank-text': $(".halka_number").text()}).text(halka_number);
     $(".halka_name").attr({'data-is-read': true, 'data-blank-text': $(".halka_name").text()}).text(halka_name);
     $(".village").attr({'data-is-read': true, 'data-blank-text': $(".village").text()}).text(village);
 
-    if($(".patwari-letter").is(':visible')){
-      var karyalayStatus = "कार्यालय पटवारी हल्का नंबर " + halka_number + ", तहसील " + tehsil;
-      var addressing_office = "<div>तहसीलदार महोदय,</div><div>तहसील " + tehsil + ", जिला " + district;
-      var signStatus = "<div>पटवारी</div><div> हल्का नंबर "+halka_number+"</div>"
-      $(".karyalay-status").text(karyalayStatus);
-      $(".addressing-office").html(addressing_office);
-      $(".sign-status").html(signStatus);
-    } else if($(".tehsildar-letter").is(':visible')){
-      $("#district-status").text(district);
-      var karyalayStatus = "कार्यालय तहसीलदार " + tehsil + ", तहसील " + tehsil;
-      var signStatus = "<div>तहसीलदार</div><div>"+tehsil+"</div>"
-      $("#karyalay-status").text(karyalayStatus);
-      $(".sign-status").html(signStatus);
-    }
-   
-  });
 
-  $("#karyalay-select-box").on("change", function(){
-    var tehsil = $("#tehsil").val();
-    var circle = $("#circle").val();
-    var village = $("#request_village_id").val();
-    var karyalay = $(this).val();
-    var karyalayStatus = '';
-    var signStatus = '';
-
-    // if(village.length == 0){
-    //   alert(" कृपया पहले ग्राम चुने.");
-    //   return;
+    // if($(".patwari-letter").is(':visible')){
+    //   var karyalayStatus = "कार्यालय पटवारी हल्का नंबर " + halka_number + ", तहसील " + tehsil;
+    //   var addressing_office = "<div>तहसीलदार महोदय,</div><div>तहसील " + tehsil + ", जिला " + district;
+    //   var signStatus = "<div>पटवारी</div><div> हल्का नंबर "+halka_number+"</div>"
+    //   $(".karyalay-status").text(karyalayStatus);
+    //   $(".addressing-office").html(addressing_office);
+    //   $(".sign-status").html(signStatus);
+    // } else if($(".tehsildar-letter").is(':visible')){
+    //   $("#district-status").text(district);
+    //   var karyalayStatus = "कार्यालय तहसीलदार " + tehsil + ", तहसील " + tehsil;
+    //   var signStatus = "<div>तहसीलदार</div><div>"+tehsil+"</div>"
+    //   $("#karyalay-status").text(karyalayStatus);
+    //   $(".sign-status").html(signStatus);
     // }
-
-    // if(karyalay == 'nayab-tehsildar') {
-    //   karyalayStatus = "कार्यालय नायब तहसीलदार " + circle + ", तहसील " + tehsil;
-    //   signStatus = "<div>नायब तहसीलदार</div><div> वृत्त-"+circle+", तहसील-"+tehsil+"</div>"
-    //   $("#karyalay-status").text(karyalayStatus);
-    //   $("#sign-status").html(signStatus);
-    // } else {
-    //   karyalayStatus = "कार्यालय तहसीलदार " + tehsil + ", तहसील " + tehsil;
-    //   signStatus = "<div>तहसीलदार</div><div>"+tehsil+"</div>"
-    //   $("#karyalay-status").text(karyalayStatus);
-    //   $("#sign-status").html(signStatus);
-    // } 
-    if(karyalay == 'tehsildar' || karyalay == 'nayab-tehsildar'){
-      $('.tehsildar-letter').css('display', 'block');
-      $('.patwari-letter').css('display', 'none');
-    }  else if (karyalay == 'patwari') {
-      $('.patwari-letter').css('display', 'block');
-      $('.tehsildar-letter').css('display', 'none');
-    }  
+   
   });
 
   $(".sandarbh-delete").on('click', function(){
