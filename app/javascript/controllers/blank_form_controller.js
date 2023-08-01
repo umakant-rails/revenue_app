@@ -114,5 +114,13 @@ export default class extends ApplicationController {
 
   }
 
+  openForm(){
+    var selelectedForm = event.target.value;
+    var department = event.target.dataset.department;
+
+    var url = '/blank_forms/departments/' + department + "/" + selelectedForm;
+    window.location.replace(url)
+    console.log(url)
+  }
 
 }

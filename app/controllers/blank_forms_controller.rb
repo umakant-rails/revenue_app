@@ -14,7 +14,10 @@ class BlankFormsController < ApplicationController
 
   # GET /blank_forms/1 or /blank_forms/1.json
   def show
-
+    @districts = Village.all.pluck(:district).uniq
+    @department = Department.where(eng_name: params[:department])[0]
+    @blank_forms = @department.present? ? @department.blank_forms  : []
+    @current_form = BlankForm.find(params[:id])
   end
 
   # GET /blank_forms/new

@@ -1,10 +1,25 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @blank_form %>
-
-<div>
-  <%= link_to "Edit this blank form", edit_blank_form_path(@blank_form) %> |
-  <%= link_to "Back to blank forms", blank_forms_path %>
-
-  <%= button_to "Destroy this blank form", @blank_form, method: :delete %>
+<div class="row" data-controller="blnk-frm">
+  <div class="col-md-1"></div>
+  <div class="col-md-3">
+    <%= select_tag "form_name", options_from_collection_for_select(@blank_forms, "id", "hindi_name", params[:id]), 
+      class: "form-control", prompt: "Select Form", 'data-action':"change->blnk-frm#openForm",
+      'data-department': params[:department] %>
+    <div class="row">
+      <div class="col-md-6">
+        <input type="button" value="print" class="form-control btn btn-primary mt-2 print-btn" />
+      </div>
+      <div class="col-md-6">
+        <button data-action="click->blnk-frm#downloadPDF" class="form-control btn btn-danger mt-2" />
+          PDF&nbsp;&nbsp;<i class="fa-solid fa-file-export"></i>
+        </button  >
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7" id="blank-form-block">
+    <%= render partial: "blank_forms/forms/#{params[:department]}/#{@current_form.eng_name.split(" ").join("_")}" rescue nil %>
+  </div>
+  <div class="col-md-1"></div>
 </div>
+<% content_for :head do %>
+  <%= javascript_import_module_tag "custom/translate-custom" %>
+<% end %>
