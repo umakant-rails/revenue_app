@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="col-md-7" id="blank-form-block">
-    <%= render partial: "blank_forms/forms/#{params[:department]}/#{@current_form.eng_name.split(" ").join("_")}" rescue nil %>
+    <%= render partial: "blank_forms/forms/#{params[:department]}/#{@current_form.group_name.downcase}/#{certificate_name(@current_form.eng_name)}" rescue nil %>
   </div>
   <div class="col-md-1"></div>
 </div>

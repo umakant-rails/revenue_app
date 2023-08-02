@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_150504) do
     t.string "hindi_name"
     t.string "category"
     t.text "content"
+    t.string "group_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

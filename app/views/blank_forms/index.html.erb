@@ -1,25 +1,20 @@
-<div class="row" data-controller="blnk-frm">
+<div class="row">
   <div class="col-md-1"></div>
-  <div class="col-md-3">
-    <%= select_tag "form_name", options_from_collection_for_select(@blank_forms, "id", "hindi_name"), 
-      class: "form-control", prompt: "Select Form", 'data-action':"change->blnk-frm#openForm",
-      'data-department': params[:department] %>
+  <div class="col-md-10">
     <div class="row">
-      <div class="col-md-6">
-        <input type="button" value="print" class="form-control btn btn-primary mt-2 print-btn" />
-      </div>
-      <div class="col-md-6">
-        <button data-action="click->blnk-frm#downloadPDF" class="form-control btn btn-danger mt-2" />
-          PDF&nbsp;&nbsp;<i class="fa-solid fa-file-export"></i>
-        </button  >
-      </div>
+      <% @blank_forms && @blank_forms.each do | form | %>
+        <%= link_to show_blank_forms_path(params[:department],form.id), class:"col-md-2 anchor-no-decoration" do %>
+          <div class="card" style="width: 180px; border-radius: 0px;border: 2px solid blue;border-radius: 5px;  ">
+            <img src="/assets/form_icon.png" class="card-img-top" alt="..." style="border-bottom: 2px solid blue; padding-bottom: 4px;">
+            <div class="card-body p-2" style="height: 105px;">
+              <div class="card-text fnt-14 fnt-b"><%= form.eng_name.camelize %></div>
+              <div class="card-text fnt-14 fnt-b"><%= form.hindi_name %></div>
+              <div class="card-text fnt-14 fnt-b">(<%= form.group_name.capitalize %>)</div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-  </div>
-  <div class="col-md-7" id="blank-form-block">
-    <%= render partial: "blank_forms/forms/#{params[:department]}/pmkisan_letter" %>
   </div>
   <div class="col-md-1"></div>
 </div>
-<% content_for :head do %>
-  <%= javascript_import_module_tag "custom/translate-custom" %>
-<% end %>
