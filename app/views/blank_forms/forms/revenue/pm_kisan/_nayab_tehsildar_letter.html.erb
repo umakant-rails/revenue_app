@@ -1,0 +1,115 @@
+<div class="col-md-11" data-controller="request misc">
+  <div class="mb-3 row">
+    <div class="col-md-3">
+      <label class="form-label">District</label>
+      <%= select_tag :district, options_for_select(@districts), prompt: "जिला चुने", 
+        class: "form-control", 'data-target': 'request.district misc.district', 
+        'data-action': 'change->misc#getRecords' %>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Tehsil</label>
+      <%= select_tag :tehsil, options_for_select([]), prompt: "तहसील चुने", class: "form-control", 'data-target': 'request.tehsil misc.tehsil', 'data-action': 'change->misc#getRecords' %>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Circle</label>
+      <%= select_tag :circle, options_for_select([]), prompt: "सर्किल चुने", class: "form-control", 'data-target': 'request.circle misc.circle', 'data-action': 'change->misc#getRecords' %>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Village</label>
+      <%= select_tag :request_village_id, options_for_select([]), prompt: "ग्राम चुने", class: "form-control set-pmkisan-data", 'data-target': 'request.village misc.village' %>
+    </div>
+  </div>
+</div>
+<div class="letter-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print selection-criteria-block" id="nayab-tehsildar-letter">
+    <div class="col-md-12 ln-hgt-30">
+      <div class="row">&nbsp;</div>
+      <div class="row padding-5">
+        <div class="fnt-26 fnt-b fnt-u mb-2">
+          <center>
+            <span class="karyalay-status">
+              कार्यालय नायब तहसीलदार <%= raw blank_string(5, false, 'circle')%>, तहसील <%= raw blank_string(5, false, 'tehsil')%>  
+            </span> 
+          </center>
+        </div>
+        <div class="fnt-16">
+          <div class="fLeft"> क्र/ . . . . . ./ तह. री./2023</div>
+          <div class="fRight">दिनांक <%= format_dt(Date.today) %></div>
+        </div>
+      </div>
+      <span id="translatable" style="display:none;">
+        <input id="input1" name="inputText" type="text" value="" 
+          class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+          data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+      </span>
+      <span id="not-translatable" style="display:none;">
+        <input id="input2" name="inputText" type="text" value="" 
+          class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+          data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+      </span>
+      <div class="row mrgn-top-10 padding-5">
+        <div class="paragraph-30">
+          प्रति,
+          <div class="padding-5 fnt-b mb-2">
+            कलेक्टर महोदय ,<br/>
+            भू अभिलेख शाखा <%= raw blank_string(5, false, 'district')%>
+          </div>
+          <div class="mb-1 subject-status">
+            <strong>विषय :-</strong> पी एम किसान में दर्ज अपात्र किसान को पात्र करने के सम्बन्ध में |
+          </div>
+          <div class="mb-3">
+            <strong>संदर्भ:-</strong><%= raw blank_string(30, true, 'letter-sandarbh')%>
+            <span class="sandarbh-delete"><i class="fa-regular fa-trash-can text-danger"></i></span>
+          </div>
+          <div class="txt-indent-2 mb-3">
+            उपरोक्त विषयान्तर्गत श्रीमान जी से निवेदन है कि तहसील <%= raw blank_string(12, true, 'tehsil')%> के पटवारी हल्का नंबर <%= raw blank_string(12, true, 'halka_number')%>  मौजा <%= raw blank_string(12, true, 'village')%> के किसान <%= raw blank_string(25, true, 'applicant')%> पी एम किसान पोर्टल पर <%= raw blank_string(40, false)%>  की श्रेणी में अपात्र दर्ज है ,  हितग्राही किसान का पी एम किसान रजिस्ट्रशन नंबर <%= raw blank_string(15, false, 'registration_number')%> है , हल्का पटवारी <%= raw blank_string(12, true, 'halka_name')%>  (हल्का नंबर <%= raw blank_string(4, false, 'halka_number')%> ) ने प्रतिवेदन प्रस्तुत कर लेख किया है कि हितग्राही <%= raw blank_string(25, true, 'applicant')%> पात्र किसान है | हितग्राही की जानकारी निम्नांकित है :-
+          </div>
+          <div class="mb-3">
+            <table class="table table-bordered">
+              <thead>
+                <tr style="vertical-align: middle;">
+                  <th scope="col">हितग्राही का नाम</th>
+                  <th scope="col">रजिस्ट्रेशन नंबर</th>
+                  <th scope="col">आधार नंबर</th>
+                  <th scope="col">समग्र आई डी</th>
+                  <th scope="col">बैंक अकाउंट एवं आई एफ एस सी कोड</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= raw blank_string(25, true, 'applicant')%></td>
+                  <td><%= raw blank_string(12, false, 'registration_number')%></td>
+                  <td><%= raw blank_string(12, false)%></td>
+                  <td><%= raw blank_string(12, false)%></td>
+                  <td><%= raw blank_string(12, false)%></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="txt-indent-2 mb-5">
+            अतः श्रीमान जी से उक्त हितग्राही के सम्बन्ध में  निवेदन है कि हितग्राही <%= raw blank_string(25, true, 'applicant')%> को पी एम् किसान पोर्टल पर पात्र दर्ज करने की कष्ट करे, जिससे कि हितग्राही को पी एम किसान सम्मान निधि का लाभ प्राप्त हो सके |
+          </div>
+          <div class="fRight fnt-b mt-2 me-5">
+            <center>
+              <div class="sign-status fnt-b">
+                <div>नायब तहसीलदार  </div>
+                <div>वृत्त-<%= raw blank_string(5, false, 'circle')%>, तहसील-<%= raw blank_string(5, false, 'tehsil')%></div>
+              </div>
+            </center>
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

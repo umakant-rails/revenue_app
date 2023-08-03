@@ -1,0 +1,100 @@
+<div class="col-md-11" data-controller="request misc">
+  <div class="mb-3 row">
+    <div class="col-md-3">
+      <label class="form-label">District</label>
+      <%= select_tag :district, options_for_select(@districts), prompt: "जिला चुने", 
+        class: "form-control", 'data-target': 'request.district misc.district', 
+        'data-action': 'change->misc#getRecords' %>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Tehsil</label>
+      <%= select_tag :tehsil, options_for_select([]), prompt: "तहसील चुने", class: "form-control", 'data-target': 'request.tehsil misc.tehsil', 'data-action': 'change->misc#getRecords' %>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Circle</label>
+      <%= select_tag :circle, options_for_select([]), prompt: "सर्किल चुने", class: "form-control", 'data-target': 'request.circle misc.circle', 'data-action': 'change->misc#getRecords' %>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Village</label>
+      <%= select_tag :request_village_id, options_for_select([]), prompt: "ग्राम चुने", class: "form-control set-pmkisan-data", 'data-target': 'request.village misc.village' %>
+    </div>
+  </div>
+</div>
+<div class="letter-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print selection-criteria-block" id="patwari-letter">
+    <div class="col-md-12 ln-hgt-30">
+      <div class="row">&nbsp;</div>
+      <div class="row padding-5">
+        <div class="fnt-26 fnt-b fnt-u mb-2">
+          <center>
+            <span class="karyalay-status">
+              कार्यालय पटवारी हल्का नंबर <%= raw blank_string(4, false, 'halka_number')%>, तहसील <%= raw blank_string(6, false, 'tehsil')%>
+            </span> 
+          </center>
+        </div>
+      </div>
+      <div class="row mrgn-top-10 padding-5">
+        <div class="paragraph-30">
+          प्रति,
+          <div class="padding-5 fnt-b mb-3 addressing-office">
+            तहसीलदार महोदय,<br/>
+            तहसील <%= raw blank_string(6, false, 'tehsil')%>, जिला <%= raw blank_string(6, false, 'district')%>
+          </div>
+          <div class="mb-3 subject-status">
+            <strong>विषय :-</strong> पी एम किसान पोर्टल पर अपात्र हितग्राही को पत्र करने के सम्बन्ध में |
+          </div>
+          <div class="txt-indent-2 mb-3">
+            उपरोक्त विषयान्तर्गत श्रीमान जी से निवेदन है कि हितग्राही <%= raw blank_string(25, true, 'applicant')%> हलका नंबर <%= raw blank_string(4, false, 'halka_number')%> के मौजा <%= raw blank_string(15, false, 'village')%> के निवासी हैं, जिनका नाम भूलेख रिकॉर्ड में मौजा <%= raw blank_string(15, false, 'village')%> के खसरा नंबर <%= raw blank_string(10, false, 'khasra_number')%> रकबा <%= raw blank_string(5, false, 'rakba')%> हे. पर दर्ज है। हितग्राही <%= raw blank_string(25, true, 'applicant')%> का पी एम किसान रजिस्ट्रेशन नंबर <%= raw blank_string(10, true, 'registration_number')%>  है ,हितग्राही <%= raw blank_string(25, true, 'applicant')%> पी एम किसान पोर्टल पर <%= raw blank_string(30, false, 'ineligible-class')%> की श्रेणी में अपात्र है जिसके कारण हितग्राही को पी एम किसान योजना लगभग <%= raw blank_string(3, true, 'time_period')%> माह/वर्ष से नहीं मिल रहा है | हितग्राही पी एम किसान योजना के मापदण्डो के अनुरूप पात्र है | हितग्राही की जानकारी निम्नांकित है :-
+          </div>
+          <div class="mb-3">
+            <table class="table table-bordered">
+              <thead>
+                <tr style="vertical-align: middle;">
+                  <th scope="col">हितग्राही का नाम</th>
+                  <th scope="col">रजिस्ट्रेशन नंबर</th>
+                  <th scope="col">आधार नंबर</th>
+                  <th scope="col">समग्र आई डी</th>
+                  <th scope="col">बैंक अकाउंट एवं आई एफ एस सी कोड</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= raw blank_string(25, true, 'applicant')%></td>
+                  <td><%= raw blank_string(12, false, 'registration_number')%></td>
+                  <td><%= raw blank_string(12, false)%></td>
+                  <td><%= raw blank_string(12, false)%></td>
+                  <td><%= raw blank_string(12, false)%></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="txt-indent-2 mb-1">
+            अतः आवेदक को अपात्र से पात्र किया जाना उचित होगा। |
+          </div>
+          <div class="txt-indent-2 mb-1">
+            प्रतिवेदन श्रीमान जी की और सादर सम्प्रेषित 
+          </div>
+          <div class="fRight fnt-b mt-2 me-5">
+            <center>
+              <div class="sign-status">
+                <div>पटवारी</div>
+                <div>हल्का नंबर <%= raw blank_string(4, false, 'halka_number')%></div>
+              </div>
+            </center>
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="col-md-11" data-controller="request misc">
+  <div class="mb-3 row">
+    <div class="col-md-3">
+      <label class="form-label">District</label>
+      <%= select_tag :district, options_for_select(@districts), prompt: "जिला चुने", 
+        class: "form-control", 'data-target': 'request.district misc.district', 
+        'data-action': 'change->misc#getRecords' %>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Tehsil</label>
+      <%= select_tag :tehsil, options_for_select([]), prompt: "तहसील चुने", class: "form-control", 'data-target': 'request.tehsil misc.tehsil', 'data-action': 'change->misc#getRecords' %>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Circle</label>
+      <%= select_tag :circle, options_for_select([]), prompt: "सर्किल चुने", class: "form-control", 'data-target': 'request.circle misc.circle', 'data-action': 'change->misc#getRecords' %>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Village</label>
+      <%= select_tag :request_village_id, options_for_select([]), prompt: "ग्राम चुने", class: "form-control set-pmkisan-data", 'data-target': 'request.village misc.village' %>
+    </div>
+  </div>
+</div>
+
+<div class="letter-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <div class="page-a4 only-print selection-criteria-block" id="applicant-letter">
+    <div class="col-md-12 ln-hgt-30">
+      <div class="row">&nbsp;</div>
+      <div class="row mrgn-top-10 padding-5">
+        <div class="paragraph-30">
+          प्रति,
+          <div class="padding-10 fnt-b mb-2">
+            <div>श्रीमान तहसीलदार महोदय</div>
+            तहसील <%= raw blank_string(6, false, 'tehsil')%>
+          </div>
+          <div class="mb-3 subject-status">
+            <strong>विषय :-</strong> पी एम किसान पोर्टल पर दर्ज अपात्र किसान को पात्र करने के सम्बन्ध में |
+          </div>
+          <div>महोदय,</div>
+          <div class="txt-indent-2 mb-2">
+            उपरोक्त विषयान्तर्गत श्रीमान जी से निवेदन है कि मैं <%= raw blank_string(25, true, 'applicant')%> हलका नंबर <%= raw blank_string(4, false, 'halka_number')%> के मौजा <%= raw blank_string(15, false, 'village')%> का निवासी हैं, मेरा नाम भूलेख रिकॉर्ड में मौजा <%= raw blank_string(15, false, 'village')%> के खसरा नंबर <%= raw blank_string(10, false, 'khasra_number')%> रकबा <%= raw blank_string(5, false, 'rakba')%> हे. पर दर्ज है। वर्तमान में, मैं पी एम किसान पोर्टल पर अपात्र दर्ज हूँ, जिसके कारण मुझे पी एम किसान सम्मान निधि प्राप्त नहीं हो रही है |
+          </div>
+          <div class='txt-indent-2 mb-3'>
+            अतः श्रीमान जी सादर निवेदन है कि मुझे पी एम किसान पोर्टल पर अपात्र से पात्र दर्ज कराने की कृपा करे, जिससे कि मुझे पी एम किसान सम्मान निधि योजना का लाभ प्राप्त हो सके| 
+          </div>
+          <div class="mb-5">
+            <strong>संलग्न :-</strong>
+            <ol>
+              <li>आधार कार्ड</li>
+              <li>समग्र आईडी</li>
+              <li>बैंक पासबुक</li>
+              <li>वर्तमान खसरा/बी की नकल</li>
+            </ol>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <div class="fLeft">
+                <div><strong>स्थान :-</strong> <%= raw blank_string(6, false, 'tehsil')%></div>
+                <div><strong>दिनांक :-</strong> <%= format_dt(Date.today) %></div>
+              </div>
+            </div> 
+            <div class="col-md-6">
+              <div class="fRight">
+                <center>
+                  <div class="sign-status">
+                    <div><strong>आवेदक</strong></div>
+                    <div><%= raw blank_string(20, true, 'applicant')%></div>
+                  </div>
+                </center>
+              </div>
+            </div> 
+          </div>         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

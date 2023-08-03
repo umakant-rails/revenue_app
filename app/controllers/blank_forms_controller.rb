@@ -7,17 +7,22 @@ class BlankFormsController < ApplicationController
 
   # GET /blank_forms or /blank_forms.json
   def index
-    @districts = Village.all.pluck(:district).uniq
-    @department = Department.where(eng_name: params[:department])[0]
-    @blank_forms = @department.present? ? @department.blank_forms.order("group_name")  : []
+    # @districts = Village.all.pluck(:district).uniq
+    @departments = Department.all
+    # @department = Department.where(eng_name: params[:department])[0]
+    # @blank_forms = @department.present? ? @department.blank_forms.order("group_name")  : []
   end
 
   # GET /blank_forms/1 or /blank_forms/1.json
   def show
     @districts = Village.all.pluck(:district).uniq
-    @department = Department.where(eng_name: params[:department])[0]
-    @blank_forms = @department.present? ? @department.blank_forms  : []
-    @current_form = BlankForm.find(params[:id])
+    if @blank_form.present? 
+      @blank_forms = BlankForm.where(section: @blank_form.section)
+    else
+      @blank_forms = BlankForm.where(section: params[:section])
+      @blank_form = @blank_forms[0]
+    end
+
   end
 
   # GET /blank_forms/new
@@ -67,6 +72,11 @@ class BlankFormsController < ApplicationController
     end
   end
 
+  def department
+    @department = Department.where(eng_name: params[:department])[0]
+    @form_groups = @department.present? ? @department.blank_forms.pluck("section").uniq : []
+  end
+
   def get_records
     if params[:selected_field] == "district"
       @records = Village.where(district: params[:selected_value]).pluck(:tehsil).uniq
@@ -80,7 +90,7 @@ class BlankFormsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blank_form
-      @blank_form = BlankForm.find(params[:id])
+      @blank_form = BlankForm.find(params[:id]) rescue nil
     end
 
     # Only allow a list of trusted parameters through.

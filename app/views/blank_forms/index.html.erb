@@ -2,6 +2,34 @@
   <div class="col-md-1"></div>
   <div class="col-md-10">
     <div class="row">
+      <% @departments && @departments.each do | department | %>
+        <div class="col-md-3 widget">
+          <%= link_to department_blank_forms_path(department.eng_name), class: "text-decoration-none" do %>
+            <div class="card l-bg-blue-dark">
+              <div class="card-statistic-3 p-4">
+                <div class="row align-items-center mb-2 d-flex">
+                  <div class="col-12 widget-txt-box">
+                    <h3 class="d-flex align-items-center mt-4">
+                      <b><%= department.hindi_name %> फॉर्म</b>
+                    </h3>
+                    <div class="card-icon card-icon-large mt-3"><i class="fas fa-file-alt"></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="row">
       <% @blank_forms && @blank_forms.each do | form | %>
         <%= link_to show_blank_forms_path(params[:department],form.id), class:"col-md-2 anchor-no-decoration" do %>
           <div class="card" style="width: 180px; border-radius: 0px;border: 2px solid blue;border-radius: 5px;  ">
