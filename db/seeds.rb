@@ -39,7 +39,7 @@ if department.present?
   department.blank_forms.create(eng_name: "Non Applicant Application", hindi_name: "अनावेदक आवेदन", group_name: "Namantaran") if department.blank_forms.where(eng_name: "Non Applicant Application", group_name: "Namantaran").blank?
   department.blank_forms.create(eng_name: "Applicant Affidavit", hindi_name: "आवेदक शपथ पत्र", group_name: "Namantaran") if department.blank_forms.where(eng_name: "Applicant Affidavit", group_name: "Namantaran").blank?
   department.blank_forms.create(eng_name: "Non Applicant Affidavit", hindi_name: "अनावेदक शपथ पत्र", group_name: "Namantaran") if department.blank_forms.where(eng_name: "Non Applicant Affidavit", group_name: "Namantaran").blank?
-  department.blank_forms.create(eng_name: "Ishtihar", hindi_name: "इश्तिहारर", group_name: "Namantaran") if department.blank_forms.where(eng_name: "Ishtihar", group_name: "Namantaran").blank?
+  department.blank_forms.create(eng_name: "Ishtihar", hindi_name: "इश्तिहार", group_name: "Namantaran") if department.blank_forms.where(eng_name: "Ishtihar", group_name: "Namantaran").blank?
   department.blank_forms.create(eng_name: "Kathan", hindi_name: "कथन", group_name: "Namantaran") if department.blank_forms.where(eng_name: "Kathan", group_name: "Namantaran").blank?
   department.blank_forms.create(eng_name: "Talwana", hindi_name: "तलवाना", group_name: "Namantaran") if department.blank_forms.where(eng_name: "Talwana", group_name: "Namantaran").blank?
   department.blank_forms.create(eng_name: "Patwari Prativedan", hindi_name: "पटवारी प्रतिवेदन", group_name: "Namantaran") if department.blank_forms.where(eng_name: "Patwari Prativedan", group_name: "Namantaran").blank?
@@ -48,7 +48,7 @@ if department.present?
   department.blank_forms.create(eng_name: "Ordersheet Second", hindi_name: "ऑर्डरशीट द्वितीय", group_name: "Fouti") if department.blank_forms.where(eng_name: "Ordersheet Second", group_name: "Fouti").blank?
   department.blank_forms.create(eng_name: "Applicant Application", hindi_name: "आवेदक आवेदन", group_name: "Fouti") if department.blank_forms.where(eng_name: "Applicant Application", group_name: "Fouti").blank?
   department.blank_forms.create(eng_name: "Applicant Affidavit", hindi_name: "आवेदक शपथ पत्र", group_name: "Fouti") if department.blank_forms.where(eng_name: "Applicant Affidavit", group_name: "Fouti").blank?
-  department.blank_forms.create(eng_name: "Ishtihar", hindi_name: "इश्तिहारर", group_name: "Fouti") if department.blank_forms.where(eng_name: "Ishtihar", group_name: "Fouti").blank?
-  department.blank_forms.create(eng_name: "Kathan", hindi_name: "कथन", group_name: "Fouti") if department.blank_forms.where(eng_name: "Kathan", group_name: "Fouti").blank?
+  department.blank_forms.create(eng_name: "Ishtihar", hindi_name: "इश्तिहार", group_name: "Fouti") if department.blank_forms.where(eng_name: "Ishtihar", group_name: "Fouti").blank?
+  department.blank_forms.create(eng_name: "Talwana", hindi_name: "तलवाना", group_name: "Fouti") if department.blank_forms.where(eng_name: "Talwana", group_name: "Fouti").blank?
   department.blank_forms.create(eng_name: "Patwari Prativedan", hindi_name: "पटवारी प्रतिवेदन", group_name: "Fouti") if department.blank_forms.where(eng_name: "Patwari Prativedan", group_name: "Fouti").blank?
 end

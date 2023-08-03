@@ -2,8 +2,7 @@
   <div class="col-md-1"></div>
   <div class="col-md-3">
     <%= select_tag "form_name", options_from_collection_for_select(@blank_forms, "id", "hindi_name", params[:id]), 
-      class: "form-control", prompt: "Select Form", 'data-action':"change->blnk-frm#openForm",
-      'data-department': params[:department] %>
+      class: "form-control", prompt: "Select Form", 'data-action':"change->blnk-frm#openForm", 'data-action':"change->blnk-frm#openForm", 'data-department': params[:department] %>
     <div class="row">
       <div class="col-md-6">
         <input type="button" value="print" class="form-control btn btn-primary mt-2 print-btn" />
@@ -11,12 +10,12 @@
       <div class="col-md-6">
         <button data-action="click->blnk-frm#downloadPDF" class="form-control btn btn-danger mt-2" />
           PDF&nbsp;&nbsp;<i class="fa-solid fa-file-export"></i>
-        </button  >
+        </button >
       </div>
     </div>
   </div>
   <div class="col-md-7" id="blank-form-block">
-    <%= render partial: "blank_forms/forms/#{params[:department]}/#{@current_form.group_name.downcase}/#{certificate_name(@current_form.eng_name)}" rescue nil %>
+    <%= render partial: "blank_forms/forms/#{params[:department]}/#{certificate_name(@current_form.group_name)}/#{certificate_name(@current_form.eng_name)}" rescue nil %>
   </div>
   <div class="col-md-1"></div>
 </div>

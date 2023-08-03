@@ -107,11 +107,20 @@ export default class extends ApplicationController {
         filename: 'PMKisan.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2 },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
         pagebreak: { mode: 'avoid-all', before: '.page-a4' }
     };
     html2pdf().from(element).set(options).save();
 
+  }
+
+  openForm(){
+    var selelectedForm = event.target.value;
+    var department = event.target.dataset.department;
+
+    var url = '/blank_forms/departments/' + department + "/" + selelectedForm;
+    window.location.replace(url)
+    console.log(url)
   }
 
 }
