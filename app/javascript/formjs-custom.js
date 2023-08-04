@@ -5,7 +5,7 @@ $(document).ready(function(){
   $(document).on('click', ".print-btn", function(){
     var restorePage = $('body').html();
     var printContent = '';
-
+    $(".hide-on-print").css('display', 'none')
     if($('.only-print:visible').hasClass("page-a4")){
       printContent = $('.only-print').removeClass("page-a4").addClass("page").not(':hidden').clone();
     } else {
@@ -41,7 +41,7 @@ $(document).ready(function(){
     $(".village").attr({'data-is-read': true, 'data-blank-text': $(".village").text()}).text(village);   
   });
 
-  $(".add-row").on('click', function(){
+  $(document).on('click', ".add-row", function(){
 
     var trString = `
       <tr>
@@ -56,7 +56,8 @@ $(document).ready(function(){
       </tr>`;
     $("table#my-data-table tbody").append(trString);
   });
-  $(".remove-row").on('click', function(){
+
+  $(document).on('click', ".remove-row", function(){
     var $rows = $("table#my-data-table tbody tr");
     if($rows.length == 1){
       alert("डाटा टेबल की अंतिम पक्ति  डिलीट नहीं की जा सकती है | ");
