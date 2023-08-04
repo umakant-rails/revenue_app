@@ -1,13 +1,22 @@
-
 <!-- anavedak sapath patra -->
-
 <div class="page-a4 only-print">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
   <div class="col-md-12">
     <div class="mrgn-top-20">&nbsp;</div>
     <div class="mrgn-top-201">&nbsp;</div>
     <div class="row">
-      <div class="fnt-24 fnt-b">
-        <center>श्रीमान नोटरी अधिकारी महोदय _ _ _ _ _ _ _ _ _ मध्यप्रदेश </center>
+      <div class="fnt-24 fnt-b fnt-u">
+        <center>श्रीमान नोटरी अधिकारी महोदय <%= raw blank_string_format2(8, true, "tehsil") %> मध्यप्रदेश </center>
       </div>
       <div class="fnt-20 fnt-b">
         <center>//शपथ पत्र//</center>
@@ -16,7 +25,7 @@
     <div class="row mrgn-2 mrgn-top-20">
       <div class="paragraph">
         <div class="txt-indent-2">
-          मैं _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ उम्र _ _ _ _ _ वर्ष पिता/पति _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ निवासी _ _ _ _ _ _ _ _ _ _ _ _  शपथपूर्वक कथन करता हूँ |<br/> 
+          मैं <%= raw blank_string_format2(24, true, "non-applicant") %> उम्र <%= raw blank_string_format2(4, false, "age") %> वर्ष पिता/पति <%= raw blank_string_format2(24, true, "non-applicant-father-name") %> निवासी <%= raw blank_string_format2(24, true, "non-applicant-address") %>  शपथपूर्वक कथन करता हूँ |<br/> 
         </div>
         <div class="padding-3">
           1.  यह कि मौजा _ _ _ _ _ _ _ _ _ _ _ _ पटवारी हल्का नंबर _ __ _ तहसील _ _ _ _ _ _ _ _ _ _ _ में स्थित खसरा नंबर  _ _ _ _ _ _ _ _ _ _ _  में से  _ _ _ _ _ _ _ _ _ _ _ वर्ग फु/हे. भूमि का हमारे द्वारा श्री/श्रीमती  _ _ _ _ _ _ _ _ _ _ _ पिता/पति  _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ को पंजीकृत बैनामा क्रमांक  _ _ _ _ _ _ _ _ _ _ _  दिनांक  _ _ _ _ _ _ _ _ _ _ _  को विक्रय  किया गया है |<br/> 

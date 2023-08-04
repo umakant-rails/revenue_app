@@ -52,39 +52,45 @@
             तहसील <%= raw blank_string(6, false, 'tehsil')%>, जिला <%= raw blank_string(6, false, 'district')%>
           </div>
           <div class="mb-3 subject-status">
-            <strong>विषय :-</strong> पी एम किसान पोर्टल पर अपात्र हितग्राही को पात्र करने के सम्बन्ध में |
+            <strong>विषय :-</strong> पी एम किसान योजना के अपात्र/मृत हितग्राहियो को पी एम किसान पोर्टल पर अपात्र दर्ज करने बाबत |
           </div>
+          <div>महोदय,</div>
           <div class="txt-indent-2 mb-3">
-            उपरोक्त विषयान्तर्गत श्रीमान जी से निवेदन है कि हितग्राही <%= raw blank_string(25, true, 'applicant')%> हलका नंबर <%= raw blank_string(4, false, 'halka_number')%> के मौजा <%= raw blank_string(15, false, 'village')%> के निवासी हैं, जिनका नाम भूलेख रिकॉर्ड में मौजा <%= raw blank_string(15, false, 'village')%> के खसरा नंबर <%= raw blank_string(10, false, 'khasra_number')%> रकबा <%= raw blank_string(5, false, 'rakba')%> हे. पर दर्ज है। हितग्राही <%= raw blank_string(25, true, 'applicant')%> का पी एम किसान रजिस्ट्रेशन नंबर <%= raw blank_string(10, true, 'registration_number')%>  है ,हितग्राही <%= raw blank_string(25, true, 'applicant')%> पी एम किसान पोर्टल पर <%= raw blank_string(30, false, 'ineligible-class')%> की श्रेणी में अपात्र है जिसके कारण हितग्राही को पी एम किसान योजना लगभग <%= raw blank_string(3, true, 'time_period')%> माह/वर्ष से नहीं मिल रहा है | हितग्राही पी एम किसान योजना के मापदण्डो के अनुरूप पात्र है | हितग्राही की जानकारी निम्नांकित है :-
+            उपरोक्त विषयान्तर्गत श्रीमान जी से निवेदन है कि ग्राम <%= raw blank_string(15, true, 'village')%>, हल्का नंबर <%= raw blank_string(4, false, 'halka_number')%> के कुछ किसान पी एम किसान योजना के मापदंडो के अनुरूप विभिन्न कारणों से अपात्र पाए गए है, जिनको शासन की निर्देश अनुसार पी एम किसान पोर्टल पर अपात्र किया जाना है | उक्त सभी अपात्र किसानो को पी एम पोर्टल पर अपात्र किये जाने हेतु पी एम किसान योजना के अपात्र हितग्राहियो की जानकारी निम्नानुसार है : - 
           </div>
           <div class="mb-3">
-            <table class="table table-bordered">
+            <table class="table table-bordered" id='my-data-table'>
               <thead>
                 <tr style="vertical-align: middle;">
-                  <th scope="col">हितग्राही का नाम</th>
-                  <th scope="col">रजिस्ट्रेशन नंबर</th>
-                  <th scope="col">आधार नंबर</th>
-                  <th scope="col">समग्र आई डी</th>
-                  <th scope="col">बैंक अकाउंट एवं आई एफ एस सी कोड</th>
+                  <th scope="scope" style="width: 18%;">रजिस्ट्रेशन नंबर</th>
+                  <th scope="col" style="width: 30%;">हितग्राही का नाम</th>
+                  <th scope="col" style="width: 40%;">अपात्रता का कारण</th>
+                  <th scope="col" style="width: 12%;">अपात्रता की तिथि  </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><%= raw blank_string(25, true, 'applicant')%></td>
-                  <td><%= raw blank_string(12, false, 'registration_number')%></td>
-                  <td><%= raw blank_string(12, false)%></td>
-                  <td><%= raw blank_string(12, false)%></td>
-                  <td><%= raw blank_string(12, false)%></td>
+                  <td><%= raw blank_string(9, true, 'applicant')%></td>
+                  <td><%= raw blank_string(16, false, 'registration_number')%></td>
+                  <td><%= raw blank_string(22, false)%></td>
+                  <td><%= raw blank_string(5, false)%></td>
+                </tr>
+                <tr>
+                  <td><%= raw blank_string(9, true, 'applicant')%></td>
+                  <td><%= raw blank_string(16, false, 'registration_number')%></td>
+                  <td><%= raw blank_string(22, false)%></td>
+                  <td><%= raw blank_string(5, false)%></td>
                 </tr>
               </tbody>
             </table>
+            <i class="fa-solid fa-circle-plus text-success fnt-24 hide-on-print add-row"></i>
+            <i class="fa-solid fa-circle-minus text-danger fnt-24 hide-on-print remove-row"></i>
+            <i class="fa-solid fa-circle-minus text-warning fnt-24 hide-on-print remove-row"></i>
           </div>
           <div class="txt-indent-2 mb-1">
-            अतः आवेदक को अपात्र से पात्र किया जाना उचित होगा। |
+            उक्त सूची पी एम किसान पोर्टल पर किसानो को अपात्र करने लिए  श्रीमान जी की ओर सादर प्रेषित है | 
           </div>
-          <div class="txt-indent-2 mb-1">
-            प्रतिवेदन श्रीमान जी की और सादर सम्प्रेषित 
-          </div>
+          <div class="">&nbsp;</div>
           <div class="fRight fnt-b mt-2 me-5">
             <center>
               <div class="sign-status">

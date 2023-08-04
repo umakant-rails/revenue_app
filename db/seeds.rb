@@ -36,6 +36,7 @@ if department.present?
   department.blank_forms.create(eng_name: "Patwari Prativedan", hindi_name: "पटवारी प्रतिवेदन", section: 'PM Kisan') if department.blank_forms.where(eng_name: "Patwari Prativedan", section: 'PM Kisan').blank?
   department.blank_forms.create(eng_name: "Tehsildar Letter", hindi_name: "तहसीलदार पत्र ", section: 'PM Kisan') if department.blank_forms.where(eng_name: "Tehsildar Letter", section: 'PM Kisan').blank?
   department.blank_forms.create(eng_name: "Nayab Tehsildar Letter", hindi_name: "नायब तहसीलदार पत्र", section: 'PM Kisan') if department.blank_forms.where(eng_name: "Nayab Tehsildar Letter", section: 'PM Kisan').blank?
+  department.blank_forms.create(eng_name: "Patwari Prativedan Ineligiblity", hindi_name: "पटवारी प्रतिवेदन (अपात्रता) ", section: 'PM Kisan') if department.blank_forms.where(eng_name: "Patwari Prativedan Ineligiblity", section: 'PM Kisan').blank?
 
 
   department.blank_forms.create(eng_name: "Ordersheet First", hindi_name: "ऑर्डरशीट प्रथम", section: "Namantaran") if department.blank_forms.where(eng_name: "Ordersheet First", section: "Namantaran").blank?

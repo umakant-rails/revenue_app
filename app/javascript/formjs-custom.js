@@ -38,24 +38,41 @@ $(document).ready(function(){
     $(".circle").attr({'data-is-read': true, 'data-blank-text': $(".circle").text()}).text(circle);
     $(".halka_number").attr({'data-is-read': true, 'data-blank-text': $(".halka_number").text()}).text(halka_number);
     $(".halka_name").attr({'data-is-read': true, 'data-blank-text': $(".halka_name").text()}).text(halka_name);
-    $(".village").attr({'data-is-read': true, 'data-blank-text': $(".village").text()}).text(village);
+    $(".village").attr({'data-is-read': true, 'data-blank-text': $(".village").text()}).text(village);   
+  });
 
+  $(".add-row").on('click', function(){
 
-    // if($(".patwari-letter").is(':visible')){
-    //   var karyalayStatus = "कार्यालय पटवारी हल्का नंबर " + halka_number + ", तहसील " + tehsil;
-    //   var addressing_office = "<div>तहसीलदार महोदय,</div><div>तहसील " + tehsil + ", जिला " + district;
-    //   var signStatus = "<div>पटवारी</div><div> हल्का नंबर "+halka_number+"</div>"
-    //   $(".karyalay-status").text(karyalayStatus);
-    //   $(".addressing-office").html(addressing_office);
-    //   $(".sign-status").html(signStatus);
-    // } else if($(".tehsildar-letter").is(':visible')){
-    //   $("#district-status").text(district);
-    //   var karyalayStatus = "कार्यालय तहसीलदार " + tehsil + ", तहसील " + tehsil;
-    //   var signStatus = "<div>तहसीलदार</div><div>"+tehsil+"</div>"
-    //   $("#karyalay-status").text(karyalayStatus);
-    //   $(".sign-status").html(signStatus);
-    // }
-   
+    var trString = `
+      <tr>
+        <td><span class="applicant" data-blnk-frm-target="textHolder" data-translatable="true" 
+          data-action="click->blnk-frm#createInput">_ _ _ _ _ _ _ _ _</span></td>
+        <td><span class="registration_number" data-blnk-frm-target="textHolder" data-translatable="false" 
+          data-action="click->blnk-frm#createInput">_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</span></td>
+        <td><span class="" data-blnk-frm-target="textHolder" data-translatable="false" 
+        data-action="click->blnk-frm#createInput">_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</span></td>
+        <td><span class="" data-blnk-frm-target="textHolder" data-translatable="false" 
+        data-action="click->blnk-frm#createInput">_ _ _ _ _</span></td>
+      </tr>`;
+    $("table#my-data-table tbody").append(trString);
+  });
+  $(".remove-row").on('click', function(){
+    var $rows = $("table#my-data-table tbody tr");
+    if($rows.length == 1){
+      alert("डाटा टेबल की अंतिम पक्ति  डिलीट नहीं की जा सकती है | ");
+      return;
+    }
+
+    if($(this).hasClass('text-danger')){
+      $("table tbody").find("tr:last").remove();
+    }
+    if($(this).hasClass("text-warning")){
+      let lineNumber = prompt("डिलीट की जाने वाली लाइन नंबर:");
+      if(lineNumber == '' || lineNumber == undefined){
+        return;
+      }
+      $rows[lineNumber-1].remove();
+    }
   });
 
   $(".sandarbh-delete").on('click', function(){

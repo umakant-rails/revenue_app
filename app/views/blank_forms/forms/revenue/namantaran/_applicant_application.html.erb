@@ -1,5 +1,16 @@
 <!-- aavedak application patra -->
 <div class="page-a4 only-print">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
   <div class="row">
     <div class="fnt-24 fnt-b fnt-u txt-center">
       समक्ष न्यायालय श्रीमान तहसीलदार महोदय, _ _ _ _ _ _ _ _
@@ -7,15 +18,15 @@
   </div>
   <div class="row mrgn-4 mrgn-top-20">
     <div class="fnt-18 pd-left-5">
-      <div>1.आवेदक&nbsp;_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
+      <div>1.आवेदक&nbsp;<%= raw blank_string_format2(20, true, "applicant") %> </div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी <%= raw blank_string_format2(20, true, "applicant_address") %></div>
         <div class="fRight">_ _ _ _ _ _ _ _ _ _ _ _ _ _ </div><br/>
         <div class="fRight">आवेदक</div>
         <div class="margn-top-20">
           <center><strong>बनाम</strong></center>
         </div>
-        <div class="margn-top-20">2.अनावेदक _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी&nbsp; _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
+        <div class="margn-top-20">2.अनावेदक&nbsp;<%= raw blank_string_format2(20, true, "applicant") %></div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी&nbsp;&nbsp;&nbsp; <%= raw blank_string_format2(20, true, "applicant") %></div>
         <div class="fRight">_ _ _ _ _ _ _ _ _ _ _ _ _ _</div><br/>
         <div class="fRight">अनावेदक</div>
     </div>
@@ -28,7 +39,7 @@
       </div>
       <div class="mb-8">
         <div class="txt-indent-3">
-          निवेदन है की आवेदक के द्वारा मौजा _ _ _ _ _ _ _ _ _ _ _ _ पटवारी हल्का नंबर _ _ _ _ _ _ _ _ _ तहसील _ _ _ _ _ _ _ _ _ _ _ _ में भूमि खसरा नंबर _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ में से _ _ _ _ _ _ _ _ _ _ _ _ _ _ दिनांक _ _ _ _ _ _ _ _ _ _ _ अनावेदकों से क्रय किया है|
+          निवेदन है की आवेदक के द्वारा मौजा <%= raw blank_string_format2(12, true, "village") %> पटवारी हल्का नंबर <%= raw blank_string_format2(8, false, "halka_number") %> तहसील <%= raw blank_string_format2(12, true, "tehsil") %> में भूमि खसरा नंबर <%= raw blank_string_format2(16, false, "khasra") %> में से <%= raw blank_string_format2(12, false, "applicant") %> दिनांक <%= raw blank_string_format2(10, false, "registry_date") %> अनावेदकों से क्रय किया है|
         </div>
         <div class="txt-indent-3">
           3. यह कि मेरे द्वारा उक्त भूमि का संपूर्ण प्रतिफल विक्रेता को देखकर भूमि  पर कब्ज़ा प्राप्त कर लिया गया है अन्य कोई भूमि की कीमत बकाया नहीं है भूमि कही रहन/बंधक आदि नहीं है भूमि पर कब्ज़ा का कोई विवाद नहीं है आवेदक को बैनामा अनुसार राजस्व अभिलेख में नाम दर्ज कराना हैा 
@@ -42,9 +53,9 @@
         <br/><br/>
         <div class="">
           <div class="fLeft">
-            <strong>स्थान :</strong> &nbsp;_ _ _ _ _ _ _ 
+            <strong>स्थान :</strong> &nbsp;<%= raw blank_string_format2(8, false, "tehsil") %>
             <br/>
-            <strong>दिनांक :</strong> _ _ _ _ _ _ _ 
+            <strong>दिनांक :</strong> <%= format_dt(Date.today) %>
           </div>
           <div class="fRight">
             <center>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</center>
