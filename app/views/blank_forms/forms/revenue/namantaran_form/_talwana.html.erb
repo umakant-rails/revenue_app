@@ -1,18 +1,35 @@
 <!-- talwana patra -->
 <div class="page-a4 only-print talwana">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
   <div class="row">
-    <div class="fnt-28 fnt-b">
+    <div class="fnt-28 fnt-b fnt-u">
       <center>तलवाना</center>
     </div>
   </div>
   <br/>
   <div class="row">
-    <div class="paragraph padding-10">  
-      न्यायालय श्रीमान _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br/>
-      <center><strong>विरुद्ध</strong></center> 
-      वादी &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br/>
-      प्रतिवादी _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br/><br/>
-      <div>
+    <div class="paragraph padding-8 ">
+      <div class="row">
+        <div class="col-md-3">न्यायालय श्रीमान</div><div class="col-md-9"> <%= raw blank_string_format2(32, true, "office_name") %></div>
+        <div><center><strong>विरुद्ध</strong></center></div>
+        <div class="col-md-3">वादी</div><div class="col-md-9"> <%= raw blank_string_format2(32, true, "applicant") %></div>
+        <div class="col-md-3">प्रतिवादी</div><div class="col-md-9"> <%= raw blank_string_format2(32, true, "non_applicant") %></div>
+      </div>
+    </div>
+    <div class="mrgn-top-20">&nbsp;</div>
+    <div class="mrgn-top-10">&nbsp;</div>
+    <div class="padding-4 mb-2 fnt-18">
+      <div class="">
         <div class="fLeft">
           तलवाना कोर्ट फीस जारी होने के मुव. 
         </div>
@@ -21,8 +38,7 @@
         </div>
       </div>
     </div>
-    <br/><br/><br/><br/>
-    <div class="padding-8">
+    <div class="padding-4">
       <table class="talwana-table">
         <tbody>
           <tr>
@@ -54,12 +70,15 @@
           <tr>
         </tbody>
       </table>
-      <br/><br/><br/>
-      <div class="row block">
-        <div class="fLeft width25">तारीख</div>
-        <div class="fLeft width25">माह</div>
-        <div class="fLeft width25">सन</div>
-        <div class="fLeft width25">दस्तखत</div>
+    </div>
+    <div class="mrgn-top-20">&nbsp;</div>
+    <div class="mrgn-top-10">&nbsp;</div>
+    <div class="padding-5">
+      <div class="row">
+        <div class="fLeft col-md-3">तारीख</div>
+        <div class="fLeft col-md-3">माह</div>
+        <div class="fLeft col-md-3">सन</div>
+        <div class="fLeft col-md-3">दस्तखत</div>
       </div>
     </div>
   </div>

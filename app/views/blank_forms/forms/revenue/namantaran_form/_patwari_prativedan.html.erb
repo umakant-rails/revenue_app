@@ -1,0 +1,68 @@
+<!-- halka patwari prativedan -->
+<div class="page-a4 only-print">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="col-md-12 halka-patwari-prativedan-pdf">
+    <div class="row">
+      <div class="fnt-24 fnt-b fnt-u">
+        <center>
+          कार्यालय पटवारी हल्का नंबर <%= raw blank_string_format2(4, false, "halka_number") %>, तहसील <%= raw blank_string_format2(10, true, "tehsil") %>
+        </center>
+      </div>
+    </div>
+    <div class="row mrgn-top-30 mrgn-2">
+      <div class="paragraph">
+        <div class="">प्रति,</div>
+        <div class="txt-indent-2 mb-2">
+          श्रीमान तहसीलदार/नायब तहसीलदार महोदय तहसील <%= raw blank_string_format2(10, true, "tehsil") %>
+        </div>
+        <div class="">
+          <strong>विषय &nbsp;:- </strong> नामांतरण के सम्बन्ध में प्रतिवेदन |
+        </div>
+        <div class="">
+          <strong>सन्दर्भ :-</strong> श्रीमान जी के आदेश दिनांक _ _ _ _ _ _ _ _ _ के परिपालन के सम्बन्ध में |
+        </div>
+        <div class="mrgn-top-20">
+          महोदय  जी,
+        </div>
+        <div class="">
+          <div class="txt-indent-3 ">
+            उपरोक्त विषयान्तर्गत संदर्भित आदेश के परिपालन में लेख है कि आवेदक <%= raw blank_string_format2(24, true, "applicant") %> पिता <%= raw blank_string_format2(24, true, "applicant_father_name") %>  जाति <%= raw blank_string_format2(16, true, "applicant_cast") %> निवासी <%= raw blank_string_format2(24, true, "applicant_address") %>  के द्वारा मौजा <%= raw blank_string_format2(16, true, "village") %>  पटवारी हल्का नंबर <%= raw blank_string_format2(4, false, "halka_number") %>  में स्थित खसरा नंबर <%= raw blank_string_format2(20, false, "khasra") %>  रकबा <%= raw blank_string_format2(10, false, "rakba") %>  में से <%= raw blank_string_format2(10, false, "sold_rakba") %>  भूमि का विक्रेता <%= raw blank_string_format2(30, true, "non_applicant") %>  निवासी <%= raw blank_string_format2(24, true, "non_applicant_address") %>  से बैनामा क्रमांक <%= raw blank_string_format2(16, false, "registry_number") %>  दिनांक <%= raw blank_string_format2(10, false, "registry_date") %> के द्वारा क्रय करने से नामांतरण हेतु आवेदन पेश किया है |
+          </div>
+          <div class="mb-3 row">
+            <div><strong>वर्तमान भू-अभिलेख अनुसार सम्बंधित भूमि की वस्तु-स्थिति :-</strong></div>
+            <div class="col-md-2 fnt-b">बंधक</div>
+            <div class="col-md-10">: <%= raw blank_string_format2(42, true, "mortgage") %></div>
+            <div class="col-md-2 fnt-b">डायवर्सन</div>
+            <div class="col-md-10">: <%= raw blank_string_format2(42, true, "dyversion") %></div>
+            <div class="col-md-2 fnt-b">अन्य विवरण</div>
+            <div class="col-md-10">: <%= raw blank_string_format2(42, true, "other_desc") %></div>
+          </div>
+          <div class="txt-indent-3 mb-2">
+            वर्तमान अभिलेख मौजा <%= raw blank_string_format2(16, true, "village") %> के खसरा नंबर <%= raw blank_string_format2(16, false, "khasra") %> रकबा <%= raw blank_string_format2(8, true, "rakba") %> में से <%= raw blank_string_format2(8, true, "sold_rakba") %> वर्ग फु/हे. आवेदित भूमि, भूमिस्वामी भूमि है | 
+          </div>
+          <div class="txt-indent-3">
+            अतः प्रतिवेदन सादर सम्प्रेषित है |
+          </div>
+        </div>
+        <div class="mrgn-top-10">&nbsp;</div>
+        <div>
+          <div class="fRight">
+            <center>_ _ _ _ _ _ _ _ _ </center>
+            <center><strong>पटवारी</strong></center>
+            <center><strong>हल्का नंबर</strong> <%= raw blank_string_format2(4, false, "halka_number") %></center>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>

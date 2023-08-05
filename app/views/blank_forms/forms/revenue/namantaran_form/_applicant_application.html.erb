@@ -13,7 +13,7 @@
 
   <div class="row">
     <div class="fnt-24 fnt-b fnt-u txt-center">
-      समक्ष न्यायालय श्रीमान तहसीलदार महोदय, _ _ _ _ _ _ _ _
+      समक्ष न्यायालय श्रीमान तहसीलदार महोदय, <%= raw blank_string_format2(10, true, "tehsil") %>
     </div>
   </div>
   <div class="row mrgn-4 mrgn-top-20">
@@ -25,8 +25,8 @@
         <div class="margn-top-20">
           <center><strong>बनाम</strong></center>
         </div>
-        <div class="margn-top-20">2.अनावेदक&nbsp;<%= raw blank_string_format2(20, true, "applicant") %></div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी&nbsp;&nbsp;&nbsp; <%= raw blank_string_format2(20, true, "applicant") %></div>
+        <div class="margn-top-20">2.अनावेदक&nbsp;<%= raw blank_string_format2(20, true, "non_applicant") %></div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;निवासी&nbsp;&nbsp;&nbsp; <%= raw blank_string_format2(20, true, "non_applicant_adsress") %></div>
         <div class="fRight">_ _ _ _ _ _ _ _ _ _ _ _ _ _</div><br/>
         <div class="fRight">अनावेदक</div>
     </div>

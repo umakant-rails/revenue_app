@@ -17,9 +17,9 @@ class BlankFormsController < ApplicationController
   def show
     @districts = Village.all.pluck(:district).uniq
     if @blank_form.present? 
-      @blank_forms = BlankForm.where(section: @blank_form.section)
+      @blank_forms = BlankForm.where(section_hindi: @blank_form.section_hindi)
     else
-      @blank_forms = BlankForm.where(section: params[:section])
+      @blank_forms = BlankForm.where(section_hindi: params[:section])
       @blank_form = @blank_forms[0]
     end
 
@@ -74,7 +74,7 @@ class BlankFormsController < ApplicationController
 
   def department
     @department = Department.where(eng_name: params[:department])[0]
-    @form_groups = @department.present? ? @department.blank_forms.pluck("section").uniq : []
+    @form_groups = @department.present? ? @department.blank_forms.pluck("section_hindi").uniq : []
   end
 
   def get_records

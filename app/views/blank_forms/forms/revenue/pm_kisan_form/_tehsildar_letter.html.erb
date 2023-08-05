@@ -1,25 +1,3 @@
-<div class="col-md-11" data-controller="request misc">
-  <div class="mb-3 row">
-    <div class="col-md-3">
-      <label class="form-label">District</label>
-      <%= select_tag :district, options_for_select(@districts), prompt: "जिला चुने", 
-        class: "form-control", 'data-target': 'request.district misc.district', 
-        'data-action': 'change->misc#getRecords' %>
-    </div>
-    <div class="col-md-3">
-      <label class="form-label">Tehsil</label>
-      <%= select_tag :tehsil, options_for_select([]), prompt: "तहसील चुने", class: "form-control", 'data-target': 'request.tehsil misc.tehsil', 'data-action': 'change->misc#getRecords' %>
-    </div>
-    <div class="col-md-3">
-      <label class="form-label">Circle</label>
-      <%= select_tag :circle, options_for_select([]), prompt: "सर्किल चुने", class: "form-control", 'data-target': 'request.circle misc.circle', 'data-action': 'change->misc#getRecords' %>
-    </div>
-    <div class="col-md-3">
-      <label class="form-label">Village</label>
-      <%= select_tag :request_village_id, options_for_select([]), prompt: "ग्राम चुने", class: "form-control set-pmkisan-data", 'data-target': 'request.village misc.village' %>
-    </div>
-  </div>
-</div>
 <div class="letter-block" data-controller="blnk-frm">
   <span id="translatable" style="display:none;">
     <input id="input1" name="inputText" type="text" value="" 
@@ -32,14 +10,14 @@
       data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
   </span>
 
-  <div class="page-a4 only-print selection-criteria-block" id="nayab-tehsildar-letter">
+  <div class="page-a4 only-print selection-criteria-block" id="tehsildar-letter">
     <div class="col-md-12 ln-hgt-30">
       <div class="row">&nbsp;</div>
       <div class="row padding-5">
         <div class="fnt-26 fnt-b fnt-u mb-2">
           <center>
             <span class="karyalay-status">
-              कार्यालय नायब तहसीलदार <%= raw blank_string(5, false, 'circle')%>, तहसील <%= raw blank_string(5, false, 'tehsil')%>  
+              कार्यालय तहसीलदार <%= raw blank_string(5, false, 'tehsil')%>, तहसील <%= raw blank_string(5, false, 'tehsil')%>  
             </span> 
           </center>
         </div>
@@ -102,9 +80,9 @@
           </div>
           <div class="fRight fnt-b mt-2 me-5">
             <center>
-              <div class="sign-status fnt-b">
-                <div>नायब तहसीलदार  </div>
-                <div>वृत्त-<%= raw blank_string(5, false, 'circle')%>, तहसील-<%= raw blank_string(5, false, 'tehsil')%></div>
+              <div class="sign-status">
+                <div>तहसीलदार </div>
+                <div><%= raw blank_string(5, false, 'tehsil')%></div>
               </div>
             </center>
           </div>          

@@ -1,0 +1,65 @@
+<!-- kathan patra -->
+
+<div class="page-a4 only-print">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="col-md-12 kathan-affidavit-pdf">
+    <br/>
+    <div class="row">
+      <div class="fnt-30 fnt-b">
+        <center>कथन</center>
+      </div>
+    </div>
+    <div class="row mrgn-2 fnt-18 mrgn-top-20">
+      <div class="kathan-halka-detail mrgn-4"> 
+        <div class="fnt-20 mrgn-4">
+          <div class="row">
+            <div class="col-md-3 fnt-b">आवेदक का नाम</div>
+            <div class="col-md-9"><%= raw blank_string_format2(24, false, "applicant") %></div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 fnt-b">पिता/पति का नाम</div>
+            <div class="col-md-9"><%= raw blank_string_format2(24, true, "applicant_father_name") %></div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 fnt-b">उम्र व्यवसाय</div>
+            <div class="col-md-9"><%= raw blank_string_format2(24, false, "applicant_business") %></div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 fnt-b">निवासी</div> 
+            <div class="col-md-9"><%= raw blank_string_format2(24, true, "applicant_address") %></div>
+          </div>
+        </div>
+      </div>
+      <div class="paragraph mrgn-top-20">
+        <div class="txt-indent-3">
+          मैं ईमान से कहता /कहती हूँ मेरे द्वारा मौजा <%= raw blank_string_format2(16, true, "village") %> पटवारी हल्का नंबर <%= raw blank_string_format2(4, true, "halka_number") %> में स्थित भूमि खसरा नंबर <%= raw blank_string_format2(16, false, "khasra") %> में से रकबा <%= raw blank_string_format2(8, false, "rakba") %> वर्ग फु/हे. भूमि का रजिस्टर्ड बैनामा क्रमांक <%= raw blank_string_format2(16, false, "regisrtry_number") %> दिनांक <%= raw blank_string_format2(10, false, "regisrtry_date") %> को अनावेदक से क्रय कर भूमि  का नामांतरण  कराए जाने हेतु आवेदन पत्र पेश किया है |<br/>
+        </div>
+        <div class="txt-indent-4">
+          अतः बैनामा अनुसार नामांतरण किया जाए यही मेरे कथन है |<br/>
+        </div>
+        <div class="txt-indent-4">पढ़कर सुनाया सही पाया | </div>
+        <br/><br/><br/>
+        <div class="sign-text">
+          <div class="fRight">
+            <center>
+              _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+            <center>
+            <center>
+              <strong>आवेदक</strong>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
