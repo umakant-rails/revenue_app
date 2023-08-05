@@ -1,31 +1,42 @@
 <!-- fouti application form -->
-
 <div class="page-a4 only-print">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
   <div class="col-md-12 halka-patwari-prativedan-pdf">
     <div class="row mrgn-top-20 mrgn-4">
-      <div class="paragraph">
+      <div class="paragraph-35">
         <div class="">प्रति,<br/></div>
         <div class="txt-indent-2">
-          श्रीमान तहसीलदार/नायब तहसीलदार महोदय _ _ _ _ _ _ _ _ _ _ _
+          श्रीमान तहसीलदार/नायब तहसीलदार महोदय <%= raw blank_string_format2(12, true, "tehsil") %>
         </div>
         <div class="txt-indent-2">
-          वृत्त:- _ _ _ _ _ _ _ _ _ _ _ _ _ _तहसील_ _ _ _ _ _ _ _ _ _ _ _ _
-        </div><br/>
+          वृत्त:- <%= raw blank_string_format2(14, true, "circle") %> तहसील <%= raw blank_string_format2(14, true, "tehsil") %>
+        </div>
         <div class="">
           <strong>विषय &nbsp;:- </strong> फौती / नामांतरण वाबत |<br/>
         </div>
         <div class="">
-          महोदय  जी,<br/>
+          महोदय  जी,
         </div>
-        <div class="paragraph-30">
+        <div class="paragraph-35">
           <div class="txt-indent-2">
-            विनम्र निवेदन है कि  मैं  _ _ _ _ _ _ _ _  पिता/पति  _ _ _ _ _ _ _ _  निवासी ग्राम  _ _ _ _ _ _ _ _   पटवारी हल्का न  _ _ _ _ _ _ _ _   का निवासी हूँ और मौजा  _ _ _ _ _ _ _ _   पटवारी हल्का न  _ _ _ _ _ _ _ _   रा नि म  _ _ _ _ _ _ _ _   तहसील  _ _ _ _ _ _ _ _   में मेरे पिता/माता/भाई  _ _ _ _ _ _ _ _   के नाम पर भूमि खसरा नंबर  _ _ _ _ _ _ _ _   _ _ _ _ _ _ _ _  रकबा  _ _ _ _ _ _ _ _   _ _ _ _ _ _ _ _   कुल रकबा  _ _ _ _ _ _ _ _   है, जो कि दिनांक को फौत हो चुके है जिनके वैध वारसान निम्न संजारा अनुसार है :-
-            <br/><br/>
+            विनम्र निवेदन है कि  मैं <%= raw blank_string_format2(20, true, "applicant") %> पिता/पति <%= raw blank_string_format2(20, true, "applicant_father_name") %> निवासी ग्राम <%= raw blank_string_format2(20, true, "village") %> पटवारी हल्का न <%= raw blank_string_format2(4, false, "halka_number") %> का निवासी हूँ और मौजा <%= raw blank_string_format2(16, true, "village") %> पटवारी हल्का न <%= raw blank_string_format2(4, false, "halka_number") %> रा नि म <%= raw blank_string_format2(16, true, "circle") %> तहसील <%= raw blank_string_format2(16, true, "tehsil") %> में मेरे पिता/माता/भाई <%= raw blank_string_format2(20, true, "dead_person") %> के नाम पर भूमि खसरा नंबर <%= raw blank_string_format2(20, true, "khasra") %> रकबा <%= raw blank_string_format2(20, true, "khasra_rakba") %> हे. कुल रकबा <%= raw blank_string_format2(10, true, "rakba") %> हे. है, जो कि दिनांक <%= raw blank_string_format2(10, true, "death_date") %> को फौत हो चुके है जिनके वैध वारसान निम्न संजारा अनुसार है :-
+          </div>
+          <div>
             <table class="table fnt-18">
               <thead>
                 <tr>
                   <td colspan="3" class="fnt-20">
-                    <center><span class="fnt-b">संजरा</span> ( _ _ _ _ _ _ _ _ _ _ _ _)</center>
+                    <center><span class="fnt-b">संजरा</span> ( <%= raw blank_string_format2(16, true, "dead_person") %> )</center>
                   </td>
                 </tr>
               </thead>
@@ -46,13 +57,13 @@
             उपरोक्त संजरा में उल्लिखित वारिसों के अलावा कोई अन्य वारसान नहीं है यदि भविष्य में कोई दावा करता है और ऐसी पुष्टि होती है तो मैं स्वयं व्यक्तिगत रूप से जिम्मेदार माना जाउगा अन्य कोई नहीं |  <br/> 
           </div>
         </div>
-        <br/><br/>
+        <div class="">&nbsp;</div>
         <div class="paragraph-30">
           <div class="fLeft">
-            <center>&nbsp;</center>
-            <center>दिनांक :- _ _ _ _ _ _ _ _</center>
+            <div>&nbsp;</div>
+            <div class="fLeft">दिनांक :- <%= format_dt(Date.today)%></div>
           </div>
-          <div class="fRight">
+          <div class="fRight fnt-b">
             <center>आवेदक</center>
             <center>नाम _ _ _ _ _ _ _ _ _ _ _ _पिता/पति_ _ _ _ _ _ _ _ _ _ _ _</center>
             <center>निवासी :-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </center>
