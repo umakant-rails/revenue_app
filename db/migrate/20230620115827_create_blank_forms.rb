@@ -6,7 +6,8 @@ class CreateBlankForms < ActiveRecord::Migration[7.0]
       t.string  :hindi_name
       t.string  :category
       t.text    :content
-      t.string  :section         
+      t.string  :section
+      t.string  :section_hindi       
 
       t.timestamps
     end
