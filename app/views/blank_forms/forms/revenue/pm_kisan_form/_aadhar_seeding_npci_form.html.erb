@@ -1,0 +1,544 @@
+<div class="letter-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <div class="row mb-2">
+    <div class="offset-md-5 col-md-5">
+      <select class="toggle-select-box form-control">
+        <option target-id="#letter-in-hindi" target-class=".block-110">एनपीसीआई फ़ार्म (हिंदी )</option>
+        <option target-id="#letter-in-english" target-class=".block-110">एनपीसीआई फ़ार्म (इंग्लिश)</option>
+        <option target-id="#letter-in-hindi-english" target-class=".block-110">एनपीसीआई फ़ार्म (हिंदी-इंग्लिश)</option>
+      </select>
+    </div>
+  </div>
+  <div class="page-a4 only-print selection-criteria-block block-110" id="letter-in-hindi">
+    <div class="col-md-12 ln-hgt-30">
+      <div class="row padding-5">
+        <div class="fnt-16 fnt-b fnt-u mb-2">
+          <center>
+            <div class="hindi-matter">आधार नंबर को लिंक/सीड करने और बैंक खाते में डीबीटी लाभ प्राप्त करने के लिए आवेदन-(एनपीसीआई मैपिंग)</div>
+          </center>
+        </div>
+      </div>
+      <div class="row mrgn-top-10 padding-2">
+        <div class="paragraph-22">
+          <div class="row">
+            <div class="col-md-9 fnt-b">प्रति,</div>
+            <div class="col-md-3">
+              <div class="fRight">
+                <strong>Date:</strong> <%= format_dt(Date.today) %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 fnt-b pe-0">
+              शाखा प्रबंधक,
+            </div>
+          </div>
+          <div class="row fnt-b mb-2">
+            <div class="col-md-12">
+              <%= raw blank_string_format2(16, false, "bank_branch") %> शाखा,
+            </div>
+            <div class="col-md-12">
+              <%= raw blank_string_format2(16, false, "bank_name") %> बैंक
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12 hindi-matter">
+              मैं <%= raw blank_string_format2(16, true, "applicant") %> पिता <%= raw blank_string_format2(16, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(20, true, "applicant_address") %> अपने आधार क्रमांक को अपने प्रस्तावित/मौजूदा बैंक खाता नंबर से जोड़ना चाहता हूँ
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12">
+             आधार/यूआईडी पत्र का विवरण निम्नानुसार है : (स्वयं सत्यापित प्रतिलिपि संलग्न )
+            </div>
+            <div class="col-md-12">
+              आधार/यूआईडी क्रमांक <%= raw blank_string_format2(16, false, "aadhar_number") %>
+            </div>
+            <div class="col-md-12">
+              आधार कार्ड अनुसार आधार धारक का नाम <%= raw blank_string_format2(16, false, "applicant_name") %>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12 hindi-matter">
+              2. मैं एतदद्वारा घोषणा करता/करती हूँ एवं वचन देता/देती हूँ कि आधार आधारित प्रमाणीकरण प्रणाली के साथ स्वयं को प्रमाणित करने में मुझे कोई आपत्ति नहीं है और आधार अधिनियम 2016 में वर्णित नियमों के अनुसार अपना आधार क्रमांक बैंक के खाते के साथ जोड़ने और मेरी पहचान जैसे (आधार क्रमांक, बायोमैट्रिक जानकारी और जनसांख्यकीय जानकरी) बैंकिंग सेवाओं हेतु, खाते संचालन हेतु और सब्सिडी लाभ हेतु या बैंकिंग परिचालन से सम्बंधित कोई अन्य सुविधा हेतु आधार आधारित प्रमाणीकरण प्रणाली के लिए मेरी स्वेच्छिक  सहमति है |
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12 hindi-matter">
+              3. मैं अपने सभी मौजूदा बैंक खातों और अपने ग्राहक प्रोफ़ाइल को अपने आधार क्रमांक के साथ सीडिंग  करने के लिए अपनी स्वैच्छिक सहमति देता/देती हूँ |
+            </div>
+            <div class="w-50 i-block">
+              1.खाता क्रमांक <%= raw blank_string_format2(15, false, "bank_account_1") %>
+            </div>
+            <div class="w-50 i-block">
+              2.खाता क्रमांक <%= raw blank_string_format2(15, false, "bank_account_2") %>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12 hindi-matter">
+              4. मैं अपने आधार लिंक्ड बैंक कहते का उपयोग उन सभी योजनाओ में सरकारी भुगतान प्राप्त करने हेतु अधिकृत करता/करती हूँ, जिसके लिए मैं पात्र हूँ और/या आधार से जुड़े किसी अन्य भुगतान और एनपीसीआई के आधार मैपर में एनपीसीआई मेरे प्राथमिक खाते को मैप करने हेतु अधिकृत करता/करती हूँ | 
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-md-12 hindi-matter">
+              5. डीबीटी का लाभ प्राप्त करने के लिए एनपीसीआई मैपर के लिए निम्न से केवल एक पर मार्क करे  | 
+            </div>
+            <div class="col-md-12">
+              <ul style="margin-bottom: 0px;">
+                <li class="hindi-matter">
+                  मेरे खाता क्रमांक <%= raw blank_string_format2(16, false, "bank_account") %> को एनपीसीआई के साथ मैप करे ताकि भारत सर्कार द्वारा प्रत्यक्ष लाभ अंतरण (डीबीटी) को मैं अपने बैंक खाते में सीधा प्राप्त कर सकूं | मैं यह समझता /समझती हूँ कि यदि एक से अधिक लाभ अंतरण मेरे लिए बकाया है तो मुझे सभी लाभ अंतरण इस खाते में प्राप्त होंगे|
+                </li>
+                <li class="hindi-matter">
+                  मेरे पास पहले से ही दूसरे में बैंक में आधार से जुड़ा हुआ खाता है और केवल वही खाता  एनपीसीआई मैपर  और प्रत्यक्ष लाभ अंतरण (डीबीटी) प्राप्त करने के लिए उपयोग किया जायेगा |
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 hindi-matter">
+              मैं आपको अपने उपरोक्त खाता क्रमांक के लिए अपना मोबाइल नंबर <%= raw blank_string_format2(10, false, "mobile") %> रजिस्टर करने में लिए अनुरोध करता/करती हूँ, एसएमएस अलर्ट इस मोबाइल नंबर पर भेजा जा सकता है, कृपया मेरा ई-मेल आईडी <%= raw blank_string_format2(20, false, "email") %> भी पंजीकृत करे | 
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 hindi-matter">
+              मुझे बताया गया है कि प्रमाणीकरण पर किस तरह की जानकारी साझा की जा सकती है, मुझे समझाया गया है कि बैंक इन सभी जानकारियों का उपयोग ऊपर वर्णित उद्देश्य के अलावा अन्य किसी उद्देश्य के लिए नहीं करेगा और विधिक आवश्यकता अनुसार उपयोग करेगा | 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 hindi-matter">
+              मैं यह घोषणा करता/करती हूँ कि मेरे द्वारा स्वेच्छा से प्रस्तुत उपरोक्त सभी जानकारी सत्य/सही और पूर्ण है | 
+            </div>
+          </div>
+          <div>&nbsp;</div>
+
+          <div class="row mb-3 fnt-b">
+            <div class="col-md-12">
+              भवदीय/भवदीया/Yours faithfully
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="w-50 i-block">
+              <div class="hindi-matter">ग्राहक का हस्ताक्षर/अगूंठा </div>
+            </div>
+            <div class="w-50 i-block">
+              <div class="hindi-matter">[अगर सहमति बीसी/बीडीओ/वीओ के माध्यम से भेजी गई]</div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="w-10 i-block">
+              <div class="hindi-matter">नाम</div>
+            </div>
+            <div class="w-40 i-block">
+              <%= raw blank_string_format2(20, false, "applicant") %> 
+            </div>
+            <div class="w-50 i-block">
+              <div class="hindi-matter">मैं बैंक मित्र को अधिकृत करता/करती हूँ </div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="w-10 i-block">
+              <div class="hindi-matter">मोबाइल</div>
+            </div>
+            <div class="w-40 i-block">
+              <%= raw blank_string_format2(20, false, "mobile") %> 
+            </div>
+            <div class="w-50 i-block">
+              <div class="hindi-matter">मैं सरपंच/वीओ/वीडीओ को अधिकृत करता हूँ </div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="w-10 i-block">
+              <div class="hindi-matter">ईमेल </div>
+            </div>
+            <div class="w-40 i-block">
+              <%= raw blank_string_format2(20, false, "email") %> 
+            </div>
+            <div class="w-50 i-block">
+              <div class="hindi-matter">बैंक को उपरोक्त सहमति पत्र प्रस्तुत करने के लिए </div>
+            </div>
+          </div>
+          <div>&nbsp;</div>
+          <div class="fRight mb-1">
+            <div class="hindi-matter">ग्राहक का हस्ताक्षर/अगूंठा </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block block-110" id="letter-in-english" style="display:none;">
+    <div class="col-md-12 ln-hgt-30">
+      <div class="row padding-5">
+        <div class="fnt-16 fnt-b fnt-u mb-2">
+          <center>
+            <div class="english-matter">
+              APPLICATION FOR LINKING/ SEEDING AADHAR NUMBER AND RECEIVING DBT BENEFITS INTO BANK ACCOUNT-(NPCI MAPPING)
+            </div> 
+          </center>
+        </div>
+      </div>
+      <div class="row mrgn-top-5 padding-2">
+        <div class="paragraph-22 fnt-13">
+          <div class="row">
+            <div class="col-md-9 fnt-b">To,</div>
+            <div class="col-md-3">
+              <div class="fRight">
+                <strong>Date:</strong> <%= format_dt(Date.today) %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 fnt-b pe-0">
+              Branch Manager,
+            </div>
+          </div>
+          <div class="row fnt-b mb-2">
+            <div class="col-md-12">
+              <%= raw blank_string_format2(16, false, "bank_branch") %> Branch,
+            </div>
+            <div class="col-md-12">
+              <%= raw blank_string_format2(16, false, "bank_name") %> Bank
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-12 english-matter">
+              I <%= raw blank_string_format2(16, true, "applicant") %> (name of the account holder)/S/w/d/O <%= raw blank_string_format2(16, true, "applicant_father_name") %> address <%= raw blank_string_format2(20, true, "applicant_address") %> wish to link my Aadhaar number to my proposed/Existing bank account number. 
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12">
+             The particulars of the Aadhaar/UID letter are as under : (self-attested copy enclosed)
+            </div>
+            <div class="col-md-12">
+              Aadhaar/UID number <%= raw blank_string_format2(16, false, "aadhar_number") %>
+            </div>
+            <div class="col-md-12">
+              Name of the Aadhaar Holder as in Aadhaar card <%= raw blank_string_format2(16, false, "applicant_name") %>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12 english-matter">
+              2. I hereby state & undertake that I have no objection in authenticating myself with Aadhaar based Authentication system and hereby give my voluntary consent as required under the Aadhaar Act 2016 and Regulations framed there under for seeding my Aadhaar number to my bank account & to provide my identity information (Aadhaar number, biometric information & demographic information) for Aadhaar based authentication for the purpose of availing of the banking services including operation of account & for delivery of subsidies, benefits and services or any other facility relating to banking operations.  
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12 english-matter">
+              3. I hereby give my voluntary consent in seeding my Aadhaar Number to all existing bank accounts and to my customer profile.
+            </div>
+            <div class="w-50 i-block">
+              1.Account Number <%= raw blank_string_format2(15, false, "bank_account_1") %>
+            </div>
+            <div class="w-50 i-block">
+              2.Account Number <%= raw blank_string_format2(15, false, "bank_account_2") %>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12 english-matter">
+              4. I hereby authorise to use my linked Aadhaar enabled bank account for receiving Government payment across schemes that I am eligible & /or any other payment using the Aadhaar based information and NPCI may MAP my primary account in Aadhaar Mapper of NPCI. 
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 english-matter">
+              5. (Mark only one from below for NPCI Mapper for getting DBT benefits). 
+            </div>
+            <div class="col-mo-12">
+              <ul>
+                <li class="english-matter">
+                  Map my account no. <%= raw blank_string_format2(16, false, "bank_account_1") %> at NPCI to enable me to receive Direct Benefit Transfer(DBT) from Government of India in my above account. I understand that if more than one Benefit transfer is due to me, I will receive all Benefit Transfers in this account.
+                </li>
+                <li class="english-matter">
+                  I already have an account with another bank linked to Aadhaar and only that will be used for NPCI mapper and for receiving Direct Benefit Transfer from Government of india. 
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 english-matter">
+              I further request you to register my mobile number <%= raw blank_string_format2(10, false, "mobile") %>. to my above account number, SMS alerts may be sent to this mobile number. Please also register my email-id <%= raw blank_string_format2(20, false, "email") %> 
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 english-matter">
+              I have been explained about the nature of information that may be shared upon authentication. I have been given to understand that my information submitted to the bank herewith shall not be used for any purpose other than mentioned above, or as per requirement of law. 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 english-matter">
+              I hereby declare that all the above information voluntarily furnished by me is true, correct and complete. 
+            </div>
+          </div>
+          <div>&nbsp;</div>
+
+          <div class="row mb-2 fnt-b">
+            <div class="col-md-12">
+              Yours faithfully
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="w-50 i-block">
+              <div class="english-matter">(Signature/Thumb Impression of customer)</div>
+            </div>
+            <div class="w-50 i-block">
+              <div class="english-matter">[if consent sent through BC/BDO/VO]</div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="w-15 i-block">
+              <div class="english-matter">Name</div>
+            </div>
+            <div class="w-40 i-block">
+              <%= raw blank_string_format2(20, false, "applicant") %> 
+            </div>
+            <div class="w-45 i-block">
+              <div class="english-matter">I hereby authorise the Banking Corresponden</div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="w-15 i-block">
+              <div class="english-matter">Mobile No</div>
+            </div>
+            <div class="w-40 i-block">
+              <%= raw blank_string_format2(20, false, "mobile") %> 
+            </div>
+            <div class="w-45 i-block">
+              <div class="english-matter">I hereby authorise the Sarpanch,/ V.O./B.D.O./</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="w-15 i-block">
+              <div class="english-matter">Email</div>
+            </div>
+            <div class="w-40 i-block">
+              <%= raw blank_string_format2(20, false, "email") %> 
+            </div>
+            <div class="w-45 i-block">
+              <div class="english-matter">to submit the above consent letter to the bank.</div>
+            </div>
+          </div>
+          <div>&nbsp;</div>
+          <div class="fRight">
+            <div class="english-matter">(Signature/Thumb Impression of customer)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block block-110" id="letter-in-hindi-english" style="display:none;">
+    <div class="col-md-12 ln-hgt-30">
+      <div class="row padding-5">
+        <div class="fnt-16 fnt-b fnt-u mb-2">
+          <center>
+            <div class="hindi-matter">आधार नंबर को लिंक/सीड करने और बैंक खाते में डीबीटी लाभ प्राप्त करने के लिए आवेदन-(एनपीसीआई मैपिंग)</div>
+            <div class="english-matter">
+              APPLICATION FOR LINKING/ SEEDING AADHAR NUMBER AND RECEIVING DBT BENEFITS INTO BANK ACCOUNT-(NPCI MAPPING)
+            </div> 
+          </center>
+        </div>
+      </div>
+      <div class="row mrgn-top-10 padding-2">
+        <div class="paragraph-22">
+          <div class="row">
+            <div class="col-md-9 fnt-b">प्रति/To,</div>
+            <div class="col-md-3">
+              <div class="fRight">
+                <strong>Date:</strong> <%= format_dt(Date.today) %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 fnt-b pe-0">
+              शाखा प्रबंधक/Branch Manager,
+            </div>
+          </div>
+          <div class="row fnt-b mb-3">
+            <div class="col-md-12">
+              <%= raw blank_string_format2(16, false, "bank_branch") %> शाखा/Branch,
+            </div>
+            <div class="col-md-12">
+              <%= raw blank_string_format2(16, false, "bank_name") %> बैंक/Bank
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-12 hindi-matter">
+              मैं <%= raw blank_string_format2(16, true, "applicant") %> पिता <%= raw blank_string_format2(16, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(20, true, "applicant_address") %> अपने आधार क्रमांक को अपने प्रस्तावित/मौजूदा बैंक खाता नंबर से जोड़ना चाहता हूँ
+            </div>
+            <div class="col-md-12 english-matter">
+              I <%= raw blank_string_format2(16, true, "applicant") %> (name of the account holder)/S/w/d/O <%= raw blank_string_format2(16, true, "applicant_father_name") %> address <%= raw blank_string_format2(20, true, "applicant_address") %> wish to link my Aadhaar number to my proposed/Existing bank account number. 
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12">
+             आधार/यूआईडी पत्र का विवरण निम्नानुसार है : (स्वयं सत्यापित प्रतिलिपि संलग्न )/The particulars of the Aadhaar/UID letter are as under : (self-attested copy enclosed)
+            </div>
+            <div class="col-md-12">
+              आधार/यूआईडी क्रमांक/Aadhaar/UID number <%= raw blank_string_format2(16, false, "aadhar_number") %>
+            </div>
+            <div class="col-md-12">
+              आधार कार्ड अनुसार आधार धारक का नाम /Name of the Aadhaar Holder as in Aadhaar card <%= raw blank_string_format2(16, false, "applicant_name") %>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12 hindi-matter">
+              2. मैं एतदद्वारा घोषणा करता/करती हूँ एवं वचन देता/देती हूँ कि आधार आधारित प्रमाणीकरण प्रणाली के साथ स्वयं को प्रमाणित करने में मुझे कोई आपत्ति नहीं है और आधार अधिनियम 2016 में वर्णित नियमों के अनुसार अपना आधार क्रमांक बैंक के खाते के साथ जोड़ने और मेरी पहचान जैसे (आधार क्रमांक, बायोमैट्रिक जानकारी और जनसांख्यकीय जानकरी) बैंकिंग सेवाओं हेतु, खाते संचालन हेतु और सब्सिडी लाभ हेतु या बैंकिंग परिचालन से सम्बंधित कोई अन्य सुविधा हेतु आधार आधारित प्रमाणीकरण प्रणाली के लिए मेरी स्वेच्छिक  सहमति है |
+            </div>
+            <div class="col-md-12 english-matter">
+              I hereby state & undertake that I have no objection in authenticating myself with Aadhaar based Authentication system and hereby give my voluntary consent as required under the Aadhaar Act 2016 and Regulations framed there under for seeding my Aadhaar number to my bank account & to provide my identity information (Aadhaar number, biometric information & demographic information) for Aadhaar based authentication for the purpose of availing of the banking services including operation of account & for delivery of subsidies, benefits and services or any other facility relating to banking operations.  
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12 hindi-matter">
+              3. मैं अपने सभी मौजूदा बैंक खातों और अपने ग्राहक प्रोफ़ाइल को अपने आधार क्रमांक के साथ सीडिंग  करने के लिए अपनी स्वैच्छिक सहमति देता/देती हूँ |
+            </div>
+            <div class="col-md-12 english-matter">
+              I hereby give my voluntary consent in seeding my Aadhaar Number to all existing bank accounts and to my customer profile.
+            </div>
+            <div class="w-50 i-block">
+              1.खाता क्रमांक/Account Number <%= raw blank_string_format2(15, false, "bank_account_1") %>
+            </div>
+            <div class="w-50 i-block">
+              2.खाता क्रमांक/Account Number <%= raw blank_string_format2(15, false, "bank_account_2") %>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12 hindi-matter">
+              4. मैं अपने आधार लिंक्ड बैंक कहते का उपयोग उन सभी योजनाओ में सरकारी भुगतान प्राप्त करने हेतु अधिकृत करता/करती हूँ, जिसके लिए मैं पात्र हूँ और/या आधार से जुड़े किसी अन्य भुगतान और एनपीसीआई के आधार मैपर में एनपीसीआई मेरे प्राथमिक खाते को मैप करने हेतु अधिकृत करता/करती हूँ | 
+            </div>
+            <div class="col-md-12 english-matter">
+              I hereby authorise to use my linked Aadhaar enabled bank account for receiving Government payment across schemes that I am eligible & /or any other payment using the Aadhaar based information and NPCI may MAP my primary account in Aadhaar Mapper of NPCI. 
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-md-12 hindi-matter">
+              5. डीबीटी का लाभ प्राप्त करने के लिए एनपीसीआई मैपर के लिए निम्न से केवल एक पर मार्क करे  | 
+            </div>
+            <div class="col-md-12 english-matter">
+              (Mark only one from below for NPCI Mapper for getting DBT benefits). 
+            </div>
+            <div class="col-mo-12">
+              <ul>
+                <li class="hindi-matter">
+                  मेरे खाता क्रमांक <%= raw blank_string_format2(16, false, "bank_account") %> को एनपीसीआई के साथ मैप करे ताकि भारत सर्कार द्वारा प्रत्यक्ष लाभ अंतरण (डीबीटी) को मैं अपने बैंक खाते में सीधा प्राप्त कर सकूं | मैं यह समझता /समझती हूँ कि यदि एक से अधिक लाभ अंतरण मेरे लिए बकाया है तो मुझे सभी लाभ अंतरण इस खाते में प्राप्त होंगे|
+                </li>
+                <li class="english-matter">
+                  Map my account no. <%= raw blank_string_format2(16, false, "bank_account_1") %> at NPCI to enable me to receive Direct Benefit Transfer(DBT) from Government of India in my above account. I understand that if more than one Benefit transfer is due to me, I will receive all Benefit Transfers in this account.
+                </li>
+                <li class="hindi-matter">
+                  मेरे पास पहले से ही दूसरे में बैंक में आधार से जुड़ा हुआ खाता है और केवल वही खाता  एनपीसीआई मैपर  और प्रत्यक्ष लाभ अंतरण (डीबीटी) प्राप्त करने के लिए उपयोग किया जायेगा |
+                </li>
+                <li class="english-matter">
+                  I already have an account with another bank linked to Aadhaar and only that will be used for NPCI mapper and for receiving Direct Benefit Transfer from Government of india. 
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 hindi-matter">
+              मैं आपको अपने उपरोक्त खाता क्रमांक के लिए अपना मोबाइल नंबर <%= raw blank_string_format2(10, false, "mobile") %> रजिस्टर करने में लिए अनुरोध करता/करती हूँ, एसएमएस अलर्ट इस मोबाइल नंबर पर भेजा जा सकता है, कृपया मेरा ई-मेल आईडी <%= raw blank_string_format2(20, false, "email") %> भी पंजीकृत करे | 
+            </div>
+            <div class="col-md-12 english-matter">
+              I further request you to register my mobile number <%= raw blank_string_format2(10, false, "mobile") %>. to my above account number, SMS alerts may be sent to this mobile number. Please also register my email-id <%= raw blank_string_format2(20, false, "email") %> 
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 hindi-matter">
+              मुझे बताया गया है कि प्रमाणीकरण पर किस तरह की जानकारी साझा की जा सकती है, मुझे समझाया गया है कि बैंक इन सभी जानकारियों का उपयोग ऊपर वर्णित उद्देश्य के अलावा अन्य किसी उद्देश्य के लिए नहीं करेगा और विधिक आवश्यकता अनुसार उपयोग करेगा | 
+            </div>
+            <div class="col-md-12 english-matter">
+              I have been explained about the nature of information that may be shared upon authentication. I have been given to understand that my information submitted to the bank herewith shall not be used for any purpose other than mentioned above, or as per requirement of law. 
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-12 hindi-matter">
+              मैं यह घोषणा करता/करती हूँ कि मेरे द्वारा स्वेच्छा से प्रस्तुत उपरोक्त सभी जानकारी सत्य/सही और पूर्ण है | 
+            </div>
+            <div class="col-md-12 english-matter">
+              I hereby declare that all the above information voluntarily furnished by me is true, correct and complete. 
+            </div>
+          </div>
+          <div>&nbsp;</div>
+
+          <div class="row mb-4 fnt-b">
+            <div class="col-md-12">
+              भवदीय/भवदीया/Yours faithfully
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="w-50 i-block">
+              <div class="hindi-matter">ग्राहक का हस्ताक्षर/अगूंठा </div>
+              <div class="english-matter">(Signature/Thumb Impression of customer)</div>
+            </div>
+            <div class="w-50 i-block">
+              <div class="hindi-matter">[अगर सहमति बीसी/बीडीओ/वीओ के माध्यम से भेजी गई]</div>
+              <div class="english-matter">[if consent sent through BC/BDO/VO]</div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="w-10 i-block">
+              <div class="hindi-matter">नाम</div>
+              <div class="english-matter">Name</div>
+            </div>
+            <div class="w-40 i-block">
+              <%= raw blank_string_format2(20, false, "applicant") %> 
+            </div>
+            <div class="w-50 i-block">
+              <div class="hindi-matter">मैं बैंक मित्र को अधिकृत करता/करती हूँ </div>
+              <div class="english-matter">I hereby authorise the Banking Corresponden</div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="w-10 i-block">
+              <div class="hindi-matter">मोबाइल</div>
+              <div class="english-matter">Mobile No</div>
+            </div>
+            <div class="w-40 i-block">
+              <%= raw blank_string_format2(20, false, "mobile") %> 
+            </div>
+            <div class="w-50 i-block">
+              <div class="hindi-matter">मैं सरपंच/वीओ/वीडीओ को अधिकृत करता हूँ </div>
+              <div class="english-matter">I hereby authorise the Sarpanch,/ V.O./B.D.O./</div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="w-10 i-block">
+              <div class="hindi-matter">ईमेल </div>
+              <div class="english-matter">Email</div>
+            </div>
+            <div class="w-40 i-block">
+              <%= raw blank_string_format2(20, false, "email") %> 
+            </div>
+            <div class="w-50 i-block">
+              <div class="hindi-matter">बैंक को उपरोक्त सहमति पत्र प्रस्तुत करने के लिए </div>
+              <div class="english-matter">to submit the above consent letter to the bank.</div>
+            </div>
+          </div>
+          <div>&nbsp;</div>
+          <div class="fRight mb-2">
+            <div class="hindi-matter">ग्राहक का हस्ताक्षर/अगूंठा </div>
+            <div class="english-matter">(Signature/Thumb Impression of customer)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

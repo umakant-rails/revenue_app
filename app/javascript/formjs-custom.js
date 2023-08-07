@@ -86,4 +86,11 @@ $(document).ready(function(){
     }
   });
 
+  $(".toggle-select-box").on('change', function(){
+    var targetsToHide = $(this).find(':selected').attr('target-class');
+    var targetsToDisplay = $(this).find(':selected').attr('target-id');
+    $(targetsToHide).hide();
+    $(targetsToDisplay).show();
+  });
+
 });

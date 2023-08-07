@@ -37,6 +37,7 @@ revenue_forms = [
   {eng_name: "Tehsildar Letter", hindi_name: "तहसीलदार पत्र", section_hindi: 'पी एम किसान फॉर्म', section: 'PM Kisan Form'},
   {eng_name: "Nayab Tehsildar Letter", hindi_name: "नायब तहसीलदार पत्र", section_hindi: 'पी एम किसान फॉर्म', section: 'PM Kisan Form'},
   {eng_name: "Patwari Prativedan Ineligiblity", hindi_name: "पटवारी प्रतिवेदन (अपात्रता)", section_hindi: 'पी एम किसान फॉर्म', section: 'PM Kisan Form'},
+  {eng_name: "Aadhar Seeding NPCI Form", hindi_name: "आधार लिंकिंग/एन पी सी आई फॉर्म", section_hindi: 'पी एम किसान फॉर्म', section: 'PM Kisan Form'},
 
   {eng_name: "Ordersheet First", hindi_name: "ऑर्डरशीट प्रथम", section_hindi: "नामांतरण फॉर्म", section: 'Namantaran Form'},
   {eng_name: "Ordersheet Second", hindi_name: "ऑर्डरशीट द्वितीय", section_hindi: "नामांतरण फॉर्म", section: 'Namantaran Form'},
