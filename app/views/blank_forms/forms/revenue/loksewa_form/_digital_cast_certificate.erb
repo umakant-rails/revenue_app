@@ -1,0 +1,275 @@
+<div class="digital-certificate-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print" id="digital-cast-page-1">
+    <div class="col-md-12 ln-hgt-30">
+      <div class="row mb-3">
+        <div class="fnt-30 fnt-u fnt-b mb-3">
+          <center>
+            आर्डर शीट 
+          </center>
+        </div>
+        <div class="fnt-24 fnt-b fnt-u">
+          <center>
+            अनुविभागीय अधिकारी महोदय (रा.) <%=raw blank_string_format2(6, true, 'anubhag') %>, जिला <%=raw blank_string_format2(6, true, 'district') %> (म. प्र.)
+          </center>
+        </div>
+      </div>
+      <div class="row mrgn-top-10">
+        <div class="paragraph-40 padding-4">
+          <div class="row mb-3">
+            <div class="w-50 i-block">
+              प्र क्र _ _ _ _ _ /B121/20 _ _ _ _ _ _ 
+            </div>
+            <div class="w-50 i-block">
+              <div class="fRight">दिनांक: _ _ _ _ _ _ _ _ _</div>
+            </div>
+          </div>
+          <div class="mb-2">
+            <div class="txt-indent-2">
+              आवेदक/आवेदिका: श्री/श्रीमती/कु. <%=raw blank_string_format2(20, true, 'applicant') %> पिता/पति श्री <%=raw blank_string_format2(20, true, 'applicant_father_name') %>  जाति  <%=raw blank_string_format2(16, true, 'applicant_cast') %> निवासी <%=raw blank_string_format2(24, true, 'applicant_address') %> तहसील <%=raw blank_string_format2(16, true, 'tehsil') %>  जिला <%=raw blank_string_format2(20, true, 'district') %> द्वारा लोकसेवा गारंटी कानून अन्तर्गत सेवा क्रमांक 6.5 "हस्तलिखित मैन्युअल जाति प्रमाण पत्र की डिजिटल जाति प्रमाण पत्र प्रदान करने विषयक म.प्र. सरकार (आधार पर) लोकसेवा प्रबंधन विभाग भोपाल शुक्रवार २२ जून 2016 नोटिफिकेशन अंतर्गत आवेदन प्रस्तुत किया है जिसमे आवेदन पत्र के साथ समग्र आईडी, आधार कार्ड, अंकसूची एवं जाति प्रमाण पत्र की मूल हस्तलिपि कॉपी में शपथ पत्र प्रस्तुत किये है | 
+            </div>
+          </div>
+          <div class="mb-2">
+            <div class="txt-indent-2">
+              अतः आवेदक/आवेदिका: श्री/श्रीमती/कु. <%=raw blank_string_format2(20, true, 'applicant') %> पिता/पति श्री <%=raw blank_string_format2(20, true, 'applicant_father_name') %>  जाति  <%=raw blank_string_format2(16, true, 'applicant_cast') %> निवासी <%=raw blank_string_format2(24, true, 'applicant_address') %> तहसील <%=raw blank_string_format2(16, true, 'tehsil') %>  जिला <%=raw blank_string_format2(20, true, 'district') %> को लोकसेवा गारंटी कानून की सेवा क्रमांक 6. 5 हस्तलिखित मैन्युअल जाति प्रमाण पत्र  आवेदन पत्र, समग्र आई डी, आधार कार्ड, अंकसूची एवं  हस्तलिखित जाति प्रमाण पत्र की मूल प्रति समर्पित करते हुए उसके स्थान आवेदक/आवेदिका श्री/श्रीमती/कु. <%=raw blank_string_format2(20, true, 'applicant') %> पिता/पति श्री <%=raw blank_string_format2(20, true, 'applicant_father_name') %>  जाति  <%=raw blank_string_format2(16, true, 'applicant_cast') %> निवासी <%=raw blank_string_format2(24, true, 'applicant_address') %> को अधिसूचना क्रमांक के सरल क्रमांक _ _ _ _ _ _ _ पर अंकित जाति का डिजिटल जाति प्रमाण पत्र जारी किया जाता है | लोक सेवा केंद्र को प्रमाण पत्र जारी करने हेतु भेजा जावे |
+            </div>
+          </div>
+          <div class="mb-2 txt-indent-4">
+            तथा कार्यवाही कर प्रकरण दा./द.  हो 
+          </div>
+          <div class="mrgn-top-10">&nbsp;</div>
+          <div class="fRight fnt-b fnt-20">
+            अनुविभागीय अधिकारी (रा.)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="digital-cast-page-2">
+    <div class="col-md-12 ln-hgt-30">
+      <div class="row mb-3 fnt-15">
+        <div class="w-25">
+          रजि. दिनांक <%= raw blank_string_format2(8, false, "date") %>
+        </div>
+        <div class="w-50">
+          रजि. न. RS/427/0118/<%= raw blank_string_format2(16, false, "reg_number") %>/20_ _
+        </div>
+        <div class="w-25">
+          अंतिम दिनांक <%= raw blank_string_format2(8, false, "date") %>
+        </div>
+      </div>
+      <div class="row fnt-18 fnt-b fnt-u">
+        <center>
+          आवेदन-पत्र 
+        </center>
+      </div>
+      <div class="row mrgn-top-10">
+        <div class="paragraph-30 padding-5">
+          <div class="mb-2 fnt-b">
+            हस्तलिखित (मैन्युअल) जारी अन्य पिछड़े वर्ग के लिएजाति प्रमाण पत्र का डिजिटल हस्ताक्षरित प्रमाण पत्र जारी करना  
+          </div>
+          <div class="mb-3">
+           <span class="fnt-b">सन्दर्भ :-</span> लोक सेवा प्रबंधन विभाग की अधिसूचना क्रमांक एफ 2 -13 /201261/लोसेप्र/पीएसजी -6 दिनांक 10 /04/2013
+          </div>
+          <div class="mb-2">
+            महोदय,
+          </div>
+          <div class="mb-2 txt-indent-2">
+            मैं अन्य पिछड़ा वर्ग के जाति प्रमाण पत्र के लिए आवेदन पत्र प्रस्तुत कर रहा हूँ | इस सम्बन्ध में विस्तृत जानकारी निम्नानुसार है :- 
+          </div>
+          <div class="mb-2">
+            1. स्वयं/पुत्र/पुत्री/भाई/बहन/पाल्या का विवरण, जिसके नाम पर जाति प्रमाण पत्र जारी किया जाना है :- 
+          </div>
+          <div class="row mb-3">
+            <div class="w-30 i-block"></div>
+            <div class="w-70 i-block">
+              मोबाइल नंबर <%= raw blank_string_format2(10, false, "mobile_number") %>
+            </div>
+            
+            <div class="">श्री/श्रीमती/कुमारी</div>
+            <div class="w-30 i-block">नाम (हिंदी में)</div>
+            <div class="w-70 i-block"><%= raw blank_string_format2(16, true, "applicant") %></div>
+            <div class="w-30 i-block">पिता का नाम (हिंदी में)</div>
+            <div class="w-70 i-block"><%= raw blank_string_format2(16, true, "applicant_father_name") %></div>
+            <div class="w-30 i-block">माता का नाम (हिंदी में)</div>
+            <div class="w-70 i-block"><%= raw blank_string_format2(16, true, "applicant_mother_name") %></div>
+
+            <div class="w-30 i-block">नाम (अंग्रेजी में)</div>
+            <div class="w-70 i-block"><%= raw blank_string_format2(16, false, "applicant") %></div>
+            <div class="w-30 i-block">पिता का नाम (अंग्रेजी में)</div>
+            <div class="w-70 i-block"><%= raw blank_string_format2(16, false, "applicant_father_name") %></div>
+            <div class="w-30 i-block">माता का नाम (अंग्रेजी में)</div>
+            <div class="w-70 i-block"><%= raw blank_string_format2(16, false, "applicant_mother_name") %></div>
+          </div>
+          <div class="mb-2">
+            जाति  एवं उप जाति अनुक्रमांक सहित <%= raw blank_string_format2(12, false, "registration") %> जन्म तिथि (DD/MM/YYYY ) <%= raw blank_string_format2(10, false, "date") %> जन्म स्थान <%= raw blank_string_format2(14, true, "birth_place") %> वर्तमान पता : <%= raw blank_string_format2(20, true, "address") %> मकान क्रमांक/मोहल्ला <%= raw blank_string_format2(6, true, "colony") %> जिला <%= raw blank_string_format2(12, true, "district") %>  तहसील <%= raw blank_string_format2(12, true, "tehsil") %> क्षेत्र (ग्राम/नगर)/ग्राम/नगर का नाम यदि नगर है, तब वार्ड का नाम <%= raw blank_string_format2(16, true, "ward_name") %> पटवारी हल्का नंबर <%= raw blank_string_format2(4, true, "halka_number") %>
+          </div>
+          <div class="">
+            2. क्या आवेदक का परिवार राष्ट्रपति द्वारा जातियों की अधिसूचना जारी करने की तिथि वर्ष 1950 से म. प्र. में निवासरत था ? *
+          </div>
+          <div class="">
+            3. आय/संपत्ति (Income/Wealth) <%= raw blank_string_format2(10, false, "income") %>
+            <ol>
+              <li>
+                सभी स्त्रोतों से परिवार की वार्षिक आय (रूपये में) कृषि वेतन एवं कृषि आय को छोड़कर 
+              </li>
+              <li>
+                क्या आवेदक करदाता है ? <%= raw blank_string_format2(8, true, "income_tax_status") %>
+              </li>
+              <li>
+                क्या आवेदक पर संपत्ति कर अधिनियम के प्रावधान लागू होते है ?
+              </li>
+            </ol>
+          </div>
+          <div class="">
+            4. हितग्राही का समग्र नंबर <%= raw blank_string_format2(12, false, "smagra_id") %> 
+          </div>
+          <div class="">
+            5. हितग्राही का आधार नंबर <%= raw blank_string_format2(16, false, "aadhar_number") %> 
+          </div>
+          <div class="">
+            6. पूर्व में जारी हस्तलिखित (मैन्युअल ) प्रमाण पत्र का प्रकरण क्रमांक * <%= raw blank_string_format2(10, false, "old_certificate_number") %> 
+          </div>
+          <div class="">
+            7. पूर्व में हस्तलिखित (मैन्युअल) प्रमाण पत्र जारी दिनांक * <%= raw blank_string_format2(10, false, "date") %>  
+          </div>
+          <div class="">
+            8. उस व्यक्ति का फोटो जिसके लिए प्रमाण पत्र माँगा जा रहा है 
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="digital-cast-page-3">
+    <div class="col-md-12 ln-hgt-30">
+      <div class="row fnt-18 fnt-b fnt-u">
+        <center>
+          स्व-घोषणापत्र
+        </center>
+      </div>
+      <div class="row mrgn-top-10">
+        <div class="paragraph-35 padding-5">
+          <div class="mb-2">
+            <ol>
+              <li>
+                <div class="row">
+                  <div class="w-30 i-block">आवेदक का नाम</div>
+                  <div class="w-70 i-block"><%= raw blank_string_format2(16, true, "applicant") %></div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="w-30 i-block">पिता का नाम</div>
+                  <div class="w-70 i-block"><%= raw blank_string_format2(16, true, "applicant_father_name") %></div>
+                </div>
+              <li> 
+                <div class="row">
+                  <div class="w-30 i-block">निवास का पूर्ण पता</div>
+                  <div class="w-70 i-block"><%= raw blank_string_format2(16, true, "applicant_address") %></div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="w-30 i-block">जाति</div>
+                  <div class="w-70 i-block"><%= raw blank_string_format2(16, true, "applicant_cast") %></div>
+                </div>
+              </li>
+              <li>
+              
+                <div class="row">
+                  <div class="w-30 i-block">उपजाति</div>
+                  <div class="w-70 i-block"><%= raw blank_string_format2(16, true, "subcast") %></div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="w-30 i-block">वर्ग</div>
+                  <div class="w-70 i-block">अन्य पिछड़ा वर्ग/अनुसूचित जाति/अनुसूचित जनजाति/अन्य</div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="w-30 i-block">धर्म</div>
+                  <div class="w-70 i-block"><%= raw blank_string_format2(16, true, "religion") %></div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="w-30 i-block">वार्षिक आय</div>
+                  <div class="w-70 i-block"><%= raw blank_string_format2(16, false, "imcome") %></div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="w-30 i-block">हस्तलिखित जाति प्रमाणपत्र का रा.प्र.क्र.</div>
+                  <div class="w-70 i-block"><%= raw blank_string_format2(16, false, "old_certificate_number") %></div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="w-30 i-block">आधार क्रमांक</div>
+                  <div class="w-70 i-block"><%= raw blank_string_format2(16, false, "aadhar_number") %></div>
+                </div> 
+              </li>
+              <li>
+                <div class="row">
+                  <div class="w-30 i-block">समग्र आई डी क्रमांक</div>
+                  <div class="w-70 i-block"><%= raw blank_string_format2(16, false, "samagra_id") %></div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="w-30 i-block">मोबाइल नंबर</div>
+                  <div class="w-70 i-block"><%= raw blank_string_format2(16, false, "mobile_number") %></div>
+                </div>
+              </li> 
+            </ol>
+          </div>
+          <div class="mb-2 txt-indent-2">
+            यह कि, मेरे द्वारा मध्यप्रदेश शासन लोक सेवा प्रबंधन विभाग की अधिसूचना क्रमांक एफ-2-13/2012/61/लोसेप्र/पीएजी-6  दिनांक 10/04/2013 की सेवा 6.5(A).(B) हस्तलिखित मैन्युअल अन्य पिछड़ा वर्ग/अनुसूचित जाति/अनुसूचित जनजाति प्रमाण पत्र की  डिजिटल प्रति प्रदान करना के तहत पूर्व में जारी हस्तलिखित जाति प्रमाणपत्र को डिजिटल प्रारूप में प्राप्त करने हेतु आवेदन किया जा रहा है | मेरे द्वारा आवेदन के साथ दी गई समस्त जानकारी मेरे ज्ञान में सही है | मेरे द्वारा दी गई जानकारी भी सही एवं प्रमाणित है | 
+          </div>
+          <div class="mb-2 txt-indent-2">
+            मेरे द्वारा आवेदन में दी गई  कोई भी जानकारी गलत या झूट पाए जाने पर मेरे विरुद्ध लोकसेवा संचालक उचित वैधानिक कार्यवाही प्रस्तावित कर सकता है | मुझे कोई आपत्ति नहीं होगी |  
+          </div>
+          <div class="mrgn-top-10">&nbsp;</div>
+          <div class="w-50 fRight row">
+            <div>
+              <center>हस्ताक्षर</center>
+            </div>
+            <div class="w-30 i-block">
+              नाम 
+            </div>
+            <div class="w-70 i-block">
+              <%= raw blank_string_format2(16, true, "applicant") %>
+            </div>
+            <div class="w-30 i-block">
+              पिता का नाम 
+            </div>
+            <div class="w-70 i-block">
+              <%= raw blank_string_format2(16, true, "applicant_father_name") %>
+            </div>
+            <div class="w-30 i-block">
+              पता 
+            </div>
+            <div class="w-70 i-block">
+              <%= raw blank_string_format2(16, true, "applicant_address") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
