@@ -1,5 +1,17 @@
 <!-- halka patwari prativedan -->
-<div class="page-a4 only-print" data-request-target="page" data-name="patwari-prativedan" style="display: none;">
+<div class="page-a4 only-print" data-request-target="page" data-name="patwari-prativedan" 
+  style="display: none;" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
   <div class="col-md-12 halka-patwari-prativedan-pdf">
     <div class="row">
       <div class="fnt-28 fnt-b fnt-u">
@@ -10,22 +22,24 @@
     </div>
     <div class="row mrgn-top-30 padding-2">
       <div class="paragraph-35 padding-4">
-        <div class="">प्रति,<br/></div>
-        <div class="padding-5">
-          श्रीमान तहसीलदार/नायब तहसीलदार महोदय <br/>
-          वृत्त <strong><%= request.village.ri %></strong>, तहसील <strong><%= request.village.tehsil %></strong>
-        </div><br/>
-        <div class="">
-          <strong>विषय &nbsp;:- </strong> नामांतरण के सम्बन्ध में प्रतिवेदन |<br/>
-          <strong>सन्दर्भ :-</strong> श्रीमान जी के आदेश दिनांक के परिपालन के सम्बन्ध में |<br/><br/>
+        <div class="">प्रति,</div>
+        <div class="padding-5 mb-2">
+          <div>श्रीमान तहसीलदार/नायब तहसीलदार महोदय </div>
+          <div>
+            वृत्त <strong><%= request.village.ri %></strong>, तहसील <strong><%= request.village.tehsil %></strong>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div><strong>विषय &nbsp;:- </strong> नामांतरण के सम्बन्ध में प्रतिवेदन |</div>
+          <div><strong>सन्दर्भ :-</strong> श्रीमान जी के आदेश दिनांक के परिपालन के सम्बन्ध में |</div>
         </div>
         <div class="">
-          महोदय  जी,<br/>
+          महोदय  जी,
         </div>
         <div class="paragraph-35">
           <div class="txt-indent-3">
             <% applicant = request.participants.applicant %>
-            उपरोक्त विषयान्तर्गत संदर्भित आदेश के परिपालन में लेख है कि आवेदक <%=raw applicant_name(request) %> जाति _ _ _ _ _ _ _ _ _ _ _निवासी <strong><%= applicant.address %></strong> के द्वारा <%= raw khasra_description(request) %> भूमि का विक्रेता 
+            उपरोक्त विषयान्तर्गत संदर्भित आदेश के परिपालन में लेख है कि आवेदक <%=raw applicant_name(request) %> जाति <%= raw blank_string_format2(12, true, "applicant_Cast") %> निवासी <strong><%= applicant.address %></strong> के द्वारा <%= raw khasra_description(request) %> भूमि का विक्रेता 
             <% karanda_aam = request.participants.karanda_aam.first %>
             <% seller_list = request.participants.sellers %>
             <% if seller_list.present? %>
@@ -37,20 +51,43 @@
             <% if karanda_aam.present? %> 
                <u><strong>कारन्दाआम <%=raw participant_name(karanda_aam) %> </strong></u> 
             <% end %>
-            से बैनामा क्रमांक <strong><%=raw request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> के द्वारा क्रय करने से नामांतरण हेतु आवेदन पेश किया है <br/> 
+            से बैनामा क्रमांक <strong><%=raw request.registry_number %></strong> दिनांक <strong><%= request.registry_date.strftime("%d/%m/%Y") %></strong> के द्वारा क्रय करने से नामांतरण हेतु आवेदन पेश किया है |
           </div>
           <div class="txt-indent-3">
-            वर्तमान अभिलेख मौजा <strong><%= request.village.halka_name %></strong> के खसरा नंबर <strong><%= khasra %></strong> रकबा क्रमशः <strong><%= kh_rakba %></strong> हेक्ट आवेदित भूमि, भूमिस्वामी मद भूमि है जिसका डायवर्सन हो चुका/नहीं हुआ है | 
-            <br/>
+            वर्तमान अभिलेख मौजा <strong><%= request.village.halka_name %></strong> के खसरा नंबर <strong><%= khasra %></strong> रकबा क्रमशः <strong><%= kh_rakba %></strong> हेक्ट आवेदित भूमि, भूमिस्वामी मद भूमि है | 
+          </div>
+          <div class="mb-3">
+            <div class="row">
+              <strong>वर्तमान भू-अभिलेख अनुसार सम्बंधित भूमि की वस्तु-स्थिति : - </strong>
+            </div>
+            <div class="row">
+              <div class="col-md-2">बंधक</div>
+              <div class="col-md-10">
+                : <%= raw blank_string_format2(42, true, "mortgage_status") %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2">डायवर्सन</div>
+              <div class="col-md-10">
+                : <%= raw blank_string_format2(42, true, "dyversion_status") %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2">अन्य विवरण</div>
+              <div class="col-md-10">
+                : <%= raw blank_string_format2(128, true, "other_desc") %>
+              </div>
+            </div>
           </div>
           <div class="txt-indent-3">
-            अतः प्रतिवेदन सादर सम्प्रेषित है |
+            अतः <%=raw khasra_description(request) %> पर क्रेता का नाम <%=raw applicant_name(request, true) %>, रजिस्टर्ड बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= format_dt(request.registry_date) %></strong> के अनुसार वर्तमान अभिलेख में दर्ज किये जाने हेतु प्रतिवेदन सादर सम्प्रेषित है |
+            <!-- अतः प्रतिवेदन सादर सम्प्रेषित है | -->
           </div>
         </div>
-        <br/><br/>
+        <div class="mrgn-top-10">&nbsp;</div>
         <div>
           <div class="fRight">
-            <center>- - - - - - - - - - - - - - - - -</center>
+            <center>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _</center>
             <center><strong>हस्ताक्षर</strong><center>
             <center><strong>पटवारी हल्का <%= request.village.halka_name %></strong><center>
           </div>
@@ -59,3 +96,6 @@
     </div>
   </div>
 </div>
+<% content_for :head do %>
+  <%= javascript_import_module_tag "custom/translate-custom" %>
+<% end %>
