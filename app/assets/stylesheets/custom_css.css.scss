@@ -54,12 +54,11 @@ page[size="A4"][layout="landscape"] {
 .fnt-b  { font-weight: bold; }
 .fnt-u {text-decoration: underline;}
 .txt-center { text-align: center }
-.ln-hgt-30 { line-height: 30px; text-align: justify; }
-.ln-hgt-40 { line-height: 40px; text-align: justify; }
+
 .txt-indent-1 {text-indent: 1cm;}
-.txt-indent-2 {text-indent: 2cm;}
+.txt-indent-2 {tex
+.txt-indent-4 {text-indent: 4cm;}t-indent: 2cm;}
 .txt-indent-3 {text-indent: 3cm;}
-.txt-indent-4 {text-indent: 4cm;}
 .pd-4 {padding: 4px;}
 .pd-x4 { padding-left: 4px; padding-right: 4px; }
 .mrgn-top-5{margin-top: 5px;}
@@ -107,9 +106,6 @@ page[size="A4"][layout="landscape"] {
 .w-70{width: 70%; padding: 0px 5px;}
 .w-80{width: 80%; padding: 0px 5px;}
 .w-85{width: 85%; padding: 0px 5px;}
-.ln-hgt-22 { line-height: 22px; }
-.ln-hgt-35 { line-height: 35px; }
-.ln-hgt-40 { line-height: 40px; }
 
 .mrgn-2{ margin-left: 2%; margin-right: 2%; }
 .mrgn-4{ margin-left: 4%; margin-right: 4%; }
@@ -146,6 +142,12 @@ page[size="A4"][layout="landscape"] {
   font-size: 18px;
   text-align: justify;
 }
+
+.ln-hgt-22 { line-height: 22px; }
+.ln-hgt-30 { line-height: 30px; text-align: justify; }
+.ln-hgt-32 { line-height: 32px; text-align: justify; }
+.ln-hgt-35 { line-height: 35px; }
+.ln-hgt-40 { line-height: 40px; text-align: justify; }
 
 .seemankan-tbl{
   table tr th {
@@ -250,4 +252,8 @@ page[size="A4"][layout="landscape"] {
   width: 120px;height: 140px;font-size: 14px;
   display: flex;padding: 10px;text-align: center;
   font-weight: bold;
+}
+.up-lw-bdr{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
