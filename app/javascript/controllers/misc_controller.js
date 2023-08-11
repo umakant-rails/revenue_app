@@ -5,6 +5,10 @@ import ApplicationController from "./application_controller";
 // Connects to data-controller="namantaran"
 export default class extends ApplicationController {
 
+  connect(){
+    document.addEventListener("autocomplete.change", this.autocomplete.bind(this));
+  }
+
   getRecords(event){
     this.params = {};
     let targetName = event.target.name;
@@ -26,6 +30,23 @@ export default class extends ApplicationController {
       this.getData('get', url, this.params);
     }
     
+  }
+
+  autocomplete(){
+    let formId = event.detail.value;
+    this.params = {};
+    this.params.form_id = formId;
+    this.getData('get', '/welcome/form/search', this.params)
+  }
+
+  searchForms(){
+    var searchTerm = $("#search_term").val();
+    if(searchTerm.length == 0){
+      return;
+    }
+    this.params = {};
+    this.params.search_term = searchTerm;
+    this.getData('get', '/welcome/form/search', this.params);
   }
 
   /* start js block - make ajax requext */
