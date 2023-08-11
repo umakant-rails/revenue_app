@@ -32,6 +32,7 @@ revenue_forms = [
   {eng_name: "Income Certificate", hindi_name: "आय प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
   {eng_name: "Domicile Certificate", hindi_name: "स्थाई निवास प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
   {eng_name: "Cast Certificate", hindi_name: "जाति प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
+  {eng_name: "Digital Cast Certificate", hindi_name: "डिजिटल जाति प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
   {eng_name: "Applicant Application", hindi_name: "आवेदक का आवेदन", section_hindi: 'पी एम किसान फॉर्म', section: 'PM Kisan Form'},
   {eng_name: "Patwari Prativedan", hindi_name: "पटवारी प्रतिवेदन", section_hindi: 'पी एम किसान फॉर्म', section: 'PM Kisan Form'},
   {eng_name: "Tehsildar Letter", hindi_name: "तहसीलदार पत्र", section_hindi: 'पी एम किसान फॉर्म', section: 'PM Kisan Form'},
