@@ -111,4 +111,14 @@ module RequestsHelper
     village_details
   end
 
+  def is_area_equally_devided(request)
+    hissedars = request.khasra_battanks.group_by(&:group_id)
+    hissedar_rakba = []
+    hissedars.each do | key, khasras |
+      hissedar_rakba.push(khasras.pluck(:rakba).sum)
+    end
+    hissedar_rakba_uniq = hissedar_rakba.uniq
+    return (hissedar_rakba.length != hissedar_rakba_uniq.length) && (hissedar_rakba_uniq.length == 1)
+  end
+
 end
