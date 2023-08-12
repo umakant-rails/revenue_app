@@ -81,7 +81,11 @@
         <%#= render partial: "requests/payment_not_done",locals: hs %>
       <%# end %>
       <%= render partial: "requests/namantaran/pages/ordersheet_first",locals: hs %>
-      <%= render partial: "requests/namantaran/pages/ordersheet_second",locals: hs %>
+      <% if current_user.is_order_display %>
+        <%= render partial: "requests/namantaran/pages/ordersheet_second",locals: hs %>
+      <% else %>
+        <%= render partial: "requests/namantaran/pages/ordersheet_second_blank",locals: hs %>
+      <% end %>
       <%#= render partial: "requests/namantaran/pages/ordersheet_second_extra",locals: hs %>
       <%= render partial: "requests/namantaran/pages/applicant_application",locals: hs %>
       <%= render partial: "requests/namantaran/pages/non_applicant_application",locals: hs %>

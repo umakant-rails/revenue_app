@@ -87,8 +87,7 @@
   .w-px-30{min-width: 30px;}
   .w-px-50{min-width: 40px;}
   .w-px-100{min-width: 100px;}
-  .ln-hgt-35 { line-height: 35px; }
-  .ln-hgt-40 { line-height: 40px; }
+ 
 
   .mrgn-2{ margin-left: 2%; margin-right: 2%; }
   .mrgn-4{ margin-left: 4%; margin-right: 4%; }
@@ -254,3 +253,11 @@
     border-bottom-width: 1px;
     box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
 }
+
+.ln-hgt-35 { line-height: 35px; }
+.ln-hgt-40 { line-height: 40px; }
+.ln-hgt-55 { line-height: 55px; }
+
+.w-space-3{ word-spacing: 3px;}
+.w-space-4{ word-spacing: 4px;}
+.w-space-5{ word-spacing: 5px;}

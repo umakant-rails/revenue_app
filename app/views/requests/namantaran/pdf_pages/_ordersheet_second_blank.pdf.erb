@@ -1,0 +1,42 @@
+<!-- order sheet started -->
+<div class="row alwaysbreak">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="fnt-24 fnt-b txt-center">
+        राजस्व आदेश अनुवृत्ति पत्र<br/>
+        मामला क्रमांक_________ अ/6 <%= request.year %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mt-3">
+        <div class="d-table">
+          <div class="d-row mt-2">
+            <div class="d-cell pdf-tbl-lft-15 txt-center p-2">1</div>
+            <div class="d-cell pdf-tbl-center-70 txt-center p-2">2</div> 
+            <div class="d-cell pdf-tbl-rht-15 txt-center p-2">3</div>
+          </div>
+          <div class="d-row pb-2">
+            <div class="d-cell pdf-tbl-lft-15"></div>
+            <div class="d-cell pdf-tbl-center-70 order2-parent">
+              <div class="pd-4 <%= @templates[:ordersheet2] %> order2-child" style="line-height: 55px;word-spacing:5px;">
+                <div class="fLeft">
+                  प्रकरण पेश | 
+                </div>
+                <br/>
+                <div class="mb-8 txt-indent-3" >                  
+                  प्रकरण का अवलोकन किया गया | प्रकरण में प्रस्तुत आवेदक के आवेदन पत्र हल्का पटवारी प्रतिवेदन अनावेदक <%= raw blank_string_format2(42, true, 'non_applicant') %> निवासी <%= raw blank_string_format2(27, true, 'non_applicant_address') %> के जबाब व प्रकाशन में आये अन्य दस्तावेजों के आधार पर मध्यप्रदेश भू -राजस्व संहिता १९५९ की धारा 109 -110 के तहत मौजा <%= raw blank_string_format2(12, true, 'village') %> पटवारी हल्का नंबर <%= raw blank_string_format2(8, false, 'halka_number') %>में स्थित भूमि खसरा नंबर <%= raw blank_string_format2(17, false, 'khasra_number') %>  रकबा <%= raw blank_string_format2(17, false, 'rakba') %> वर्ग फु/हे. भूमि पर पंजीकृत बैनामा क्रमांक <%= raw blank_string_format2(16, false, 'registry_number') %> दिनांक <%= raw blank_string_format2(10, false, 'registry_date') %> के अनुसार आवेदक <%= raw blank_string_format2(25, true, 'applicant') %> पिता/पति <%= raw blank_string_format2(25, true, 'applicant_father_name') %> निवासी <%= raw blank_string_format2(25, true, 'applicant_address') %>का नाम शामिल शरीक दर्ज किये का आदेश पारित किया जाता है |  हल्का पटवारी एवं कंप्यूटर ऑपरेटर आदेशानुसार अभिलेख दुरुस्त करे बाद कार्यवाही नस्ती दाखिल दर्ज हो |
+                </div>
+                <br/><br/>
+                <div class="mb-2 fRight">
+                  <strong>तहसीलदार/नायब तहसीलदार</strong>
+                </div>
+              </div>
+            </div> 
+            <div class="d-cell pdf-tbl-rht-15"></div>
+          </div>
+        </tbody>
+      </div>
+    </div>
+  </div>
+  <br/><br/>
+</div>
