@@ -100,15 +100,16 @@ export default class extends ApplicationController {
   }
 
   downloadPDF(event){
-    var element = document.getElementsByClassName("page-a4")[0];
-
+    // var element = document.getElementsByClassName("digital-certificate-block")[0];
+    var element = document.getElementsByClassName("page-a4")[0].parentElement;
+    console.log(element)
     var options = {
         margin: 0,
         filename: 'PMKisan.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2 },
         jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
-        pagebreak: { mode: 'avoid-all', before: '.page-a4' }
+        // pagebreak: { mode: 'avoid-all', before: '.page-a4' }
     };
     html2pdf().from(element).set(options).save();
 
