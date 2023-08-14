@@ -1,18 +1,52 @@
 import $ from 'jquery';
 
 $(document).ready(function(){
-  var selectedFileArr = []
-  $("#dropFiles").on('dragenter', function(ev) {
+  var selectedFileArr = [];
+  // $("#dropFiles").on('dragenter', function(ev) {
+  //     // Entering drop area. Highlight area
+  //     $("#dropFiles").addClass("highlightDropArea");
+  // });
+  
+  // $("#dropFiles").on('dragleave', function(ev) {
+  //   // Going out of drop area. Remove Highlight
+  //   $("#dropFiles").removeClass("highlightDropArea");
+  // });
+  
+  // $("#dropFiles").on('drop', function(ev) {
+  //   // Dropping files
+  //   ev.preventDefault();
+  //   ev.stopPropagation();
+  //   // Clear previous messages
+  //   $("#messages").empty();
+  //   if(ev.originalEvent.dataTransfer){
+  //     if(ev.originalEvent.dataTransfer.files.length) {
+  //       var droppedFiles = ev.originalEvent.dataTransfer.files;
+  //       for(var i = 0; i < droppedFiles.length; i++) {
+  //         getImgData(droppedFiles[i]);
+  //         // $("#imageToPdf").prop("files", droppedFiles);
+  //       }
+  //     }
+  //   }
+
+  //   $("#dropFiles").removeClass("highlightDropArea");
+  //   return false;
+  // });
+  
+  // $("#dropFiles").on('dragover', function(ev) {
+  //     ev.preventDefault();
+  // });
+
+  $(document).on('dragenter', ".before-file-container, .file-processing-container", function(ev) {
       // Entering drop area. Highlight area
       $("#dropFiles").addClass("highlightDropArea");
   });
   
-  $("#dropFiles").on('dragleave', function(ev) {
+  $(document).on('dragleave', ".before-file-container, .file-processing-container", function(ev) {
     // Going out of drop area. Remove Highlight
     $("#dropFiles").removeClass("highlightDropArea");
   });
   
-  $("#dropFiles").on('drop', function(ev) {
+  $(document).on('drop', ".before-file-container, .file-processing-container", function(ev) {
     // Dropping files
     ev.preventDefault();
     ev.stopPropagation();
@@ -23,16 +57,16 @@ $(document).ready(function(){
         var droppedFiles = ev.originalEvent.dataTransfer.files;
         for(var i = 0; i < droppedFiles.length; i++) {
           getImgData(droppedFiles[i]);
-          $("#imageToPdf").prop("files", droppedFiles);
+          // $("#imageToPdf").prop("files", droppedFiles);
         }
       }
     }
 
-    $("#dropFiles").removeClass("highlightDropArea");
+    $(document).removeClass("highlightDropArea");
     return false;
   });
   
-  $("#dropFiles").on('dragover', function(ev) {
+  $(document).on('dragover', ".before-file-container, .file-processing-container", function(ev) {
       ev.preventDefault();
   });
 
@@ -43,46 +77,48 @@ $(document).ready(function(){
     }
   });
 
-  $(document).on('click', ".open-file-dialog, #open-file-dialog-div", function(){
-    $("#imageToPdf").click();
-  });
-
   $(document).on('click', ".remove-selected-image", function(){
     $(".file-checkbox").each(function() {
       if ($(this).is(":checked")) {
         $(this).parent().remove();
+        var fileName = $(this).parent().text().trim();
+        selectedFileArr = selectedFileArr.filter(file=> file != fileName)
       }
     });
   });
 
+  $(document).on('click', ".open-file-dialog1, .open-file-dialog", function(){
+    $("#imageToPdf").click();
+  });
+
   function getImgData(files) {
+    $("#imageToPdf").val("");
+
     if(selectedFileArr.indexOf(files.name) == -1){
-      selectedFileArr.push(files.name);
+      selectedFileArr[selectedFileArr.length] = files.name;
     } else {
       alert('This file is already selected.');
       return;
     }
-
+    //console.log(selectedFileArr)
     const fileReader = new FileReader();
     fileReader.readAsDataURL(files);
 
     fileReader.addEventListener("load", function () {
       var imageStr = `<div class="col-md-2 image-holder">
         <img src="${this.result}" style="width:100%;height:200px" class="ms-2 mb-2"/>
-        <input type="checkbox" name="file" class="file-checkbox form-check-input me-1">${files.name}
+        <input type="checkbox" name="file" class="file-checkbox form-check-input me-1" data-vl="${files.name}">${files.name}
       </div>`;
 
-      if($("#dropFiles").find(".open-file-dialog").length == 0){
-        $("#imageToPdf").hide();
+      if($(".file-processing-container").find(".image-holder").length == 0){
+        $(".before-file-container").hide();$(".file-processing-container").show();
         $("#file-select-bottom-div").show();
-        imageStr = imageStr + `<div class="open-file-dialog">
-          <i class="fa-solid fa-plus"></i>
-        </div>`;
-        $("#dropFiles").append(imageStr);
+        $(".file-processing-container").prepend(imageStr);
       } else {
-        $("#dropFiles").prepend(imageStr);
+        $(".file-processing-container").find(".image-holder").last().after(imageStr);
       }
-    }); 
+    });
+
   }
 
 })

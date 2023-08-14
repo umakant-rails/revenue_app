@@ -1,3 +1,8 @@
+<!--
+https://javacodepoint.com/drag-and-drop-file-upload-using-javascript/
+
+https://blog.filestack.com/api/upload-multiple-files-using-javascript/
+-->
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8">
@@ -6,7 +11,7 @@
       <div class="fnt-30 text-center">JPG TO PDF</div>
     </div>
 
-    <div class="row file-dropping-area" id="dropFiles">
+    <!-- <div class="row file-dropping-area" id="dropFiles">
       <input type="file" id="imageToPdf" name="myfile" class="file-upload"/>
     </div>
     <div class="row p-1 bdr-black" id="file-select-bottom-div" style="display:none;">
@@ -19,10 +24,38 @@
         <input type="button" class="btn btn-primary fRight" value="Convert To Pdf"/>
       </div>
     </div>
-
-
-
-
+    <br/> -->
+    <div class="row before-file-container" id="dropFiles">
+      <div class="file-dropping-area">
+        <input type="file" id="imageToPdf" name="myfile" class="file-upload" style="display:none;"/>
+        <div class="col-md-12 fnt-18 text-center mb-4 mt-4" style="color:gray;">
+          Drop your images here to convert image into PDF
+        </div>
+        <div class="col-md-12 text-center">
+          <button class="open-file-dialog1 file-upload-btn">
+            Select Image
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row file-processing-container" style="display: none;">
+      <div class="col-md-2">
+        <div class="open-file-dialog1 new-file-selecter">
+          <i class="fa-regular fa-square-plus fnt-24 text-secondary"></i>
+          <div class="fnt-15 text-secondary">Add Image File</div>
+        </div>
+      </div>
+    </div>
+    <div class="row p-1 bdr-black" id="file-select-bottom-div" style="display:none;">
+      <div class="col-md-2 ps-0">
+        <input type="button" class="btn btn-primary open-file-dialog1" id="open-file-dialog-div" value="Select Image"/>
+      </div>
+      <div class="col-md-8"></div>
+      <div class="col-md-2 p-0">
+        <i class="fa-solid fa-trash fnt-22 pt-1 pe-2 text-white remove-selected-image"></i>
+        <input type="button" class="btn btn-primary fRight" value="Convert To Pdf"/>
+      </div>
+    </div>
   </div>
   <div class="col-md-2"></div>
 </div>
