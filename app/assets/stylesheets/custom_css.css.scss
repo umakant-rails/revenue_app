@@ -265,3 +265,45 @@ page[size="A4"][layout="landscape"] {
 .w-space-2{ word-spacing: 2px;}
 .w-space-3{ word-spacing: 3px;}
 .w-space-4{ word-spacing: 4px;}
+
+.file-dropping-area{
+  border: 1px solid gray;
+  min-height: 300px;
+  //border-radius: 4px;
+  display:flex;
+  padding:4%;
+}
+
+.file-upload{
+  margin: 5% 35%;
+  padding: 4% 1%;
+  width: 30%;
+  background: #0d6efd;
+  border-radius: 10px;
+  border: 2px solid gray;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.open-file-dialog{
+  font-size: 35px;
+  background: #eee;
+  text-align: center;
+  //vertical-align: middle;
+  padding: 35px;
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  cursor: pointer;
+  margin-top:  40px;
+}
+.remove-selected-image{
+  border: 1px solid red;
+  //border-radius: 50%;
+  padding: 7px 7px 7px 7px;
+  background: red;
+  margin: 2px
+}
+
