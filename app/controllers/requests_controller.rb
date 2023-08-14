@@ -109,7 +109,7 @@ class RequestsController < ApplicationController
   end
 
   def pending
-    @requests = Request.left_joins([:participants, :khasras]).where("participants.request_id is null or khasras.request_id is null").uniq
+    @requests = current_user.requests.left_joins([:participants, :khasras]).where("participants.request_id is null or khasras.request_id is null").uniq
   end
 
   def get_records

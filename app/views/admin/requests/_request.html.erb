@@ -19,7 +19,7 @@
       </td>
       <td>
         <% if request.request_type.name == "नामांतरण" %>
-          <%= request.registry_number %>/<%= request.registry_date.strftime("%d-%m-%Y")%>
+          <%= request.registry_number %>/<%= request.registry_date.strftime("%d-%m-%Y") rescue nil%>
         <% else %>
           -
         <% end %>
