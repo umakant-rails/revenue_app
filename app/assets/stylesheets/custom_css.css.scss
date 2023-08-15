@@ -266,10 +266,13 @@ page[size="A4"][layout="landscape"] {
 .w-space-3{ word-spacing: 3px;}
 .w-space-4{ word-spacing: 4px;}
 
-.before-file-container, .file-processing-container{
+.before-file-container, .file-holding-sub-container, .file-downloading-container{
   border: 1px solid gray;
   min-height: 300px;
   padding:1%;
+}
+.file-processing-container{
+
 }
 
 .file-upload-btn{

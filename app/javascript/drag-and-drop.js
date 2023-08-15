@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 $(document).ready(function(){
-  var selectedFileArr = [];
+  var selectedFileArr = {};
   // $("#dropFiles").on('dragenter', function(ev) {
   //     // Entering drop area. Highlight area
   //     $("#dropFiles").addClass("highlightDropArea");
@@ -82,43 +82,74 @@ $(document).ready(function(){
       if ($(this).is(":checked")) {
         $(this).parent().remove();
         var fileName = $(this).parent().text().trim();
-        selectedFileArr = selectedFileArr.filter(file=> file != fileName)
+        var keys = Object.keys(selectedFileArr).filter(file => file == fileName);
+        delete selectedFileArr[keys];
       }
     });
   });
 
-  $(document).on('click', ".open-file-dialog1, .open-file-dialog", function(){
+  $(document).on('click', ".open-file-dialog1", function(){
     $("#imageToPdf").click();
   });
 
   function getImgData(files) {
     $("#imageToPdf").val("");
 
-    if(selectedFileArr.indexOf(files.name) == -1){
-      selectedFileArr[selectedFileArr.length] = files.name;
+    if(Object.keys(selectedFileArr).indexOf(files.name) == -1){
+      // selectedFileArr[selectedFileArr.length] = files.name;
+      selectedFileArr[files.name] = files;
     } else {
       alert('This file is already selected.');
       return;
     }
-    //console.log(selectedFileArr)
     const fileReader = new FileReader();
     fileReader.readAsDataURL(files);
-
+    // convertImageIntoPdf(files);
     fileReader.addEventListener("load", function () {
-      var imageStr = `<div class="col-md-2 image-holder">
+      var imageStr = `<div class="col-md-2 image-holder mb-2">
         <img src="${this.result}" style="width:100%;height:200px" class="ms-2 mb-2"/>
         <input type="checkbox" name="file" class="file-checkbox form-check-input me-1" data-vl="${files.name}">${files.name}
       </div>`;
 
-      if($(".file-processing-container").find(".image-holder").length == 0){
+      if($(".file-holding-sub-container").find(".image-holder").length == 0){
         $(".before-file-container").hide();$(".file-processing-container").show();
-        $("#file-select-bottom-div").show();
-        $(".file-processing-container").prepend(imageStr);
+        $(".file-holding-sub-container").prepend(imageStr);
       } else {
         $(".file-processing-container").find(".image-holder").last().after(imageStr);
       }
+
     });
 
+  }
+  $(document).on('click',".convert-image-to-pdf", function(){
+    convertImageIntoPdf()
+  });
+
+  function convertImageIntoPdf(){
+    var formData = new FormData();
+    var request = new XMLHttpRequest();
+
+    var authenticity_token = $("#authenticity_token").val();
+    formData.set("authenticity_token", authenticity_token);
+    Object.entries(selectedFileArr).forEach(([key, vl], ind) => {
+      formData.set(`files[${ind}]`, vl);
+    });
+
+    request.open("POST", "/pdfs/convert/imagetopdf");
+    request.onreadystatechange = function (oEvent) {
+      if (request.readyState === 4) {
+        if (request.status === 200) {
+          console.log(request.response)
+          var res = JSON.parse(request.response);
+          $("#file-size").html(`Your File Size is : ${res['file_size']}`)
+          $(".file-processing-container").hide();
+          $(".file-downloading-container").show();
+        } else {
+          console.log("Error", request.statusText);
+        }
+     }
+    };
+    request.send(formData);
   }
 
 })

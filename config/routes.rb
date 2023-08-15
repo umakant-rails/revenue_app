@@ -65,6 +65,7 @@ Rails.application.routes.draw do
 
   resources :pdfs, only: [:index] do
     get '/imagetopdf' => "pdfs#image_to_pdf", as: :imagetopdf, on: :collection
+    post '/convert/imagetopdf' => "pdfs#convert_image_to_pdf", as: :convert_imagetopdf, on: :collection
   end
 
 end

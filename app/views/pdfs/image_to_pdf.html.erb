@@ -25,6 +25,7 @@ https://blog.filestack.com/api/upload-multiple-files-using-javascript/
       </div>
     </div>
     <br/> -->
+    <input type="hidden" value="<%= form_authenticity_token %>" id="authenticity_token" />
     <div class="row before-file-container" id="dropFiles">
       <div class="file-dropping-area">
         <input type="file" id="imageToPdf" name="myfile" class="file-upload" style="display:none;"/>
@@ -38,24 +39,50 @@ https://blog.filestack.com/api/upload-multiple-files-using-javascript/
         </div>
       </div>
     </div>
-    <div class="row file-processing-container" style="display: none;">
-      <div class="col-md-2">
-        <div class="open-file-dialog1 new-file-selecter">
-          <i class="fa-regular fa-square-plus fnt-24 text-secondary"></i>
-          <div class="fnt-15 text-secondary">Add Image File</div>
+    <div class="file-processing-container" style="display: none;">
+      <div class="row file-holding-sub-container justify-content-center">
+        <div class="col-md-2">
+          <div class="open-file-dialog1 new-file-selecter">
+            <i class="fa-regular fa-square-plus fnt-24 text-secondary"></i>
+            <div class="fnt-15 text-secondary">Add Image File</div>
+          </div>
+        </div>
+      </div>
+      <div class="row p-1 bdr-black">
+        <div class="col-md-2 ps-0">
+          <input type="button" class="btn btn-primary open-file-dialog1" id="open-file-dialog-div" value="Select Image"/>
+        </div>
+        <div class="col-md-8"></div>
+        <div class="col-md-2 p-0">
+          <i class="fa-solid fa-trash fnt-22 pt-1 pe-2 text-white remove-selected-image"></i>
+          <input type="button" class="btn btn-primary fRight convert-image-to-pdf" value="Convert To Pdf"/>
         </div>
       </div>
     </div>
-    <div class="row p-1 bdr-black" id="file-select-bottom-div" style="display:none;">
-      <div class="col-md-2 ps-0">
-        <input type="button" class="btn btn-primary open-file-dialog1" id="open-file-dialog-div" value="Select Image"/>
+
+    <div class="row file-downloading-container justify-content-center" style="display: none;">
+      <div class="col-md-12 fnt-18 text-center mt-4" style="color:gray;">
+        Your PDF is ready for Download!
       </div>
-      <div class="col-md-8"></div>
-      <div class="col-md-2 p-0">
-        <i class="fa-solid fa-trash fnt-22 pt-1 pe-2 text-white remove-selected-image"></i>
-        <input type="button" class="btn btn-primary fRight" value="Convert To Pdf"/>
+      <div class="col-md-4 text-center">
+        <div class="row">
+          <div class="col-md-2">
+            <i class="fa-solid fa-left-long fnt-28" style="border: 2px solid #0b5ed7;padding: 8px 8px;border-radius: 50%;background: #0b5ed7;color: white;"></i>
+          </div>
+          <div class="col-md-8">
+            <button class="file-download-btn form-control btn btn-primary btn-lg">
+              <i class="fa-solid fa-download me-2"></i> Download File
+            </button>
+          </div>
+          <div class="col-md-2">
+            <i class="fa-solid fa-trash fnt-26" style="border: 2px solid red;padding: 8px 10px;border-radius: 50%;background: red;color: white;"></i>
+          </div>
+        </div>
+        <div class="col-md-12 fnt-15 text-center mt-4" id="file-size" style="color:gray;">
+        </div>
       </div>
     </div>
+
   </div>
   <div class="col-md-2"></div>
 </div>
