@@ -8,8 +8,8 @@ import "popper";
 import "controllers";
 import "tinymce";
 import './formjs-custom';
-import './drag-and-drop';
-// import "formjs";
+// import './drag-and-drop';
+
 
 $(document).ready(function(){
   tinymce.init({
