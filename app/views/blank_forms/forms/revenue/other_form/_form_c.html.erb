@@ -1,0 +1,131 @@
+<div class="letter-block" data-controller="blnk-frm">
+
+  <div class="page-a4 only-print selection-criteria-block" id="applicant-letter">
+    <div class="col-md-12">
+      <div class="row">&nbsp;</div>
+      <span id="translatable" style="display:none;">
+        <input id="input1" name="inputText" type="text" value="" 
+          class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+          data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+      </span>
+      <span id="not-translatable" style="display:none;">
+        <input id="input2" name="inputText" type="text" value="" 
+          class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+          data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+      </span>
+      <div class="row padding-5">
+        <div class="fnt-24 text-center fnt-b fnt-u mb-2">फार्म सी</div>
+        <div class="fnt-22 text-center fnt-b">
+          पटवारी की रिपोर्ट
+        </div>
+        <div class="paragraph-35">
+          <div class="roww">
+            <div class="w-35">प्रार्थी का नाम</div>
+            <div class="w-65"><%= raw blank_string_format2(30, true, "applicant") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-35">पिता का नाम</div>
+            <div class="w-65"><%= raw blank_string_format2(30, true, "applicant") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-35">प्रार्थी का निवास स्थान</div>
+            <div class="w-65"><%= raw blank_string_format2(30, true, "applicant") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-35"></div>
+            <div class="w-65">प्रार्थी की अचल संपत्ति का विस्तार पूर्वक विवरण</div>
+          </div>
+
+          <div class="roww">
+            <div class="w-35">खसरा न. व उनकी संख्या</div>
+            <div class="w-65"><%= raw blank_string_format2(30, true, "applicant") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-35">प्रत्येक खसरा का रकबा </div>
+            <div class="w-65"><%= raw blank_string_format2(30, true, "applicant") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-35">प्रत्येक खसरा का लगान</div>
+            <div class="w-65"><%= raw blank_string_format2(30, true, "applicant") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-35">प्रत्येक खसरे की जमीन की किस्म</div>
+            <div class="w-65"><%= raw blank_string_format2(30, true, "applicant") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-35">मकान का विवरण</div>
+            <div class="w-65"><%= raw blank_string_format2(30, true, "applicant") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-35">बाजारू कीमत</div>
+            <div class="w-65"><%= raw blank_string_format2(30, true, "applicant") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-35">यदि कोई भार हो तो उसका विस्तृत विवरण</div>
+            <div class="w-65"><%= raw blank_string_format2(30, true, "applicant") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-35">चल संपत्ति का विवरण</div>
+            <div class="w-65"><%= raw blank_string_format2(30, true, "applicant") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-35">कैफियत</div>
+            <div class="w-65"><%= raw blank_string_format2(30, true, "applicant") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-35">कैफियत राजस्व निरीक्षक द्वारा</div>
+            <div class="w-65"><%= raw blank_string_format2(30, true, "applicant") %></div>
+          </div>
+          <div class="roww mb-5">&nbsp;</div>
+          <div class="roww mb-5">&nbsp;</div>
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <div class="fLeft">
+                <div><%= raw blank_string(12, true, 'ri')%> राजस्व निरीक्षक</div>
+              </div>
+            </div> 
+            <div class="col-md-6">
+              <div class="fRight">
+                <center>
+                  <div class="sign-status">
+                    <div><strong>पटवारी</strong><%= raw blank_string(18, true, 'ri')%></div>
+                    <div>पटवारी ह न <%= raw blank_string(4, true, 'halka_number')%> दिनांक <strong><%= format_dt(Date.today) %></strong></div>
+                  </div>
+                </center>
+              </div>
+            </div> 
+          </div>
+          <div class="divider-bdr"></div>
+          <div class="roww fnt-15">
+            <div class="w-10">
+              टिप्पणी-
+            </div>
+            <div class="w-90 p-0">
+              <ol>
+                <li>
+                  स्तम्भ में यह यह दर्शाया जाना चाहिए कि माकन एक मंजिला है या दो मंजिला है | मकान कच्चा/गिलाब का बना है या कच्चा ईट  गारे का बना है | छप्पर का विवरण भी दिया जाना चाहिए | मकान में कितने कमरे है और मकान की लगभग कीमत कितनी है यह भी दी जाना चाहिए | इस बाबत भी टिप्पणी की जा सकती है कि मकान अच्छी वस्ती में बना है या नहीं |
+                </li>
+                <li>
+                  स्तम्भ 9 में यह चर्चा करना चाहिए कि संपत्ति जैसे गाड़ी, बैल, मवेशी, मोटरकार वगैरह |
+                </li>
+              </ol>
+            </div>
+          </div>     
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ 
+
+
+ 
+
+ 
+
+   
+
+  
+ 

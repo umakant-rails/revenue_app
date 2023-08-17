@@ -1,5 +1,5 @@
 <% @blank_forms.each do | form |%>
-  <li class="list-group-item" role="option" data-autocomplete-value="<%= form.id %>"><%= form.eng_name %></li>
+  <li class="list-group-item" role="option" data-autocomplete-value="<%= form.id %>"><%= form.eng_name %> (<%= form.section%>)</li>
 <% end %>
 
 <%#= article.english_title + " : " + article.hindi_title %>
