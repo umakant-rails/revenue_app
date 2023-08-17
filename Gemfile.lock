@@ -314,6 +314,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   kaminari
+  matrix
   pg
   prawn
   puma (~> 5.0)
