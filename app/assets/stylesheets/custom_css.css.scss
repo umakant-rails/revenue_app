@@ -57,6 +57,7 @@ page[size="A4"][layout="landscape"] {
 .fnt-30 { font-size: 30px !important; }
 .fnt-b  { font-weight: bold; }
 .fnt-u {text-decoration: underline;}
+.fnt-i {font-style: italic;}
 .txt-center { text-align: center }
 
 .txt-indent-1 {text-indent: 1cm;}
@@ -150,11 +151,6 @@ page[size="A4"][layout="landscape"] {
   text-align: justify;
 }
 
-.ln-hgt-22 { line-height: 22px; }
-.ln-hgt-30 { line-height: 30px; text-align: justify; }
-.ln-hgt-32 { line-height: 32px; text-align: justify; }
-.ln-hgt-35 { line-height: 35px; }
-.ln-hgt-40 { line-height: 40px; text-align: justify; }
 
 .seemankan-tbl{
   table tr th {
@@ -327,3 +323,12 @@ page[size="A4"][layout="landscape"] {
 .highlightDropArea{
   border: 1px solid blue;
 }
+
+.ln-hgt-20 { line-height: 20px; text-align: justify; }
+.ln-hgt-22 { line-height: 22px; }
+.ln-hgt-25 { line-height: 30px; text-align: justify; }
+.ln-hgt-30 { line-height: 30px; text-align: justify; }
+.ln-hgt-28 { line-height: 28px; text-align: justify; }
+.ln-hgt-32 { line-height: 32px; text-align: justify; }
+.ln-hgt-35 { line-height: 35px; }
+.ln-hgt-40 { line-height: 40px; text-align: justify; }

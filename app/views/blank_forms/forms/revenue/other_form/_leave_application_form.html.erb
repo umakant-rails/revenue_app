@@ -1,0 +1,243 @@
+<div class="letter-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print selection-criteria-block" id="leave-letter">
+    <div class="col-md-12">
+      <div class="row padding-2">
+        <div class="roww">
+          <div class="w-60"></div>
+          <div class="fnt-18 text-center fnt-b fnt-u mb-2 w-40">
+            <div>F.R. FORM</div>
+            <div>(See S.R. 3 below S.R. 74)</div>
+          </div>
+        </div>
+        <div class="text-center fnt-20 fnt-b">
+          APPLICATION FOR LEAVE
+        </div>
+        <div class="text-center fnt-17 fnt-i mb-3">
+          (For both Gazetted & Non Gazetted Govt. Servants)
+        </div>
+        
+        <div class="paragraph-30 ln-hgt-28">
+          <div class="fnt">
+            <strong>Note:-</strong> Items 1 to 10 must be filled in by all applicants whether Gazetted or Non Gazetted. Items 13 apply only in the case of Gazetted officers Items 14 & 15 apply in the case of Non Gazetted officers.
+          </div>
+          <ol>
+            <li>
+              <div class="roww">
+                <div class="w-50">Name Of Applicant</div>
+                <div class="w-50"><%= raw blank_string_format2(28, true, "applicant") %></div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-50">Leave rules applicable</div>
+                <div class="w-50"><%= raw blank_string_format2(28, true, "applicant") %></div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-50">Post Held</div>
+                <div class="w-50"><%= raw blank_string_format2(28, true, "applicant") %></div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-50">Department or Office </div>
+                <div class="w-50"><%= raw blank_string_format2(28, true, "applicant") %></div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-50">Pay</div>
+                <div class="w-50"><%= raw blank_string_format2(28, true, "applicant") %></div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-50">House rent allowance, conveyance allowance or other Compensatory allowances drawn the present post</div>
+                <div class="w-50"><%= raw blank_string_format2(28, true, "applicant") %></div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-50">Nature & period of leave applied for and date from which required</div>
+                <div class="w-50"><%= raw blank_string_format2(28, true, "applicant") %></div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-50">Ground on which leave is applied for</div>
+                <div class="w-50"><%= raw blank_string_format2(28, true, "applicant") %></div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-50">Date of return from last leave and the nature & period of that leave</div>
+                <div class="w-50"><%= raw blank_string_format2(28, true, "applicant") %></div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-50">Leave address, if granted</div>
+                <div class="w-50"><%= raw blank_string_format2(28, true, "applicant") %></div>
+              </div>
+            </li>
+            <li>
+              <div class="roww fnt-14 ln-hgt-22">
+                I undertake to refund the difference between the leave salary drawn during leave on average pay/commuted leave and that admissible during leave on half average pay/half pay leave, which would not have been admissible had the provision to F,R, 81(b)(II)M.B.F.R. 79(c) Rule 11(c) of the revised leave Rules 1933/Rule 14(c) of Madhya Pradesh Revised Leave Rules, 1934/Rule 963(c) of Rajasthan Service Rules, Not been applied in the event of my retirement from the service at the end or during the currency of the leave.
+              </div>
+              <div class="roww  mt-2">
+                <div class="w-30">
+                  Date:- <%= raw blank_string_format2(10, true, "date") %>
+                </div>
+                <div class="w-30 fnt-i">
+                  <center>Signature</center> 
+                  <center>&</center> 
+                  <center>Designation</center> 
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-50">Remarks and/or recommendation of the Controlling Officer.</div>
+              </div>
+              <div class="roww">
+                <div class="w-30">
+                  Date:- <%= raw blank_string_format2(10, true, "date") %>
+                </div>
+                <div class="w-30 fnt-i">
+                  <center>Signature</center> 
+                  <center>&</center> 
+                  <center>Designation</center> 
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-50"> Report of the Audit Officer</div>
+              </div>
+              <div class="roww">
+                <div class="w-30">
+                  Date:- <%= raw blank_string_format2(10, true, "date") %>
+                </div>
+                <div class="w-30 fnt-i">
+                  <center>Signature</center> 
+                  <center>&</center> 
+                  <center>Designation</center> 
+                </div>
+              </div>
+            </li>
+          </ol>   
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <div class="page-a4 only-print selection-criteria-block" id="leave-letter">
+    <div class="col-md-12">
+      <div class="row padding-2 mrgn-top-10">
+        <div class="paragraph-30 ln-hgt-28">
+          <ol start="14">
+            <li>
+              <div class="roww">
+                tatement of leave granted to applicant previous to this application :----
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th class="w-40">Name of leave</th>
+                    <th class="w-20 text-center">In current year </th>
+                    <th class="w-20 text-center">During past year</th>
+                    <th class="w-20 text-center">Year</th>
+                  <tr>
+                  <tr>
+                    <th class="w-40">
+                      <div class="w-40 text-center">(1)</div>
+                    </th>
+                    <th class="w-20 text-center">(2)</th>
+                    <th class="w-20 text-center">(3)</th>
+                    <th class="w-20 text-center">(4)</th>
+                  <tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Privilege/on average pay/Earned</td>
+                    <td></td><td></td><td></td>
+                  </tr>
+                  <tr>
+                    <td>On average pay on M.C./ Commuted</td>
+                    <td></td><td></td><td></td>
+                  </tr>
+                  <tr>
+                    <td>On half average pay/half pay</td>
+                    <td></td><td></td><td></td>
+                  </tr>
+                  <tr>
+                    <td>Not due</td>
+                    <td></td><td></td><td></td>
+                  </tr>
+                  <tr>
+                    <td>On Quarter average pay</td>
+                    <td></td><td></td><td></td>
+                  </tr>
+                  <tr>
+                    <td>Extraordinary</td>
+                    <td></td><td></td><td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="roww mb-3">
+                <div class="w-60">
+                  <span class="fRight fnt-b">Total</span>
+                </div>
+                <div class="w-40 up-lw-bdr"></div>
+              </div>
+            </li>
+            <li>
+              <div class="roww mb-3">
+                <div class="w-100">
+                  Certified that leave on average pay/earned leave for <%= raw blank_string_format2(27, true, "month") %> month and <%= raw blank_string_format2(27, true, "days") %> days from <%= raw blank_string_format2(27, true, "date_from") %> 201 to <%= raw blank_string_format2(28, true, "date_to") %> 201 is admissible under <%= raw blank_string_format2(27, true, "reason") %> of <%= raw blank_string_format2(29, true, "circumstances") %>
+                </div>
+              </div>
+              <div class="roww  mt-2">
+                <div class="w-30">
+                  Date:- <%= raw blank_string_format2(10, true, "date") %>
+                </div>
+                <div class="w-30 fnt-i">
+                  <center>Signature</center> 
+                  <center>&</center> 
+                  <center>Designation</center> 
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="roww mb-3">
+                <div class="w-100">Order of the Sanctioning Authority ..............................................................................................</div>
+              </div>
+              <div class="roww  mt-2">
+                <div class="w-30">
+                  Date:- <%= raw blank_string_format2(10, true, "date") %>
+                </div>
+                <div class="w-30 fnt-i">
+                  <center>Signature</center> 
+                  <center>&</center> 
+                  <center>Designation</center> 
+                </div>
+              </div>
+            </li>
+          </ol>   
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
