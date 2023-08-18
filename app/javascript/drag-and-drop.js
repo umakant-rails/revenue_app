@@ -2,6 +2,7 @@ import $ from 'jquery';
 
 $(document).ready(function(){
   var selectedFileArr = {};
+  var fileNumber = undefined;
   // $("#dropFiles").on('dragenter', function(ev) {
   //     // Entering drop area. Highlight area
   //     $("#dropFiles").addClass("highlightDropArea");
@@ -38,12 +39,12 @@ $(document).ready(function(){
 
   $(document).on('dragenter', ".before-file-container, .file-processing-container", function(ev) {
       // Entering drop area. Highlight area
-      $("#dropFiles").addClass("highlightDropArea");
+      $("#dropFiles").addClass("highlight-drop-area");
   });
   
   $(document).on('dragleave', ".before-file-container, .file-processing-container", function(ev) {
     // Going out of drop area. Remove Highlight
-    $("#dropFiles").removeClass("highlightDropArea");
+    $("#dropFiles").removeClass("highlight-drop-area");
   });
   
   $(document).on('drop', ".before-file-container, .file-processing-container", function(ev) {
@@ -62,7 +63,7 @@ $(document).ready(function(){
       }
     }
 
-    $(document).removeClass("highlightDropArea");
+    $(document).removeClass("highlight-drop-area");
     return false;
   });
   
@@ -92,35 +93,7 @@ $(document).ready(function(){
     $("#imageToPdf").click();
   });
 
-  function getImgData(files) {
-    $("#imageToPdf").val("");
-
-    if(Object.keys(selectedFileArr).indexOf(files.name) == -1){
-      // selectedFileArr[selectedFileArr.length] = files.name;
-      selectedFileArr[files.name] = files;
-    } else {
-      alert('This file is already selected.');
-      return;
-    }
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(files);
-    // convertImageIntoPdf(files);
-    fileReader.addEventListener("load", function () {
-      var imageStr = `<div class="col-md-2 image-holder mb-2">
-        <img src="${this.result}" style="width:100%;height:200px" class="ms-2 mb-2"/>
-        <input type="checkbox" name="file" class="file-checkbox form-check-input me-1" data-vl="${files.name}">${files.name}
-      </div>`;
-
-      if($(".file-holding-sub-container").find(".image-holder").length == 0){
-        $(".before-file-container").hide();$(".file-processing-container").show();
-        $(".file-holding-sub-container").prepend(imageStr);
-      } else {
-        $(".file-processing-container").find(".image-holder").last().after(imageStr);
-      }
-
-    });
-
-  }
+  
   $(document).on('click',".convert-image-to-pdf", function(){
     convertImageIntoPdf()
   });
@@ -144,6 +117,7 @@ $(document).ready(function(){
           $("#file-size").html(`Your File Size is : ${res['file_size']}`)
           $(".file-processing-container").hide();
           $(".file-downloading-container").show();
+          fileNumber = res['file_number'];
         } else {
           console.log("Error", request.statusText);
         }
@@ -152,4 +126,77 @@ $(document).ready(function(){
     request.send(formData);
   }
 
+  $(document).on('click', '.backward-icon', function(){
+    if(fileNumber != undefined){
+      var authenticity_token = $("#authenticity_token").val();
+      var params = {
+        file_number: fileNumber,
+        authenticity_token: authenticity_token
+      }
+      deletePdf(params, 'backward')
+    }
+  });
+
+  $(document).on('click', '.delete-pdf-icon', function(){
+    if(fileNumber != undefined){
+      var authenticity_token = $("#authenticity_token").val();
+      var params = {
+        file_number: fileNumber,
+        authenticity_token: authenticity_token
+      }
+      deletePdf(params, 'delete')
+    }
+  });
+
+  $(document).on('click', ".file-download-btn", function(){
+    window.location = `/pdfs/${fileNumber}/download`;
+    window.target = "_blank";
+    window.done = 1;
+  });
+  function getImgData(files) {
+    $("#imageToPdf").val("");
+
+    if(Object.keys(selectedFileArr).indexOf(files.name) == -1){
+      selectedFileArr[files.name] = files;
+    } else {
+      alert('This file is already selected.');
+      return;
+    }
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(files);
+    // convertImageIntoPdf(files);
+    fileReader.addEventListener("load", function () {
+      var imageStr = `<div class="col-md-2 image-holder mb-2">
+        <img src="${this.result}" style="width:100%;height:200px" class="ms-2 mb-2"/>
+        <input type="checkbox" name="file" class="file-checkbox form-check-input me-1" data-vl="${files.name}">${files.name}
+      </div>`;
+
+      if($(".file-holding-sub-container").find(".image-holder").length == 0){
+        $(".before-file-container").hide();$(".file-processing-container").show();
+        $(".file-holding-sub-container").prepend(imageStr);
+      } else {
+        $(".file-processing-container").find(".image-holder").last().after(imageStr);
+      }
+
+    });
+  }
+
+  function deletePdf(params, action){
+    $.ajax({
+      type: 'Delete',
+      url: `/pdfs/${params['file_number']}/delete`,
+      data: params,
+      dataType: 'script',
+      success: function(data){
+        if(action == "backward") {
+          $(".file-downloading-container").hide();
+          $(".file-processing-container").show();
+        } else if (action == "delete"){
+          $(".image-holder").remove();
+          $(".file-downloading-container").hide();
+          $(".file-processing-container").show();
+        }
+      }
+    });
+  }
 })

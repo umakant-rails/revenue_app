@@ -1,4 +1,4 @@
-#require "rmagick"
+require 'open-uri'
 
 class PdfsController < ApplicationController
 
@@ -19,7 +19,8 @@ class PdfsController < ApplicationController
     end
     
     # pdf_file = Tempfile.new(['image_to_pdf', '.pdf'], Rails.root.join('tmp'))
-    filename = "revenueforms_pdf_#{Time.now.to_i}.pdf"
+    file_number = Time.now.to_i
+    filename = "revenueforms_pdf_#{file_number}.pdf"
     file_path = "#{Rails.root.join('tmp/image_to_pdf')}/#{filename}"
     pdf.render_file(file_path)
     #send_file(file_path, type: 'application/pdf', disposition: 'attachment' )
@@ -27,16 +28,28 @@ class PdfsController < ApplicationController
     respond_to do |format|
       if File.exist?(file_path) && File.extname(file_path).casecmp('.pdf') == 0
         pdf_size = '%.2f' % (File.size(file_path)/1024.0)
-
-        format.js { render json: {file: filename, file_size: pdf_size + " KB"} }
+        format.js { render json: {file: filename, file_size: pdf_size + " KB", file_number: file_number} }
       else
         puts "Something went gone wrong, please try again."
       end
     end
   end
 
+  def delete_pdf
+    file_path = "#{Rails.root.join('tmp/image_to_pdf')}/revenueforms_pdf_#{params[:file_number]}.pdf"
+    File.delete(file_path) if File.exist?(file_path)
+    respond_to do |format|
+      format.js { render json: params[:file_number] }
+    end
+  end
+  
   def download_file
-
+    file_path = "#{Rails.root.join('tmp/image_to_pdf')}/revenueforms_pdf_#{params[:file_number]}.pdf"
+    send_file(
+      file_path,
+      filename: "revenueforms_pdf_#{params[:file_number]}.pdf",
+      type: "application/pdf"
+    )
   end
 
 end

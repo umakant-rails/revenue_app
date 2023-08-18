@@ -311,3 +311,19 @@ page[size="A4"][layout="landscape"] {
   background: red;
   margin: 2px
 }
+.backward-icon{
+  border: 2px solid #0b5ed7;
+  padding: 8px 8px;
+  border-radius: 50%;
+  background: #0b5ed7;color: white;
+}
+.delete-pdf-icon{
+  border: 2px solid red;
+  padding: 8px 10px;
+  border-radius: 50%;
+  background: red;color: white;
+}
+
+.highlightDropArea{
+  border: 1px solid blue;
+}
