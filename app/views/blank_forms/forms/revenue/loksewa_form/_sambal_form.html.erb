@@ -1,0 +1,379 @@
+<div class="letter-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print" id="sambal-form-page1">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+      <div class="roww fnt-17 fnt-b">
+        <div class="w-20">
+        </div>
+        <div class="w-60"></div>
+        <div class="w-20">
+          <span class="fnt-u">परिशिष्ट-1.2</span>
+        </div>
+      </div>
+      <div class="row padding-4">
+        <div class="fnt-22 text-center fnt-b fnt-u mb-5">
+          जांच रिपोर्ट (पंजीयन अनुशंसा)
+        </div>
+        <div class="paragraph-35">
+          <ol>
+            <li>
+              <div class="txt-indent-2 mb-2">
+                श्रमिक श्री/श्रीमती/सुश्री <%= raw blank_string_format2(24, true, "applicant") %> ग्राम/वार्ड <%= raw blank_string_format2(24, true, "village_ward") %> ग्राम पंचायत/नगर <%= raw blank_string_format2(24, true, "village_panchayat") %> के सामान्य निवासी है व इन्हे कर्मचारी राज्य बीमा, भविष्य निधि तथा ग्रैचयुटी, आदि सामाजिक सुरक्षा का लाभ प्राप्त नहीं होता है।
+              </div>
+            </li>
+            <li>
+              मैंने जांच में -
+              <ol>
+                <li>
+                  श्रमिक की आयु <%= raw blank_string_format2(4, false, "age") %> वर्ष (आधार कार्ड अनुसार)
+                </li>
+                <li>
+                  श्रमिक के पास अथवा उनके पति/पत्नि (जैसी स्थिति हो) के पास एक हेक्टेयर से अधिक कृषि भूमि नहीं है। (पटवारी की रिपोर्ट संलग्न)
+                </li>
+                <li>
+                  श्रमिक अथवा उनके पति/पत्नी शासकीय सेवक नहीं है। (कथन के आधार पर)
+                </li>
+                <li>
+                  श्रमिक अथवा उनके पति/पत्नि (जैसी स्थिति हो) आयकर दाता नहीं हैं। (कथन के आधार पर)
+                </li>
+              </ol>
+            </li>
+            <li>
+              उक्त के अनुसार प्रमाणित करता हूँ कि श्रमिक मुख्यमंत्री जन कल्याण (संबल 2.0) योजना के अंतर्गत पंजीयन की पात्रता रखते हैं।
+            </li>
+          </ol>
+        </div>
+        <div class="paragraph-35 ps-4">
+          <div class="txt-indent-2">
+            अतः श्रमिक श्री/ श्रीमती/ सुश्री.......... की मुख्यमंत्री जन कल्याण (संबल 2.0) योजना के अंतर्गत पंजीयन की अनुशंसा करता हूं।
+          </div>
+
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40">नाम: <%= blank_string_text(17) %></div>
+          </div>
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40">जाँच अधिकारी हस्ताक्षर: <%= blank_string_text(8) %></div>
+          </div>
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40">पदनाम: <%= blank_string_text(16) %></div>
+          </div>
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40">स्थान: <%= blank_string_text(17) %></div>
+          </div>
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40">जिला: <%= blank_string_text(17) %></div>
+          </div>
+          <div class="roww mb-3">&nbsp;</div>
+          <div class="roww">
+            <div class="fnt-b">संलग्न :- </div>
+            <ol>
+              <li>कथन</li>
+              <li>पंचनामा</li>
+              <li>कृषि भूमि सम्बन्धी पटवारी रिपोर्ट</li>
+              <li>तेंदूपत्ता संग्राहक के कार्ड की प्रति</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="sambal-form-page2">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+      <div class="roww fnt-17 fnt-b">
+        <div class="w-20">
+        </div>
+        <div class="w-60"></div>
+        <div class="w-20">
+          <span class="fnt-u">परिशिष्ट-1.3</span>
+        </div>
+      </div>
+      <div class="row padding-4">
+        <div class="fnt-22 text-center fnt-b fnt-u mb-4">
+          मुख्यमंत्री जन कल्याण (संबल-2.0) योजना 2022
+        </div>
+        <div class="paragraph-35 mb-5">
+          <div class="fnt-20 fnt-b text-center">क. प्रमाणीकरण (जन्म दिनांक)</div>
+          <div class="txt-indent-2">
+            श्रमिक श्री/श्रीमती/सुश्री <%= raw blank_string_format2(24, true, "applicant") %> व्यवसाय / नियोजन में संत्रग्न है। जो कि संलगन सूची के अनुक्रमांक <%= raw blank_string_format2(10, false, "roll_number") %> पर प्रदर्शित है। यह ग्राम/शहर <%= raw blank_string_format2(16, true, "village") %> (म.प्र) के निवासी है तथा श्रमिक दूवारा जनम तिथी के प्रमाण के रूप मैं प्रस्तुत आधार कार्ड के अनुसार आयु <%= raw blank_string_format2(6, false, "age") %> है। जिसे मेरे द्वारा प्रमाणित कर लिया गया है, जो सामान्य तौर पर सही प्रतीत होती है |
+          </div>
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40 text-center">पंचायत सचिव / वार्ड प्रभारी</div>
+          </div>
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40">स्थान: <%= blank_string_text(17) %></div>
+          </div>
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40">जिला: <%= blank_string_text(17) %></div>
+          </div>
+        </div>
+
+        <div class="paragraph-35 mb-5">
+          <div class="fnt-20 fnt-b text-center">ख. प्रमाणीकरण (कृषि भूमि)</div>
+          <div class="txt-indent-2">
+            पंजीयन के आवेदन के कॉलम 09 में वर्णित परिवार के पास कुल <%= raw blank_string_format2(8, false, "rakba") %> हेक्टेयर कृषि भूमि है,जिसमें से श्रमिक श्री/श्रीमती/सुश्री <%= raw blank_string_format2(24, true, "applicant") %> अथवा उनकी पत्नि/पति (जैसी स्थिति हो के नाम से). हेक्टेयर कृषि भूमि है/नहीं है | प्रमाण के रूप में बी-1 की प्रति संलग्न है |
+          </div>
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40 text-center">पटवारी</div>
+          </div>
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40">स्थान: <%= blank_string_text(17) %></div>
+          </div>
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40">जिला: <%= blank_string_text(17) %></div>
+          </div>
+        </div>
+
+        <div class="paragraph-35">
+          <div class="fnt-20 fnt-b text-center">ग. प्रमाणीकरण (तेन्दूपत्ता श्रमिक)</div>
+          <div class="txt-indent-2">
+            श्रमिक श्री/श्रीमती/सुश्री <%= raw blank_string_format2(24, true, "applicant") %> तेंदूपता संग्राहक के रूप में <%= raw blank_string_format2(18, true, "vanopaj_samiti_name") %> तेन्दूपता प्राथमिक वनोपज समित्ति में कार्यरत है। समिति में इनका कार्ड क्रमांक <%= raw blank_string_format2(12, true, "card_number") %> है |
+          </div>
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40 text-center">वन रक्षक (वन विभाग)</div>
+          </div>
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40">स्थान: <%= blank_string_text(17) %></div>
+          </div>
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40">जिला: <%= blank_string_text(17) %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="sambal-form-page3">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+      <div class="roww fnt-16 fnt-b">
+        <div class="w-20">
+        </div>
+        <div class="w-60"></div>
+        <div class="w-20">
+          <span class="fnt-u">परिशिष्ट-1.4</span>
+        </div>
+      </div>
+      <div class="row padding-4">
+        <div class="fnt-20 text-center fnt-b fnt-u mb-2">
+          कथन (पंजीयन हेतु) (आवेदक के)
+        </div>
+        <div class="paragraph-30 ln-hgt-28 mb-5">
+          <div class="txt-indent-0">
+            मैं श्री/श्रीमती/सुश्री <%= raw blank_string_format2(16, true, "applicant") %> पिता/पति श्री <%= raw blank_string_format2(16, true, "applicant_father_name") %> श्रमिक श्री/श्रीमती/सुश्री <%= raw blank_string_format2(16, true, "applicant") %> पिता/पति श्री <%= raw blank_string_format2(16, false, "applicant_father_name") %> निवासी <%= raw blank_string_format2(24, true, "applicant_address") %> हूँ। मेरी आयु लगभग <%= raw blank_string_format2(6, false, "age") %> वर्ष है |
+          </div>
+          <div class="mb-3">
+            मैं <%= raw blank_string_format2(16, true, "applicant") %> ग्राम/वार्ड <%= raw blank_string_format2(10, true, "village") %> ग्राम पंचायत/शहर <%= raw blank_string_format2(16, true, "city") %> जिला <%= raw blank_string_format2(16, true, "district") %> का निवासी हूँ मैं <%= raw blank_string_format2(16, true, "working_office") %> नियोजन में कार्यरत हूँ | मैं अथवा मरे पति/पत्नी शासकीय सेवक एवं आयकरदाता नहीं है |   
+          </div>
+          <div class="roww">
+            <div class="w-60"></div>
+            <div class="w-40">हस्ताक्षर: <%= blank_string_text(18) %></div>
+          </div>
+          <div class="roww mb-3">
+            <div class="w-60"></div>
+            <div class="w-40">नाम: <%= blank_string_text(20) %></div>
+          </div>
+          <div class="text-center fnt-20 fnt-b">
+            पंजीयन पंचनामा 
+          </div>
+          <div class="roww">
+            <div class="w-25">1. श्रमिक का नाम</div>
+            <div class="w-75"><%= raw blank_string_format2(44, true, "labourer_name") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-25">2. श्रमिक के पिता का नाम</div>
+            <div class="w-75"><%= raw blank_string_format2(44, true, "labourer_father_name") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-25">3. श्रमिक का जन्म दिनांक</div>
+            <div class="w-75"><%= raw blank_string_format2(44, true, "labourer_birth_date") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-25">4. श्रमिक का पता</div>
+            <div class="w-75"><%= raw blank_string_format2(44, true, "labourer_address") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-25"></div>
+            <div class="w-75">
+              ग्राम <%= blank_string_text(12) %> पंचायत <%= blank_string_text(12) %> जिला <%= blank_string_text(12) %>
+            </div>
+          </div>
+          <div class="roww">
+            <div class="w-25"></div>
+            <div class="w-75">
+              वार्ड <%= blank_string_text(12) %> शहर <%= blank_string_text(13) %> जिला <%= blank_string_text(12) %>
+            </div>
+          </div>
+          <div class="roww">
+            <div class="w-25">5. श्रमिक का नियोजन</div>
+            <div class="w-75"><%= raw blank_string_format2(38, true, "labourer_niyojan") %></div>
+          </div>
+          <div class="">
+            यह सत्यापित करते है कि श्रमिक <%= raw blank_string_format2(24, true, "labourer") %> पिता/पति <%= raw blank_string_format2(24, true, "labourer_father_name") %> नियोजन <%= raw blank_string_format2(24, true, "labourer_niyojan") %> में कार्यरत है। जो कि असंगठित श्रमिकों के नियोजन की सूची में क्रमांक <%= raw blank_string_format2(6, true, "niyojan_list_number") %> पर उल्लेखित है व इन्हे कर्मचारी राज्य बीमा, भ्रविष्य निधि तथा ग्रैचूयुटी, आदि सामाजिक सुरक्षा का लाभ प्राप्त नहीं होता है। श्रमिक अथवा उनके पति/पत्नि (जैसी स्थिति हो) शासकीय सेवा में नहीं हैं ना ही आयकर दाता हैं।
+          </div>
+          <div>
+            <table class="custom-tbl">
+              <thead>
+                <tr>
+                  <th class="w-55">
+                    उपस्थित व्यक्ति का विवरण
+                  </th>
+                  <th class="w-15">नाम</th>
+                  <th class="w-15">हस्ताक्षर</th>
+                  <th class="w-15">मोबाईल न.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>स्थानीय व्यक्ति</td>
+                  <td></td><td></td><td></td>
+                </tr>
+                <tr>
+                  <td>आवेदक के परिवार का सदस्य</td>
+                  <td></td><td></td><td></td>
+                </tr>
+                <tr>
+                  <td>
+                    सचिव/ग्राम रोजगार सहायक/वार्ड प्रभारी/सरपंच/पंच/(ग्राम प्रशासनिक समिति के सदस्य)/वार्ड पार्षद/(निवर्तमान पार्षद) (टिक करे)
+                  </td>
+                  <td></td><td></td><td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="roww">
+            <div class="w-30">
+              <strong>स्थान:-</strong> _ _ _ _ _ _ _ _ _
+            </div>
+            <div class="w-40"></div>
+            <div class="w-30">
+              <div>हस्ताक्षर:- <%= blank_string_text(12) %></div>
+              <div>पदाधिकारी का नाम:- <%= blank_string_text(24) %></div>
+              <div>पदनाम:- <%= blank_string_text(12) %></div>
+              <div>मोबाइल न:- <%= blank_string_text(11) %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% 
+    work_list = [
+      "कृषि में नियोजन जिसमें सम्मितित है उद्यानिकी तथा कृषि प्रसंस्करण",
+      "दुग्ध-उद्योग (डेरी), मुर्गीपालन, सुअरपालन तथा अन्य पशुपालन में नियोजन",
+      "मछलीपालन में नियोजन",
+      "वानिकी में नियोजन जिसमें सम्मिलित है मुख्य तथा गौण वन उपज के उत्खनन तथा संग्रहण से सम्बंधित क्रियाकलाप",
+      "रेशम-उत्पादन में नियोजन",
+      "लेटराइट, गोलाश्म, मृत्तिका का निकला जाना, भवन का पत्थर, सड़क की गिट्टी, बजरी, मुरम, रेत तथा मिटटी खदान क्रिया उत्खनन में नियोजन",
+      "पत्थर को तोड़ने तथा बनाने में नियोजन",
+      "पक्की ईंट तथा टाइल बनाने में नियोजन",
+      "(क) किसी बाजार या दुकान या डिपो या कारखाना या भाण्डागार या गोदाम या किसी अन्य स्थापना, एवं <br/> (ख) मध्यप्रदेश कृषि उपज मंडी अधिनियम 1972 (क्रमांक 24 सन 1973) के अधीन गठित मंडी समितियों के नियंत्रणाधीन कोई बाजार, में लदाई-उतराई, ढेर लगाने (स्टाकिंग), पैकिंग करने, वहन करने, तौलने, मापने और ऐसे ही अन्य शारीरिक कार्य, जिसमे उसकी तयारी तथा अन्य संयुक्त कार्य शामिल है, में नियोजन",
+      "सार्वजनिक परिवहन यानो में माल की लदाई या उनसे माल की उतराई से सम्बंधित तथा कोई अन्य आनुषंगिक या संसक्त प्रचालन में नियोजन",
+      "गोदाम में खाद्यान्न की लदाई, उतराई तथा वहां करना खाद्यान्नों की छटाई तथा सफाई, खाद्यान्नों का बोरों में भरना, ऐसे बोरों की सिलाई करना तथा उससे आनुषांगिक तथा संसक्त अन्य कार्य में, के सम्बन्ध में नियोजन",
+      "खादी, हथकरघा (हैंडलूम) तथा पॉवरलूम उद्योग में नियोजन",
+      "कपडे का विरंजित करना (ब्लीचिंग) रंगाई तथा छपाई में नियोजन",
+      "सिलाई में नियोजन",
+      "सुगन्धित तीलियों (अगरबत्ती) के बनाने में नियोजन",
+      "कढ़ाई, स्मोकिंग तथा तैयार वस्त्र (रेडीमेड गारमेंट्स) बनाने में नियोजन",
+      "पापड, अचार, जेम्स, जेली, अन्य परिरक्षित खाद्य पदार्थ, पिसे मसाले तथा वासक बनाने में नियोजन",
+      "खाना बनाने में नियोजन",
+      "खिलौने बनाने में नियोजन",
+      "चमड़े के शोधन तथा प्रसंस्करण में नियोजन",
+      "जूते तथा चमड़े की अन्य बस्तुए बनाने तथा मरम्मत करने में नियोजन",
+      "सफाई तथा झाड़-बहारू सेवाओं में नियोजन",
+      "रैग-पिकिंग में नियोजन",
+      "दरवाजे-दरवाजे (द्वार-द्वार पर) पुराने समाचार-पत्रों (रद्दी) का संग्रहण (तथा विक्रय) तथा त्यक्त वस्तुए (कबाड़ी) में नियोजन",
+      "बेचने वाला (हॉकर) तथा मार्ग में फेरी लगाकर बेचने वाला (स्ट्रीट वेंडर) के रूप में नियोजन",
+      "मोटर परिवहन कर्मकार अधिनियम, 1961  (1961 का 27) में यथा परिभाषित मोटर परिवहन कर्मकार",
+      "साईकिल-रिक्शा, ऑटो-रिक्शा तथा टैक्सी चलाने में ऐसा नियोजन जो \"मोटर परिवहन कर्मकार\" की श्रेणी में नहीं आता",
+      "आटा, तेल, दाल तथा चावल मिल में नियोजन",
+      "प्रायवेट सुरक्षा सेवाओं में नियोजन",
+      "प्लास्टिक उद्योगों में नियोजन",
+      "लकड़ी का काम करने की इकाइयों में नियोजन",
+      "बर्तन बनाने में नियोजन",
+      "कारीगर (शिल्पी) जैसे लुहार, बढ़ई, गारा बनाने, चाक बनाने (कुम्हार) आदि में नियोजन",
+      "दरी तथा कार्पेट बनाने में नियोजन",
+      "आतिशबाजों तथा माचिस उद्योग में नियोजन",
+      "डब्बे तथा पैकिंग की अन्य सामग्री बनाने में नियोजन",
+      "तेन्दूपत्ता संग्रहण में नियोजित श्रमिक",
+      "वर्ष में 90 दिवस से कम अवधि हेतु भवन एवं अन्य सन्निर्माण कार्यों में नियोजित"
+    ]
+  %>
+
+  <div class="page-a4 only-print" id="sambal-form-page3">
+    <div class="row">
+      <div class="row padding-4">
+        <div class="fnt-14 fnt-b text-center mb-2">
+          आवेदक के नियोजन के संबंध में अनुशंसाकर्ता अधिकारी द्वारा निम्न जानकारी भरी जानी चाहिए, यदि आवेदक विगत एक वर्ष के दौरान एक से अधिक नियोजनों में कार्यरत्‌ रहा है तो उन समस्त नियोजनों की जानकारी भरी जानी चाहिए |
+        </div>
+        <div class="paragraph-22 fnt-12 ln-hgt-18">
+          <div class="mb-4">
+            <table class="custom-tbl">
+              <thead>
+                <tr>
+                  <th class="w-5">
+                    क्र
+                  </th>
+                  <th class="w-85">नियोजन का प्रकार</th>
+                  <th class="w-5">टिक करे</th>
+                  <th class="w-5">कार्य दिवस</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% work_list.each_with_index do | work_txt , index | %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= raw work_txt %></td>
+                    <td></td><td></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div class="padding-8">
+            <div class="fnt-b">अनुशंसा करने वाले पंचायत सचिव/वार्ड प्रभारी एवं अन्य कर्मचारी का</div>
+            <div class="roww">
+              <div class="w-15">नाम</div>
+              <div class="w-75"><%= blank_string_text(20) %></div>
+            </div>
+            <div class="roww">
+              <div class="w-15">मोबाइल न</div>
+              <div class="w-75"><%= blank_string_text(20) %></div>
+            </div>
+            <div class="roww">
+              <div class="w-15">हस्ताक्षर</div>
+              <div class="w-75"><%= blank_string_text(20) %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

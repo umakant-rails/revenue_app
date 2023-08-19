@@ -18,6 +18,12 @@ module BlankFormsHelper
     return str
   end
 
+  def blank_string_text(length)
+    arr = []
+    length.times{arr.push("_")}
+    return arr.join(" ") + ""
+  end
+
   def certificate_name(certificate_name)
     certificate_name.split(" ").collect{|txt| txt.downcase }.join('_')
   end
