@@ -42,18 +42,8 @@ $(document).ready(function(){
   });
 
   $(document).on('click', ".add-row", function(){
-
-    var trString = `
-      <tr>
-        <td><span class="applicant" data-blnk-frm-target="textHolder" data-translatable="true" 
-          data-action="click->blnk-frm#createInput">_ _ _ _ _ _ _ _ _</span></td>
-        <td><span class="registration_number" data-blnk-frm-target="textHolder" data-translatable="false" 
-          data-action="click->blnk-frm#createInput">_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</span></td>
-        <td><span class="" data-blnk-frm-target="textHolder" data-translatable="false" 
-        data-action="click->blnk-frm#createInput">_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</span></td>
-        <td><span class="" data-blnk-frm-target="textHolder" data-translatable="false" 
-        data-action="click->blnk-frm#createInput">_ _ _ _ _</span></td>
-      </tr>`;
+    var rowFormatData = $("#row_format").html();
+    var trString = `<tr>${rowFormatData}</tr>`;
     $("table#my-data-table tbody").append(trString);
   });
 

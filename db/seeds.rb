@@ -62,7 +62,8 @@ revenue_forms = [
   {eng_name: "Talwana", hindi_name: "तलवाना", section_hindi: "फौती फॉर्म", section: 'Fouti Form'},
   {eng_name: "Patwari Prativedan", hindi_name: "पटवारी प्रतिवेदन", section_hindi: "फौती फॉर्म", section: 'Fouti Form'},
 
-  {eng_name: "Form C", hindi_name: "फॉर्म सी", section_hindi: "अन्य फॉर्म", section: 'Other Form'}
+  {eng_name: "Form C", hindi_name: "फॉर्म सी", section_hindi: "अन्य फॉर्म", section: 'Other Form'},
+  {eng_name: "Crop Sowing", hindi_name: "फसल बुआई प्रमाण पत्र", section_hindi: "अन्य फॉर्म", section: 'Other Form'}  
 
 ]
 
