@@ -33,6 +33,9 @@ revenue_forms = [
   {eng_name: "Domicile Certificate", hindi_name: "स्थाई निवास प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
   {eng_name: "Cast Certificate", hindi_name: "जाति प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
   {eng_name: "Digital Cast Certificate", hindi_name: "डिजिटल जाति प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
+  {eng_name: "Birth And Death Certificate", hindi_name: "जन्म मृत्यु प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
+  
+
   {eng_name: "Applicant Application", hindi_name: "आवेदक का आवेदन", section_hindi: 'पी एम किसान फॉर्म', section: 'PM Kisan Form'},
   {eng_name: "Patwari Prativedan", hindi_name: "पटवारी प्रतिवेदन", section_hindi: 'पी एम किसान फॉर्म', section: 'PM Kisan Form'},
   {eng_name: "Tehsildar Letter", hindi_name: "तहसीलदार पत्र", section_hindi: 'पी एम किसान फॉर्म', section: 'PM Kisan Form'},
@@ -57,40 +60,14 @@ revenue_forms = [
   {eng_name: "Applicant Affidavit", hindi_name: "आवेदक शपथ पत्र", section_hindi: "फौती फॉर्म", section: 'Fouti Form'},
   {eng_name: "Ishtihar", hindi_name: "इश्तिहार", section_hindi: "फौती फॉर्म", section: 'Fouti Form'},
   {eng_name: "Talwana", hindi_name: "तलवाना", section_hindi: "फौती फॉर्म", section: 'Fouti Form'},
-  {eng_name: "Patwari Prativedan", hindi_name: "पटवारी प्रतिवेदन", section_hindi: "फौती फॉर्म", section: 'Fouti Form'}
+  {eng_name: "Patwari Prativedan", hindi_name: "पटवारी प्रतिवेदन", section_hindi: "फौती फॉर्म", section: 'Fouti Form'},
+
+  {eng_name: "Form C", hindi_name: "फॉर्म सी", section_hindi: "अन्य फॉर्म", section: 'Other Form'}
+
 ]
 
 if department.present?
-  # department.blank_forms.create(eng_name: "Income Certificate", hindi_name: "आय प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म') if department.blank_forms.where(eng_name: "Income Certificate", section_hindi: 'लोकसेवा फॉर्म').blank?
-  # department.blank_forms.create(eng_name: "Domicile Certificate", hindi_name: "स्थाई निवास प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म') if department.blank_forms.where(eng_name: "Domicile Certificate", section_hindi: 'लोकसेवा फॉर्म').blank?
-  # department.blank_forms.create(eng_name: "Cast Certificate", hindi_name: "जाति प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म') if department.blank_forms.where(eng_name: "Cast Certificate", section_hindi: 'लोकसेवा फॉर्म').blank?
-  # department.blank_forms.create(eng_name: "Applicant Application", hindi_name: "आवेदक का आवेदन", section_hindi: 'पी एम किसान फॉर्म') if department.blank_forms.where(eng_name: "Applicant Application", section_hindi: 'पी एम किसान फॉर्म').blank?
-  # department.blank_forms.create(eng_name: "Patwari Prativedan", hindi_name: "पटवारी प्रतिवेदन", section_hindi: 'पी एम किसान फॉर्म') if department.blank_forms.where(eng_name: "Patwari Prativedan", section_hindi: 'पी एम किसान फॉर्म').blank?
-  # department.blank_forms.create(eng_name: "Tehsildar Letter", hindi_name: "तहसीलदार पत्र ", section_hindi: 'पी एम किसान फॉर्म') if department.blank_forms.where(eng_name: "Tehsildar Letter", section_hindi: 'पी एम किसान फॉर्म').blank?
-  # department.blank_forms.create(eng_name: "Nayab Tehsildar Letter", hindi_name: "नायब तहसीलदार पत्र", section_hindi: 'पी एम किसान फॉर्म') if department.blank_forms.where(eng_name: "Nayab Tehsildar Letter", section_hindi: 'पी एम किसान फॉर्म').blank?
-  # department.blank_forms.create(eng_name: "Patwari Prativedan Ineligiblity", hindi_name: "पटवारी प्रतिवेदन (अपात्रता) ", section_hindi: 'पी एम किसान फॉर्म') if department.blank_forms.where(eng_name: "Patwari Prativedan Ineligiblity", section_hindi: 'पी एम किसान फॉर्म').blank?
-
-
-  # department.blank_forms.create(eng_name: "Ordersheet First", hindi_name: "ऑर्डरशीट प्रथम", section_hindi: "नामांतरण फॉर्म") if department.blank_forms.where(eng_name: "Ordersheet First", section_hindi: "नामांतरण फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Ordersheet Second", hindi_name: "ऑर्डरशीट द्वितीय", section_hindi: "नामांतरण फॉर्म") if department.blank_forms.where(eng_name: "Ordersheet Second", section_hindi: "नामांतरण फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Applicant Application", hindi_name: "आवेदक आवेदन", section_hindi: "नामांतरण फॉर्म") if department.blank_forms.where(eng_name: "Applicant Application", section_hindi: "नामांतरण फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Non Applicant Application", hindi_name: "अनावेदक आवेदन", section_hindi: "नामांतरण फॉर्म") if department.blank_forms.where(eng_name: "Non Applicant Application", section_hindi: "नामांतरण फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Applicant Affidavit", hindi_name: "आवेदक शपथ पत्र", section_hindi: "नामांतरण फॉर्म") if department.blank_forms.where(eng_name: "Applicant Affidavit", section_hindi: "नामांतरण फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Non Applicant Affidavit", hindi_name: "अनावेदक शपथ पत्र", section_hindi: "नामांतरण फॉर्म") if department.blank_forms.where(eng_name: "Non Applicant Affidavit", section_hindi: "नामांतरण फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Ishtihar", hindi_name: "इश्तिहार", section_hindi: "नामांतरण फॉर्म") if department.blank_forms.where(eng_name: "Ishtihar", section_hindi: "नामांतरण फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Kathan", hindi_name: "कथन", section_hindi: "नामांतरण फॉर्म") if department.blank_forms.where(eng_name: "Kathan", section_hindi: "नामांतरण फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Talwana", hindi_name: "तलवाना", section_hindi: "नामांतरण फॉर्म") if department.blank_forms.where(eng_name: "Talwana", section_hindi: "नामांतरण फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Patwari Prativedan", hindi_name: "पटवारी प्रतिवेदन", section_hindi: "नामांतरण फॉर्म") if department.blank_forms.where(eng_name: "Patwari Prativedan", section_hindi: "नामांतरण फॉर्म").blank?
-
-  # department.blank_forms.create(eng_name: "Ordersheet First", hindi_name: "ऑर्डरशीट प्रथम", section_hindi: "फौती फॉर्म") if department.blank_forms.where(eng_name: "Ordersheet First", section_hindi: "फौती फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Ordersheet Second", hindi_name: "ऑर्डरशीट द्वितीय", section_hindi: "फौती फॉर्म") if department.blank_forms.where(eng_name: "Ordersheet Second", section_hindi: "फौती फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Applicant Application", hindi_name: "आवेदक आवेदन", section_hindi: "फौती फॉर्म") if department.blank_forms.where(eng_name: "Applicant Application", section_hindi: "फौती फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Applicant Affidavit", hindi_name: "आवेदक शपथ पत्र", section_hindi: "फौती फॉर्म") if department.blank_forms.where(eng_name: "Applicant Affidavit", section_hindi: "फौती फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Ishtihar", hindi_name: "इश्तिहार", section_hindi: "फौती फॉर्म") if department.blank_forms.where(eng_name: "Ishtihar", section_hindi: "फौती फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Talwana", hindi_name: "तलवाना", section_hindi: "फौती फॉर्म") if department.blank_forms.where(eng_name: "Talwana", section_hindi: "फौती फॉर्म").blank?
-  # department.blank_forms.create(eng_name: "Patwari Prativedan", hindi_name: "पटवारी प्रतिवेदन", section_hindi: "फौती फॉर्म") if department.blank_forms.where(eng_name: "Patwari Prativedan", section_hindi: "फौती फॉर्म").blank?
   revenue_forms.each do | form | 
     department.blank_forms.create(form) if department.blank_forms.where(form).blank?
   end
-
 end

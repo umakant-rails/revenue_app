@@ -1,0 +1,387 @@
+<div class="birth-death-certificate-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print" id="birth-death-certificate-page-1">
+    <div class="row">
+      <div class="fnt-22 fnt-b">
+        <center>फार्म "अ"</center>
+      </div>
+      <div class="fnt-16 fnt-b txt-center">
+        (परिपत्र दो-१ के कणिका 6  देखिये)
+      </div>
+      <div class="fnt-22 fnt-b txt-center">
+        राजस्व आदेश -पत्र (रेव्हेन्यू ऑर्डर शीट )
+      </div>
+      <div class="mt-2 p-0 col-md-12 fnt-15">
+        <div>
+          तहसीलदार <div class="i-block w-20" ><%= raw blank_string_format2(13, true, "tehsil") %></div> के न्यायालय में मामला क्रमांक_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _सन _ _ _ __ _ _ _ _ _ _ _ _
+        </div>
+        <div>
+          विषय - _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ प्रकरण की श्रेणी _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+        </div>
+
+        <div>
+          ग्राम- <div class="i-block w-25" ><%= raw blank_string_format2(16, true, "village") %></div> बंदोबस्त क्रमांक _ _ _ _ _ _ _ _ पटवारी ह क्र <div class="i-block w-10" ><%= raw blank_string_format2(5, true, "halka_number") %></div> तहसील <div class="i-block w-20" ><%= raw blank_string_format2(13, true, "tehsil") %></div> _ _
+        </div>
+
+        <div>
+          कलेक्टर का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन _ _ _ _ _ _ _ _ अनुविभागीय अधिकारी का क्रमांक _ _ _ _ _ __ _ _ _ सन_ _ _ __ _ _ _ _
+        </div>
+
+        <div>
+          तहसीलदार का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन _ _ _ _ _ _ _ _ _नायब तहसीलदार का क्रमांक _ _ _ _ _ _ _ _ _ _सन_ _ _ _ _ _ _ _ _
+        </div>
+      </div>
+    </div>
+    <div class="mt-3">
+      <div class="row first-row">
+        <div class="w-15 table-left-column">
+          आदेश अथवा कार्यवाही की तारीख और स्थान 
+        </div>
+        <div  class="w-65 table-center-column">
+          पीठासीन अधिकारी के हस्ताक्षर सहित आवेदन पत्र अथवा कार्यवाही 
+        </div>
+        <div  class="w-20 table-right-column ps-0 pe-0">
+          जहाँ आवश्यक हो, पर्ची व वकीलों के हस्ताक्षर आदेशों के पालन करवाकर लिपिक के संक्षित हस्ताक्षर  और प्रकरण की तारिख 
+        </div>
+      </div>
+      <div class="row seccond-row">
+        <div class="w-15 table-left-column txt-center">1</div>
+        <div class="w-65 table-center-column txt-center">2</div> 
+        <div class="w-20 table-right-column txt-center">3</div>
+      </div>
+      <div class="row pb-2">
+        <div class="w-15 table-left-column"></div>
+        <div class="w-65 table-center-column">
+          <div class="m-sm-2 paragraph-35 ln-hgt-32">
+            <div class="txt-indent-">
+              श्री <%= raw blank_string_format2(20, true, "applicant") %>
+              पिता/पति <%= raw blank_string_format2(30, true, "applicant_father_name") %>
+              निवासी <%= raw blank_string_format2(30, true, "applicant_address") %> तहसील
+               <%= raw blank_string_format2(15, true, "tehsil") %> के स्वयं के पुत्र/पुत्री <%= raw blank_string_format2(30, true, "child") %> जन्म तिथि अंकित करवाने हेतु आवेदन पत्र, शपथ पत्र, अनुपलब्धता प्रमाण पत्र एवं पंचनामा सहित पटवारी रिपोर्ट के साथ समाधान एक दिन योजना के अंतर्गत प्रस्तुत आवेदन प्रस्तुत किया |  
+            </div>
+            <div class="txt-indent-2">
+              प्रकरण पंजीबद्ध हो |
+            </div>
+            <div class="txt-indent-2">
+              आवेदन के उपस्थित कथन किये गये |
+            </div>
+            <div>
+              आवेदक द्वारा प्रस्तुत दस्तावेज, शपथ पत्र, अनुपलब्धता प्रमाण पत्र अंकसूची स्वयं के कथन एवं पटवारी रिपोर्ट के आधार पर आवेदक के पुत्र/पुत्री <%= raw blank_string_format2(20, true, "child") %> को जन्म तिथि <%= raw blank_string_format2(10, false, "birth_date") %> हुआ  प्रमाणित होता है | 
+            </div>
+            <div>
+              अतः आवेदक के पुत्र/पुत्री की जन्म तिथि अंकित करने हेतु पंजीयन आदेश जारी हो |  
+            </div>
+            <div class="fnt-15">
+              प्रकरण नस्तीबद्ध हो दाखिल रिकॉर्ड हो |
+            </div>
+             
+            <div class="mrgn-top-20">&nbsp;</div>
+
+            <div class="mt-5 fRight">
+              <div class="text-center"><strong>तहसीलदार</strong></div>
+              <div class="text-center">
+                <strong><%= raw blank_string_format2(14, false, "tehsil") %></strong>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div class="w-20 table-right-column"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="birth-death-certificate-page-2">
+    <div class="m-sm-2 paragraph-35 padding-5">
+      <div class="mt-2 p-0 col-md-12">
+        <div>
+          प्रति,
+        </div>
+        <div class="padding-10 fnt-b">
+          श्रीमान तहसीलदार महोदय<br/>
+          सागर (म. प्र.)
+        </div>
+        <div class="roww">
+          <div class="fnt-b me-3">विषय :-</div>
+          <div class="">जन्म/मृत्यु प्रमाण पत्र बनाने हेतु जन्म/मृत्यु तारीख का आदेश पारित करने बाबत |</div>
+        </div>
+        <div class="fnt-b mb-2">
+          आवेदक:
+        </div>
+        <div>
+          महोदय,
+        </div>
+        <div class="txt-indent-2">
+          आवेदक निम्न कथन के साथ प्रार्थी है :-
+        </div>
+
+        <div class="mb-3">
+          यह कि मेरी पत्नी <%= raw blank_string_format2(28, true, "wife") %> के यहाँ पुत्र/पुत्री का जन्म दिनांक <%= raw blank_string_format2(10, false, "birth_date") %> शब्दों में <%= raw blank_string_format2(32, true, "birth_date_hindi") %> को निवास स्थान <%= raw blank_string_format2(28, true, "wife_address") %> में हुआ था | 
+        </div>
+
+        <div class="mb-3">
+          यह कि मेरे माता/पिता <%= raw blank_string_format2(28, true, "parent") %> की मृत्यु दिनांक <%= raw blank_string_format2(10, false, "parent_death_date") %>  शब्दों में <%= raw blank_string_format2(34, true, "parent_death_date_hindi") %> को निवास स्थान <%= raw blank_string_format2(28, true, "parent_address") %> में हुई थी | यह कि भूलवश <%= raw blank_string_format2(24, true, "note") %> में जन्म का पंजीयन दर्ज नहीं करा पाया है | 
+        </div>
+
+        <div class="mb-3">
+          यह कि मेरे पुत्र/पुत्री <%= raw blank_string_format2(28, true, "child") %>  के जन्म का पंजीयन का पंजीयन दर्ज कराकर <%= raw blank_string_format2(28, true, "purpose") %> कार्य हेतु जन्म प्रमाण पत्र बनवाना चाहता हूँ | 
+        </div class="mb-3">
+        <div>
+          यह कि मेरे माता/पिता <%= raw blank_string_format2(28, true, "parent") %> की मृत्यु का पंजीयन दर्ज कराकर <%= raw blank_string_format2(28, true, "purpose") %> कार्य हेतु मृत्यु प्रमाण पत्र बनवाना चाहता हूँ | 
+        </div>
+        <div class="fnt-28 fnt-b fnt-u text-center">
+          प्रार्थना
+        </div>
+        <div class="">
+          श्रीमान जी से सविनय प्रार्थना है कि <%= raw blank_string_format2(28, true, "applicant") %> के जन्म/मृत्यु प्रमाण पत्र बनाने हेतु जन्म/मृत्यु तारीख का आदेश पारित करने की महती कृपा करें |
+        </div>
+        <div class="mrgn-top-20">&nbsp;</div>
+        <div class="fRight fnt-22">
+          <div class="text-center"><strong>आवेदक</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="birth-death-certificate-page-3">
+    <div class="m-sm-2 paragraph-35 padding-5">
+      <div class="mt-2 p-0 col-md-12">
+        <div class="fnt-30 text-center fnt-u fnt-b mb-2">
+          पंचनामा
+        </div>
+        <div class="fnt-30 text-center fnt-b">
+          -: जन्म-मृत्यु :-
+        </div>
+       
+        <div class="txt-indent-0 mb-3">
+          हम पंच निवासी <%= raw blank_string_format2(28, true, "panch_address") %>  तहसील <%= raw blank_string_format2(12, true, "tehsil") %> प्रमाणित करते है कि आवेदक <%= raw blank_string_format2(28, true, "applicant") %> के <%= raw blank_string_format2(12, true, "relation_name") %> का जन्म/मृत्यु दिनांक <%= raw blank_string_format2(10, false, "death_date") %> को इनके निज निवास पर हुआ/हुई थी |
+        </div>
+
+        <div class="txt-indent-3 mb-3">
+          हम निम्नलिखित पंच उपरोक्त जानकारी अपने पूर्ण ज्ञान से दे रहे है, पंचनामा पढ़-सुनकर हस्ताक्षर किये |  
+        </div>
+
+        <div class="mb-3">
+          <div class="roww mb-3">
+            <div class="w-30 text-center fnt-b">नाम</div>
+            <div class="w-40 text-center fnt-b">पिता का नाम एवं निवास</div>
+            <div class="w-30 text-center fnt-b">हस्ताक्षर</div>
+          </div>
+          <div class="roww mb-3">
+            <div class="w-30">
+              1.<%= raw blank_string_format2(12, true, "panch1") %>
+            </div>
+            <div class="w-40">
+              <%= raw blank_string_format2(18, true, "panch1_address") %>
+            </div>
+            <div class="w-30">
+              <%= raw blank_string_format2(12, true, "panch1_sign") %>
+            </div>
+          </div>
+          <div class="roww mb-3">
+            <div class="w-30">
+              2.<%= raw blank_string_format2(12, true, "panch1") %>
+            </div>
+            <div class="w-40">
+              <%= raw blank_string_format2(18, true, "panch1_address") %>
+            </div>
+            <div class="w-30">
+              <%= raw blank_string_format2(12, true, "panch1_sign") %>
+            </div>
+          </div>
+          <div class="roww mb-3">
+            <div class="w-30">
+              3.<%= raw blank_string_format2(12, true, "panch1") %>
+            </div>
+            <div class="w-40">
+              <%= raw blank_string_format2(18, true, "panch1_address") %>
+            </div>
+            <div class="w-30">
+              <%= raw blank_string_format2(12, true, "panch1_sign") %>
+            </div>
+          </div>
+          <div class="roww mb-3">
+            <div class="w-30">
+              4.<%= raw blank_string_format2(12, true, "panch1") %>
+            </div>
+            <div class="w-40">
+              <%= raw blank_string_format2(18, true, "panch1_address") %>
+            </div>
+            <div class="w-30">
+              <%= raw blank_string_format2(12, true, "panch1_sign") %>
+            </div>
+          </div>
+          <div class="roww mb-3">
+            <div class="w-30">
+              5.<%= raw blank_string_format2(12, true, "panch1") %>
+            </div>
+            <div class="w-40">
+              <%= raw blank_string_format2(18, true, "panch1_address") %>
+            </div>
+            <div class="w-30">
+              <%= raw blank_string_format2(12, true, "panch1_sign") %>
+            </div>
+          </div>
+        </div>
+        <div class="mrgn-top-20">&nbsp;</div>
+        <div class="mrgn-top-20">&nbsp;</div>
+        <div class="mrgn-top-20">&nbsp;</div>
+        <div class="mb-3 roww">
+          <div class="w-15">पटवारी टीप :- </div>
+          <div class="w-85"><%= raw blank_string_format2(123, true, "patwari_comment") %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="birth-death-certificate-page-4">
+    <div class="mrgn-top-20">&nbsp;</div>
+    <div class="">&nbsp;</div>
+    <div class="row">
+      <div class="fnt-24 fnt-b fnt-u">
+        <center>श्रीमान पब्लिक नोटरी अधिकारी महोदय <%= raw blank_string_format2(8, true, "tehsil") %> मध्यप्रदेश </center>
+      </div>
+      <div class="fnt-22 fnt-b mrgn-top-10">
+        <center>//शपथ पत्र//</center>
+      </div>
+    </div>
+    <div class="">&nbsp;</div>
+    <div class="row mrgn-2">
+      <div class="paragraph">
+        <div class="txt-indent-2">
+          मैं <%= raw blank_string_format2(20, true, "applicant") %> उम्र <%= raw blank_string_format2(4, false, "age") %> वर्ष आत्मज <%= raw blank_string_format2(20, true, "applicant_father_namne") %> निवासी <%= raw blank_string_format2(24, true, "applicant_address") %> तहसील <%= raw blank_string_format2(12, true, "tehsil") %> जिला <%= raw blank_string_format2(12, true, "district") %> शपथपूर्वक कथन करता हूँ |<br/> 
+        </div>
+        <div class="padding-1">
+          निम्नलिखित कथन शपथ पूर्वक कथन करता हूँ |
+          <ol>
+            <li>
+              यह कि मेरे/मेरी <%= raw blank_string_format2(36, true, "relation_name") %> का जन्म/मृत्यु  दिनांक <%= raw blank_string_format2(10, true, "date") %> को स्थान <%= raw blank_string_format2(24, true, "address") %> में हुआ/हुई थी |
+            </li>
+            <li>
+              यह कि मैं भूलवश <%= raw blank_string_format2(32, true, "relation_name") %> के/की जन्म/मृत्यु होने का पंजीयन <%= raw blank_string_format2(24, true, "reason") %> मैं दर्ज नहीं करा पाया है |
+            </li>
+            <li>
+              यह कि मुझे जन्म/मृत्यु प्रमाण-पत्र की <%= raw blank_string_format2(40, true, "purpose") %> कार्य हेतु आवश्यकता है
+            </li>
+          </ol>
+          <div class="txt-indent-2">
+            अतः शपथ-पत्र प्रस्तुत है |
+          </div>
+          <div class="roww">
+            <div class="w-70">
+              <strong>स्थान :</strong> &nbsp;<%= raw blank_string_format2(8, true, "tehsil") %><br/>
+              <strong>दिनांक :- </strong><%= format_dt(Date.today) %>
+            </div>
+            <div class="w-30">
+              <center>_ _ _ _ _ _ _ _ _ _ </center>
+              <center><strong>हस्ताक्षर शपथकर्ता</strong></center>
+            </div>
+          </div> 
+        </div>
+        <div class="roww">&nbsp;</div>
+        <div class="fnt-28 fnt-b text-center">
+          सत्यापन
+        </div>
+        <div class="txt-indent-2 mt-2">
+          मैं <%= raw blank_string_format2(24, true, "applicant") %> आत्मज श्री <%= raw blank_string_format2(20, true, "applicant_father_namne") %> निवासी <%= raw blank_string_format2(20, true, "applicant_address") %> तहसील <%= raw blank_string_format2(10, true, "tehsil") %> जिला <%= raw blank_string_format2(10, true, "district") %> सत्यापित करता हूँ कि शपथ -पत्र की कंडिका क्रमांक 1 से लेकर 3 तक की जानकारी मेरे ज्ञान से सही व सच है | 
+        </div>
+        <div>
+          <div class="fLeft">
+            <strong>स्थान :</strong> &nbsp;<%= raw blank_string_format2(8, true, "tehsil") %>
+            <br/>
+            <strong>दिनांक :</strong> <%= format_dt(Date.today) %>
+          </div>
+          <div class="fRight">
+            <div>_ _ _ _ _ _ _ _ _ _ _ _</div>
+            <center><strong>हस्ताक्षर शपथकर्ता</strong></center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="birth-death-certificate-page-5">
+    <div class="">&nbsp;</div>
+
+    <div class="roww fnt-17 fnt-b">
+      <div class="w-20">
+        प्रारूप क्रमांक 14 (ख)
+      </div>
+      <div class="w-60"></div>
+      <div class="w-20">
+        नियम 4 (3) देखिये
+      </div>
+    </div>
+    <div class="text-center fnt-24 fnt-b mb-3">
+      मध्यप्रदेश सरकार जन्म एवं मृत्यु विभाग
+    </div>
+    <div class="text-center fnt-28 fnt-b fnt-u mb-2">
+      अनुपलब्धता प्रमाण - पत्र
+    </div>
+    <div class="row">
+      <div class="paragraph padding-4">
+        <div class="txt-indent-2">
+          जन्म मृत्यु रजिस्ट्रीकरण अधिनियम 959 की धारा के अधीन जारी किया गया ।
+        </div>
+        <div class="txt-indent-2 mb-2">
+          प्रमाणित किया जाता है कि श्री/श्रीमति/कुमारी <%= raw blank_string_format2(32, true, "dead_person") %> आत्मज / पत्नि
+          श्री <%= raw blank_string_format2(28, true, "dead_person_gaurdian") %>  अनुरोध पर राज्य के नगर पालिक निगम/नगरपालिका <%= raw blank_string_format2(24, true, "nagarpalika") %> /ग्राम पंचायत <%= raw blank_string_format2(24, true, "panchayat") %> तहसील <%= raw blank_string_format2(12, true, "tehsil") %> जिला <%= raw blank_string_format2(12, true, "district") %> में स्थायी क्षेत्रों से संबंधित रजिस्ट्रीकरण
+          अभिलेखों में तलाश की गई और पाया गया कि वर्ष <%= raw blank_string_format2(6, false, "year") %> के रजिस्टर में उपलब्ध नहीं है ।तथापि ऊपर उल्लेखित स्थान पर जन्म / मृत्यु रजिस्ट्रीकरण अधिनियम 959 अधीन प्राप्त किए गए तथा फाईल किए गए।
+          रिपोर्ट देने वाले प्रारूपों के भूल अभिलेखों में से निम्नलिखित जानकारी दी गई ।
+        </div>
+        <div class="roww">
+          <div class="w-30">1. नाम</div>
+          <div class="w-70"><%= raw blank_string_format2(32, true, "dead_person") %></div>
+        </div>
+        <div class="roww">
+          <div class="w-30">2. पिता का नाम</div>
+          <div class="w-70"><%= raw blank_string_format2(32, true, "dead_person") %></div>
+        </div>
+        <div class="roww">
+          <div class="w-30">3. माता का नाम</div>
+          <div class="w-70"><%= raw blank_string_format2(32, true, "dead_person") %></div>
+        </div>
+        <div class="roww">
+          <div class="w-30">4. लिंग</div>
+          <div class="w-70"><%= raw blank_string_format2(32, true, "dead_person") %></div>
+        </div>
+        <div class="roww">
+          <div class="w-30">5. निवास स्थान का पता</div>
+          <div class="w-70"><%= raw blank_string_format2(32, true, "dead_person") %></div>
+        </div>
+        <div class="roww">
+          <div class="w-30">6. जन्म/ मृत्यु दिनांक</div>
+          <div class="w-70"><%= raw blank_string_format2(32, true, "dead_person") %></div>
+        </div>
+        <div class="roww">
+          <div class="w-30">7. जन्म/ मृत्यु स्थान</div>
+          <div class="w-70"><%= raw blank_string_format2(32, true, "dead_person") %></div>
+        </div>
+        <div class="row mrgn-top-20">&nbsp;</div>
+        <div class="row mrgn-top-20">&nbsp;</div>
+        <div class="roww">
+          <div class="w-75"></div>
+          <div class="w-25">
+            <div>
+              <center><strong>पंजीयक जन्म/मृत्यु</strong></center>
+              <center><strong>एवं</strong></center>
+            </div>
+            <div>
+              <center>_ _ _ _ _ _ _ _ _ _ _ _</center>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
