@@ -1,3 +1,7 @@
+@page {
+    size: auto;   /* auto is the initial value */
+    margin: 0;  /* this affects the margin in the printer settings */
+}
 .page {
   width: 21cm;
   height: 29.7cm; 
@@ -53,11 +57,12 @@ page[size="A4"][layout="landscape"] {
 .fnt-30 { font-size: 30px !important; }
 .fnt-b  { font-weight: bold; }
 .fnt-u {text-decoration: underline;}
+.fnt-i {font-style: italic;}
 .txt-center { text-align: center }
 
 .txt-indent-1 {text-indent: 1cm;}
-.txt-indent-2 {tex
-.txt-indent-4 {text-indent: 4cm;}t-indent: 2cm;}
+.txt-indent-2 {text-indent: 2cm;}
+.txt-indent-4 {text-indent: 4cm;}
 .txt-indent-3 {text-indent: 3cm;}
 .pd-4 {padding: 4px;}
 .pd-x4 { padding-left: 4px; padding-right: 4px; }
@@ -146,11 +151,6 @@ page[size="A4"][layout="landscape"] {
   text-align: justify;
 }
 
-.ln-hgt-22 { line-height: 22px; }
-.ln-hgt-30 { line-height: 30px; text-align: justify; }
-.ln-hgt-32 { line-height: 32px; text-align: justify; }
-.ln-hgt-35 { line-height: 35px; }
-.ln-hgt-40 { line-height: 40px; text-align: justify; }
 
 .seemankan-tbl{
   table tr th {
@@ -307,3 +307,28 @@ page[size="A4"][layout="landscape"] {
   background: red;
   margin: 2px
 }
+.backward-icon{
+  border: 2px solid #0b5ed7;
+  padding: 8px 8px;
+  border-radius: 50%;
+  background: #0b5ed7;color: white;
+}
+.delete-pdf-icon{
+  border: 2px solid red;
+  padding: 8px 10px;
+  border-radius: 50%;
+  background: red;color: white;
+}
+
+.highlightDropArea{
+  border: 1px solid blue;
+}
+
+.ln-hgt-20 { line-height: 20px; text-align: justify; }
+.ln-hgt-22 { line-height: 22px; }
+.ln-hgt-25 { line-height: 30px; text-align: justify; }
+.ln-hgt-30 { line-height: 30px; text-align: justify; }
+.ln-hgt-28 { line-height: 28px; text-align: justify; }
+.ln-hgt-32 { line-height: 32px; text-align: justify; }
+.ln-hgt-35 { line-height: 35px; }
+.ln-hgt-40 { line-height: 40px; text-align: justify; }

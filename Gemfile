@@ -65,6 +65,7 @@ gem 'kaminari'
 #gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 gem 'execjs'
 gem 'prawn'
+gem 'matrix'
 # gem 'rmagick'
 # gem 'mini_magick'
 
