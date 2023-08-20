@@ -1,0 +1,323 @@
+<div class="birth-death-certificate-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print" id="birth-death-certificate-page-1">
+    <div class="row">
+      <div class="fnt-22 fnt-b">
+        <center>फार्म "अ"</center>
+      </div>
+      <div class="fnt-16 fnt-b txt-center">
+        (परिपत्र दो-१ के कणिका 6  देखिये)
+      </div>
+      <div class="fnt-22 fnt-b txt-center">
+        राजस्व आदेश -पत्र (रेव्हेन्यू ऑर्डर शीट )
+      </div>
+      <div class="mt-2 p-0 col-md-12 fnt-15">
+        <div>
+          तहसीलदार <div class="i-block w-20" ><%= raw blank_string_format2(13, true, "tehsil") %></div> के न्यायालय में मामला क्रमांक_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ /बी-121/ _ _ _ _ _ __ _ _ _ _ _ _
+        </div>
+        <div>
+          विषय - _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ प्रकरण की श्रेणी _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _/बी-121/ __ _ _ _ _ _ _ _ _ _ _ _ _
+        </div>
+
+        <div>
+          ग्राम- <div class="i-block w-25" ><%= raw blank_string_format2(16, true, "village") %></div> बंदोबस्त क्रमांक _ _ _ _ _ _ _ _ पटवारी ह क्र <div class="i-block w-10" ><%= raw blank_string_format2(5, true, "halka_number") %></div> तहसील <div class="i-block w-20" ><%= raw blank_string_format2(13, true, "tehsil") %></div> _ _
+        </div>
+
+        <div>
+          कलेक्टर का क्रमांक _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ सन _ _ _ _ _ _ _ _ अनुविभागीय अधिकारी का क्रमांक _ _ _ _ _ __ _ _ _ सन_ _ _ __ _ _ _ _
+        </div>
+      </div>
+    </div>
+    <div class="mt-3">
+      <div class="row first-row">
+        <div class="w-15 table-left-column">
+          आदेश क्रमांक अथवा कार्यवाही की तारीख और स्थान 
+        </div>
+        <div  class="w-65 table-center-column">
+          पीठासीन अधिकारी के हस्ताक्षर सहित आवेदन पत्र अथवा कार्यवाही 
+        </div>
+        <div  class="w-20 table-right-column ps-0 pe-0">
+          जहाँ आवश्यक हो, पर्ची व वकीलों के हस्ताक्षर आदेशों के पालन करवाकर लिपिक के संक्षित हस्ताक्षर  और प्रकरण की तारिख 
+        </div>
+      </div>
+      <div class="row seccond-row">
+        <div class="w-15 table-left-column txt-center">1</div>
+        <div class="w-65 table-center-column txt-center">2</div> 
+        <div class="w-20 table-right-column txt-center">3</div>
+      </div>
+      <div class="row pb-2">
+        <div class="w-15 table-left-column"></div>
+        <div class="w-65 table-center-column">
+          <div class="m-sm-2 paragraph-35 ln-hgt-32">
+            <div class="txt-indent-">
+              प्रार्थी <%= raw blank_string_format2(20, true, "applicant") %>
+              पिता/पति <%= raw blank_string_format2(30, true, "applicant_father_name") %>
+              निवासी <%= raw blank_string_format2(30, true, "applicant_address") %> द्वारा इस आशय का आवेदन पत्र, शपथ पत्र, स्वप्रमाणित घोषणा सहित प्रस्तुत किया कि वह आर्थिक रुप से कमजोर वर्ग के अंतर्गत आता है | अत: उसे म.प्र, शासन सामान्य प्रशासन विभाग मंत्रालय भोपाल को क्रमांक एफ सी - 3-8/2019/1/3, भोपाल दिनांक 06-05-2019 एवं 02/07/2019 के अनुसार EWSs का प्रमाण पत्र प्रदाय का निवेदन किया है | प्रकरण B-121 मद में दर्ज हो | प्रार्थी को समझ में सुनाया गया|  
+            </div>
+            <div class="txt-indent-2">
+              मेरे द्वारा प्रार्थी के प्रस्तुत दस्तावेजों का अध्ययन किया गया | प्रार्थी ने शपथ पत्र में दर्शाया कि वह शासन द्वारा निर्धारित समस्त ' मापदंडो को पूरा करता है व समस्त स्त्रोतों से उसकी आय 8 लाख से कम है व शासन द्वारा निर्धारित अन्य मापदंडों को पूर्ण करता है । अत: अनुलग्न-1 में उसे EWSs के प्रमाण पत्र की पात्रता है |
+            </div>
+            <div class="txt-indent-2">
+              प्रार्थी के शपथ पत्र व स्वघोषणा अनुसार प्रार्थी EWSs को का प्रमाणपत्र अनुलग्न-1 में जारी किया जाना स्वीकार किया जाता है | पृथक से प्रमाण पत्र जारी हो | बाद पूर्णता प्रकरण दायरा पंजी से कम किया जाकर दाखिल रिकार्ड हो |
+            </div>             
+            <div class="mrgn-top-10">&nbsp;</div>
+
+            <div class="fRight">
+              <div class="text-center"><strong>तहसीलदार</strong></div>
+              <div class="text-center">
+                <strong><%= raw blank_string_format2(14, true, "tehsil") %></strong>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div class="w-20 table-right-column"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="birth-death-certificate-page-2">
+    <div class="fnt-24 fnt-b  fnt-u text-center">
+      कार्यालय पटवारी हल्का <%= raw blank_string_format2(6, false, "halka_number") %> तहसील <%= raw blank_string_format2(12, true, "tehsil") %>
+    </div>
+    <div class="m-sm-2 paragraph padding-5">
+      <div class="mt-2 p-0 col-md-12">
+        <div>
+          प्रति,
+        </div>
+        <div class="padding-10 fnt-b mb-3">
+          श्रीमान तहसीलदार महोदय<br/>
+          वृत्त <%= raw blank_string_format2(12, true, "circle") %> तहसील <%= raw blank_string_format2(12, true, "tehsil") %> (म. प्र.)
+        </div>
+        <div class="roww mb-3">
+          <div class="fnt-b me-3">विषय:-</div>
+          <div class="">सामान्य वर्ग के आर्थिक रुप से कमजोर वर्ग के सदस्यों द्वारा प्रस्तुत किए जाने वाला आय एवं परिसम्पत्ति प्रमाण पत्र बाबत |</div>
+        </div>
+
+        <div class="mb-2 txt-indent-2">
+          प्रमाणित किया जाता है कि श्री/श्रीमती/ कुमारी <%= raw blank_string_format2(20, true, "applicant") %> पिता/पति<%= raw blank_string_format2(20, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(24, true, "applicant_address") %> तहसील <%= raw blank_string_format2(20, true, "tehsil") %> थाना <%= raw blank_string_format2(20, true, "thana") %> जिला <%= raw blank_string_format2(20, true, "district") %> के स्थायी निवासी है | आवेदक आर्थिक रुप से कमजोर वर्ग के सदस्य है । क्योंकि वित्तीय बर्ष <%= raw blank_string_format2(10, true, "year") %> में  इनके परिवार की कुल वार्षिक आय 8 लाख ( आठ लाख रुपये ) से कम हैं इनके परिवार के स्वामित्व में निम्नलिखित में से कोई भी परिसम्पत्ति नही है | 
+        </div>
+        <div>
+          <ol>
+            <li>5 एकड़ कृषि योग्य भूमि अथवा इससे ऊपर |</li>
+            <li>एक हजार वर्गफुट अथवा इससे अधिक क्षेत्रफल का फ्लैट</li>
+            <li>अधिसूचित नगरपालिका के अंतर्गत 100 वर्ग अथवा गज अथवा इससे अधिक का आवासीय भूखण्ड |</li>
+            <li>अधिसूचित नगरपालिकाओं के अलावा अन्य क्षेत्र में अंतर्गत 200 वर्ग अथवा गज अथवा इससे अधिक का आवासीय भूखण्ड |</li>
+            <li>
+              श्री/श्रीमती/ कुमारी <%= raw blank_string_format2(20, true, "applicant") %> पिता/पति<%= raw blank_string_format2(20, true, "applicant_father_name") %> जाति <%= raw blank_string_format2(16, true, "applicant_cast") %>  के सदस्य है जो कि अनुसूचित जाति/जनजाति अथवा अन्य पिछड़ा वर्ग के रूप में अधिसूचित नहीं है 
+            </li>
+          </ol>
+        </div>
+        <div class="">&nbsp;</div>
+        <div class="roww">
+          <div class="w-65"></div>
+          <div class="w-35 fnt-20 text-center">
+            <strong>पटवारी</strong>
+          </div>
+        </div>
+        <div class="">&nbsp;</div>
+        <div class="roww">
+          <div class="w-65"></div>
+          <div class="w-35 fnt-20 text-center">
+            <strong>राजस्व निरीक्षक के हस्ताक्षर</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="birth-death-certificate-page-3">
+    <div class="m-sm-2 paragraph-35 padding-5">
+      <div class="mt-2 p-0 col-md-12">
+        <div class="fnt-28 text-center fnt-u fnt-b mb-3">
+          शपथ-पत्र
+        </div>
+        <div class="txt-indent-0 mb-3">
+          मैं शपथग्रहिता सत्य प्रतिज्ञा पर कथन करता हूँ कि :-
+        </div>
+        <div class="mb-1">
+          मेरा नाम <%= raw blank_string_format2(20, true, "applicant") %> पिता <%= raw blank_string_format2(20, true, "applicant_father_name") %> उम्र <%= raw blank_string_format2(6, false, "age") %> निवासी <%= raw blank_string_format2(24, true, "applicant_address") %> जाति <%= raw blank_string_format2(12, true, "applicant_cast") %> व्यवसाय <%= raw blank_string_format2(20, true, "applicant_business") %> मैंने अपने पुत्र/पुत्री के लिए आर्थिक रूप से कमजोर वर्ग (EWS) का आय एवं संपत्ति का प्रमाण पत्र चाहा है |
+        </div>
+        <div class="mb-3">
+          मैंने आश्रित <%= raw blank_string_format2(28, true, "applicant_dependent") %> भारत सरकार के संस्थान में प्रवेश/नौकरी हेतु आवेदन पत्र पेश किया है जिसके लिए मुझे आय एवं संपत्ति के प्रमाण पत्र की आवश्यकता है |
+        </div>
+        <div class="mb-2">
+          मेरी एवं मेरे परिवार की समस्त स्त्रोतों से आय एवं संपत्ति की जानकारी निम्नानुसार है :-
+          <ol>
+            <li>
+              <div>मेरे एवं मेरे परिवार के नाम से भारत के ग्राम <%= raw blank_string_format2(16, true, "village") %> जिला <%= raw blank_string_format2(16, true, "district") %> में <%= raw blank_string_format2(10, false, "land_area") %> हेक्टेयर कृषि भूमि है/नहीं है |</div>
+              <div>मेरे पति/पत्नी <%= raw blank_string_format2(16, true, "applicant_wife") %> एवं मेरे पुत्र/पुत्री <%= raw blank_string_format2(16, true, "applicant_child") %> (18 वर्ष से कम उम्र के) नाम से ग्राम <%= raw blank_string_format2(16, true, "village") %> जिला <%= raw blank_string_format2(16, true, "district") %> में <%= raw blank_string_format2(10, false, "land_area") %> हेक्टेयर कृषि भूमि है/नहीं है |</div> 
+            </li>
+            <li>
+              मेरे पति/पत्नी <%= raw blank_string_format2(16, true, "applicant_wife") %> एवम मेरे पुत्र/पुत्री <%= raw blank_string_format2(16, true, "applicant_child") %> (18 वर्ष से कम उम्र के) नाम से ग्राम/नगर <%= raw blank_string_format2(16, true, "village") %> जिला <%= raw blank_string_format2(16, true, "district") %> में 1000 वर्गफ़ीट या अधिक का आवासीय मकान या फ्लैट है /अथवा नहीं है |
+            </li>
+            <li>
+              मेरे पति/पत्नी <%= raw blank_string_format2(16, true, "applicant_wife") %> एवम मेरे पुत्र/पुत्री <%= raw blank_string_format2(16, true, "applicant_child") %> (18 वर्ष से कम उम्र के) नाम से ग्राम/नगर <%= raw blank_string_format2(16, true, "village") %> जिला <%= raw blank_string_format2(16, true, "district") %> में 100 वर्गयार्ड या अधिक का आवासीय प्लाट अधिसूचित नगरपालिका में है /नहीं है |
+            </li>
+            <li>
+              मेरे पति/पत्नी <%= raw blank_string_format2(16, true, "applicant_wife") %> एवम मेरे पुत्र/पुत्री <%= raw blank_string_format2(16, true, "applicant_child") %> (18 वर्ष से कम उम्र के) नाम से ग्राम/नगर <%= raw blank_string_format2(16, true, "village") %> जिला <%= raw blank_string_format2(16, true, "district") %> में 200 वर्गयार्ड या अधिक का आवासीय प्लाट अधिसूचित नगरपालिका से अन्य स्थान <%= raw blank_string_format2(16, true, "other_place") %> में है /नहीं है |
+            </li>
+            <li>
+              मेरी जाति <%= raw blank_string_format2(12, true, "applicant_cast") %> है | मैं <%= raw blank_string_format2(16, true, "applicant") %> ग्राम/नगर <%= raw blank_string_format2(16, true, "village") %> जिला <%= raw blank_string_format2(16, true, "district") %> म.प्र. का मूल निवासी हूँ |
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="ews-form-page-4">
+    <div class="row">&nbsp;</div>
+    <div class="m-sm-2 paragraph-35 padding-5">
+      <div class="mt-2 p-0 col-md-12">
+        <div class="mb-2">
+          <ol start="6">
+            <li>
+              मेरे आय प्रमाण पत्र अनुसार मेरी एवं परिवार की वार्षिक आय <%= raw blank_string_format2(16, false, "applicant_income") %> रूपये है 
+            </li>
+            <li>
+              अन्य विवरण
+              <div>
+                <%= blank_string_text(96) %>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="txt-indent-2 mb-3">
+          मैंने आवेदन अनुसार स्वयं एवं अपने परिवार की आय एवं सम्पत्ति का पूर्ण परीक्षण कर लिया है | पूर्णतः संतुष्ट होने के परचात ही यह शपथ पत्र प्रस्तुत कर रहा हूँ  | यदि मेरे द्वारा कोई भी गलत जानकारी प्रस्तुत की जाती है | तो उसके लिये मैं स्वयं उत्तरदायी रहूँगा एवं गलत जानकारी पेश करने के संबंध में जो भी विधि अनुसार कार्यवाही या 'दण्ड होगा वह मुझे स्वीकार होगा | साथ ही मेरे पुत्र /पु्री के साथ संलग्न भारत सरकार पत्र के परिशिष्ट ''अ'' के बिंदु क्रमांक 4 के अनुसार मेरे द्वारा अ.जा./ अ.ज.जा./अ.पि.वर्ग. के रुप में लाभ प्राप्त नहीं किया है तथा मेरे संपूर्ण परिवार की आय 8 लाख से कम है | मेरे द्वार समस्त स्रोत जैसे वेतन/ कृषि भूषि/व्यवसाय इत्यादि से प्राप्त आय का प्रमाण पत्र आयकर विभाग को रिटर्न के रुप में प्रस्तुत कर दिया गया है |
+        </div>
+
+        <div class="roww mb-3">
+          <div class="w-60">
+            <div class="fnt-b">गवाह 1 :- </div>
+            <div>नाम <%= blank_string_text(17) %></div>
+            <div>व्यवसाय <%= blank_string_text(15) %></div>
+            <div>पता <%= blank_string_text(17) %></div>
+          </div>
+          <div class="w-40">
+            <div class="fnt-b">हस्ताक्षर ( आवेदक )</div>
+            <div>नाम <%= blank_string_text(17) %></div>
+            <div>व्यवसाय <%= blank_string_text(15) %></div>
+            <div>पता <%= blank_string_text(17) %></div>
+          </div>          
+        </div>
+        <div class="roww">
+          <div class="w-60">
+            <div class="fnt-b">गवाह 2 :- </div>
+            <div>नाम <%= blank_string_text(17) %></div>
+            <div>व्यवसाय <%= blank_string_text(15) %></div>
+            <div>पता <%= blank_string_text(17) %></div>
+          </div>
+          <div class="w-40"></div>          
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="ews-form-page-5">
+    <div class="">&nbsp;</div>
+    <div class="m-sm-2 paragraph-35 padding-5">
+      <div class="mt-2 p-0 col-md-12">
+        <div>
+          प्रति,
+        </div>
+        <div class="padding-10 fnt-b mb-3">
+          श्रीमान तहसीलदार महोदय<br/>
+          <%= raw blank_string_format2(12, true, "tehsil") %> (म. प्र.)
+        </div>
+        <div class="roww">
+          <div class="fnt-b me-3">विषय:-</div>
+          <div class="">आर्थिक रुप से कमजोर वर्ग का आय एवं संपत्ति का प्रमाण पत्र प्रदाय करने बावत |</div>
+        </div>
+        <div class="roww">
+          <div class="fnt-b me-3">संदर्भ:-</div>
+          <div class="">म. प्र. शासन सामान्य प्रशासन विभाग मंत्रालय भोपाल के आदेश क्रमांक एफ सी-3-8/209/1 /3, भोपाल दिनांक 06/05/201 9 के पालन सें |</div>
+        </div>
+        <div>
+          महोदय,
+        </div>
+        <div class="mb-3 txt-indent-2">
+          यह कि मैं प्रार्थी <%= raw blank_string_format2(16, true, "applicant") %> पिता <%= raw blank_string_format2(16, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(20, true, "applicant_address") %> तहसील <%= raw blank_string_format2(14, true, "tehsil") %> के अंतर्गत विगत <%= raw blank_string_format2(6, false, "time_period") %> वर्षो से निवास करता हूँ |
+        </div>
+
+        <div class="mb-3 txt-indent-2">
+          मेरे नाम से ग्राम <%= raw blank_string_format2(16, true, "village") %> में <%= raw blank_string_format2(12, true, "land_area") %> हेक्टेयर कृषि भूषि दर्ज है | जो 5 एकड़ से कम कृषि भूमि है | मेरे नाम से ग्राम/शहर में 100 वर्ग गज से अधिक का आवासीय मकान नहीं है |।मैं शासन द्वारा निर्धारित 8 लाख रु. की आय से कम आय धारित करता हूँ | मैं शासन द्वारा निर्धारित EWSs का लाभ लेने के लिए पात्र हूँ | मेरी समस्त स्त्रोतों से आय 8 लाख रु. से कम है | मेरे द्वारा पृथक से शपथ पत्र, पेन कार्ड व आधार कार्ड निर्धारित प्रारुप की दो प्रतियां प्रेषित की जा रही | मुझे EWSs श्रेणी का प्रमाण पत्र जारी करने का निवेदन है |
+        </div>
+        <div class="mrgn-top-20">&nbsp;</div>
+        <div class="mrgn-top-20">&nbsp;</div>
+        <div class="roww">
+          <div class="w-60"></div>
+          <div class="w-40">
+            <div class="text-center fnt-b">प्रार्थी</div>
+            <div>( नाम <%= blank_string_text(15) %> )</div>
+            <div>पिता <%= blank_string_text(16) %></div>
+            <div>निवास <%= blank_string_text(15) %></div>
+            <div>मो. न. <%= blank_string_text(15) %></div>   
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="birth-death-certificate-page-6">
+    <div class="">&nbsp;</div>
+
+    <div class="fnt-18 fnt-b text-center">
+      ( सामान्य प्रशासन विभाग का ज्ञापन क्रमांक एफ 07-11/2019/आ.प्र.एक. दिनांक 02 जुलाई 2019 का संलग्नक )
+    </div>
+    <div class="text-center fnt-24 fnt-b mb-2">
+      मध्यप्रदेश शासन
+    </div>
+
+    <div class="row">
+      <div class="paragraph padding-4">
+        <div class="txt-indent-2 mb-2">
+          कार्यालय का नाम <%= raw blank_string_format2(32, true, "office_name") %> आर्थिक रुप से कमजोर वर्ग के सदस्य द्वारा प्रस्तुत किया जाने वाले आय एवं परिसम्पत्ति प्रमाण-पत्र प्रमाण पत्र संख्या <%= blank_string_text(20) %> दिनांक <%= raw blank_string_format2(12, false, "date") %> वित्तीय वर्ष <%= raw blank_string_format2(12, false, "economic_year") %> के लिए मान्य प्रमाणित किया जाता है श्री/श्रीमती/कुमारी <%= raw blank_string_format2(20, true, "applicant") %> पुत्र/पति/पुत्री <%= raw blank_string_format2(20, true, "applicant_father_name") %> ग्राम/क़स्बा <%= raw blank_string_format2(20, true, "village") %> पोस्ट ऑफिस <%= raw blank_string_format2(18, true, "post_office") %> थाना <%= raw blank_string_format2(18, true, "thana") %> तहसील <%= raw blank_string_format2(18, true, "tehsil") %> जिला <%= raw blank_string_format2(18, true, "district") %> राज्य <%= raw blank_string_format2(16, true, "state_name") %> पिन कोड <%= raw blank_string_format2(8, false, "pincode") %> के स्थायी निवासी है | जिनका फोटोग्राफ नीचे अभिप्रमाणित है, आर्थिक रुप से कमजोर वर्ग के सदस्य हैं, क्योकिं वित्तीय वर्ष <%= raw blank_string_format2(12, false, "economic_year") %> में इनके परिवार की कुल वार्षिक आय 08 लाख ( आठ लाख रुपये पात्र) से कम है | इनके परिवार के स्वामित्व में निम्मलिखित में से कोई भी परिसम्पत्ति नहीं है :- 
+        </div>
+        <div class="padding-4">
+          <ol>
+            <li>
+              जिसमें पास 5 एकड़ या उससे अधिक भूमि हो ( जिसके खसरे में तीन साल से लगातार उसर, पथरीली , बीहड़ भूमि अंकित हो, वह भूमि में शामिल नहीं होगी ) |
+            </li>
+            <li>
+              जिसके पास 1200 वर्गफुट से अधिक का आवासीय मकान/फ्लेट नगर निगम क्षेत्र में स्थित हो |
+            </li>
+            <li>
+              जिसके पास नगर यालिका क्षेत्र में 1500 वर्गफुट से अधिक का आवासीय मकान फ्लेट हो |
+            </li>
+            <li>
+              नगर परिषद्‌ क्षेत्र में जिसके पास 1800 वर्गफुट से ज्यादा आवासीय मकान/फ्लेट हो |
+            </li>
+          </ol>
+        </div>
+        <div class="mb-1">
+          2. श्री/श्रीमती/कुमारी <%= raw blank_string_format2(30, true, "applicant") %> जाति <%= raw blank_string_format2(16, true, "applicant_cast") %> के सदस्य है जो अनुसूचित जाति/जनजाति/अन्य पिछड़ा वर्ग के रूप में अधिसूचित नहीं है 
+        </div>
+        <div class="row mb-4">&nbsp;</div>
+        <div class="roww">
+          <div class="w-50">
+            <div class="ews-certificate-photo">
+              आवेदक का पासपोर्ट साइज का अभिप्रमाणित फोटोग्राफ 
+            </div>
+          </div>
+          <div class="w-50">
+            <div>हस्ताक्षर <%= blank_string_text(10) %> (कार्यालय मुहर सहित)</div>
+            <div>पूरा नाम <%= blank_string_text(22) %></div>
+            <div>पदनाम &nbsp;<%= blank_string_text(22) %></div>
+            <div class="fnt-b">अनुविभागीय अधिकारी/तहसीलदार </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
