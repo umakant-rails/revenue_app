@@ -55,7 +55,7 @@ $(document).ready(function(){
   });
 
   $(document).on('click', ".print-btn", function(){
-    loksewaFunctions.printA4Page();
+    utilFunctions.printA4Page();
   });
 
   $(".selection-criteria-box").on("change", function(){

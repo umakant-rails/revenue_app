@@ -1142,6 +1142,80 @@
     <div class="row">
       <div class="paragraph padding-4">
         <div class="tehsildar-order-block">
+          <div class="fnt-26 fnt-b fnt-u text-center">
+            स्थायी जाति प्रमाण पत्र हेतु संयुक्त स्थल पंचनामा/जाँच प्रतिवेदन
+          </div> 
+          <div class="fnt-22 fnt-b text-center">
+            (पिछड़ा वर्ग/अनुसूचित जाति/अनुसूचित जनजाति हेतु)
+          </div>
+          <div class="fnt-26 fnt-b mb-3 text-center">
+            || स्थल पंचनामा ||
+          </div>
+          <div class="txt-indent-2">
+            आज दिनांक <%= raw blank_string_format2(10, true, "date") %> को हम पंचगण ग्राम/वार्ड <%= raw blank_string_format2(16, true, "village") %> सयह पंचनामा तस्दीक करते है  कि, पटवारी ने उक्त ग्राम/वार्ड में आकर आवेदक/आवेदिका <%= raw blank_string_format2(20, true, "applicant") %> पिता <%= raw blank_string_format2(20, true, "applicant_father_name") %> के जाति एवं निवास के सम्बन्ध में जानकारी ली, जिसमे आवेदक/आवेदिका के पूर्वज वर्ष 1984/1950  के पूर्व से ग्राम/वार्ड <%= raw blank_string_format2(16, true, "village") %> में निरंतर निवासरत होना पाया गया तथा उनकी जाति <%= raw blank_string_format2(16, true, "applicant_cast") %> है, को पिछड़ा वर्ग/अ.ज.जा./अ.जा. की श्रेणी में आती है | 
+          </div>
+          <div class="txt-indent-2 mb-3">
+            आवेदक के परिजनों ने जांच के समय निम्न अभिलेख <%= raw blank_string_format2(20, true, "document") %>प्रस्तुत किये है, प्रतिलिपि स्वहस्ताक्षरित संलग्न है | 
+          </div>
+          <div class="fnt-b">(हस्ताक्षर)</div>
+          <div class="roww">
+            <div class="w-10 p-0">पंचगण-</div>
+            <div class="w-30">1.<%= blank_string_text(15) %></div>
+            <div class="w-30">2.<%= blank_string_text(15) %></div>
+            <div class="w-30">3.<%= blank_string_text(15) %></div>
+          </div>
+          <div class="roww p-0">
+            <div class="w-10"></div>
+            <div class="w-30">4.<%= blank_string_text(15) %></div>
+            <div class="w-30">5.<%= blank_string_text(15) %></div>
+            <div class="w-30">6.<%= blank_string_text(15) %></div>
+          </div>
+          <div class="txt-indent-2">
+            उक्त स्थल पंचनामा/आवेदन पत्र/प्रस्तुत अभिलेख/मौका जाँच के आधार पर आवेदक/आवेदिका <%= raw blank_string_format2(20, true, "applicant") %> का परिवार ग्राम/वार्ड <%= raw blank_string_format2(16, true, "village") %> में 1984 /1950 के पूर्व निरंतर निवासरत होना प्रमाणित है तथा जाँच में जाति <%= raw blank_string_format2(16, true, "applicant_cast") %> भी प्रमाणित है | 
+          </div>
+          <div>
+            अतः आवेदक/आवेदिका <%= raw blank_string_format2(20, true, "applicant") %> पिता <%= raw blank_string_format2(20, true, "applicant_father_name") %> को जाति <%= raw blank_string_format2(16, true, "applicant_cast") %> का प्रमाण पत्र जारी किया जाना नियमनुसार उचित है | 
+          </div>
+          <div class="mrgn-top-10">&nbsp;</div>
+          <div class="roww fnt-16 ln-hgt-22 mb-3">
+            <div class="w-16 text-center">
+              <div>हस्ताक्षर</div><div>प्रधानाध्यापक</div><div>विद्यालय</div><div><%= blank_string_text(8) %></div>
+            </div>
+            <div class="w-16 text-center">
+              <div>हस्ताक्षर</div><div>सरपंच</div><div>ग्राम पंचायत</div><div><%= blank_string_text(8) %></div>
+            </div>
+            <div class="w-16 text-center">
+              <div>हस्ताक्षर</div><div>सचिव</div><div>ग्राम पंचायत</div><div><%= blank_string_text(8) %></div>
+            </div>
+            <div class="w-16 text-center">
+              <div>हस्ताक्षर</div><div>सचिव</div><div>ग्राम पंचायत</div><div><%= blank_string_text(8) %></div>
+            </div>
+            <div class="w-16 text-center">
+              <div>हस्ताक्षर</div><div>रा.नि.म.</div><div>तहसील</div><div><%= blank_string_text(8) %></div>
+            </div>
+            <div class="w-16 text-center">
+              <div>हस्ताक्षर</div><div>प.ह.न.</div><div>तहसील</div><div><%= blank_string_text(8) %></div>
+            </div>
+          </div>
+          <div class="text-center mb-4">
+            ( संजरा खानदान दादा, पिता, स्वयं के विवरण सहित वर्ष 1984/1950 के पूर्व  स्थिति में )
+          </div>
+          <div class="row">
+            <div class="w-80"></div>
+            <div class="w-20 text-center ln-hgt-22">
+              <div>हस्ताक्षर</div>
+              <div>प.ह.न. <%= raw blank_string_format2(4, true, "halka_number") %></div>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div> 
+  </div>
+
+  <div class="page-a4 only-print" id="cast-certificate-page-8">
+    <div class="row">
+      <div class="paragraph padding-4">
+        <div class="tehsildar-order-block">
           <div class="fnt-28 fnt-b fnt-u">
             <center>आर्डर शीट</center>
           </div> 
@@ -1185,7 +1259,7 @@
     </div>
   </div>
 
-  <div class="page-a4 only-print" id="cast-certificate-page-8">
+  <div class="page-a4 only-print" id="cast-certificate-page-9">
     <div class="row">
       <div class="paragraph-35 ln-hgt-32 padding-4">
         <div class="tehsildar-order-block">
@@ -1248,10 +1322,10 @@
             <li class="obc-element">
               मेरा परिवार ग्राम : <%= raw blank_string_format2(30, true, "village") %> तहसील <%= raw blank_string_format2(16, true, "tehsil") %> जिला <%= raw blank_string_format2(16, true, "district") %> में 26/12/1984 के पूर्व से निवास कर रहा है |
             </li>
-            <li class="scst-element">
+            <li class="scst-element" style="display: none;">
               मैं भारत के संविधान के अनुच्छेद 341/342 अंतर्गत तहसील <%= raw blank_string_format2(16, true, "tehsil") %> जिला <%= raw blank_string_format2(16, true, "district") %> (म. प्र.) के लिए घोषित अनुसूचित जाति/जनजाति <%= raw blank_string_format2(30, true, "applicant_cast") %> का सदस्य हूँ | 
             </li>
-            <li  class="scst-element">
+            <li  class="scst-element" style="display: none;">
               मेरे पूर्वज वर्ष  के पूर्व से ग्राम <%= raw blank_string_format2(16, true, "village") %> तहसील <%= raw blank_string_format2(16, true, "tehsil") %> जिला <%= raw blank_string_format2(16, true, "district") %> में निवास कर रहे है |
             </li>
             <li>
@@ -1308,7 +1382,119 @@
               <center>शपथकर्ता के हस्ताक्षर</center>
             </div>
           </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="page-a4 only-print" id="cast-certificate-page-10">
+    <div class="row">
+      <div class="paragraph-35 ln-hgt-32 padding-4">
+        <div class="tehsildar-order-block">
+          <div class="roww mb-2">
+            <div class="w-40"></div>
+            <div class="fnt-28 fnt-b w-20 bg-black text-white text-center" style="border-radius: 20px;padding: 6px 4px;">
+              संजरा प्रारूप
+            </div>
+            <div class="w-40"></div>
+          </div>
+          <div class="fnt-24 fnt-b mb-2 text-center">
+            अन्य पिछड़ा वर्ग/अनुसुधित जाति/जनजाति सम्बन्धी जाति प्रमाण पत्र तेहु निर्धारित संजरा प्रारूप
+          </div>
+          <div class="fnt-18 fnt-b mb-2 text-center">
+            <div>संजरा (वंश वृक्ष)</div>
+            <div>वर्ष 1950/1984  में मुखिया का वंश वृक्ष</div>
+          </div>
+          <div class="">
+            <div class="text-center fnt-26 fnt-b">मुखिया</div>
+            <div class="text-center mb-2">
+              <%= raw blank_string_format2(30, true, "family_head") %>
+            </div>
+            <table class="custom-tbl">
+              <thead>
+                <th class="w-33 text-center">पुत्र</th>
+                <th class="w-33 text-center">पुत्री</th>
+                <th class="w-33 text-center">पत्नी</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1.</td><td></td><td></td>
+                </tr>
+                 <tr>
+                  <td>2.</td><td></td><td></td>
+                </tr>
+                <tr>
+                  <td>3.</td><td></td><td></td>
+                </tr>
+                <tr>
+                  <td>4.</td><td></td><td></td>
+                </tr>
+                <tr>
+                  <td>5.</td><td></td><td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="">&nbsp;</div>
+          <div class="">&nbsp;</div>
+          <div class="">
+            <div class="text-center fnt-26 fnt-b">आवेदक</div>
+            <div class="text-center mb-2">
+              <%= raw blank_string_format2(30, true, "applicant") %>
+            </div>
+            <table class="custom-tbl">
+              <thead>
+                <th class="w-33 text-center">पुत्र</th>
+                <th class="w-33 text-center">पुत्री</th>
+                <th class="w-33 text-center">पत्नी</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1.</td><td></td><td></td>
+                </tr>
+                 <tr>
+                  <td>2.</td><td></td><td></td>
+                </tr>
+                <tr>
+                  <td>3.</td><td></td><td></td>
+                </tr>
+                <tr>
+                  <td>4.</td><td></td><td></td>
+                </tr>
+                <tr>
+                  <td>5.</td><td></td><td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+ 
+          <div class="">&nbsp;</div>
+          <div class="">&nbsp;</div>
+
+          <div class="roww">
+            <div class="w-50">हस्ताक्षर आवेदक:- <%= raw blank_string_format2(15, true, "witnees_1") %></div>
+          </div>
+          <div class="roww">
+            <div class="w-50">नाम:- <%= raw blank_string_format2(21, true, "witnees_2") %> </div>
+            <div class="w-50">
+              हस्ताक्षर पटवारी :- <%= raw blank_string_format2(17, true, "witnees_2") %>
+            </div>
+          </div>
+          <div class="roww">
+            <div class="w-50">पिता का नाम:- <%= raw blank_string_format2(17, true, "witnees_2") %> </div>
+            <div class="w-50">
+              नाम :- <%= raw blank_string_format2(23, true, "witnees_2") %>
+            </div>
+          </div>
+          <div class="roww">
+            <div class="w-50">छात्र/छात्रा/आवेदक से सम्बन्ध :- <%= raw blank_string_format2(8, true, "witnees_2") %> </div>
+            <div class="w-50">
+              हल्का नंबर एवं नाम :- &nbsp;<%= raw blank_string_format2(5, true, "halka_number") %>, <%= raw blank_string_format2(10, true, "halka_name") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
