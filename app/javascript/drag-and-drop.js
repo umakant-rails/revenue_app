@@ -1,84 +1,42 @@
 import $ from 'jquery';
 
-$(document).ready(function(){
+var pdfFunctions = (function(){
   var selectedFileArr = {};
   var fileNumber = undefined;
-  // $("#dropFiles").on('dragenter', function(ev) {
-  //     // Entering drop area. Highlight area
-  //     $("#dropFiles").addClass("highlightDropArea");
-  // });
-  
-  // $("#dropFiles").on('dragleave', function(ev) {
-  //   // Going out of drop area. Remove Highlight
-  //   $("#dropFiles").removeClass("highlightDropArea");
-  // });
-  
-  // $("#dropFiles").on('drop', function(ev) {
-  //   // Dropping files
-  //   ev.preventDefault();
-  //   ev.stopPropagation();
-  //   // Clear previous messages
-  //   $("#messages").empty();
-  //   if(ev.originalEvent.dataTransfer){
-  //     if(ev.originalEvent.dataTransfer.files.length) {
-  //       var droppedFiles = ev.originalEvent.dataTransfer.files;
-  //       for(var i = 0; i < droppedFiles.length; i++) {
-  //         getImgData(droppedFiles[i]);
-  //         // $("#imageToPdf").prop("files", droppedFiles);
-  //       }
-  //     }
-  //   }
 
-  //   $("#dropFiles").removeClass("highlightDropArea");
-  //   return false;
-  // });
-  
-  // $("#dropFiles").on('dragover', function(ev) {
-  //     ev.preventDefault();
-  // });
+  var getImgData = function(file) {
+    $("#imageToPdf").val("");
+    
+    if(file.type.indexOf("image/") == -1){
+      alert("कृपया केवल इमेज/फोटो को ही सेलेक्ट करे |");
+      return;
+    }
 
-  $(document).on('dragenter', ".before-file-container, .file-processing-container", function(ev) {
-      // Entering drop area. Highlight area
-      $("#dropFiles").addClass("highlight-drop-area");
-  });
-  
-  $(document).on('dragleave', ".before-file-container, .file-processing-container", function(ev) {
-    // Going out of drop area. Remove Highlight
-    $("#dropFiles").removeClass("highlight-drop-area");
-  });
-  
-  $(document).on('drop', ".before-file-container, .file-processing-container", function(ev) {
-    // Dropping files
-    ev.preventDefault();
-    ev.stopPropagation();
-    // Clear previous messages
-    $("#messages").empty();
-    if(ev.originalEvent.dataTransfer){
-      if(ev.originalEvent.dataTransfer.files.length) {
-        var droppedFiles = ev.originalEvent.dataTransfer.files;
-        for(var i = 0; i < droppedFiles.length; i++) {
-          getImgData(droppedFiles[i]);
-          // $("#imageToPdf").prop("files", droppedFiles);
-        }
+    if(Object.keys(selectedFileArr).indexOf(file.name) == -1){
+      selectedFileArr[file.name] = file;
+    } else {
+      alert('This file is already selected.');
+      return;
+    }
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+
+    fileReader.addEventListener("load", function () {
+      var imageStr = `<div class="col-md-2 image-holder mb-2">
+        <img src="${this.result}" style="width:100%;height:200px" class="ms-2 mb-2"/>
+        <input type="checkbox" name="file" class="file-checkbox form-check-input me-1" data-vl="${file.name}">${file.name}
+      </div>`;
+
+      if($(".file-holding-sub-container").find(".image-holder").length == 0){
+        $(".before-file-container").hide();$(".file-processing-container").show();
+        $(".file-holding-sub-container").prepend(imageStr);
+      } else {
+        $(".file-processing-container").find(".image-holder").last().after(imageStr);
       }
-    }
+    });
+  };
 
-    $(document).removeClass("highlight-drop-area");
-    return false;
-  });
-  
-  $(document).on('dragover', ".before-file-container, .file-processing-container", function(ev) {
-      ev.preventDefault();
-  });
-
-  $("#imageToPdf").on('change', function(e){
-    var files = e.target.files;
-    for(var i = 0; i < files.length; i++) {
-      getImgData(files[i])
-    }
-  });
-
-  $(document).on('click', ".remove-selected-image", function(){
+  var removeImage = function(){
     $(".file-checkbox").each(function() {
       if ($(this).is(":checked")) {
         $(this).parent().remove();
@@ -87,18 +45,9 @@ $(document).ready(function(){
         delete selectedFileArr[keys];
       }
     });
-  });
+  };
 
-  $(document).on('click', ".open-file-dialog1", function(){
-    $("#imageToPdf").click();
-  });
-
-  
-  $(document).on('click',".convert-image-to-pdf", function(){
-    convertImageIntoPdf()
-  });
-
-  function convertImageIntoPdf(){
+  var convertImageIntoPdf = function(){
     var formData = new FormData();
     var request = new XMLHttpRequest();
 
@@ -124,64 +73,17 @@ $(document).ready(function(){
      }
     };
     request.send(formData);
-  }
+  };
 
-  $(document).on('click', '.backward-icon', function(){
-    if(fileNumber != undefined){
-      var authenticity_token = $("#authenticity_token").val();
-      var params = {
-        file_number: fileNumber,
-        authenticity_token: authenticity_token
-      }
-      deletePdf(params, 'backward')
+  var deletePdf = function(action){
+    if(fileNumber == undefined){ return; }
+
+    var authenticity_token = $("#authenticity_token").val();
+    var params = {
+      file_number: fileNumber,
+      authenticity_token: authenticity_token
     }
-  });
 
-  $(document).on('click', '.delete-pdf-icon', function(){
-    if(fileNumber != undefined){
-      var authenticity_token = $("#authenticity_token").val();
-      var params = {
-        file_number: fileNumber,
-        authenticity_token: authenticity_token
-      }
-      deletePdf(params, 'delete')
-    }
-  });
-
-  $(document).on('click', ".file-download-btn", function(){
-    window.location = `/pdfs/${fileNumber}/download`;
-    window.target = "_blank";
-    window.done = 1;
-  });
-  function getImgData(files) {
-    $("#imageToPdf").val("");
-
-    if(Object.keys(selectedFileArr).indexOf(files.name) == -1){
-      selectedFileArr[files.name] = files;
-    } else {
-      alert('This file is already selected.');
-      return;
-    }
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(files);
-    // convertImageIntoPdf(files);
-    fileReader.addEventListener("load", function () {
-      var imageStr = `<div class="col-md-2 image-holder mb-2">
-        <img src="${this.result}" style="width:100%;height:200px" class="ms-2 mb-2"/>
-        <input type="checkbox" name="file" class="file-checkbox form-check-input me-1" data-vl="${files.name}">${files.name}
-      </div>`;
-
-      if($(".file-holding-sub-container").find(".image-holder").length == 0){
-        $(".before-file-container").hide();$(".file-processing-container").show();
-        $(".file-holding-sub-container").prepend(imageStr);
-      } else {
-        $(".file-processing-container").find(".image-holder").last().after(imageStr);
-      }
-
-    });
-  }
-
-  function deletePdf(params, action){
     $.ajax({
       type: 'Delete',
       url: `/pdfs/${params['file_number']}/delete`,
@@ -195,8 +97,90 @@ $(document).ready(function(){
           $(".image-holder").remove();
           $(".file-downloading-container").hide();
           $(".file-processing-container").show();
+          selectedFileArr = {};
         }
       }
     });
+  };
+
+  var downloadPdf = function(){
+    window.location = `/pdfs/${fileNumber}/download`;
+    window.target = "_blank";
+    window.done = 1;
+  };
+
+  return {
+    getImgData: getImgData,
+    removeImage: removeImage,
+    convertImageIntoPdf: convertImageIntoPdf,
+    deletePdf: deletePdf,
+    downloadPdf: downloadPdf
   }
+})();
+
+$(document).ready(function(){
+
+  $(document).on('dragenter', ".before-file-container, .file-processing-container", function(ev) {
+    $("#dropFiles").addClass("highlight-drop-area");
+  });
+
+  $(document).on('dragleave', ".before-file-container, .file-processing-container", function(ev) {
+    // Going out of drop area. Remove Highlight
+    $("#dropFiles").removeClass("highlight-drop-area");
+  });
+  
+  $(document).on('drop', ".before-file-container, .file-processing-container", function(ev) {
+    // Dropping files
+    ev.preventDefault();
+    ev.stopPropagation();
+    // Clear previous messages
+    $("#messages").empty();
+    if(ev.originalEvent.dataTransfer){
+      if(ev.originalEvent.dataTransfer.files.length) {
+        var droppedFiles = ev.originalEvent.dataTransfer.files;
+        for(var i = 0; i < droppedFiles.length; i++) {
+          pdfFunctions.getImgData(droppedFiles[i]);
+        }
+      }
+    }
+
+    $(document).removeClass("highlight-drop-area");
+    return false;
+  });
+
+  $(document).on('dragover', ".before-file-container, .file-processing-container", function(ev) {
+      ev.preventDefault();
+  });
+
+  $(document).on('change', "#imageToPdf", function(e){
+    var files = e.target.files;
+    for(var i = 0; i < files.length; i++) {
+      pdfFunctions.getImgData(files[i])
+    }
+  });
+
+  $(document).on('click', ".remove-selected-image", function(){
+    pdfFunctions.removeImage();
+  });
+
+  $(document).on('click', ".open-file-dialog1", function(){
+    $("#imageToPdf").click();
+  });
+
+  $(document).on('click',".convert-image-to-pdf", function(){
+    pdfFunctions.convertImageIntoPdf()
+  });
+
+  $(document).on('click', '.backward-icon', function(){
+    pdfFunctions.deletePdf('backward');
+  });
+
+  $(document).on('click', '.delete-pdf-icon', function(){
+    pdfFunctions.deletePdf('delete');
+  });
+
+  $(document).on('click', ".file-download-btn", function(){
+    pdfFunctions.downloadPdf();
+  });
+
 })
