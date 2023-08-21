@@ -9,6 +9,19 @@
       class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
       data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
   </span>
+  <div class="row mb-3">
+    <div class="col-md-4"></div>
+    <div class="col-md-3">
+      <button class="form-control btn btn-primary obc-form-btn" data-target="obc-element">
+        OBC Cast Certificate
+      </button>
+    </div>
+    <div class="col-md-3">
+      <button class="form-control btn btn-danger scst-form-btn" data-target="scst-element">
+        SC/ST Cast Certificate
+      </button>
+    </div>
+  </div>
 
   <div class="page-a4 only-print" id="cast-certificate-page-1">
     <div class="row">
@@ -21,26 +34,30 @@
             <div>Registration No.-Rs/<%=raw blank_string_format2(13, false, 'reg_number1') %>/108/<%=raw blank_string_format2(13, false, 'reg_number2') %> / <%=raw blank_string_format2(6, false, 'reg_number3') %></div>
             <div>Target date - <%=raw blank_string_format2(10, false, 'target_date') %></div>
           </div>
-          <div class="w-100 bg-blue fnt-15 fnt-b ps-2 pt-1 text-white bdr-blue">
+          <div class="w-100 bg-blue fnt-15 fnt-b ps-2 pt-1 text-white bdr-blue obc-element">
+            यह चिन्ह (*) जिस बिंदु पर लगा है, वह रंगीन अक्षरों में मुद्रित है, यह जानकारी अनिवार्य रूप से भरी जाये |
+          </div>
+          <div class="w-100 bg-pink fnt-15 fnt-b ps-2 pt-1 text-white bdr-pink scst-element" style="display:none;">
             यह चिन्ह (*) जिस बिंदु पर लगा है, वह रंगीन अक्षरों में मुद्रित है, यह जानकारी अनिवार्य रूप से भरी जाये |
           </div>
         </div>
-        <div class="fnt-30 fnt-u fnt-b mb-3">
-          <center>
-            6.3-C अन्य पिछड़े वर्ग के लिए जाति प्रमाण पत्र हेतु आवेदन पत्र
-          </center>
+        <div class="fnt-24 fnt-u fnt-b obc-element">
+          <center>6.3-C अन्य पिछड़े वर्ग के लिए जाति प्रमाण पत्र हेतु आवेदन पत्र</center>
+        </div>
+        <div class="fnt-24 fnt-u fnt-b scst-element" style="display: none;">
+          <center>6.3-A अनुसूचित जाति/जनजाति वर्ग के लिए जाति प्रमाण पत्र हेतु आवेदन पत्र</center>
         </div>
       </div>
-      <div class="mrgn-top-10">
+      <div class="mrgn-top-5">
         <div class="paragraph-30 padding-3">
-          <div class="mb-3">
+          <div class="mb-2">
             सन्दर्भ लोक सेवा प्रबंधन विभाग की अधिसूचना क्रमांक एफ 2-13/2012/61/लोसेप्र/पीएसजी-१९ दिनांक 10/04/2013
           </div>
           <div>
             महोदय,
           </div>
           <div class="txt-indent-1 mb-3">
-            मैं अन्य पिछड़ा वर्ग के जाति प्रमाण पत्र के लिए आवेदन पत्र प्रस्तुत कर रहा हूँ | इस सम्बन्ध में जानकारी निम्नानुसार है :-
+            मैं <span class="obc-element">अन्य पिछड़ा वर्ग</span><span class="scst-element" style="display:none;">अनुसूचित जाति/अनुसूचित जनजाति वर्ग</span> के जाति प्रमाण पत्र के लिए आवेदन पत्र प्रस्तुत कर रहा हूँ | इस सम्बन्ध में जानकारी निम्नानुसार है :-
           </div>
           <div class="mb-2">
             <div class="roww mb-2">
@@ -56,7 +73,10 @@
               </div>
             </div>
           </div>
-          <div class="mb-3 bg-blue fnt-15 fnt-b ps-1 pt-1 text-white bdr-blue">
+          <div class="mb-3 bg-blue fnt-15 fnt-b ps-1 pt-1 text-white bdr-blue obc-element">
+            यह जानकारी आवेदन पर हस्ताक्षर वाले की है,प्रमाण पत्र विद्यार्थी के लिए है तो माता/पिता/भाई/बहन/अभिभावक की जानकारी देवे |
+          </div>
+          <div class="mb-3 bg-pink fnt-15 fnt-b ps-1 pt-1 text-white bdr-pink scst-element" style="display:none;">
             यह जानकारी आवेदन पर हस्ताक्षर वाले की है,प्रमाण पत्र विद्यार्थी के लिए है तो माता/पिता/भाई/बहन/अभिभावक की जानकारी देवे |
           </div>
           <div class="row-fluid">
@@ -179,7 +199,10 @@
   <div class="page-a4 only-print" id="cast-certificate-page-2">
     <div class="row">
       <div class="paragraph-30 ln-hgt-28 padding-3">
-        <div class="bg-blue fnt-b p-1 text-white fnt-15">
+        <div class="bg-blue fnt-b ps-1 text-white fnt-15 mb-2 obc-element">
+          जिसके नाम से प्रमाण पत्र बनवाना है,उसकी जानकारी यहाँ भरे अर्थात विद्यार्थी के लिए जारी किया जाना है, तो विद्यार्थी की जानकारी देवें | 
+        </div>
+        <div class="bg-pink fnt-b ps-1 text-white fnt-15 mb-2 scst-element" style="display:none;">
           जिसके नाम से प्रमाण पत्र बनवाना है,उसकी जानकारी यहाँ भरे अर्थात विद्यार्थी के लिए जारी किया जाना है, तो विद्यार्थी की जानकारी देवें | 
         </div>
         <ol start="3" class="ps-3">
@@ -230,19 +253,12 @@
                 <%=raw blank_string_format2(39, false, 'applicant_mother_name') %>
               </div>
             </div>
-
             <div class="row fnt-blue mb-2">
-              <div class="w-35 mb-2">जन्मतिथि</div>
-              <div class="w-65 bdr-blue">
-                <%=raw blank_string_format2(39, false, 'applicant_mother_name') %>
+              <div class="w-35 mb-2">जाति की श्रेणी </div>
+              <div class="w-65">
+                अनुसूचित जाति &nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> अनुसूचित जनजाति &nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> अन्य पिछड़ा वर्ग &nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i>
               </div>
-            </div>
-            <div class="row fnt-blue mb-2">
-              <div class="w-35 mb-2">जन्मस्थान</div>
-              <div class="w-65 bdr-blue">
-                <%=raw blank_string_format2(39, true, 'applicant_mother_name') %>
-              </div>
-            </div>
+            </div>           
             <div class="row fnt-blue mb-2">
               <div class="w-35 mb-2">धर्म</div>
               <div class="w-65 bdr-blue">
@@ -250,24 +266,22 @@
               </div>
             </div>              
             <div class="row fnt-blue mb-2">
-              <div class="w-35 mb-2">जाति एवं उपजाति</div>
+              <div class="w-35 mb-2">जाति एवं उपजाति (सरनेम)</div>
               <div class="w-65 bdr-blue">
                 <%=raw blank_string_format2(39, true, 'applicant_mother_name') %>
               </div>
             </div>
             <div class="row fnt-blue mb-2">
-              <div class="w-35 mb-2">सरनेम</div>
+              <div class="w-35 mb-2">जन्मतिथि</div>
               <div class="w-65 bdr-blue">
-                <%=raw blank_string_format2(39, true, 'applicant_mother_name') %>
+                <%=raw blank_string_format2(39, false, 'applicant_mother_name') %>
               </div>
             </div>
           </li>
-
-
           <div class="mb-1">
             वर्तमान पता 
           </div>
-          <div class="row mb-1 fnt-blue"> 
+          <div class="row mb-2 fnt-blue"> 
             <div class="w-30">
               * मकान क्रमांक/मोहल्ला
             </div>
@@ -275,7 +289,7 @@
               <%=raw blank_string_format2(42, true, 'makan_mohalla') %>
             </div>
           </div>
-          <div class="row mb-1 fnt-blue"> 
+          <div class="row mb-2 fnt-blue"> 
             <div class="w-30">
               * जिला
             </div>
@@ -289,48 +303,57 @@
               <%=raw blank_string_format2(17, true, 'tehsil') %>
             </div>
           </div>
-          <div class="row mb-1 fnt-blue"> 
+          <div class="row mb-2 fnt-blue"> 
             <div class="w-30">
               * क्षेत्र(ग्राम/नगर)
             </div>
             <div class="w-20 p-0">
               ग्राम&nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> नगर&nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> 
             </div>
-            <div class="w-30 p-0">
-              यदि नगर है तो वार्ड का नाम एवं नंबर  
+            <div class="w-20 p-0">
+              * ग्राम/नगर का नाम  
             </div>
-            <div class="w-20 bdr-blue">
-              <%=raw blank_string_format2(11, false, 'uid_number') %> 
+            <div class="w-30 bdr-blue">
+              <%=raw blank_string_format2(18, false, 'village') %> 
             </div>
           </div>
-          <div class="row mb-1 fnt-blue"> 
+
+          <div class="row mb-2 fnt-blue"> 
             <div class="w-30">
-              * ग्राम नगर का नाम 
-            </div>
-            <div class="w-40 bdr-blue">
-              <%=raw blank_string_format2(24, true, 'uid_number') %>
-            </div>
-            <div class="w-20">
               पटवारी हल्का नंबर
             </div>
-            <div class="w-10 bdr-blue">
-              <%=raw blank_string_format2(5, false, 'tehsil') %>
+            <div class="w-10 p-0 bdr-blue">
+              <%=raw blank_string_format2(5, true, 'halka_number') %>
+            </div>
+            <div class="w-30 p-0 ps-1">
+              यदि नगर है तो वार्ड का नाम एवं नंबर  
+            </div>
+            <div class="w-30 bdr-blue">
+              <%=raw blank_string_format2(17, false, 'ward_number') %> 
             </div>
           </div>
-          <li class="fnt-blue">
-            क्या आवेदक/आवेदक का परिवार अन्य पिछड़ा वर्ग की जातियों की अधिसूचना जारी करने की तिथि 26/121984 के पूर्व मध्यप्रदेश में निवासरत था ? &nbsp;&nbsp;&nbsp;&nbsp;हाँ&nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> नहीं&nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i>
+          <li class="fnt-blue mb-2 obc-element">
+            क्या आवेदक/आवेदक का परिवार अन्य पिछड़ा वर्ग की जातियों की अधिसूचना जारी करने की तिथि 26/12/1984 के पूर्व मध्यप्रदेश में निवासरत था ? &nbsp;&nbsp;&nbsp;&nbsp;हाँ&nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> नहीं&nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i>
           </li>
-          <div class="row">
-            4(1).&nbsp;&nbsp; यदि है तब दिनांक 26/121984 की स्थिति में मध्यप्रदेश में निवास के पते की जनकारी दे
+          <div class="row mb-2 obc-element">
+            4(1).&nbsp;&nbsp; यदि हाँ तब दिनांक 26/121984 की स्थिति में मध्यप्रदेश में निवास के पते की जनकारी दे
           </div>
-          <div class="row mb-1">
+          <li class="fnt-blue mb-2 scst-element" style="display: none;">
+            क्या आवेदक/आवेदक का परिवार राष्ट्रपति द्वारा जातियों की अधिसूचना जारी करने की तिथि वर्ष 1950 से मध्यप्रदेश में निवासरत था ? &nbsp;&nbsp;&nbsp;&nbsp;हाँ&nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> नहीं&nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i>
+          </li>
+          <div class="row mb-2 scst-element" style="display: none;">
+            4(1).&nbsp;&nbsp; यदि हाँ, तब वर्ष 1950 की स्थिति में मध्यप्रदेश में निवास के पते की जानकारी दें  
+          </div>
+          <div class="row mb-2">
             <div class="w-80 bdr-black">
               यहाँ का पता वर्तमान पते के समान होने की स्थिति में नीचे का पता भरना अनिवार्य है केवल <i class="fa-solid fa-check fnt-15"></i> मार्क करे
             </div>
-            <div class="w-20 bdr-black"></div>
+            <div class="w-20 bdr-black">
+              <i class="fa-regular fa-square fnt-24 me-3"></i>
+            </div>
           </div>
 
-          <div class="row mb-1 fnt-blue"> 
+          <div class="row mb-2 fnt-blue"> 
             <div class="w-30">
               * मकान क्रमांक/मोहल्ला
             </div>
@@ -338,7 +361,7 @@
               <%=raw blank_string_format2(43, true, 'makan_mohalla') %>
             </div>
           </div>
-          <div class="row mb-1 fnt-blue"> 
+          <div class="row mb-2 fnt-blue"> 
             <div class="w-30">
               * जिला
             </div>
@@ -352,32 +375,32 @@
               <%=raw blank_string_format2(17, true, 'tehsil') %>
             </div>
           </div>
-          <div class="row mb-1 fnt-blue"> 
+          <div class="row mb-2 fnt-blue"> 
             <div class="w-30">
               * क्षेत्र(ग्राम/नगर)
             </div>
             <div class="w-20 p-0">
               ग्राम&nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> नगर&nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> 
             </div>
-            <div class="w-30 p-0">
-              यदि नगर है तो वार्ड का नाम एवं नंबर  
+            <div class="w-20 p-0">
+              * ग्राम/नगर का नाम  
             </div>
-            <div class="w-20 bdr-blue">
-              <%=raw blank_string_format2(11, false, 'uid_number') %> 
+            <div class="w-30 bdr-blue">
+              <%=raw blank_string_format2(18, false, 'village') %> 
             </div>
           </div>
-          <div class="row fnt-blue"> 
+          <div class="row mb-1 fnt-blue"> 
             <div class="w-30">
-              * ग्राम नगर का नाम 
-            </div>
-            <div class="w-40 bdr-blue">
-              <%=raw blank_string_format2(24, true, 'uid_number') %>
-            </div>
-            <div class="w-20">
               पटवारी हल्का नंबर
             </div>
-            <div class="w-10 bdr-blue">
-              <%=raw blank_string_format2(5, false, 'tehsil') %>
+            <div class="w-10 p-0 bdr-blue">
+              <%=raw blank_string_format2(5, true, 'halka_number') %>
+            </div>
+            <div class="w-30 p-0 ps-1">
+              यदि नगर है तो वार्ड का नाम एवं नंबर  
+            </div>
+            <div class="w-30 bdr-blue">
+              <%=raw blank_string_format2(17, false, 'ward_number') %> 
             </div>
           </div>
         </ol>
@@ -388,8 +411,11 @@
   <div class="page-a4 only-print" id="cast-certificate-page-3">
     <div class="row">
       <div class="paragraph-30 padding-3">
-        <div class="mb-2 fnt-b">
-          4(2). यदि नहीं, तब राष्ट्रपति द्वारा जातियों की अधिसूचना करने की दिनांक 26/12/1984 में अन्य राज्य जहाँ वह या उसका परिवार निवास करता था, का पता-
+        <div class="mb-2 fnt-b obc-element">
+          4(2). यदि नहीं, तब राष्ट्रपति द्वारा जातियों की अधिसूचना जारी करने की दिनांक 26/12/1984 में अन्य राज्य जहाँ वह या उसका परिवार निवास करता था, का पता-
+        </div>
+        <div class="mb-2 fnt-b scst-element" style="display:none;">
+          4(2). यदि नहीं, तब राष्ट्रपति द्वारा जातियों की अधिसूचना जारी करने की तिथि वर्ष 1950 में अन्य राज्य में निवासरत रहा हो तो जहाँ उसका परिवार निवास करता था, का पता-
         </div>
         <div class="fnt-b fnt-blue">
           यदि अनुक्रमांक 4 में हाँ पर टिक लगाया है तो निम्नांकित 3 कॉलम नहीं भरना है | 
@@ -423,8 +449,11 @@
         </div>
 
         <ol start="5" class="ps-3 ">
-          <li class="fnt-b">
+          <li class="fnt-b obc-element">
             दिनांक 26/12/1984 के बाद अन्य राज्य से मध्यप्रदेश  स्थिति में क्या माता/पिता/स्वयं/को जाति प्रमाण पत्र जारी करने वाले अधिकारी का विवरण :- (प्रमाण पत्र संलग्न करें)
+          </li>
+          <li class="fnt-b scst-element" style="display: none;">
+            1950 के बाद राज्य से मध्यप्रदेश आने की स्थिति में क्या माता/पिता/स्वयं को जाति प्रमाण पात्र जारी किया गया था | यदि हाँ तो जारी करने वाले अधिकारी का विवरण :- (प्रमाण पत्र संलग्न करें)
           </li>
           <div class="roww mb-2">
             <div class="w-35">
@@ -922,7 +951,9 @@
           जाति की पुष्टि - परिवार के सदस्य (दादा/दादी/परदादा/परदादी/पिता/माता/चाचा/भाई) के नाम दर्ज अचल संपत्ति का रिकॉर्ड (भूमि/भूखंड/मकान की रजिस्ट्री या अन्य कोई राजस्वा रिकॉर्ड आदि) की छायाप्रति, जिसमे जाति का उल्लेख हो | अथवा परिवार के सदस्य (पिता/चाचा/भाई/बहिन/दादा/पिता पक्ष से अन्य रक्त सम्बन्धी) को वर्ष 1996 के बाद अनुविभागीय अधिकारी (रा) द्वारा जारी जाति प्रमाण पत्र |
         </div>
         <div class="fnt-14 ln-hgt-22 ms-4">
-          वर्ष 1984 की स्थिति में  पश्चात  म. प्र. में निवास सम्बन्धी प्रमाण की पुष्टि हेतु-शिक्षा /शासकीय सेवा/मतदाता परिचय पत्र/परिवार के सदस्य (दादा/दादी/परदादा/परदादी/पिता/माता/चाचा/भाई)  के नाम से दर्ज अचल संपत्ति का रिकॉर्ड (भूमि/भूखंड/मकान की रजिस्ट्री या अन्य कोई राजस्वा रिकॉर्ड आदि) की छायाप्रति |
+
+          <span class="obc-element">वर्ष 1984 की स्थिति में पश्चात परिवार के</span>
+          <span class="scst-element">वर्ष 1950 की स्थिति में या उससे पूर्व या पश्चात परिवार के</span> म. प्र. में निवास सम्बन्धी प्रमाण की पुष्टि हेतु-शिक्षा /शासकीय सेवा/मतदाता परिचय पत्र/परिवार के सदस्य (दादा/दादी/परदादा/परदादी/पिता/माता/चाचा/भाई)  के नाम से दर्ज अचल संपत्ति का रिकॉर्ड (भूमि/भूखंड/मकान की रजिस्ट्री या अन्य कोई राजस्वा रिकॉर्ड आदि) की छायाप्रति |
         </div>
         <div class="fnt-14 ln-hgt-22 ms-4">
           स्वयं आवेदक के शैक्षणिक योग्यता सम्बन्धी प्रमाण पत्रों की छायाप्रति | 
@@ -943,7 +974,8 @@
         </div>
         <div class="roww">
           <div class="w-80 fnt-14 ln-hgt-22">
-            मैं प्रमाणित करता हूँ कि मेरे द्वारा दी गई उपरोक्त जानकारी मेरे ज्ञान एवं विश्वास के अनुसार सत्य है और मैं अन्य पिछड़े वर्ग में 'क्रिमिलाये' (संपन्न वर्ग)  परिधि में नहीं आता हूँ  और इस प्रकार अन्य पिछड़े वर्ग के लिए आरक्षण तथा अन्य घोषित सुविधाएं प्राप्त करने की पात्रता धारण करता हूँ | मैं भलीभाँति जानता हूँ कि मेरे दवरा दी गई जानकारी असत्य/गलत पायी जाती है तो विधि एवं नियमों के अधीन कार्यवाही की जा सकती है | जिसके लिए मैं स्वयं उत्तरदायी रहूँगा | 
+            मैं प्रमाणित करता हूँ कि मेरे द्वारा दी गई उपरोक्त जानकारी मेरे ज्ञान एवं विश्वास के अनुसार सत्य है और मैं 
+            <span class="obc-element">अन्य पिछड़े वर्ग में 'क्रिमिलाये' (संपन्न वर्ग)  परिधि में नहीं आता हूँ  और इस प्रकार अन्य पिछड़े वर्ग के लिए</span><span class="scst-element">अनुसूचित जाति /अनुसूचित जनजाति के लिए</span> आरक्षण तथा अन्य घोषित सुविधाएं प्राप्त करने की पात्रता धारण करता हूँ | मैं भलीभाँति जानता हूँ कि मेरे दवरा दी गई जानकारी असत्य/गलत पायी जाती है तो विधि एवं नियमों के अधीन कार्यवाही की जा सकती है | जिसके लिए मैं स्वयं उत्तरदायी रहूँगा | 
           </div>
           <div class="w-20 ps-3">
             <div class="bdr-black photo-frame">
@@ -965,18 +997,24 @@
         <div class="roww fnt-blue fnt-b">
           चेक करें कि जहाँ यह चिन्ह * है वहां की जानकारी अनिवार्य भर दी गई है |
         </div>
-        <div class="roww fnt-blue fnt-b">
+        <div class="roww fnt-blue fnt-b" style="display:none;">
           हितग्राही से तात्पर्य, जिसके लिए जाति प्रमाण पत्र जारी किया जाता है | 
         </div>
       </div>
       <div class="padding-5">
-        <div class="w-100 bg-blue fnt-b ps-2 pt-1 text-white bdr-blue text-center">
+        <div class="w-100 bg-blue fnt-b ps-2 pt-1 text-white bdr-blue text-center obc-element">
+          * इस घोषणा पत्र पूर्ण रूप से जाना अत्यंत आवश्यक है | *
+        </div>
+        <div class="w-100 bg-pink fnt-b ps-2 pt-1 text-white bdr-pink text-center scst-element" style="display:none;">
           * इस घोषणा पत्र पूर्ण रूप से जाना अत्यंत आवश्यक है | *
         </div>
         <div class="bdr-blue-3 p-2">
           <div class="paragraph-30">
-            <div class="fnt-b mt-1 text-center">
+            <div class="fnt-b mt-1 text-center obc-element">
               अन्य पिछड़े वर्गों के प्रमाण पत्र के लिए
+            </div>
+            <div class="fnt-b mt-1 text-center scst-element" style="display:none;">
+              अनुसूचित जाति /जनजाति के प्रमाण पत्र के लिए
             </div>
             <div class="fnt-24 fnt-u mb-2 fnt-b fnt-blue text-center">
               घोषणा पत्र
@@ -1060,11 +1098,19 @@
                 <li>
                   मैं यह शपथ पत्र घोषणा पत्र स्वयं के/अपने पुत्र/पुत्री <%=raw blank_string_format2(16, true, 'announcers_child_name') %> (नाम) के लिए जाति प्रमाण पत्र प्राप्त करने हेतु प्रस्तुत कर रहा हूँ | 
                 </li>
-                <li>
-                  मैं भारत के संविधान के अनुच्छेद 15(4) एवं 16(4) के अंतर्गत जिला<%=raw blank_string_format2(16, true, 'district') %> (मध्यप्रदेश) के लिए घोषित  <%=raw blank_string_format2(16, true, 'announcers_cast') %> पिछड़ा वर्ग जाती का सदस्य हूँ |
+                <li class="obc-element">
+                  मैं भारत के संविधान के अनुच्छेद 15(4) एवं 16(4) के अंतर्गत जिला <%=raw blank_string_format2(16, true, 'district') %> (मध्यप्रदेश) के लिए घोषित  <%=raw blank_string_format2(16, true, 'announcers_cast') %> पिछड़ा वर्ग जाती का सदस्य हूँ |
                 </li>
-                <li>
-                  मैं यह भी  घोषणा करता हूँ कि मेरा परिवार 1984 से मध्यप्रदेश में निवासरत है, किन्तु वर्ष १९८४ स्थिति में निवास सम्बन्धी लिखित रिकॉर्ड उपलब्ध नहीं है | इसकी पुष्टि हेतु मैं पार्षद/सरपंच  प्रमाण पत्र संलग्न कर रहा हूँ | जिसकी पुष्टि कराई जा सकती है | (सिर्फ वह आवेदक \/ करे जिनके पास 1984 से निवास लिखित रिकॉर्ड नहीं है | साथ ही पार्षद/सरपंच  का प्रमाण पत्र भी संलग्न करें)
+                <li class="obc-element">
+                  मैं यह भी  घोषणा करता हूँ कि मेरा परिवार 1984 से मध्यप्रदेश में निवासरत है, किन्तु वर्ष १९८४ स्थिति में निवास सम्बन्धी लिखित रिकॉर्ड उपलब्ध नहीं है | इसकी पुष्टि हेतु मैं पार्षद/सरपंच  प्रमाण पत्र संलग्न कर रहा हूँ | जिसकी पुष्टि कराई जा सकती है | <br/>
+                  (<i class="fa-regular fa-square fnt-20 me-1"></i> सिर्फ वह आवेदक <i class="fa-solid fa-check fnt-16"></i> करे जिनके पास 1984 से निवास लिखित रिकॉर्ड नहीं है | साथ ही पार्षद/सरपंच  का प्रमाण पत्र भी संलग्न करें |)
+                </li>
+                <li class="scst-element" style="display:none;">
+                  मैं भारत के संविधान के अनुच्छेद 341/342 के अंतर्गत जिला <%=raw blank_string_format2(16, true, 'district') %> (म.प्र.) के लिए घोषित <%=raw blank_string_format2(16, true, 'announcers_cast') %> अनुसूचित जाति/अनुसूचित जनजाति का सदस्य हूँ | 
+                </li>
+                <li class="scst-element" style="display:none;">
+                  मैं यह भी घोषणा करता हूँ कि मेरा परिवार 1950 से मध्यप्रदेश में निवासरत है किन्तु वर्ष 1950 की स्थिति में निवास सम्बन्धी लिखित रिकॉर्ड उपलब्ध नहीं है | इसकी पुष्टि हेतु मैं पार्षद।/सरपंच का प्रमाण पत्र संलग्न कर रहा हूँ जिसकी पुष्टि कराई जा सकती है | <br/>
+                  (<i class="fa-regular fa-square fnt-20 me-1"></i> सिर्फ वह आवेदक <i class="fa-solid fa-check fnt-16"></i>&nbsp;करे जिनके पास 1950 से निवास का लिखित रिकॉर्ड नहीं है | साथ पार्षद/सरपंच का प्रमाण पत्र भी संलग्न करें | )
                 </li>
                 <li>
                   मेरे द्वारा अनुविभागीय अधिकारी <%=raw blank_string_format2(16, true, 'anubhag') %> के समक्ष जाति प्रमाण पत्र प्राप्त करने हेतु जो आवेदन पत्र दिनांक <%=raw blank_string_format2(10, true, 'date') %> को प्रस्तुत किया जा रहा है | उसमें वर्णित जानकारी मेरे ज्ञान/विश्वास के अनुसार सत्य है | मुझे यह संज्ञान है कि मेरे द्वारा असत्य या भ्रामक जानकारी देने पर मेरे विरुद्ध आपराधिक/दंडात्मक कार्यवाही की जा सकती है |
@@ -1125,7 +1171,7 @@
           <center>न्यायालय अनुविभागीय अधिकारी (रा.) <%= raw blank_string_format2(10, true, "anubhag") %> जिला <%= raw blank_string_format2(8, true, "district") %></center>
         </div>
         <div class="txt-indent-2">
-         तहसीलदार <%= raw blank_string_format2(12, true, "tehsil") %>, पटवारी, रा नि द्वारा प्रस्तुत स्थल पंचनामा, जाँच प्रतिवेदन,संजरा खानदान एवं अभिलेखों का अवलोकन किया, सहमत |  जाँच प्रतिवेदन, आवेदन पत्र एवं घोषणा में दी गई जानकारी के आधार पर आवेदक/आवेदिका <%= raw blank_string_format2(16, true, "applicant") %> पिता <%= raw blank_string_format2(16, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(20, true, "applicant_address") %> को जाति <%= raw blank_string_format2(12, true, "applicant_cast") %> ओ.बी.सी. जो अधिसूचना के सरल क्रका <%= raw blank_string_format2(4, false, "cast_serial_number") %> पर अंकित है को जाति का स्थायी प्रमाण पत्र जारी किया जाता है | लोक सेवा केंद्र को प्रमाण पत्र जारी करने हेतु भेजा जावे तथा कार्यवाही बाद प्रकरण दा./द. हो | 
+          प्रस्तुत प्रकरण | तहसीलदार <%= raw blank_string_format2(12, true, "tehsil") %>, पटवारी, रा नि द्वारा प्रस्तुत स्थल पंचनामा, जाँच प्रतिवेदन,संजरा खानदान एवं अभिलेखों का अवलोकन किया, सहमत |  जाँच प्रतिवेदन, आवेदन पत्र एवं घोषणा में दी गई जानकारी के आधार पर आवेदक/आवेदिका <%= raw blank_string_format2(16, true, "applicant") %> पिता <%= raw blank_string_format2(16, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(20, true, "applicant_address") %> को जाति <%= raw blank_string_format2(12, true, "applicant_cast") %> <span class="obc-element">अ.पि.व.</span><span class="scst-element" style="display:none;">अ.जा./अ.ज.जा.</span> जो अधिसूचना के सरल क्र <%= raw blank_string_format2(4, false, "cast_serial_number") %> पर अंकित है को जाति का स्थायी प्रमाण पत्र जारी किया जाता है | लोक सेवा केंद्र को प्रमाण पत्र जारी करने हेतु भेजा जावे तथा कार्यवाही बाद प्रकरण दा./द. हो | 
         </div>
         <div class="">&nbsp;</div>
         <div class="mrgn-top-20">
@@ -1168,7 +1214,7 @@
             </div>
           </div>
           <div class="roww">
-            <div class="w-40">जाति/(उपजाति सहित) एवं सूची का क्र (यदि ज्ञात हो तो)</div>
+            <div class="w-40">जाति/जनजाति (उपजाति सहित) एवं सूची का क्र (यदि ज्ञात हो तो)</div>
             <div class="w-60">
               <%= raw blank_string_format2(30, true, "applicant_cast") %>
             </div>
@@ -1193,14 +1239,20 @@
           </div>
 
           <div class="txt-indent-2">
-            मैं सपथ पूर्वक कथन/घोषणा करता/करती हूँ कि :-
+            मैं शपथ पूर्वक कथन/घोषणा करता/करती हूँ कि :-
           </div>
           <ol>
-            <li>
-              मैं भारत के सविधान के अनुच्छेद 15 (4) एवं 16(4) के अंतर्गत तहसील सागर जिला सागर (म.प्र.) के लिए घोषित पिछड़ा वर्ग जाति <%= raw blank_string_format2(30, true, "applicant_cast") %> का सदस्य हूँ|
+            <li class="obc-element">
+              मैं भारत के सविधान के अनुच्छेद 15 (4) एवं 16(4) के अंतर्गत तहसील <%= raw blank_string_format2(16, true, "tehsil") %> जिला <%= raw blank_string_format2(16, true, "district") %> (म.प्र.) के लिए घोषित पिछड़ा वर्ग जाति <%= raw blank_string_format2(30, true, "applicant_cast") %> का सदस्य हूँ|
             </li>
-            <li>
-              मेरा परिवार ग्राम : <%= raw blank_string_format2(30, true, "village") %> तहसील जिला में 26/12/1984 के पूर्व से निवास कर रहा है |
+            <li class="obc-element">
+              मेरा परिवार ग्राम : <%= raw blank_string_format2(30, true, "village") %> तहसील <%= raw blank_string_format2(16, true, "tehsil") %> जिला <%= raw blank_string_format2(16, true, "district") %> में 26/12/1984 के पूर्व से निवास कर रहा है |
+            </li>
+            <li class="scst-element">
+              मैं भारत के संविधान के अनुच्छेद 341/342 अंतर्गत तहसील <%= raw blank_string_format2(16, true, "tehsil") %> जिला <%= raw blank_string_format2(16, true, "district") %> (म. प्र.) के लिए घोषित अनुसूचित जाति/जनजाति <%= raw blank_string_format2(30, true, "applicant_cast") %> का सदस्य हूँ | 
+            </li>
+            <li  class="scst-element">
+              मेरे पूर्वज वर्ष  के पूर्व से ग्राम <%= raw blank_string_format2(16, true, "village") %> तहसील <%= raw blank_string_format2(16, true, "tehsil") %> जिला <%= raw blank_string_format2(16, true, "district") %> में निवास कर रहे है |
             </li>
             <li>
               मेरे व मेरे परिवार की निम्नलिखित स्त्रोतों से कुल <%= raw blank_string_format2(22, false, "total_income") %> रूपये वार्षिक आय है | 
@@ -1232,7 +1284,7 @@
               </ol>
             </li>
             <li>
-              मैं व मेरा परिवार क्रीमीलाएर (संपन्न वर्ग) के सम्बन्ध में निर्धारित मापदंडो के अंतर्गत नहीं आता है | 
+              मैं व मेरा परिवार क्रीमीलेयर (संपन्न वर्ग) के सम्बन्ध में निर्धारित मापदंडो के अंतर्गत नहीं आता है | 
             </li>
             <li>
               मेरे द्वारा अनुविभागीय अधिकारी <%= raw blank_string_format2(16, true, "anubhag") %> के समक्ष जाति प्रमाण पत्र प्राप्त करने हेतु जो आवेदन-पत्र दिनांक <%= raw blank_string_format2(10, false, "date") %> को प्रस्तुत किया जा रहा है. उसमे वर्णित जानकारी मेरे ज्ञान/विश्वास के अनुसार सत्य है |

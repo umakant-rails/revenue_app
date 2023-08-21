@@ -1,8 +1,7 @@
 import $ from 'jquery';
 
-$(document).ready(function(){
-
-  $(document).on('click', ".print-btn", function(){
+var utilFunctions = (function(){
+  var printA4Page = function(){
     var restorePage = $('body').html();
     var printContent = '';
     $(".hide-on-print").css('display', 'none')
@@ -15,6 +14,48 @@ $(document).ready(function(){
     $('body').empty().html(printContent);
     window.print();
     $('body').empty().html(restorePage);
+  };
+
+  return {
+    printA4Page: printA4Page
+  }
+})();
+
+
+var loksewaFunctions = (function () {
+  var selectCastCertificate = function(element){
+    if($(element).hasClass('obc-form-btn')) {
+      $(".obc-element").show();
+      $(".scst-element").hide();
+      $(".fnt-pink").removeClass("fnt-pink").addClass("fnt-blue");
+      $(".bdr-pink-3").removeClass("bdr-pink-3").addClass("bdr-blue-3");
+      $(".bdr-pink").removeClass("bdr-pink").addClass("bdr-blue");
+      $(".bg-pink").removeClass("bg-pink").addClass("bg-blue");
+      bdr-pink
+    } else if($(element).hasClass('scst-form-btn')){
+      $(".obc-element").hide();
+      $(".scst-element").show();
+      $(".fnt-blue").removeClass("fnt-blue").addClass("fnt-pink");
+      $(".bdr-blue-3").removeClass("bdr-blue-3").addClass("bdr-pink-3");
+      $(".bdr-blue").removeClass("bdr-blue").addClass("bdr-pink");
+      $(".bg-blue").removeClass("bg-blue").addClass("bg-pink");
+    }
+  };
+
+  return {
+    selectCastCertificate: selectCastCertificate,
+  };
+})();
+
+
+$(document).ready(function(){
+
+  $(document).on('click', ".obc-form-btn, .scst-form-btn", function(){
+    loksewaFunctions.selectCastCertificate(this);
+  });
+
+  $(document).on('click', ".print-btn", function(){
+    loksewaFunctions.printA4Page();
   });
 
   $(".selection-criteria-box").on("change", function(){
@@ -74,6 +115,10 @@ $(document).ready(function(){
     } else {
       $(this).remove();
     }
+  });
+
+  $(".parent-delete").on('click', function(){
+    $(this).parent().remove();  
   });
 
   $(".toggle-select-box").on('change', function(){

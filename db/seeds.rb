@@ -31,7 +31,8 @@ department = Department.where(eng_name: "revenue", hindi_name: "राजस्�
 revenue_forms = [
   {eng_name: "Income Certificate", hindi_name: "आय प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
   {eng_name: "Domicile Certificate", hindi_name: "स्थाई निवास प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
-  {eng_name: "Cast Certificate", hindi_name: "जाति प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
+  {eng_name: "Cast Certificate", hindi_name: "जाति प्रमाण पत्र (ओ बी सी)", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
+  # {eng_name: "Cast Certificate SCST", hindi_name: "जाति प्रमाण पत्र (अजा/अजजा)", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
   {eng_name: "Digital Cast Certificate", hindi_name: "डिजिटल जाति प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
   {eng_name: "Birth And Death Certificate", hindi_name: "जन्म मृत्यु प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
   {eng_name: "Sambal Form", hindi_name: "सम्बल आवेदन पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
@@ -65,7 +66,8 @@ revenue_forms = [
   {eng_name: "Patwari Prativedan", hindi_name: "पटवारी प्रतिवेदन", section_hindi: "फौती फॉर्म", section: 'Fouti Form'},
 
   {eng_name: "Form C", hindi_name: "फॉर्म सी", section_hindi: "अन्य फॉर्म", section: 'Other Form'},
-  {eng_name: "Crop Sowing", hindi_name: "फसल बुआई प्रमाण पत्र", section_hindi: "अन्य फॉर्म", section: 'Other Form'}  
+  {eng_name: "Crop Sowing", hindi_name: "फसल बुआई प्रमाण पत्र", section_hindi: "अन्य फॉर्म", section: 'Other Form'},
+  {eng_name: "Lease Land Sell Permission Form", hindi_name: "पट्टा भूमि विक्रय हेतु अनुमति आवेदन", section_hindi: "अन्य फॉर्म", section: 'Other Form'}  
 
 ]
 
