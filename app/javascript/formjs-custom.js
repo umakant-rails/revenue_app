@@ -118,7 +118,8 @@ $(document).ready(function(){
   });
 
   $(".parent-delete").on('click', function(){
-    $(this).parent().remove();  
+    var parentId = $(this).data('parent');
+    $("#"+parentId).remove(); 
   });
 
   $(".toggle-select-box").on('change', function(){

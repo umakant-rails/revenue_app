@@ -46,9 +46,9 @@
           <div class="mb-1 subject-status">
             <strong>विषय :-</strong> पी एम किसान में दर्ज अपात्र किसान को पात्र करने के सम्बन्ध में |
           </div>
-          <div class="mb-3">
+          <div class="mb-3" id="sandarbh-row">
             <strong>संदर्भ:-</strong><%= raw blank_string(30, true, 'letter-sandarbh')%>
-            <i class="fa-regular fa-trash-can text-danger hide-on-print parent-delete"></i>
+            <i class="fa-regular fa-trash-can text-danger hide-on-print parent-delete" data-parent="sandarbh-row"></i>
           </div>
           <div class="txt-indent-2 mb-3">
             उपरोक्त विषयान्तर्गत श्रीमान जी से निवेदन है कि तहसील <%= raw blank_string(12, true, 'tehsil')%> के पटवारी हल्का नंबर <%= raw blank_string(12, true, 'halka_number')%>  मौजा <%= raw blank_string(12, true, 'village')%> के किसान <%= raw blank_string(25, true, 'applicant')%> पी एम किसान पोर्टल पर <%= raw blank_string(40, false)%>  की श्रेणी में अपात्र दर्ज है ,  हितग्राही किसान का पी एम किसान रजिस्ट्रशन नंबर <%= raw blank_string(15, false, 'registration_number')%> है , हल्का पटवारी <%= raw blank_string(12, true, 'halka_name')%>  (हल्का नंबर <%= raw blank_string(4, false, 'halka_number')%> ) ने प्रतिवेदन प्रस्तुत कर लेख किया है कि हितग्राही <%= raw blank_string(25, true, 'applicant')%> पात्र किसान है | हितग्राही की जानकारी निम्नांकित है :-
