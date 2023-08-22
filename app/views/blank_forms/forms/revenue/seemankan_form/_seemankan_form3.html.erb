@@ -1,0 +1,387 @@
+<!-- halka patwari prativedan -->
+<!-- seemankan pararoop 2 -->
+<!-- seemankan praroop 1 -->
+
+<div class="letter-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print selection-criteria-block" id="seemankan-praroop3-page-1">
+    <div class="row padding-5 mt-3">
+      <div class="paragraph-28">
+        <div class="mt-1">
+          <div class="fnt-15 fnt-b">
+            <center>
+              प्रारूप-तीन 
+            </center>
+            <center>
+              (नियम  5 देखिये )
+            </center>
+          </div>
+          <div class="fnt-15 fnt-b">
+            <center>
+              सीमांकन दल की रिपोर्ट
+            </center>
+          </div>
+          <div class="mb-5">
+            <div class="fRight">
+              <strong>राजस्व प्रकरण क्रमांक</strong> <%= raw blank_string_format2(12, false, "case_number") %>
+            </div>
+          </div>
+          <div>
+            न्यायलय उपखण्ड अधिकारी, उपखण्ड <%= raw blank_string_format2(8, false, "anubhag") %> तहसील <%= raw blank_string_format2(8, false, "tehsil") %> जिला <%= raw blank_string_format2(8, false, "ddistrict") %> मध्यप्रदेश
+          </div>
+        </div>
+        <div class="paragraph-28 mt-2">
+          <div class="txt-indent-2">
+            तारीख <%= raw blank_string_format2(10, false, "date") %> सीमांकन रिपोर्ट 
+          </div>
+          <div class="row">
+            <div class="txt-indent-2">
+              आपके आदेश दिनांक <%= raw blank_string_format2(10, false, "date") %> के अनुपालन में भूमिस्वामी <%= raw blank_string_format2(12, true, "applicant") %> पटवारी हल्का नंबर/सेक्टर नंबर _<%= raw blank_string_format2(6, false, "halka_number") %> ग्राम/नगरीय क्षेत्र <%= raw blank_string_format2(12, true, "village") %> में अवस्थित सर्वेक्षण संख्यांक/ब्लॉक संख्यांक/भू खंड संख्यांक के सीमांकन की रिपोर्ट पटवारी ने निम्नानुसार प्रस्तुत की है :
+            </div>
+            <div class="ps-1">
+              <ol class="mb-0">
+                <li>
+                  सीमांकन के क्रियान्वयन की तारिख <%= raw blank_string_format2(10, false, "date") %>
+                </li>
+                <li>
+                  सीमांकन शुरू होने के समय <%= raw blank_string_format2(10, false, "starting_time") %> सीमांकन समाप्त होने का समय <%= raw blank_string_format2(10, false, "end_time") %>
+                </li>
+                <li>
+                  सीमांकन के नोटिस का विवरण हितबद्ध पक्षकारो को दिये
+                </li>
+              </ol>
+            </div>
+            <div class="">
+              3 . हितबद्ध पक्षकारो को दिए गए सीमानकन के नोटिस का विवरण 
+            </div>
+            <div class="seemankan-tbl pt-2 mb-3">
+              <table style="width:100%;">
+                <thead>
+                  <tr>
+                    <th style="width:10%;">स क्र</th>
+                    <th style="width:30%;">नाम</th>
+                    <th style="width:60%;">नोटिस की तामीली का प्रकार तथा तारीख</th>
+                  </tr>
+                  <tr>
+                    <th>(1)</th>
+                    <th>(2)</th>
+                    <th>(3)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1.</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>2.</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>3.</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>4.</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="">
+              4. पक्षकारो का विवरण जिन्हें नोटिस तामील नहीं हो सका 
+            </div>
+            <div class="seemankan-tbl pt-2">
+              <table style="width:100%;">
+                <thead>
+                  <tr>
+                    <th style="width:10%;">स क्र</th>
+                    <th style="width:30%;">नाम</th>
+                    <th style="width:60%;">नोटिस की तामील न होने के कारण</th>
+                  </tr>
+                  <tr>
+                    <th>(1)</th>
+                    <th>(2)</th>
+                    <th>(3)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1.</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>2.</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>3.</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>4.</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block" id="seemankan-praroop3-page-2">
+    <div class="row padding-5 mt-3">
+      <div class="paragraph-28 mt-2">
+        <div class="seemankan-tbl">
+          <div class="mt-2 mb-3">
+            5. सीमांकन के दौरान वर्तमान अधिकारियो तथा पक्षकारो के नाम
+          </div>
+          <table style="width: 100%;">
+            <thead>
+              <tr>
+                <th style="width:15%;">स क्र</th>
+                <th style="width:40%;">नाम</th>
+                <th style="width:45%;">पदनाम</th>
+              </tr>
+              <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1.</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>2.</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>3.</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>4.</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>5.</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="mt-3 mb-3">
+            6. संनिर्मित सीमा चिन्हो का क्रमांक <%= raw blank_string_format2(12, true, "boundry_sign") %>
+          </div>
+          <div class="mt-3 mb-3">
+            7. भूमि या उसके भाग पर भूमिस्वामी से भिन्न किसी अन्य व्यक्ति के कब्जे का विविरण<br/>
+            &nbsp;&nbsp;&nbsp;(रिपोर्ट के साथ नक़्शे में लाल स्याही से चिन्हित किया जाये)
+          </div>
+          <table style="width: 100%;">
+            <thead>
+              <tr>
+                <th style="width:10%;">स क्र</th>
+                <th style="width:30%;">नाम</th>
+                <th style="width:30%;">क्षेत्रफल(हे/वर्ग मी में)</th>
+                <th style="width:30%;">ब्यौरे</th>
+              <tr>
+              <tr>
+                <th>(1)</th>
+                <th>(2)</th>
+                <th>(3)</th>
+                <th>(4)</th>
+              <tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>2.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>3.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>4.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="mt-3 mb-3">
+            8. सीमांकन के दौरान उठाई गई आपत्तियों के विविरण तथा उन पर विनिश्चय
+          </div> 
+          <table class="">
+            <thead>
+              <tr>
+                <th style="width:10%;">स क्र</th>
+                <th style="width:30%;">आपत्तिकर्ता का नाम</th>
+                <th style="width:30%;">संक्षिप्त में आपत्तियां</th>
+                <th style="width:30%;">आपत्तियों के विवरण तथा उन पर विनिश्चय</th>
+              <tr>
+              <tr>
+                <th>(1)</th>
+                <th>(2)</th>
+                <th>(3)</th>
+                <th>(4)</th>
+              <tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>2.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>3.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>4.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block" id="seemankan-praroop3-page-3">
+    <div class="row padding-5 mt-3">
+      <div class="paragraph-28 mt-2">
+        <div class="seemankan-tbl">
+          <div class="mt-2 mb-3">
+            9. पंचनामा में हस्ताक्षर करने से इनकार करने वाले व्यक्तियों का विवरण 
+          </div>
+          <table style="width: 100%;">
+            <thead>
+              <tr>
+                <th style="width:15%;">स क्र</th>
+                <th style="width:40%;">नाम</th>
+                <th style="width:45%;">इनकार करने का कारण </th>
+              <tr>
+              <tr>
+                <th>(1)</th>
+                <th>(2)</th>
+                <th>(3)</th>
+              <tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1.</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>2.</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>3.</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>4.</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="mt-3 mb-3">
+            10 . यदि सीमांकन नहीं किया जा सका हो तो कारन अभिलिखित किये जाएं  - 
+          </div>
+          <div class="mt-3 mb-3">
+            11. राजस्व निरीक्षक /नगर सर्वेक्षक की टिप्पणियां <%= blank_string_text(43) %>
+            <div><%= blank_string_text(67) %></div>
+            <div><%= blank_string_text(67) %></div>
+          </div>
+          <div class="mt-3 mb-3">
+            12. दल प्रमुख की टिप्पणियां <%= blank_string_text(53) %>
+            <div><%= blank_string_text(67) %></div>
+            <div><%= blank_string_text(67) %></div>
+          </div>
+          <div class="">&nbsp;</div>
+          <div class="">&nbsp;</div>
+          <div class="mt-4 fnt-b">
+            <div class="fLeft">
+              <div>तारीख <%= raw blank_string_format2(10, true, "date") %></div>
+              <div>स्थान  <%= raw blank_string_format2(10, true, "tehsil") %></div>
+            </div>
+            <div class="fRight">
+              <div>हस्ताक्षर </div>
+              <div>नाम <%= raw blank_string_format2(12, true, "applicant") %></div>
+              <div>राजस्व निरीक्षक /नगर सर्वेक्षक</div>
+            </div>
+          </div>
+          <br/><br/><br/>
+          <div class="mt-3 mb-3">
+            <div class="fnt-b">
+              संलग्न :<br/>
+            </div>
+            <div class="padding-4">
+              1. हितबद्ध पक्षकारो पर तामील किए गए नोटिस की प्रतियां <br/>
+              2. बिना तामील हुये'नोटिस मूल में (यदि कोई हो)<br/>
+              3. पंचनामा <br/>
+              4. क्षेत्र पुस्तिका <br/>
+              5.नक्शा <br/>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
