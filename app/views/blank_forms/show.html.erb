@@ -51,7 +51,7 @@
           </div>
         </div>
       </div>
-      <%= render partial: "blank_forms/forms/#{params[:department]}/#{certificate_name(@blank_form.section)}/#{certificate_name(@blank_form.eng_name)}" rescue nil %>
+      <%= render partial: "blank_forms/forms/#{certificate_name(params[:department])}/#{certificate_name(@blank_form.section)}/#{certificate_name(@blank_form.eng_name)}" rescue nil %>
     </div>
     <div class="divider-bdr"></div>
   </div>

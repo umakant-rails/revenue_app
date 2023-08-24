@@ -26,7 +26,7 @@ ParticipantType.create(name: "मूल भू स्वामी एवं ह�
 
 
 Department.create(eng_name: "revenue", hindi_name: "राजस्व") if Department.where(eng_name: "revenue", hindi_name: "राजस्व").blank?
-department = Department.where(eng_name: "revenue", hindi_name: "राजस्व").first
+Department.create(eng_name: "Govt Employee", hindi_name: "सरकारी कर्मचारी") if Department.where(eng_name: "Govt Employee", hindi_name: "सरकारी कर्मचारी").blank?
 
 revenue_forms = [
   {eng_name: "Income Certificate", hindi_name: "आय प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
@@ -65,14 +65,32 @@ revenue_forms = [
   {eng_name: "Talwana", hindi_name: "तलवाना", section_hindi: "फौती फॉर्म", section: 'Fouti Form'},
   {eng_name: "Patwari Prativedan", hindi_name: "पटवारी प्रतिवेदन", section_hindi: "फौती फॉर्म", section: 'Fouti Form'},
 
+  {eng_name: "Seemankan Form1", hindi_name: "सीमांकन फॉर्म - प्रथम", section_hindi: "सीमांकन फॉर्म", section: 'Seemankan Form'},
+  {eng_name: "Seemankan Form2", hindi_name: "सीमांकन फॉर्म - द्वितीय", section_hindi: "सीमांकन फॉर्म", section: 'Seemankan Form'},
+  {eng_name: "Seemankan Form3", hindi_name: "सीमांकन फॉर्म - तृतीय", section_hindi: "सीमांकन फॉर्म", section: 'Seemankan Form'},
+
   {eng_name: "Form C", hindi_name: "फॉर्म सी", section_hindi: "अन्य फॉर्म", section: 'Other Form'},
   {eng_name: "Crop Sowing", hindi_name: "फसल बुआई प्रमाण पत्र", section_hindi: "अन्य फॉर्म", section: 'Other Form'},
-  {eng_name: "Lease Land Sell Permission Form", hindi_name: "पट्टा भूमि विक्रय हेतु अनुमति आवेदन", section_hindi: "अन्य फॉर्म", section: 'Other Form'}  
+  {eng_name: "Lease Land Sell Permission Form", hindi_name: "पट्टा भूमि विक्रय हेतु अनुमति आवेदन", section_hindi: "अन्य फॉर्म", section: 'Other Form'},
+  {eng_name: "Land Selling Ikrarnama Form", hindi_name: "विक्रय इकरारनामा फॉर्म", section_hindi: "अन्य फॉर्म", section: 'Other Form'},
 
 ]
 
-if department.present?
+govt_emp_forms = [
+  {eng_name: "Earning Leave Application Form", hindi_name: "अर्जित अवकाश आवेदन फॉर्म", section_hindi: "सरकारी कर्मचारी फॉर्म", section: 'Govt Employee Form'},
+  {eng_name: "Form 16", hindi_name: "फॉर्म 16", section_hindi: "सरकारी कर्मचारी फॉर्म", section: 'Govt Employee Form'}
+]
+
+rev_dept = Department.where(eng_name: "revenue", hindi_name: "राजस्व").first
+if rev_dept.present?
   revenue_forms.each do | form | 
-    department.blank_forms.create(form) if department.blank_forms.where(form).blank?
+    rev_dept.blank_forms.create(form) if rev_dept.blank_forms.where(form).blank?
   end
+end
+
+govt_emp =  Department.where(eng_name: "Govt Employee", hindi_name: "सरकारी कर्मचारी").first
+if govt_emp.present?
+  govt_emp_forms.each do | form | 
+    govt_emp.blank_forms.create(form) if govt_emp.blank_forms.where(form).blank?
+  end 
 end

@@ -1,0 +1,185 @@
+<div class="letter-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print selection-criteria-block" id="applicant-letter">
+    <div class="col-md-12">
+      <div class="row padding-5 mt-2">
+        <div class="fnt-24 text-center fnt-b fnt-u">विक्रय इकरारनामा</div>
+        <div class="fnt-18 text-center fnt-b">
+          (कब्जा हस्तांतरित नहीं हो)
+        </div>
+        <div class="paragraph-28 fnt-16">
+          <div class="roww">
+            <div class="w-15">
+              <div class="fnt-b">इकरारकर्ता:-</div>
+              <div class="fnt-b">(विक्रेता)</div>
+            </div>
+            <div class="w-85">
+              श्री/श्रीमती/कु <%= raw blank_string_format2(19, true, "seller") %> पिता <%= raw blank_string_format2(19, true, "seller_father_name") %> पता <%= raw blank_string_format2(46, true, "seller_address") %>
+            </div>
+          </div>
+          <div class="text-center fnt-b fnt-20">एवं</div>
+          <div class="roww mb-3">
+            <div class="w-15">
+              <div class="fnt-b">इकरारगृहीता:-</div>
+              <div class="fnt-b">(क्रेता)</div>
+            </div>
+            <div class="w-85">
+              श्री/श्रीमती/कु <%= raw blank_string_format2(19, true, "seller") %> पिता <%= raw blank_string_format2(19, true, "seller_father_name") %> पता <%= raw blank_string_format2(46, true, "seller_address") %>
+            </div>
+          </div>
+          <div class="txt-indent-2 mb-3">
+            इकरारकर्ता (विक्रेता) का एक मकान/प्लाट, जो वार्ड/मुहल्ला <%= raw blank_string_format2(12, true, "colony") %> तहसील <%= raw blank_string_format2(12, true, "tehsil") %> जिला <%= raw blank_string_format2(12, true, "district") %> में स्थित है जिसका विवरण निम्नानुसार है :-  
+          </div>
+          <table class="custom-tbl mb-2">
+            <thead>
+              <tr>
+                <th class="w-16">#</th>
+                <th class="w-21">पूर्व</th>
+                <th class="w-21">पश्चिम</th>
+                <th class="w-21">उत्तर</th>
+                <th class="w-21">दक्षिण</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>भुजा का माप</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>पड़ोस</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+               <tr>
+                <td colspan="3">
+                  क्षेत्रफल(वर्ग मी/वर्ग फ़ीट)
+                </td>
+                <td colspan="2">
+                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="txt-indent-2 mb-2">
+            उक्त भूखंड/भवन का स्वामित्व प्रथम पक्षकार विक्रेता है , विक्रेता को इस भूखंड को विक्रय करने का पूर्ण अधिकार है , विक्रेता ने इससे पूर्व मकान/भूखंड किसी को किसी अन्य को विक्रय , दान, बंधक या अन्य प्रकार से हस्तांतरित नहीं किया है तथा उक्त मकान पर विक्रेता की काबिज है तथा निरंतर उसके स्वामित्व में है | उक्त मकानभूखंड  ऋण, कर एवं अन्य प्रभार बकाया नहीं है  और न ही उक्त मकान/भूखंड के सम्बन्ध में कोई प्रकरण किसी न्यायालय (राजस्व/सिविल) में प्रचलित है | उक्त मकान/भूखंड स्वत्व की दृष्टि से हर तरह से पाक एवं साफ़ है जिसक एकमात्र स्वामी विक्रेता है |
+          </div>
+          <div class="fnt-b">
+            यह विक्रय-इकरारनामा साक्ष्यांकित करता है :
+          </div>
+          <div>
+            <ol>
+              <li>
+                यह की उक्त विक्रेता ने क्रेता से उक्त मकान/भूखंड के प्रतिफल की राशि _ _ __ _ _ _  रूपये में विक्रय का करार किया है | उक्त करार में विक्रेता ने क्रेता से बयान के  रूप में _ _ _ _ _  रूपये प्राप्त कर लिए है , शेष रूपये रजिस्ट्री निष्पादित होने दिए जाने का करार किया जाता है |
+              </li>
+              <li>
+                यह कि विक्रेता उक्त करार के अनुसरण में विक्रय पत्र का निष्पादन दिनांक/अवाधि _ _ __ में करके संपत्ति का हस्तांतरण क्रेता को कर देगा एवं क्रेता,  विक्रेता को शेष रूपये का भुगतान कर देगा | 
+              </li>
+              <li>
+                यह कि निर्धारित उक्त अवधि में क्रेता द्वारा भुगतान नहीं करने पर विक्रेता को करार समाप्त करने का अधिकार होगा एवं बयाने की राशि जब्त कर ली जाएगी | 
+              </li>
+              <li>
+                यह  शेष राशि का भुगतान करने पर क्रेता रजिस्ट्री निष्पादिर करवाकर संपत्ति का कब्ज़ा प्राप्त करने का अधिकारी होगा | जिसमे चूक करेने पर विक्रेता क्षतिपूर्ति के लिए उत्तरदायी होगा | 
+              </li>
+            </ol>
+          </div>
+          <div class="">&nbsp;</div>
+          <div class="roww fnt-b">
+            <div class="w-10">
+              इकरारकर्ता
+            </div>
+            <div class="w-20 text-center">
+              नाम
+            </div>
+            <div class="w-20 text-center">
+              हस्ताक्षर
+            </div>
+             <div class="w-10">
+              इकरारग्रहीता 
+            </div>
+            <div class="w-20 text-center">
+              नाम
+            </div>
+            <div class="w-20 text-center">
+              हस्ताक्षर
+            </div>
+          </div>
+          <div class="roww mb-3">
+            <div class="w-10 fnt-b">
+              (विक्रेता)
+            </div>
+            <div class="w-20">
+              <%= raw blank_string_format2(10, true, "seller") %>
+            </div>
+            <div class="w-20">
+              <%=  blank_string_text(10) %>
+            </div>
+             <div class="w-10 fnt-b">
+              (क्रेता)
+            </div>
+            <div class="w-20">
+              <%= raw blank_string_format2(10, true, "seller") %>
+            </div>
+            <div class="w-20">
+              <%=  blank_string_text(10) %>
+            </div>
+          </div>
+          <div class="roww fnt-b">
+            <div class="w-10">
+              साक्षी/
+            </div>
+            <div class="w-20 text-center">
+              नाम
+            </div>
+            <div class="w-20 text-center">
+              हस्ताक्षर
+            </div>
+            <div class="w-10">
+              साक्षी/
+            </div>
+            <div class="w-20 text-center">
+              नाम
+            </div>
+            <div class="w-20 text-center">
+              हस्ताक्षर
+            </div>
+          </div>
+          <div class="roww">
+            <div class="w-10 fnt-b">
+              गवाह
+            </div>
+            <div class="w-20 text-center">
+              <%= raw blank_string_format2(10, true, "seller") %>
+            </div>
+            <div class="w-20 text-center">
+              <%=  blank_string_text(10) %>
+            </div>
+             <div class="w-10 fnt-b">
+              गवाह
+            </div>
+            <div class="w-20 text-center">
+              <%= raw blank_string_format2(10, true, "seller") %>
+            </div>
+            <div class="w-20 text-center">
+              <%=  blank_string_text(10) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

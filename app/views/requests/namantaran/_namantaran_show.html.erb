@@ -16,6 +16,9 @@
         <li class="list-group-item" data-action="click->request#showPage" data-pagename="ordersheet-second">
           ऑर्डरशीट-द्वितीय
         </li>
+        <li class="list-group-item" data-action="click->request#showPage" data-pagename="ordersheet-second-blank">
+          ऑर्डरशीट-द्वितीय (रिक्त)
+        </li>
         <li class="list-group-item" data-action="click->request#showPage" data-pagename="applicant-application">
           आवेदक का आवेदन
         </li>
@@ -81,11 +84,8 @@
         <%#= render partial: "requests/payment_not_done",locals: hs %>
       <%# end %>
       <%= render partial: "requests/namantaran/pages/ordersheet_first",locals: hs %>
-      <% if current_user.is_order_display %>
-        <%= render partial: "requests/namantaran/pages/ordersheet_second",locals: hs %>
-      <% else %>
-        <%= render partial: "requests/namantaran/pages/ordersheet_second_blank",locals: hs %>
-      <% end %>
+      <%= render partial: "requests/namantaran/pages/ordersheet_second",locals: hs %>
+      <%= render partial: "requests/namantaran/pages/ordersheet_second_blank",locals: hs %>
       <%#= render partial: "requests/namantaran/pages/ordersheet_second_extra",locals: hs %>
       <%= render partial: "requests/namantaran/pages/applicant_application",locals: hs %>
       <%= render partial: "requests/namantaran/pages/non_applicant_application",locals: hs %>
