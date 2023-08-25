@@ -105,6 +105,16 @@ export default class extends ApplicationController {
     }
   }
 
+  validateRakba(event){
+    var regExp = new RegExp(/^\d*\.?\d*$/);
+    var vl = event.target.value;
+    console.log(event.target.dataset)
+    if(!regExp.test(vl)){
+      event.target.value = vl.substring(0,vl.length-1);
+      super.showErrorsByLayout("रकबा/विक्रय रकबा फील्ड में केवल अंक ही भर सकते है |");
+      window.scrollTo(0,0)
+    }
+  }
   /* start js block - make ajax requext */
   getData(requestType, url, params){
     $(".spinner").css('display', 'block');

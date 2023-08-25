@@ -76,25 +76,28 @@
     </div>
 
     <div id="page-block">
+      <% hs = get_khasra_detail(@request) rescue nil %>
+
+      <% if hs.blank? %>
+        <div class="fnt-b fnt-28 mb-4 text-danger">
+          कृपया आप अपने आवेदन का विवरण चेक करे, आवेदन का विवरण सही नहीं है |
+        </div>
+      <% end %>
       <%= render "request_detail", request: @request, action_display: true %>
-      <% 
-        hs = get_khasra_detail(@request) rescue nil
-      %>
-      <%# if @request.payment_transaction.blank? %>
-        <%#= render partial: "requests/payment_not_done",locals: hs %>
-      <%# end %>
-      <%= render partial: "requests/namantaran/pages/ordersheet_first",locals: hs %>
-      <%= render partial: "requests/namantaran/pages/ordersheet_second",locals: hs %>
-      <%= render partial: "requests/namantaran/pages/ordersheet_second_blank",locals: hs %>
-      <%#= render partial: "requests/namantaran/pages/ordersheet_second_extra",locals: hs %>
-      <%= render partial: "requests/namantaran/pages/applicant_application",locals: hs %>
-      <%= render partial: "requests/namantaran/pages/non_applicant_application",locals: hs %>
-      <%= render partial: "requests/namantaran/pages/ishtihar",locals: hs %>
-      <%= render partial: "requests/namantaran/pages/kathan_affidavit",locals: hs %>
-      <%= render partial: "requests/namantaran/pages/talwana",locals: hs %>
-      <%= render partial: "requests/namantaran/pages/applicant_affidavit",locals: hs %>
-      <%= render partial: "requests/namantaran/pages/non_applicant_affidavit",locals: hs %>
-      <%= render partial: "requests/namantaran/pages/patwari_prativedan",locals: hs %>
+
+      <% if hs.present? %>
+        <%= render partial: "requests/namantaran/pages/ordersheet_first",locals: hs %>
+        <%= render partial: "requests/namantaran/pages/ordersheet_second",locals: hs %>
+        <%= render partial: "requests/namantaran/pages/ordersheet_second_blank",locals: hs %>
+        <%= render partial: "requests/namantaran/pages/applicant_application",locals: hs %>
+        <%= render partial: "requests/namantaran/pages/non_applicant_application",locals: hs %>
+        <%= render partial: "requests/namantaran/pages/ishtihar",locals: hs %>
+        <%= render partial: "requests/namantaran/pages/kathan_affidavit",locals: hs %>
+        <%= render partial: "requests/namantaran/pages/talwana",locals: hs %>
+        <%= render partial: "requests/namantaran/pages/applicant_affidavit",locals: hs %>
+        <%= render partial: "requests/namantaran/pages/non_applicant_affidavit",locals: hs %>
+        <%= render partial: "requests/namantaran/pages/patwari_prativedan",locals: hs %>
+      <% end %>
     </div>
     <div class="divider-bdr"></div>
     <%= link_to "आवेदन सूची", requests_path %>

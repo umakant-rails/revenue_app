@@ -26,40 +26,40 @@
         <div class="ps-3 pe-3">
           <div class="mb-3 row">
             <div class="col-md-3">
-              <label class="form-label">District</label>
+              <label class="form-label">जिला</label>
               <% districts, tehsils, circles, villages = get_village_details(request) %>
               <%= select_tag :district, options_for_select(districts, (form.object.village.district rescue nil)), prompt: "जिला चुने", class: "form-control", 
                 'data-request-target': 'district', 'data-action': 'change->request#getRecords' %>
             </div>
             <div class="col-md-3">
-              <label class="form-label">Tehsil</label>
+              <label class="form-label">तहसील</label>
               <%= select_tag :tehsil, options_for_select(tehsils, (form.object.village.tehsil rescue nil) ), prompt: "तहसील चुने", class: "form-control", 'data-request-target': 'tehsil', 'data-action': 'change->request#getRecords' %>
             </div>
             <div class="col-md-3">
-              <label class="form-label">Circle</label>
+              <label class="form-label">वृत्त</label>
               <%= select_tag :circle, options_for_select(circles, (form.object.village.ri rescue nil) ), prompt: "सर्किल चुने", class: "form-control", 'data-request-target': 'circle', 'data-action': 'change->request#getRecords' %>
             </div>
 
             <div class="col-md-3">
-              <%= form.label :village_id, class: "form-label" %>
+              <label class="form-label">ग्राम</label>
               <%= form.select :village_id, options_for_select(villages, (form.object.village_id rescue nil) ), {prompt: "ग्राम चुने"}, class: "form-control", 'data-request-target': 'village' %>
             </div>
           </div>
           <div class="mb-3 row">
             <div class="col-md-3">
-              <%= form.label :khasra, class: "form-label" %>
-              <%= form.text_field :khasra, class: "form-control" %>
+              <label class="form-label">खसरा</label>
+              <%= form.text_field :khasra, class: "form-control"  %>
             </div>
             <div class="col-md-3">
-              <%= form.label :rakba, class: "form-label" %>
-              <%= form.text_field :rakba, class: "form-control" %>
+              <label class="form-label">रकबा</label>
+              <%= form.text_field :rakba, class: "form-control", 'data-action': 'keyup->request#validateRakba'%>
             </div>
             <div class="col-md-2">
-              <%= form.label "Sold Rakba", class: "form-label" %>
-              <%= form.text_field :sold_rakba, class: "form-control" %>
+              <label class="form-label">विक्रय रकबा</label>
+              <%= form.text_field :sold_rakba, class: "form-control", 'data-action': 'keyup->request#validateRakba'%>
             </div>
             <div class="col-md-2">
-              <%= form.label :unit, class: "form-label" %>
+              <label class="form-label">विक्रय रकबा</label>
               <%= form.select :unit, options_for_select(Request::UNITS), {prompt: "इकाई चुने"} , class: "form-control" %>
             </div>
             <div class="col-md-2">
