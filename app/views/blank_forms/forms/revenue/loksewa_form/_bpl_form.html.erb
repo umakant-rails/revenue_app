@@ -1,0 +1,597 @@
+<div class="birth-death-certificate-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print" id="bpl-form-page-1">
+    <div class="row">
+      <div class="fnt-22 fnt-b">
+        <center>फार्म "अ"</center>
+      </div>
+      <div class="fnt-16 fnt-b txt-center">
+        (परिपत्र दो-१ के कंडिका 6 देखिये)
+      </div>
+      <div class="fnt-22 fnt-b txt-center">
+        राजस्व आदेश -पत्र (रेव्हेन्यू ऑर्डर शीट )
+      </div>
+      <div class="mt-2 p-0 col-md-12 fnt-15">
+        <div>
+          <div class="i-block w-30" ><%= raw blank_string_format2(18, true, "tehsil") %></div> के न्यायालय में मामला क्रमांक_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ /बी-121/ _ _ _ _ _ __ _ _ _ _ _
+        </div>
+        <div>
+          विषय - बी पी एल अपील निराकरण _ _ _ _ _ _ _ _ _ _ _ _ प्रकरण की श्रेणी _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+        </div>
+
+        <div>
+          ग्राम- <div class="i-block w-40" ><%= raw blank_string_format2(26, true, "village") %></div> पटवारी ह क्र <div class="i-block w-15" ><%= raw blank_string_format2(5, true, "halka_number") %></div> तहसील <div class="i-block w-20" ><%= raw blank_string_format2(13, true, "tehsil") %></div> _ _ _ _
+        </div>
+      </div>
+    </div>
+    <div class="mt-1">
+      <div class="row first-row">
+        <div class="w-15 table-left-column fnt-15">
+          आदेश क्रमांक अथवा कार्यवाही की तारीख और स्थान 
+        </div>
+        <div  class="w-65 table-center-column fnt-15">
+          पीठासीन अधिकारी के हस्ताक्षर सहित आवेदन पत्र अथवा कार्यवाही 
+        </div>
+        <div  class="w-20 table-right-column ps-0 pe-0 fnt-15">
+          जहाँ आवश्यक हो, पर्ची व वकीलों के हस्ताक्षर आदेशों के पालन करवाकर लिपिक के संक्षित हस्ताक्षर  और प्रकरण की तारिख 
+        </div>
+      </div>
+      <div class="row seccond-row">
+        <div class="w-15 table-left-column txt-center">1</div>
+        <div class="w-65 table-center-column txt-center">2</div> 
+        <div class="w-20 table-right-column txt-center">3</div>
+      </div>
+      <div class="row pb-2">
+        <div class="w-15 table-left-column"></div>
+        <div class="w-65 table-center-column">
+          <div class="m-sm-2 paragraph-28 ln-hgt-26">
+            <div class="txt-indent-">
+              आवेदक (अपीलार्थी) <%= raw blank_string_format2(20, true, "applicant") %>
+              पिता/पति <%= raw blank_string_format2(24, true, "applicant_father_name") %>
+              निवासी/ग्राम <%= raw blank_string_format2(20, true, "applicant_address") %> ग्राम पंचायत <%= raw blank_string_format2(16, true, "village") %> विकासखंड <%= raw blank_string_format2(12, true, "block_name") %> द्वारा बी पी एल सर्वे सूची 02-03 पर आपत्ति पेश किया है कि उसका सर्वेक्षण नियमनुसार नहीं किया गया है जिससे उसका नाम बी पी एल में नहीं आ सका है | अतः पुनःपरीक्षण कराकर उचित आदेश पारित हो |  
+            </div>
+            <ol>
+              <li>मामला विविध मद में दर्ज हो |</li>
+              <li>हल्का पटवारी एवं सचिव से आवेदन की उपस्तिथि में अपील आवेदन पर संयुक्त जांच रिपोर्ट बुलाई जाये |</li>
+              <li>
+                जनपद पंचायत <%= raw blank_string_format2(12, true, "block_name") %> से अपीलार्थी के परिवार का सर्वेक्षण प्रपत्र-1 वर्ष 2002-03  बुलाया जाय |
+              </li>
+            </ol>
+            <div class="roww">
+              <div class="w-70">
+                <strong>पेशी दिनांक</strong>
+              </div>
+              <div class="w-30">
+                <div class="text-center"><strong>तहसीलदार</strong></div>
+                <div class="text-center">
+                  <strong><%= raw blank_string_format2(10, true, "tehsil") %></strong>
+                </div>
+              </div>
+            </div>
+            <div>
+              प्रकरण प्रस्तुत
+            </div>
+            <div class="txt-indent-2">
+              पटवारी एवं सचिव ग्राम पंचायत के संयुक्त जांच प्रतिवेदन प्रपत्र- में वर्ष 2002-03 का प्रपत्र/नवीन प्रपत्र प्राप्त | अवलोकन किया गया | प्रतिवेदन अनुसार आवेदन का कुल प्राप्तांक _ _ _ _ _ पाया गया | बी पी एल सूची की पात्रता हेतु शासन द्वारा निर्धारित अंक 14 तक नियत है |
+            </div> 
+            <div class="mb-3">
+              <ol>
+                <li>
+                  आवेदक को प्राप्त अंक पात्रता अंक से अधिक होने से नाम जोड़ने का आवेदन निरस्त किया जाता है |
+                  <span class="text-center fnt-b">अथवा</span>
+                </li>
+                <li>निम्नलिखित कारण से आवेदन निरस्त किया जाता है <%= raw blank_string_text(63) %></li>
+                <li>
+                  आवेदन को प्राप्त अंक पात्रता अंक से काम होने से बी पी एल सूची में नाम जोड़ने को आदेश पारित किया जाता है | पृथक से आदेश की प्रति मुख्य कार्यपालन अधिकारी जनपद पंचायत <%= raw blank_string_format2(12, true, "block_name") %> की ओर इस निर्देश के साथ भेजी जावे कि ग्राम की बी पी एल सूची 02-03 में आवेदन का नाम जोड़ा जावे | तत्पश्चात प्रकरण नस्ती होकर दाखिल रिकॉर्ड हो|
+                </li>
+              </ol>
+            </div>
+            <div class="fRight mt-3">
+              <div class="text-center"><strong>तहसीलदार/ना तहसीलदार</strong></div>
+              <div class="text-center">
+                <strong><%= raw blank_string_format2(14, true, "tehsil") %></strong>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div class="w-20 table-right-column"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="bpl-form-page-2">
+    <div class="mrgn-top-20">&nbsp;</div>
+    <div class="m-sm-2 paragraph padding-5">
+      <div class="mt-2 p-0 col-md-12">
+        <div>
+          सेवा में,
+        </div>
+        <div class="padding-10 fnt-b mb-3">
+          <div>श्रीमान <%= raw blank_string_format2(20, true, "sddressed_to1") %></div>
+          <div><%= raw blank_string_format2(24, true, "sddressed_to2") %></div>
+        </div>
+        <div class="roww mb-3">
+          <div class="fnt-b me-3">विषय:-</div>
+          <div class="">गरीबी रेखा में आवेदक का नाम दर्ज करने बावत्‌ |</div>
+        </div>
+        <div class="padding-8">
+          <div>नाम <%= raw blank_string_format2(16, true, "applicant") %>पिता/पति<%= raw blank_string_format2(19, true, "applicant_father_name") %></div>
+          <div>जाति <%= raw blank_string_format2(15, true, "applicant_cast") %> निवासी <%= raw blank_string_format2(20, true, "applicant_address") %></div>
+          <div>
+            तहसील <%= raw blank_string_format2(16, true, "tehsil") %> जिला <%= raw blank_string_format2(19, true, "district") %>
+          </div>
+        </div>
+        <div class="padding-8">
+          आवेदक निम्न प्रार्थी है :-
+        </div>
+        <div class="padding-4">
+          <ol>
+            <li>
+              आवेदक साकिन <%= raw blank_string_format2(16, true, "applicant_address") %> तहसील <%= raw blank_string_format2(12, true, "tehsil") %> जिला <%= raw blank_string_format2(12, true, "district") %> का स्थायी निवासी है|
+            </li>
+            <li>आवेदक गरीब परिवार का व्यक्ति है तथा आमदनी का जरिया मजदूरी है |</li>
+            <li>आवेदक भूमिहीन हैं तथा गंरीवी रेखा के नीचे जीवन यापन कर रहा है। उसके परिवार में _ _ _ _ _ सदस्य हैं |</li>
+            <li>आवेदक का नाम गरीबी रेखा की सूची में दर्ज नहीं है जो कि आवेदक गरीबी रखा सूची में नाम दर्ज करवाने की पात्रता रखता है |</li>
+          </ol>
+        </div>
+        <div class="padding-8 txt-indent-2">
+          अतएव माननीय महोदय से सविनय निवेदन है कि आवेदक की माली हालत को देखते हुये उसका नाम गरीबी रेखा की सूची में दर्ज करने की कृपा की जाये
+        </div>
+        <div class="">&nbsp;</div>
+        <div class="">&nbsp;</div>
+        <div class="roww">
+          <div class="w-70">
+            <div class="fnt-b"><%= raw blank_string_format2(10, true, "tehsil") %></div>
+            <div><strong>दिनांक:</strong> _ _ _ _ _ _ _ _</div>
+          </div>
+          <div class="w-30">
+            <div class="text-center"><%= blank_string_text(12)%></div>
+            <div class="text-center"><strong>आवेदक</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="bpl-form-page-3">
+    <div class="paragraph-28 padding-3">
+      <div class="row">
+        <div class="fnt-17 text-center fnt-u fnt-b">
+          प्रपत्र - 1
+        </div>
+        <div class="fnt-20 text-center fnt-u fnt-b">
+          बी.पी. एल. सर्वेक्षण 2003 हेतु सर्वे शेड्यूल
+        </div>
+        <div class="fnt-15 text-center fnt-u fnt-b mb-2">
+          (प्रत्येक परिवार के लिए पृथक भरा जायेगा)
+        </div>
+        <div class="mb-1">
+          <div class="roww">
+            <div class="w-50 p-0">
+            परिवार के मुखिया के नाम <%= raw blank_string_format2(20, true, "family_head") %>
+            </div>
+            <div class="w-50">
+              कुल प्राप्तांक <%= raw blank_string_format2(26, true, "family_head") %>
+            </div>
+          </div>
+          <div>
+            ग्राम का नाम <%= raw blank_string_format2(16, true, "village") %> कोड न <%= raw blank_string_format2(12, true, "village_code") %> श्रेणी <%= raw blank_string_format2(10, true, "village_category") %> ग्राम पंचायत का नाम <%= raw blank_string_format2(16, true, "village") %> कोड न <%= raw blank_string_format2(12, true, "village_code") %> विकासखंड का नाम <%= raw blank_string_format2(16, true, "village") %> कोड न <%= raw blank_string_format2(12, true, "village_code") %> जिले का नाम <%= raw blank_string_format2(16, true, "village") %> कोड न <%= raw blank_string_format2(12, true, "village_code") %>
+          </div>
+        </div>
+        <div class="roww fnt-16 fnt-b">
+          <div class="w-20">भाग (क)</div>
+          <div class="w-60 text-center">परिवार की जानकारी</div>
+          <div class="w-20"></div>
+        </div>  
+        <table class="custom-tbl">
+          <thead>
+            <tr class="fnt-15 text-center ln-hgt-20">
+              <th class="w-8">क्र</th>
+              <th class="w-45">नाम</th>
+              <th class="w-8">आयु वर्ष में</th>
+              <th class="w-8">लिंग (पुरुष/स्त्री)</th>
+              <th class="w-12">मुखिया से सम्बन्ध</th>
+              <th class="w-17">शैक्षणिक स्तर कृपया कोड दे</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>2</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>3</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>4</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>5</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>6</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>7</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>8</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>9</td><td></td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+        <div class="roww">
+          <div class="w-5 p-0">(अ):</div>
+          <div class="w-50">अशिक्षित/पांचवी के काम पास-1</div>
+          <div class="w-45">पांचवी पास-2 आठवीं पास-3</div>
+        </div>
+        <div class="roww">
+          <div class="w-5"></div>
+          <div class="w-50">दसवीं पास-4</div>
+          <div class="w-45">बारवहीं पास-5 स्नातक व् अन्य-6</div>
+        </div>
+        <div class="roww">
+          <div class="w-5 p-0">(ब):</div>
+          <div class="w-95">परिवार की औसत मासिक आय (रूपये में) सर्वाधिक उपयुक्त किसी कॉलम को टिक करे</div>
+        </div>
+        <table class="custom-tbl text-center">
+          <thead>
+            <tr>
+              <th>250 से कम</th>
+              <th>250-499</th>
+              <th>500-1499</th>
+              <th>1500-2500</th>
+              <th>2500 से अधिक</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&nbsp;</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="roww">
+          <div class="w-5 p-0">(स):</div>
+          <div class="w-95">धारित भूमि की हैसियत सर्वाधिक उपयुक्त किसी एक कॉलम को टिक करे</div>
+        </div>
+        <table class="custom-tbl text-center">
+          <thead>
+            <tr>
+              <th>स्वामी</th>
+              <th>किरायेदार</th>
+              <th>स्वामी एवं किरायेदार दोनों</th>
+              <th>इनमे से कोई नहीं</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&nbsp;</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="roww">
+          <div class="w-5 p-0">(द):</div>
+          <div class="w-95">
+            इंदिरा आवास योजनान्तर्गत आवास निर्माण हेतु क्या भू-खंड उपलब्ध है ( सर्वाधिक उपयुक्त कॉलम को टिक करे | ) 
+            &nbsp;&nbsp;हाँ&nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> नहीं&nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> 
+          </div>
+        </div>
+        <div class="roww">
+          <div class="w-5 p-0">(इ):</div>
+          <div class="w-95">
+            पेयजल सुविधा (सर्वाधिक उपयुक्त किसी एक कॉलम को टिक करे )
+          </div>
+        </div>
+        <table class="custom-tbl text-center">
+          <thead>
+            <tr>
+              <th>1.6 किमी के अंदर कोई सुविधा नहीं</th>
+              <th>1-1.59 किमी के अंदर पेयजल सुविधा</th>
+              <th>0.50-0.99 किमी के अंदर पेयजल सुविधा</th>
+              <th>आधा किमी से काम दूरी पर उपलब्ध पेयजल सुविधा</th>
+              <th>पेयजल सुविधा मकान में ही उपलब्ध</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&nbsp;</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="roww">
+          <div class="w-5 p-0">(फ):</div>
+          <div class="w-95">
+            परिवार का सामाजिक वर्ग (सर्वाधिक उपयुक्त किसी एक कॉलम को टिक करे )
+          </div>
+        </div>
+        <table class="custom-tbl text-center">
+          <thead>
+            <tr>
+              <th>अनुसूचित जाति</th>
+              <th>अनुसूचित जनजाति</th>
+              <th>अन्य पिछड़ा वर्ग</th>
+              <th>अन्य</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&nbsp;</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="fnt-12 fnt-b">* कुल प्राप्तांक में शामिल नहीं किया जायेगा</div>        
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="bpl-form-page-4">
+    <div class="mt-3 paragraph-30 padding-3">
+      <div class="text-center fnt-24 fnt-b mb-3">
+        भाग (अ) ग्रामीण गरीबों चिन्हांकन एवं श्रेणी विभाजन
+      </div>
+      <table class="custom-tbl fnt-15">
+        <thead>
+          <tr class="text-center">
+            <th rowspan="2" class="w-4">क्र</th>
+            <th rowspan="2" class="w-21">मद</th>
+            <th colspan="5">&nbsp;</th>
+          </tr>
+          <tr class="text-center">
+            <th class="w-15">0</th>
+            <th class="w-15">1</th>
+            <th class="w-12">2</th>
+            <th class="w-12">3</th>
+            <th class="w-21">4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>परिवार द्वारा धारित भूमि</td>
+            <td>निरंक</td>
+            <td>असिंचित 1 हेक्ट से कम भूमि (सिंचित आधा हेक्ट से कम भूमि)</td>
+            <td>असिंचित 1 से 2 हेक्ट से कम भूमि (सिंचित आधा हेक्ट से कम भूमि)</td>
+            <td>असिंचित 2 से 5 हेक्ट भूमि (सिंचित आधा से 1 हेक्ट भूमि)</td>
+            <td>असिंचित 5 से अधिक हेक्ट भूमि (सिंचित 2.5 हेक्ट से अधिक भूमि)</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>मकान का प्रकार</td>
+            <td>आवासहीन</td>
+            <td>कच्चा</td>
+            <td>अर्द्धपक्का</td>
+            <td>पक्का</td>
+            <td>शहरी मकानों जैसा</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>प्रति व्यक्ति पहनने के कपड़ो की उपलब्धता</td>
+            <td>2 जोड़ी</td>
+            <td>2 से 4 जोड़ी</td>
+            <td>4 से 6 जोड़ी</td>
+            <td>6 से 10 जोड़ी</td>
+            <td>10 जोड़ी से अधिक</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>खाद्य सुरक्षा</td>
+            <td>वर्ष के अधिकांश समय प्रतिदिन एक समय से भी कम भोजन उपलब्ध होना</td>
+            <td>सामान्य बर्ष में प्रतिदिन एक समय लेकिन यदा-कदा एक समय से भी काम भोजन उपलब्ध होना</td>
+            <td>वर्ष भर प्रतिदिन एक समय भोजन उपलब्ध होना</td>
+            <td>सामान्यतः वर्ष में प्रतिदिन दोनों समय भोजन उपलब्ध होना</td>
+            <td>वर्ष भर पर्याप्त भोजन उपलब्ध होना</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>स्वच्छता</td>
+            <td>खुले में</td>
+            <td>अनियमित जल आपूर्ति सहित सामूहिक शौचालय</td>
+            <td>नियमित जल आपूर्ति सहित सामूहिक शौचालय</td>
+            <td>नियमित जल आपूर्ति एवं स्वीपर सहित स्वच्छ सामूहिक शौचालय</td>
+            <td>निजी शौचालय</td>
+          </tr>
+          <tr>
+            <td class="w-4">6</td>
+            <td class="w-21">
+              उपभोक्ता बस्तुओं का स्वामित्व तथा निम्नांकित धारित है ? (परिवार के मुखिया से पूछकर टिक करे) टेलीविजन विद्युत् पंखा कुकर आदि जैसे रसोई के उपकरण रेडियो   
+            </td>
+            <td class="w-15">निरंक</td>
+            <td class="w-15">कोई एक</td>
+            <td class="w-12">कोई दो</td>
+            <td class="w-12">कोई तीन</td>
+            <td class="w-21">
+              सभी(अच्छा आइटम धारित हो तो उसका भी उल्लेख किया जावे) कंप्यूटर टेलीफ़ोन रेफ्रिजरेटर रंगीन टीवी 2/4 पहिया यांत्रिक वाहन ट्रैक्टर पावर तैयार थ्रेशर, हार्वेस्टर मंहगा फर्नीचर रसोई के विद्युत् उपकरण तथा माइक्रोवेव मिक्सी आदि
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="bpl-form-page-5">
+    <div class="mt-3 paragraph-30 padding-3">
+      <table class="custom-tbl fnt-15 mb-3">
+        <thead>
+          <tr class="text-center">
+            <th rowspan="2" class="w-4">क्र</th>
+            <th rowspan="2" class="w-21">मद</th>
+            <th colspan="5">&nbsp;</th>
+          </tr>
+          <tr class="text-center">
+            <th class="w-15">0</th>
+            <th class="w-15">1</th>
+            <th class="w-12">2</th>
+            <th class="w-12">3</th>
+            <th class="w-21">4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="w-4">7</td>
+            <td class="w-21">परिवार के सर्वाधिक पढ़े लिखे व्यक्ति का शैक्षणिक स्तर</td>
+            <td class="w-15">अशिक्षित</td>
+            <td class="w-15">प्राथमिक</td>
+            <td class="w-12">दसवीं पास</td>
+            <td class="w-12">स्नातक/व्यावसायिक डिप्लोमा</td>
+            <td class="w-21">स्नातकोत्तर/व्यावसायिक डिप्लोमा</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>परिवार श्रम का स्तर</td>
+            <td>बंधुआ मजदूर</td>
+            <td>महिला एवं बाल श्रमिक</td>
+            <td>केवल वयस्क महिला श्रमिक</td>
+            <td>केवल वयस्क पुरुष श्रमिक</td>
+            <td>अन्य</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>जीविकापार्जन के साधन</td>
+            <td>आकस्मिक मजदूरी</td>
+            <td>निर्वाह योग्य खेती</td>
+            <td>शिल्पी</td>
+            <td>वैतनिक</td>
+            <td>अन्य</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>बच्चो का स्तर (5-14)</td>
+            <td>स्कूल न जाकर काम पर जाना</td>
+            <td>स्कूल और काम दोनों पर जाना</td>
+            <td></td>
+            <td></td>
+            <td>स्कूल जाना एवं काम पर न जाना</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>देनदारी का प्रकार</td>
+            <td>अनौपचारिक स्त्रोतों से दैनिक उपभोग के लिए</td>
+            <td>अनौपचारिक स्त्रोतों से उत्पादन हेतु</td>
+            <td>अनौपचारिक स्त्रोतों से अन्य प्रयोजन हेतु</td>
+            <td>केवल बैंक आदि जैसी संस्थागत एजेंसी से उधार लेना</td>
+            <td>कोई देनदारी नहीं संपत्ति धारित करना</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>
+              परिवार के ग्राम से बाहर गमन का कारण
+            </td>
+            <td>आकस्मिक कार्य</td>
+            <td>मौसमी रोजगार</td>
+            <td>जीविकोपार्जन का अन्य साधन</td>
+            <td>गमन नहीं करते</td>
+            <td>
+              अन्य प्रयोजन हेतु गमन
+            </td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>
+              सहायता की प्राथमिकता
+            </td>
+            <td>मजदूरी आधारित रोजगार/लक्षित सार्वजनिक  वितरण प्रणाली</td>
+            <td>स्वरोजगार</td>
+            <td>प्रशिक्षण एवं कौशल उन्नयन</td>
+            <td>आवास हेतु</td>
+            <td>
+              एक लाख से अधिक अनुदान/ऋण हेतु अथवा किसी सहायता की आवश्यकता नहीं 
+            </td>
+          </tr> 
+        </tbody>
+      </table>
+      <div class="fnt-16">* अनौपचारिक शिक्षा सहित</div>
+      <div class="fnt-16">
+        <strong>टीप:</strong> परिवार द्वारा अर्जित कुल प्राप्तांक 0 और 52 के बीच होंगे
+      </div> 
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="bpl-form-page-6">
+    <div class="">&nbsp;</div>
+    <div class="text-center fnt-26 fnt-b mb-1">
+      समक्ष अधिकारी श्रीमान्‌ नोटरी पब्लिक अधिकारी महोदय <%= raw blank_string_format2(8, true, "tehsil") %>
+    </div>
+    <div class="text-center fnt-24 fnt-u fnt-b">
+      शपथ - पत्र
+    </div>
+
+    <div class="paragraph-32 padding-4">
+      <div class="mb-2">
+         मैं <%= raw blank_string_format2(22, true, "applicant") %> आयु <%= raw blank_string_format2(6, true, "age") %> वर्ष पिता/पति<%= raw blank_string_format2(22, true, "applicant_father_name") %> जाति <%= raw blank_string_format2(16, true, "applicant_cast") %> निवासी <%= raw blank_string_format2(20, true, "applicant_address") %> तहसील <%= raw blank_string_format2(16, true, "tehsil") %> जिला <%= raw blank_string_format2(19, true, "district") %> शपथपूर्वक कथन करता/करती हूँ | 
+      </div>
+      <ol>
+        <li>
+          यह कि मैं <%= raw blank_string_format2(22, true, "applicant") %> तहसील <%= raw blank_string_format2(16, true, "tehsil") %> जिला <%= raw blank_string_format2(19, true, "district") %> का स्थायी निवासी हूँ |
+        </li>
+        <li>
+          यह कि मेरा पूर्व में गरीबी रेखा सूची में नाम दर्ज था जिसका सर्वे क्रमांक <%= raw blank_string_format2(6, false, "survey_number") %> है खाता क्रमांक <%= raw blank_string_format2(6, false, "account_number") %> है वर्ष <%= raw blank_string_format2(6, false, "year") %> दर्ज था |
+        </li>
+        <li>
+          यह कि मैं भूमिहीन हूँ मेरा व्यवसाय <%= raw blank_string_format2(22, true, "business") %> है और आय का अन्य कोई स्त्रोत नहीं है |
+        </li>
+        <li>
+          यह कि मेरे परिवार में कुल <%= raw blank_string_format2(6, false, "family_member") %> सदस्य है जिनका भरण-पोषण <%= raw blank_string_format2(22, true, "work_for_living") %> से करता हूँ
+        </li>
+        <li>यह किक मेरा वर्तमान में गरीवी रेखा सूची में नाम नहीं जोड़ा गया |</li>
+        <li>यह कि मैं गरीबी रेखा के नीचे जीवन यापन करता हूँ मेरा गरीबी रेखा सूची में नाम जोड़ा जावे | </li>
+      </ol>
+      <div class="txt-indent-2"> 
+        अतः शपथ पत्र पेश है |
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="">&nbsp;</div>
+      <div class="roww">
+        <div class="w-75">
+          <strong>स्थान :</strong> <%= raw blank_string_format2(12, true, "tehsil") %>
+        </div>
+        <div class="w-25"></div>
+      </div>
+      <div class="roww">
+        <div class="w-75">
+          <strong>दिनांक :</strong> <%= raw blank_string_format2(12, false, "date") %>
+        </div>
+        <div class="w-25 text-center fnt-b">(शपथकर्ता)</div>
+      </div>
+      <div class="text-center fnt-24 fnt-u">
+        सत्यापन
+      </div> 
+      <div> 
+        मैं <%= raw blank_string_format2(22, true, "applicant") %> शपथकर्ता सत्यापित करता हूँ शपथ पत्र के पेरा क्र. 1 से 6 तक कथन मेरे स्वतः के आने से सही व सच है |
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="">&nbsp;</div>
+      <div class="roww">
+        <div class="w-70"></div>
+        <div class="w-30 text-center fnt-b">शपथकर्ता</div>
+      </div>
+      <div class="roww">
+        <div class="w-70"></div>
+        <div class="w-30">गवाह <%= raw blank_string_format2(12, true, "witness_name") %></div>
+      </div>
+      <div class="roww">
+        <div class="w-70">
+          <strong>स्थान :</strong> <%= raw blank_string_format2(12, true, "tehsil") %>
+        </div>
+        <div class="w-30">वल्द <%= raw blank_string_format2(12, true, "witness_father_name") %></div>
+      </div>
+       <div class="roww">
+        <div class="w-70">
+          <strong>दिनांक :</strong> <%= raw blank_string_format2(12, false, "date") %>
+        </div>
+        <div class="w-30">पता <%= raw blank_string_format2(12, true, "witness_address") %></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

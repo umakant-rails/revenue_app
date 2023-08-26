@@ -94,7 +94,10 @@ page[size="A4"][layout="landscape"] {
   */
 }
 
+.w-4{width: 4%; padding: 0px 5px;}
+.w-5{width: 5%; padding: 0px 5px;}
 .w-6{width: 6%; padding: 0px 5px;}
+.w-7{width: 7%; padding: 0px 5px;}
 .w-8{width: 8%; padding: 0px 5px;}
 .w-10{width: 10%; padding: 0px 5px;}
 .w-15{width: 15%; padding: 0px 5px;}
@@ -115,6 +118,7 @@ page[size="A4"][layout="landscape"] {
 .w-70{width: 70%; padding: 0px 5px;}
 .w-80{width: 80%; padding: 0px 5px;}
 .w-85{width: 85%; padding: 0px 5px;}
+.w-95{width: 95%; padding: 0px 5px;}
 .w-100{width: 100%; padding: 0px 5px;}
 
 .mrgn-2{ margin-left: 2%; margin-right: 2%; }
@@ -146,6 +150,11 @@ page[size="A4"][layout="landscape"] {
 .paragraph-30{
   line-height: 30px;
   font-size: 16px;
+  text-align: justify;
+}
+.paragraph-32{
+  line-height: 32px;
+  font-size: 17px;
   text-align: justify;
 }
 .paragraph-35{

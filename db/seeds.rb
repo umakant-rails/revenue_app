@@ -37,6 +37,7 @@ revenue_forms = [
   {eng_name: "Birth And Death Certificate", hindi_name: "जन्म मृत्यु प्रमाण पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
   {eng_name: "Sambal Form", hindi_name: "सम्बल आवेदन पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
   {eng_name: "EWS Form", hindi_name: "ई डब्ल्यू एस आवेदन पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
+  {eng_name: "BPL Form", hindi_name: "बी पी एल आवेदन पत्र", section_hindi: 'लोकसेवा फॉर्म', section: 'Loksewa Form'},
 
 
   {eng_name: "Applicant Application", hindi_name: "आवेदक का आवेदन", section_hindi: 'पी एम किसान फॉर्म', section: 'PM Kisan Form'},
