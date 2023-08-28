@@ -11,6 +11,127 @@
   </span>
 
   <div class="page-a4 only-print" id="bpl-form-page-1">
+    <div class="mt-3 paragraph-32 padding-3">
+      <div class="fnt-18 fnt-b text-center">प्रारूप 1 ( भाग दो )</div>
+      <div class="text-center fnt-24 fnt-b fnt-u">
+        एकीकृत वृद्धावस्था एवं सामाजिक सुरक्षा पेंशन हेतु आवेदन पत्र 
+      </div>
+      <div class="fnt-22 fnt-b text-center mb-2">
+        ( निराश्रित आवेदक द्वारा भरा जावे )
+      </div>
+      <ol>
+        <li>
+          आवेदक का नाम <%= raw blank_string_format2(20, true, "applicant") %> पिता/पति का नाम <%= raw blank_string_format2(20, true, "applicant_father_name") %> जाति <%= raw blank_string_format2(20, true, "applicant_cast") %>
+        </li>
+        <li>आवेदक की आयु <%= raw blank_string_format2(16, true, "age") %></li>
+        <li>आवेदक के मूल निवास स्थान का पूर्ण पता <%= raw blank_string_format2(24, true, "permanent_address") %></li>
+        <li>आवेदक के वर्तपान निवास का पूर्ण पता <%= raw blank_string_format2(25, true, "current_address") %></li>
+        <li>
+          यदि विधवा/परित्यक्ता हो तो पति की मृत्यु/पति द्वारा छोड़ दिये जाने का दिनांक <%= raw blank_string_format2(16, true, "divorce_date") %>
+          <div class="">(अ). परित्यक्ता की स्थिति में स्थानीय पार्षद अथवा ग्राम पंचायत को पंच का प्रधाणीकरण संलग्न करें |</div>
+        </li>
+        <li>
+          यदि विकलांग है तो विकलांगता का प्रकार
+          <div>(अ). चिकित्सक का प्रमाण पत्र संलग्ग करें</div>
+          <div>(ब). विकलांग छात्र स्कूल में अध्ययनरत होने का शालेय प्रमाण पत्र संलग्न करें</div>
+        </li>
+        <li>
+          आवेदक के परिवार के सदस्यों की जानकारी -
+          <table class="custom-tbl mb-3">
+            <thead>
+              <tr class="text-center">
+                <th class="w-4">क्र</th>
+                <th class="w-25">नाम</th>
+                <th class="w-15">सम्बन्ध</th>
+                <th class="w-6">आयु</th>
+                <th class="w-20">व्यवसाय</th>
+                <th class="w-10">मासिक आमदनी</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>2</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>3</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>4</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>5</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>6</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>7</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>8</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>
+          <div>(अ). क्या आवेदक भूपिहीन है ? <%= raw blank_string_format2(25, true, "land_status") %></div>
+          <div>(ब). क्या आवेदक का भरण-पोषण करने वाला कोई नहीं है ? <%= raw blank_string_format2(25, true, "livilyhood_status") %></div>
+          <div>(स). यदि आवेदक भूमिहीन नहीं है । स्वयं/पति/पत्नि/पुत्री/पौत्र के नाम भूमि/मकान आदि का विवरण है |</div>
+          <div>(द). कण्डिका 8 से मासिक आय रू. <%= raw blank_string_format2(25, false, "income") %></div>
+          <div>(इ). क्‍या कण्डिका 8 स में अंकित सम्पत्ति तथा द में अंकित आय <%= raw blank_string_format2(24, false, "total_income") %> परिवार का भरण पोषण के लिए पर्याप्त है</div>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="bpl-form-page-2">
+    <div class="mt-3 paragraph-32 padding-3">
+      <div class="mb-4">
+        <ol start="9">
+          <li>
+            क्या आवेदक को गज्य शासन या किसी स्थानीय संस्था से भरण पोषण हेतु कोई राशि प्राप्त हो रही है तो किस रूप <%= raw blank_string_format2(50, true, "livelihood_amount_recieved") %>
+          </li>
+          <li>
+            वर्तमान में जीविका का क्या साधन है <%= raw blank_string_format2(36, true, "livelihood_resouce") %>
+            <div>संलग्न :-</div>
+            <div>1. विकलांगता प्रमाण पत्र</div>
+            <div>2. निराश्रित का प्रमाण पत्र</div>
+            <div>3. 6 से 14 वर्ष की उम्र के विकलांग छात्र का स्कूल जाने का शालेय प्रमाण पत्र</div>
+            <div>4. परित्यक्ता सम्बन्धी प्रमाण पत्र</div>
+          </li>
+        </ol>
+      </div> 
+      <div class="roww mb-3">
+        <div class="w-70"></div>
+        <div class="w-30 fnt-b text-center">आवेदक के हस्ताक्षर</div>
+      </div>
+      <div class="text-center fnt-22 fnt-b">घोषणा-पत्र</div>
+      <div class="txt-indent-2 mb-3">
+        मैं श्री/श्रीमती/कुमारी <%= raw blank_string_format2(16, true, "applicant") %> पिता/पति <%= raw blank_string_format2(50, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(24, true, "applicant_address") %> सत्यनिष्ठा से घोषणा करता/करती हूँ कि शासन नियमानुसार कार्यवाही कर सकेगा |
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="roww mb-5">
+        <div class="w-70"></div>
+        <div class="w-30 fnt-b text-center">आवेदक के हस्ताक्षर</div>
+      </div>
+      <div class="fnt-26 text-center fnt-b">
+        एकीकृत वृद्धावस्था एवं सामाजिक सुरक्षा पेन्शन योजना हेतु प्राप्त आवेदन पत्र की अभिस्वीकृति
+      </div>
+      <div class="txt-indent-2 mb-3">
+        एकीकृत वृद्धावस्था एवं सामाजिक सुरक्षा पेन्शन योजना अंतर्गत सहायता प्राप्त करने हेतु श्री/श्रीमती/कुमारी <%= raw blank_string_format2(16, true, "applicant") %> पिता/पति <%= raw blank_string_format2(50, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(24, true, "applicant_address") %> का आवेदन आज दिनांक <%= raw blank_string_format2(12, false, "date") %> को नगर निगम कार्यालय <%= raw blank_string_format2(12, true, "nagr_nigam") %> में प्राप्त हुआ |
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="roww mb-3">
+        <div class="w-70"></div>
+        <div class="w-30 fnt-b text-center">प्राप्तकर्ता के हस्ताक्षर एवं नाम व पद मुद्रा</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="page-a4 only-print" id="bpl-form-page-3">
     <div class="fnt-28 fnt-u fnt-b text-center padding-5">
       सामाजिक सुरक्षा पेन्शन के अन्तर्गत स्वीकृत हितग्राहियों की आंतरिक जांच
     </div>
@@ -193,7 +314,7 @@
     </div>
   </div>
 
-  <div class="page-a4 only-print" id="bpl-form-page-2">
+  <div class="page-a4 only-print" id="bpl-form-page-4">
     <div class="">&nbsp;</div>
     <div class="paragraph-30 padding-3">
       <ol start="5">
@@ -336,127 +457,6 @@
       <div class="roww">
         <div class="w-70"><strong>दिनॉक:</strong> <%= format_dt(Date.today) %></div>
         <div class="w-30 fnt-b text-center">जांचकर्ता के हस्ताक्षर</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="page-a4 only-print" id="bpl-form-page-3">
-    <div class="mt-3 paragraph-32 padding-3">
-      <div class="fnt-18 fnt-b text-center">प्रारूप 1 ( भाग दो )</div>
-      <div class="text-center fnt-24 fnt-b fnt-u">
-        एकीकृत वृद्धावस्था एवं सामाजिक सुरक्षा पेंशन हेतु आवेदन पत्र 
-      </div>
-      <div class="fnt-22 fnt-b text-center mb-2">
-        ( निराश्रित आवेदक द्वारा भरा जावे )
-      </div>
-      <ol>
-        <li>
-          आवेदक का नाम <%= raw blank_string_format2(20, true, "applicant") %> पिता/पति का नाम <%= raw blank_string_format2(20, true, "applicant_father_name") %> जाति <%= raw blank_string_format2(20, true, "applicant_cast") %>
-        </li>
-        <li>आवेदक की आयु <%= raw blank_string_format2(16, true, "age") %></li>
-        <li>आवेदक के मूल निवास स्थान का पूर्ण पता <%= raw blank_string_format2(24, true, "permanent_address") %></li>
-        <li>आवेदक के वर्तपान निवास का पूर्ण पता <%= raw blank_string_format2(25, true, "current_address") %></li>
-        <li>
-          यदि विधवा/परित्यक्ता हो तो पति की मृत्यु/पति द्वारा छोड़ दिये जाने का दिनांक <%= raw blank_string_format2(16, true, "divorce_date") %>
-          <div class="">(अ). परित्यक्ता की स्थिति में स्थानीय पार्षद अथवा ग्राम पंचायत को पंच का प्रधाणीकरण संलग्न करें |</div>
-        </li>
-        <li>
-          यदि विकलांग है तो विकलांगता का प्रकार
-          <div>(अ). चिकित्सक का प्रमाण पत्र संलग्ग करें</div>
-          <div>(ब). विकलांग छात्र स्कूल में अध्ययनरत होने का शालेय प्रमाण पत्र संलग्न करें</div>
-        </li>
-        <li>
-          आवेदक के परिवार के सदस्यों की जानकारी -
-          <table class="custom-tbl mb-3">
-            <thead>
-              <tr class="text-center">
-                <th class="w-4">क्र</th>
-                <th class="w-25">नाम</th>
-                <th class="w-15">सम्बन्ध</th>
-                <th class="w-6">आयु</th>
-                <th class="w-20">व्यवसाय</th>
-                <th class="w-10">मासिक आमदनी</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td><td></td><td></td><td></td><td></td><td></td>
-              </tr>
-              <tr>
-                <td>2</td><td></td><td></td><td></td><td></td><td></td>
-              </tr>
-              <tr>
-                <td>3</td><td></td><td></td><td></td><td></td><td></td>
-              </tr>
-              <tr>
-                <td>4</td><td></td><td></td><td></td><td></td><td></td>
-              </tr>
-              <tr>
-                <td>5</td><td></td><td></td><td></td><td></td><td></td>
-              </tr>
-              <tr>
-                <td>6</td><td></td><td></td><td></td><td></td><td></td>
-              </tr>
-              <tr>
-                <td>7</td><td></td><td></td><td></td><td></td><td></td>
-              </tr>
-              <tr>
-                <td>8</td><td></td><td></td><td></td><td></td><td></td>
-              </tr>
-            </tbody>
-          </table>
-        </li>
-        <li>
-          <div>(अ). क्या आवेदक भूपिहीन है ? <%= raw blank_string_format2(25, true, "land_status") %></div>
-          <div>(ब). क्या आवेदक का भरण-पोषण करने वाला कोई नहीं है ? <%= raw blank_string_format2(25, true, "livilyhood_status") %></div>
-          <div>(स). यदि आवेदक भूमिहीन नहीं है । स्वयं/पति/पत्नि/पुत्री/पौत्र के नाम भूमि/मकान आदि का विवरण है |</div>
-          <div>(द). कण्डिका 8 से मासिक आय रू. <%= raw blank_string_format2(25, false, "income") %></div>
-          <div>(इ). क्‍या कण्डिका 8 स में अंकित सम्पत्ति तथा द में अंकित आय <%= raw blank_string_format2(24, false, "total_income") %> परिवार का भरण पोषण के लिए पर्याप्त है</div>
-        </li>
-      </ol>
-    </div>
-  </div>
-
-  <div class="page-a4 only-print" id="bpl-form-page-4">
-    <div class="mt-3 paragraph-32 padding-3">
-      <div class="mb-4">
-        <ol start="9">
-          <li>
-            क्या आवेदक को गज्य शासन या किसी स्थानीय संस्था से भरण पोषण हेतु कोई राशि प्राप्त हो रही है तो किस रूप <%= raw blank_string_format2(50, true, "livelihood_amount_recieved") %>
-          </li>
-          <li>
-            वर्तमान में जीविका का क्या साधन है <%= raw blank_string_format2(36, true, "livelihood_resouce") %>
-            <div>संलग्न :-</div>
-            <div>1. विकलांगता प्रमाण पत्र</div>
-            <div>2. निराश्रित का प्रमाण पत्र</div>
-            <div>3. 6 से 14 वर्ष की उम्र के विकलांग छात्र का स्कूल जाने का शालेय प्रमाण पत्र</div>
-            <div>4. परित्यक्ता सम्बन्धी प्रमाण पत्र</div>
-          </li>
-        </ol>
-      </div> 
-      <div class="roww mb-3">
-        <div class="w-70"></div>
-        <div class="w-30 fnt-b text-center">आवेदक के हस्ताक्षर</div>
-      </div>
-      <div class="text-center fnt-22 fnt-b">घोषणा-पत्र</div>
-      <div class="txt-indent-2 mb-3">
-        मैं श्री/श्रीमती/कुमारी <%= raw blank_string_format2(16, true, "applicant") %> पिता/पति <%= raw blank_string_format2(50, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(24, true, "applicant_address") %> सत्यनिष्ठा से घोषणा करता/करती हूँ कि शासन नियमानुसार कार्यवाही कर सकेगा |
-      </div>
-      <div class="">&nbsp;</div>
-      <div class="roww mb-5">
-        <div class="w-70"></div>
-        <div class="w-30 fnt-b text-center">आवेदक के हस्ताक्षर</div>
-      </div>
-      <div class="fnt-26 text-center fnt-b">
-        एकीकृत वृद्धावस्था एवं सामाजिक सुरक्षा पेन्शन योजना हेतु प्राप्त आवेदन पत्र की अभिस्वीकृति
-      </div>
-      <div class="txt-indent-2 mb-3">
-        एकीकृत वृद्धावस्था एवं सामाजिक सुरक्षा पेन्शन योजना अंतर्गत सहायता प्राप्त करने हेतु श्री/श्रीमती/कुमारी <%= raw blank_string_format2(16, true, "applicant") %> पिता/पति <%= raw blank_string_format2(50, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(24, true, "applicant_address") %> का आवेदन आज दिनांक <%= raw blank_string_format2(12, false, "date") %> को नगर निगम कार्यालय <%= raw blank_string_format2(12, true, "nagr_nigam") %> में प्राप्त हुआ |
-      </div>
-      <div class="">&nbsp;</div>
-      <div class="roww mb-3">
-        <div class="w-70"></div>
-        <div class="w-30 fnt-b text-center">प्राप्तकर्ता के हस्ताक्षर एवं नाम व पद मुद्रा</div>
       </div>
     </div>
   </div>

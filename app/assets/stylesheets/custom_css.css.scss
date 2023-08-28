@@ -42,6 +42,7 @@ page[size="A4"][layout="landscape"] {
   height: 21cm;  
 }
 
+.fnt-11 { font-size: 11px !important; }
 .fnt-12 { font-size: 12px !important; }
 .fnt-13 { font-size: 12px !important; }
 .fnt-14 { font-size: 14px !important; }
@@ -100,6 +101,8 @@ page[size="A4"][layout="landscape"] {
 .w-7{width: 7%; padding: 0px 5px;word-wrap: anywhere;}
 .w-8{width: 8%; padding: 0px 5px;word-wrap: anywhere;}
 .w-10{width: 10%; padding: 0px 5px;word-wrap: anywhere;}
+.w-13{width: 13%; padding: 0px 5px;word-wrap: anywhere;}
+.w-14{width: 14%; padding: 0px 5px;word-wrap: anywhere;}
 .w-15{width: 15%; padding: 0px 5px;word-wrap: anywhere;}
 .w-16{width: 16%; padding: 0px 5px;word-wrap: anywhere;}
 .w-17{width: 17%; padding: 0px 5px;word-wrap: anywhere;}
@@ -137,9 +140,9 @@ page[size="A4"][layout="landscape"] {
   font-size: 18px;
   text-align: justify;
 }
-.paragraph-22{
-  line-height: 24px;
-  font-size: 14px;
+.paragraph-18{
+  line-height: 18px;
+  font-size: 13px;
   text-align: justify;
 }
 .paragraph-28{
@@ -352,6 +355,18 @@ page[size="A4"][layout="landscape"] {
     padding-right: 4px;
   }
 }
+.custom-tbl-form16{
+  width: 100%;
+  thead>tr, tbody>tr, thead>tr>th, tbody>tr>td {
+    border: 1px solid gray;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  thead>tr>th, tbody>tr>td{
+    width: 10%;
+  }
+}
+
 .ews-certificate-photo{
   width: 180px;
   height: 180px;
