@@ -1,0 +1,670 @@
+<div class="birth-death-certificate-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print" id="bpl-form-page-1">
+    <div class="fnt-28 fnt-u fnt-b text-center padding-5">
+      सामाजिक सुरक्षा पेन्शन के अन्तर्गत स्वीकृत हितग्राहियों की आंतरिक जांच
+    </div>
+    <div class="paragraph-30 ln-hgt-27 padding-3">
+      <ol class="m-0">
+        <li>हितग्राही का नाम <%= raw blank_string_format2(46, true, "applicant") %></li>
+        <li>हितग्राही के पिता/पति का नाम <%= raw blank_string_format2(40, true, "applicant_father_name") %></li>
+        <li>
+          <div class="roww">
+            <div class="w-40">उम्र <%= raw blank_string_format2(17, true, "age") %></div>
+            <div class="w-60">जाति <%= raw blank_string_format2(28, true, "applicant_cast") %></div>
+          </div>
+        </li>
+        <li>
+          <div class="roww">
+            <div class="w-20">स्थायी पता</div>
+            <div class="w-80">
+              <ol>
+                <li>मकान न. <%= raw blank_string_format2(35, true, "house_number") %></li>
+                <li>
+                  <div class="roww">
+                    <div class="w-60">मुहाल का नाम <%= raw blank_string_format2(17, true, "colony") %></div>
+                    <div class="w-40">मकान न. <%= raw blank_string_format2(9, true, "house_number") %></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="roww">
+                    <div class="w-50">नगर/ग्राम का नाम <%= raw blank_string_format2(12, true, "city") %></div>
+                    <div class="w-50">ग्राम पंचायत <%= raw blank_string_format2(12, true, "village") %></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="roww">
+                    <div class="w-60">विकास खण्ड का नाम <%= raw blank_string_format2(14, true, "block") %></div>
+                    <div class="w-40">जिला <%= raw blank_string_format2(11, true, "district") %></div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </li>
+        <li>
+          हितग्राही की पेंशन कब से स्वीकृत है दिनांक <%= raw blank_string_format2(12, true, "date") %> माह
+        </li> 
+      </ol>
+      <div class="fnt-22 fnt-b text-center fnt-u">जांच का विवरण</div>
+      <ol class="m-0">
+        <li>
+          हितग्राही किस शेणी में है -
+          <div class="roww">
+            <div class="w-25">(अ). विकलांग</div><div class="w-25">(ब). अन्धा</div>
+            <div class="w-25">(स). अशक्त</div><div class="w-25">(द). अन्य</div>
+          </div>
+        </li>
+        <li>
+          हितग्राही के भरण-पोषण की वर्तमान व्यवस्था <%= raw blank_string_format2(32, true, "arrangement_for_living") %>
+          <table class="w-100">
+            <thead>
+              <th class="w-5"></th>
+              <th class="w-30">मजदूरी</th>
+              <th class="w-25">अनुमानित कुल आय</th>
+              <th class="w-20">माह</th>
+              <th class="w-20">वर्ष में</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>(क)</td>
+                <td>खेतीहार मजदूरी</td>
+                <td><%= raw blank_string_format2(11, false, "majdoori") %></td>
+                <td><%= raw blank_string_format2(7, false, "year") %></td>
+                <td><%= raw blank_string_format2(7, false, "month") %></td>
+              </tr>
+              <tr>
+                <td>(ख)</td>
+                <td> स्वयं की कास्तकारी से</td>
+                <td><%= raw blank_string_format2(11, false, "majdoori") %></td>
+                <td><%= raw blank_string_format2(7, false, "year") %></td>
+                <td><%= raw blank_string_format2(7, false, "month") %></td>
+              </tr>
+              <tr>
+                <td>(ग)</td>
+                <td>मकान की जमीन को किराए से</td>
+                <td><%= raw blank_string_format2(11, false, "majdoori") %></td>
+                <td><%= raw blank_string_format2(7, false, "year") %></td>
+                <td><%= raw blank_string_format2(7, false, "month") %></td>
+              </tr>
+              <tr>
+                <td>(घ)</td>
+                <td>दुकान की आय से</td>
+                <td><%= raw blank_string_format2(11, false, "majdoori") %></td>
+                <td><%= raw blank_string_format2(7, false, "year") %></td>
+                <td><%= raw blank_string_format2(7, false, "month") %></td>
+              </tr>
+              <tr>
+                <td>(ड.)</td>
+                <td>नौकरी से</td>
+                <td><%= raw blank_string_format2(11, false, "majdoori") %></td>
+                <td><%= raw blank_string_format2(7, false, "year") %></td>
+                <td><%= raw blank_string_format2(7, false, "month") %></td>
+              </tr>
+              <tr>
+                <td>(च)</td>
+                <td>भीख से</td>
+                <td><%= raw blank_string_format2(11, false, "majdoori") %></td>
+                <td><%= raw blank_string_format2(7, false, "year") %></td>
+                <td><%= raw blank_string_format2(7, false, "month") %></td>
+              </tr>
+               <tr>
+                <td>(छ)</td>
+                <td>दान दक्षिणा से</td>
+                <td><%= raw blank_string_format2(11, false, "majdoori") %></td>
+                <td><%= raw blank_string_format2(7, false, "year") %></td>
+                <td><%= raw blank_string_format2(7, false, "month") %></td>
+              </tr>
+               <tr>
+                <td>(ज)</td>
+                <td>अन्य व्यवसाय से ( यदि हो तो )</td>
+                <td><%= raw blank_string_format2(11, false, "majdoori") %></td>
+                <td><%= raw blank_string_format2(7, false, "year") %></td>
+                <td><%= raw blank_string_format2(7, false, "month") %></td>
+              </tr>
+               <tr>
+                <td>(झ)</td>
+                <td>अन्य मजदूरी से </td>
+                <td><%= raw blank_string_format2(11, false, "majdoori") %></td>
+                <td><%= raw blank_string_format2(7, false, "year") %></td>
+                <td><%= raw blank_string_format2(7, false, "month") %></td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>
+          <div>
+            यदि उपरोक्त साधनो से भरण-पोषण नहीं होता है तो क्या किसी रिश्तेदार के सहयोग से भरण-पोषण होता है यदि है तो रिश्तेदार का नाम <%= raw blank_string_format2(40, true, "relative_name") %>
+          </div>
+          <div>
+            पूरा पता <%= raw blank_string_format2(40, true, "complete_address") %>
+          </div>
+          <div>विवरण <%= raw blank_string_format2(40, true, "description") %></div> 
+        </li>
+        <li>
+          हितग्राही के परिवार में कौन-कौन है उम्र व्यवसाय एवं नाम सहित-
+          <table class="custom-tbl">
+            <thead>
+              <tr>
+                <th class="w-5">क्र</th>
+                <th class="w-20">सदस्य का नाम</th>
+                <th class="w-15">पारिवारिक सम्बन्ध</th>
+                <th class="w-10">उम्र (वर्ष)</th>
+                <th class="w-20">वर्तमान में क्या कार्य करते है</th>
+                <th class="w-10">मासिक आय</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>2</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>3</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>4</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>5</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>6</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>7</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="bpl-form-page-2">
+    <div class="">&nbsp;</div>
+    <div class="paragraph-30 padding-3">
+      <ol start="5">
+        <li>
+          <div class="roww">
+            <div class="w-60">चल अचल सम्पत्ति का विवरण </div>
+            <div class="w-40">अनुमानित कीमत</div>
+          </div>
+          <ol>
+            <li>
+              <div class="roww">
+                <div class="w-60">क्या निजी मकान है</div>
+                <div class="w-40"><%= raw blank_string_format2(14, true, "house_cost") %></div>
+              </div>
+              <div class="roww">
+                <div class="w-60">(अ). कच्चा</div>
+                <div class="w-40"><%= raw blank_string_format2(14, true, "house_cost") %></div>
+              </div>
+              <div class="roww">
+                <div class="w-60">(ब). पक्का</div>
+                <div class="w-40"><%= raw blank_string_format2(14, true, "house_cost") %></div>
+              </div>
+              <div class="roww">
+                <div class="w-60">(स). झोपड़ी</div>
+                <div class="w-40"><%= raw blank_string_format2(14, true, "house_cost") %></div>
+              </div>
+              <!-- <div class="roww">
+                <div class="w-33">(अ). कच्चा</div>
+                <div class="w-33">(ब). पक्का</div>
+                <div class="w-33">(स). झोपड़ी</div>
+              </div> -->
+            </li>
+            <li>
+              क्या किराये से रहने की व्यवस्था है-
+              <div class="roww">
+                <div class="w-30">(अ). मकान मालिक का नाम</div>
+                <div class="w-70"><%= raw blank_string_format2(37, true, "house_owner") %></div>
+              </div>
+              <div class="roww">
+                <div class="w-30">(ब).माहवारी किराये की दर</div>
+                <div class="w-70"><%= raw blank_string_format2(37, false, "house_rent") %></div>
+              </div>
+            </li>
+            <li>
+              क्या नि:शुल्क निवास की व्यवस्था है-
+              <div class="roww">
+                <div class="w-30">(अ). मकान मालिक का नाम</div>
+                <div class="w-70"><%= raw blank_string_format2(37, true, "house_owner") %></div>
+              </div>
+              <div class="roww">
+                <div class="w-30">(ब).अन्य विवरण</div>
+                <div class="w-70"><%= raw blank_string_format2(37, true, "house_desc") %></div>
+              </div>
+            </li>
+            <li>
+              भूमि का प्रकार
+              <div class="roww">
+                <div class="w-30">(अ). भूमि संबंधी विवरण</div>
+                <div class="w-70"><%= raw blank_string_format2(37, true, "house_owner") %></div>
+              </div>
+              <div class="roww">
+                <div class="w-30">(ब).खसरा नम्बर</div>
+                <div class="w-40"><%= raw blank_string_format2(20, false, "house_desc") %></div>
+                <div class="w-10">रकबा</div>
+                <div class="w-20"><%= raw blank_string_format2(10, false, "house_desc") %></div>
+              </div>
+            </li>
+            <li>
+              क्या बैंको /पोस्ट ऑफिस में नगद राशि जमा है-
+              <div class="roww">
+                <div class="w-15">बैंक का नाम</div>
+                <div class="w-25"><%= raw blank_string_format2(12, false, "bank_name") %></div>
+                <div class="w-10">खाता नं.</div>
+                <div class="w-20"><%= raw blank_string_format2(10, false, "ac_number") %></div>
+                <div class="w-10">जमा राशि</div>
+                <div class="w-20"><%= raw blank_string_format2(10, false, "amount") %></div>
+              </div>
+            </li>
+            <li>
+              अन्य विवरण यदि कोई हो-
+              <div class="roww">
+                <div class="w-20">जांचकर्ता का नाम</div>
+                <div class="w-25"><%= raw blank_string_format2(12, false, "bank_name") %></div>
+                <div class="w-5">पद</div>
+                <div class="w-20"><%= raw blank_string_format2(10, false, "ac_number") %></div>
+                <div class="w-10">हस्ताक्षर</div>
+                <div class="w-20"><%= raw blank_string_format2(10, false, "amount") %></div>
+              </div>
+            </li>
+          </ol>
+        </li>        
+      </ol>
+      <div class="text-center fnt-24 fnt-b mb-2">गवाह जिनके समक्ष जांच हुई</div>
+      <ol>
+        <li>
+          <div class="roww">
+            <div class="w-15">गवाह का नाम</div>
+            <div class="w-25"><%= raw blank_string_format2(12, false, "bank_name") %></div>
+            <div class="w-5">पद</div>
+            <div class="w-25"><%= raw blank_string_format2(12, false, "ac_number") %></div>
+            <div class="w-10">हस्ताक्षर</div>
+            <div class="w-20"><%= raw blank_string_format2(10, false, "amount") %></div>
+          </div>
+        </li>
+        <li>
+          <div class="roww">
+            <div class="w-15">गवाह का नाम</div>
+            <div class="w-25"><%= raw blank_string_format2(12, false, "bank_name") %></div>
+            <div class="w-5">पद</div>
+            <div class="w-25"><%= raw blank_string_format2(12, false, "ac_number") %></div>
+            <div class="w-10">हस्ताक्षर</div>
+            <div class="w-20"><%= raw blank_string_format2(10, false, "amount") %></div>
+          </div>
+        </li>
+        <li>
+          <div class="roww">
+            <div class="w-15">गवाह का नाम</div>
+            <div class="w-25"><%= raw blank_string_format2(12, false, "bank_name") %></div>
+            <div class="w-5">पद</div>
+            <div class="w-25"><%= raw blank_string_format2(12, false, "ac_number") %></div>
+            <div class="w-10">हस्ताक्षर</div>
+            <div class="w-20"><%= raw blank_string_format2(10, false, "amount") %></div>
+          </div>
+        </li>
+      </ol>
+      <div class="txt-indent-2">
+        मैं शपथ-पूर्वक कहना चाहता हूँ कि मेरे समक्ष की गईं उपरोक्त जाँच में मैंने कोई बात छुपाईं नहीं है। मेरे उपरोक्त कथन के अतिरिक्त मेरे जीवन-यापन के लिये कोई साधन नहीं है। मेरे उपरोक्त कथन  को झूठा पाये जाने पर दण्ड का भागीदार रहूंगा | 
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="">&nbsp;</div>
+      <div class="roww mb-3">
+        <div class="w-70"><strong>दिनॉक:</strong> <%= format_dt(Date.today) %></div>
+        <div class="w-30 fnt-b text-center">जांचकर्ता के हस्ताक्षर</div>
+      </div>
+      <div class="text-center fnt-24 fnt-b mb-2">जांचकर्ता का सारांश और अभिमत</div>
+      <div class="txt-indent-2">
+        हितग्राही के भरण-पोषण की वर्तमान स्थिति पर अपनी टीप देवें कि क्‍या हितग्राही सामाजिक सुरक्षा पेशन के नियमों के अनुसार पात्र है या नहीं |  नहीं होने पर अभिमत स्पष्ट कारण महित देवें |
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="roww">
+        <div class="w-70"><strong>दिनॉक:</strong> <%= format_dt(Date.today) %></div>
+        <div class="w-30 fnt-b text-center">जांचकर्ता के हस्ताक्षर</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="bpl-form-page-3">
+    <div class="mt-3 paragraph-32 padding-3">
+      <div class="fnt-18 fnt-b text-center">प्रारूप 1 ( भाग दो )</div>
+      <div class="text-center fnt-24 fnt-b fnt-u">
+        एकीकृत वृद्धावस्था एवं सामाजिक सुरक्षा पेंशन हेतु आवेदन पत्र 
+      </div>
+      <div class="fnt-22 fnt-b text-center mb-2">
+        ( निराश्रित आवेदक द्वारा भरा जावे )
+      </div>
+      <ol>
+        <li>
+          आवेदक का नाम <%= raw blank_string_format2(20, true, "applicant") %> पिता/पति का नाम <%= raw blank_string_format2(20, true, "applicant_father_name") %> जाति <%= raw blank_string_format2(20, true, "applicant_cast") %>
+        </li>
+        <li>आवेदक की आयु <%= raw blank_string_format2(16, true, "age") %></li>
+        <li>आवेदक के मूल निवास स्थान का पूर्ण पता <%= raw blank_string_format2(24, true, "permanent_address") %></li>
+        <li>आवेदक के वर्तपान निवास का पूर्ण पता <%= raw blank_string_format2(25, true, "current_address") %></li>
+        <li>
+          यदि विधवा/परित्यक्ता हो तो पति की मृत्यु/पति द्वारा छोड़ दिये जाने का दिनांक <%= raw blank_string_format2(16, true, "divorce_date") %>
+          <div class="">(अ). परित्यक्ता की स्थिति में स्थानीय पार्षद अथवा ग्राम पंचायत को पंच का प्रधाणीकरण संलग्न करें |</div>
+        </li>
+        <li>
+          यदि विकलांग है तो विकलांगता का प्रकार
+          <div>(अ). चिकित्सक का प्रमाण पत्र संलग्ग करें</div>
+          <div>(ब). विकलांग छात्र स्कूल में अध्ययनरत होने का शालेय प्रमाण पत्र संलग्न करें</div>
+        </li>
+        <li>
+          आवेदक के परिवार के सदस्यों की जानकारी -
+          <table class="custom-tbl mb-3">
+            <thead>
+              <tr class="text-center">
+                <th class="w-4">क्र</th>
+                <th class="w-25">नाम</th>
+                <th class="w-15">सम्बन्ध</th>
+                <th class="w-6">आयु</th>
+                <th class="w-20">व्यवसाय</th>
+                <th class="w-10">मासिक आमदनी</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>2</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>3</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>4</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>5</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>6</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>7</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>8</td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>
+          <div>(अ). क्या आवेदक भूपिहीन है ? <%= raw blank_string_format2(25, true, "land_status") %></div>
+          <div>(ब). क्या आवेदक का भरण-पोषण करने वाला कोई नहीं है ? <%= raw blank_string_format2(25, true, "livilyhood_status") %></div>
+          <div>(स). यदि आवेदक भूमिहीन नहीं है । स्वयं/पति/पत्नि/पुत्री/पौत्र के नाम भूमि/मकान आदि का विवरण है |</div>
+          <div>(द). कण्डिका 8 से मासिक आय रू. <%= raw blank_string_format2(25, false, "income") %></div>
+          <div>(इ). क्‍या कण्डिका 8 स में अंकित सम्पत्ति तथा द में अंकित आय <%= raw blank_string_format2(24, false, "total_income") %> परिवार का भरण पोषण के लिए पर्याप्त है</div>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="bpl-form-page-4">
+    <div class="mt-3 paragraph-32 padding-3">
+      <div class="mb-4">
+        <ol start="9">
+          <li>
+            क्या आवेदक को गज्य शासन या किसी स्थानीय संस्था से भरण पोषण हेतु कोई राशि प्राप्त हो रही है तो किस रूप <%= raw blank_string_format2(50, true, "livelihood_amount_recieved") %>
+          </li>
+          <li>
+            वर्तमान में जीविका का क्या साधन है <%= raw blank_string_format2(36, true, "livelihood_resouce") %>
+            <div>संलग्न :-</div>
+            <div>1. विकलांगता प्रमाण पत्र</div>
+            <div>2. निराश्रित का प्रमाण पत्र</div>
+            <div>3. 6 से 14 वर्ष की उम्र के विकलांग छात्र का स्कूल जाने का शालेय प्रमाण पत्र</div>
+            <div>4. परित्यक्ता सम्बन्धी प्रमाण पत्र</div>
+          </li>
+        </ol>
+      </div> 
+      <div class="roww mb-3">
+        <div class="w-70"></div>
+        <div class="w-30 fnt-b text-center">आवेदक के हस्ताक्षर</div>
+      </div>
+      <div class="text-center fnt-22 fnt-b">घोषणा-पत्र</div>
+      <div class="txt-indent-2 mb-3">
+        मैं श्री/श्रीमती/कुमारी <%= raw blank_string_format2(16, true, "applicant") %> पिता/पति <%= raw blank_string_format2(50, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(24, true, "applicant_address") %> सत्यनिष्ठा से घोषणा करता/करती हूँ कि शासन नियमानुसार कार्यवाही कर सकेगा |
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="roww mb-5">
+        <div class="w-70"></div>
+        <div class="w-30 fnt-b text-center">आवेदक के हस्ताक्षर</div>
+      </div>
+      <div class="fnt-26 text-center fnt-b">
+        एकीकृत वृद्धावस्था एवं सामाजिक सुरक्षा पेन्शन योजना हेतु प्राप्त आवेदन पत्र की अभिस्वीकृति
+      </div>
+      <div class="txt-indent-2 mb-3">
+        एकीकृत वृद्धावस्था एवं सामाजिक सुरक्षा पेन्शन योजना अंतर्गत सहायता प्राप्त करने हेतु श्री/श्रीमती/कुमारी <%= raw blank_string_format2(16, true, "applicant") %> पिता/पति <%= raw blank_string_format2(50, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(24, true, "applicant_address") %> का आवेदन आज दिनांक <%= raw blank_string_format2(12, false, "date") %> को नगर निगम कार्यालय <%= raw blank_string_format2(12, true, "nagr_nigam") %> में प्राप्त हुआ |
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="roww mb-3">
+        <div class="w-70"></div>
+        <div class="w-30 fnt-b text-center">प्राप्तकर्ता के हस्ताक्षर एवं नाम व पद मुद्रा</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="bpl-form-page-5">
+    <div class="">&nbsp;</div>
+    <div class="text-center fnt-20 fnt-b">
+      प्रारूप - 1
+    </div>
+    <div class="text-center fnt-20 fnt-b mb-1">
+      (भाग तीन)
+    </div>
+    <div class="text-center fnt-24 fnt-u fnt-b">
+      निराश्रित/आयु/ अचल संपत्ति का प्रमाण पत्र
+    </div>
+    <div class="text-center fnt-20 fnt-b mb-3 padding-10">
+      (यह प्रमाण पत्र ग्रामीण क्षेत्र में ग्राम पंचायत द्वारा तथा शहरी क्षेत्र के लिए नगर निगम / नगर पालिका / नगर पंचायत द्वारा दिया जायेगा)
+    </div>
+    <div class="paragraph-35 padding-4">
+      <div class="mb-2">
+        मैं एतद्‌ द्वारा यह प्रमाणित करता हूँ / करती हूँ कि आवेदक का नाम <%= raw blank_string_format2(22, true, "applicant") %> पिता/पति<%= raw blank_string_format2(22, true, "applicant_father_name") %> निवासी (वर्तमान पूर्ण पता सहित) <%= raw blank_string_format2(20, true, "applicant_address") %> वृद्ध / निःशक्त / विधवा / परित्यक्ता है । आवेदक वयस्क है तथा निर्वाचक नामावली के आधार पर आवेदक की वर्तमान आयु वर्ष <%= raw blank_string_format2(6, false, "age") %> है/ आवेदक वयस्क है तथा ग्राम पंचायत / नगरीय निकाय द्वारा संधारित जन्म पंजी या चिकित्सक के प्रमाण पत्र या स्कूल के प्रमाण पत्र के आधार पर आवेदन की वर्तमान आयु <%= raw blank_string_format2(6, false, "age") %>. वर्ष है | 
+      </div>
+      <ol>
+        <li>
+          आवेदक पूर्णतः निराश्रित है क्योंकि :-
+          <div>(अ). आवेदक भूमिहीन है अथवा उसके पास आय के पर्याप्त साधन नहीं है |</div>
+          <div class="text-center">या</div>
+          <div>(ब). उसके पुत्र/पौत्र भूमिहीन है या उनके भूमि, संपत्ति होते हुए भी जीवीकोपार्जन के लिए वर्तमान अर्जित आमदनी पर्याप्त नहीं होने से आवेदक का भरण पोषण करने में असमर्थ है |</div>
+        </li>
+        <li>
+          आवेदक 6 से 48 वर्ष का विकलोग शालेय छात्र है तथा उसके परिवार की समस्त स्त्रोतों से होने वाली वार्षिक आय रुपये <%= raw blank_string_format2(8, false, "income") %> है जो गरीबी की रेखा हेतु शासन द्वारा निर्धारित सीमा से कम है |
+        </li>
+        <li>
+          आवेदक मध्यप्रदेश का मूल निवासी है |
+        </li>
+      </ol>
+      <div class="">&nbsp;</div>
+      <div class="">&nbsp;</div>
+      <div class="">
+        <div class="fRight">
+          प्रमाणकर्ता के हस्ताक्षर
+        </div><br/>
+        <div class="fRight">
+          (ग्राम एवं पदनाम सहित)
+        </div><br/>
+        <div class="fRight">
+          ग्राम पंचायत / नगर निगम / नगर पालिका नगर पंचायत / पटवारी
+        </div><br/>
+        <div class="fRight">
+          द्वारा प्राधिकृत अधिकारी
+        </div>
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="roww">
+        <strong>स्थान&nbsp;&nbsp;: </strong> <%= raw blank_string_format2(16, true, "tehsil") %>  
+      </div>
+      <div class="roww">
+        <strong>दिनांक : </strong> <%= raw blank_string_format2(16, false, "date") %>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="bpl-form-page-6">
+    <div class="">&nbsp;</div>
+    <div class="text-center fnt-20 fnt-b">
+      प्रारूप - 1 ( भाग-दो )
+    </div>
+    <div class="text-center fnt-24 fnt-u fnt-b  mb-2">
+      विकलांगता का प्रमाण-पत्र
+    </div>
+
+    <div class="paragraph-32 padding-4">
+      <div class="mb-0">
+        मैं श्री/श्रीमती/कुमारी <%= raw blank_string_format2(16, true, "applicant") %> की जो श्री <%= raw blank_string_format2(20, true, "applicant_father_name") %> का पुत्र/की पुत्री/की पत्नी/की विधवा है जो ग्राम/नगर <%= raw blank_string_format2(16, true, "village") %> तहसील <%= raw blank_string_format2(16, true, "tehsil") %> जिला <%= raw blank_string_format2(18, true, "district") %> का/की निवासी है का स्वास्थ्य परीक्षण दिनांक <%= raw blank_string_format2(12, false, "date") %> को किया है 
+
+        मैं एतद्‌ द्वारा यह प्रमाणित करता हूँ / करती हूँ कि श्री/श्रीमती/कुमारी <%= raw blank_string_format2(16, true, "applicant") %> पिता/पति<%= raw blank_string_format2(20, true, "applicant_father_name") %> ( उपर्युक्त आवेदक ) जिसके हस्ताक्षर / अंगूठे का निशान प्रमाणित है वह विकलांग / दृष्टिहीन / मूक / दधिर /निशक्त है | 
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="roww">
+        <div class="w-65"></div>
+        <div class="w-35">चिकित्सक का पूरा नाम लिखा जावे</div>
+      </div>
+      <div class="roww">
+        <div class="w-65">आवेदक को हस्ताक्षर</div>
+        <div class="w-35">पद <%= raw blank_string_format2(16, true, "post_name") %></div>
+      </div>
+      <div class="roww">
+        <div class="w-65">निशानी अंगूठा अभिप्रमाणित</div>
+        <div class="w-35">नाम <%= raw blank_string_format2(15, true, "officer_name") %></div>
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="roww">
+        <div class="w-25 text-center">चिकित्सक के हस्ताक्षर पद की सील सहित</div>
+        <div class="w-40"></div>
+        <div class="w-45 text-center">राज्य शासन/स्थानीय निकाय के चिकित्सा अधिकारी के पद की सील सहित</div>
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="text-center fnt-20 fnt-b">
+        प्रारूप - 1 ( भाग-दो )
+      </div>
+      <div class="text-center fnt-24 fnt-u fnt-b  mb-2">
+        निराश्रित आयु अचल सम्पत्ति का प्रमाण-पत्र
+      </div>
+      <div>
+        ( यह प्रमाण-पत्र शहरी क्षेत्र <%= raw blank_string_format2(15, true, "city") %> तथा नगरीय निकाय द्वारा संधारित जन्म पंजी या चिकित्सक के प्रमाण-पत्र या स्कूल को प्रमाण-पत्र के आधार पर आवेदक को वर्तमान आयु <%= raw blank_string_format2(6, false, "age") %> वर्ष है |)
+      </div>
+      <ol>
+        <li>
+          आवेदक पूर्णतः: निर्धारित है क्योंकि-
+          <div>(अ). आवेदक भूमिहीन है अथवा उसके पास आय को पर्याप्त साधन नहीं है या </div>
+          <div>
+            (ब). उसके पुत्र/पौत्र भूमिहीन हैं उनके पास भूमि सम्पत्ति होते हुए भी जीवकोपार्जन के लिए वर्तपान अर्जित आमदनी पर्याप्त न होने से आवेदक का भरण-पोषण करने में असमर्थ है |
+          </div>
+        </li>
+        <li>
+          आवेदक 6 से 4 वर्ष का विकलांग शालेय छात्र है तथा उसके परिवार को समस्त स्थ्रोतों से होने वाली आय <%= raw blank_string_format2(10, false, "income") %> है तो गरीबी रंखा हेतु शासन द्वारा निर्धारित सीमा से कम है।
+        </li>
+        <li>आवेदक म.प्र. का मूल निवासी है |</li>
+      </ol>
+      <div class="roww">
+        <div class="w-50"></div>
+        <div class="w-50 text-center">प्रमाणकर्ता के हस्ताक्षर</div>  
+      </div>
+      <div class="roww">
+        <div class="w-50"></div>
+        <div class="w-50 text-center">नाम एवं पदनाम सहित</div>  
+      </div>
+      <div class="roww">
+        <div class="w-50">
+          <strong>स्थान&nbsp;&nbsp;: </strong> <%= raw blank_string_format2(16, true, "tehsil") %>
+        </div>
+        <div class="w-50 text-center">ग्राम पंचायत /नगर निगम/नगर पालिका / नगर पंचायत</div>  
+      </div>
+      <div class="roww">
+        <div class="w-50"><strong>दिनांक : </strong> <%= raw blank_string_format2(16, false, "date") %></div>
+        <div class="w-50 text-center">द्वारा प्राधिकृत अधिकारी</div>  
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print" id="bpl-form-page-7">
+    <div class="">&nbsp;</div>
+    <div class="paragraph-35 padding-4">
+      <div class="text-center fnt-17 fnt-b">
+        प्रारूप - 1 ( भाग-चार )
+      </div>
+      <div class="text-center fnt-24 fnt-u fnt-b mb-3">
+        6 से 14 वर्ष की आयु के विकलांग शालेय छात्र के सम्बंध में
+      </div>
+      <div class="text-center fnt-18 fnt-b">
+       प्रमाण-पत्र
+      </div>
+      <div class="text-center fnt-17 fnt-b mb-3 padding-10">
+        ( यह प्रमाण पत्र स्कूल के प्राचार्य/प्रधानाध्यापंक द्वारा प्रदान किया जावेगा )
+      </div>
+      <div class="mb-2">
+        मैं एतद्‌ द्वारा यह प्रमाणित करता हूँ / करती हूँ कि आवेदक का नाम <%= raw blank_string_format2(22, true, "applicant") %> पिता/पति <%= raw blank_string_format2(22, true, "applicant_father_name") %> निवासी (वर्तमान पूर्ण पता सहित) <%= raw blank_string_format2(20, true, "applicant_address") %> की शालेय रिकार्ड के आधार पर जन्म तिथि <%= raw blank_string_format2(10, false, "birth_date") %> है आयु वर्ष <%= raw blank_string_format2(5, false, "age") %> तथा आवेदक का स्कूल का नाम <%= raw blank_string_format2(20, true, "school_name") %> की कक्षा <%= raw blank_string_format2(6, false, "applicant_class") %> में नियमित छात्र है |
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="roww">
+        <div class="w-65">
+          <strong>स्थान&nbsp;&nbsp;: </strong> <%= raw blank_string_format2(16, true, "tehsil") %>
+        </div>
+        <div class="w-35 text-center">प्राचार्य/प्रधानाध्यापक को हस्ताक्षर</div>
+      </div>
+      <div class="roww">
+        <div class="w-65">
+          <strong>दिनांक&nbsp;&nbsp;: </strong> <%= raw blank_string_format2(16, true, "date") %>
+        </div>
+        <div class="w-35 text-center">एवं नाम व पद मुद्रा</div>
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="">&nbsp;</div>
+      <div class="text-center fnt-17 fnt-b">
+        प्रारूप - 1 ( भाग-पांच )
+      </div>
+      <div class="text-center fnt-24 fnt-u fnt-b mb-3">
+        परित्यक्ता महिला होने का प्रमाण पत्र
+      </div>
+      <div class="text-center fnt-17 fnt-b mb-3 padding-2">
+        ( यह प्रमाण-पत्र आवेदक की ग्रामीण क्षेत्र के निवासी होने की स्थिति में ग्राम पंचायत के संबंधित वार्ड के पंच तथा शहरी क्षेत्र के लिए नगर निगम/नगर पालिका/ नगर पंचायत के संबंधित क्षेत्र में वार्ड पार्षद द्वारा दिया जावेगा )
+      </div>
+      <div class="mb-2 txt-indent-2">
+        मैं एतद्‌ द्वारा यह प्रमाणित करता हूँ / करती हूँ कि आवेदक का नाम <%= raw blank_string_format2(22, true, "applicant") %> पिता/पति <%= raw blank_string_format2(22, true, "applicant_father_name") %> निवासी (वर्तमान पूर्ण पता सहित) <%= raw blank_string_format2(20, true, "applicant_address") %> पति <%= raw blank_string_format2(22, true, "applicant_husband") %> द्वारा इन्हे दिनांक <%= raw blank_string_format2(10, false, "date") %> को परित्याग कर दिया है श्रीमती अब परित्यक्ता के रूप में अपना जीवन  व्यतीत कर रही है |
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="">&nbsp;</div>
+      <div class="roww">
+        <div class="w-50">
+          <strong>स्थान&nbsp;&nbsp;: </strong> <%= raw blank_string_format2(16, true, "tehsil") %>
+        </div>
+        <div class="w-50 text-center">पंच/पार्षद</div>
+      </div>
+      <div class="roww">
+        <div class="w-50">
+          <strong>दिनांक&nbsp;&nbsp;: </strong> <%= raw blank_string_format2(16, true, "date") %>
+        </div>
+        <div class="w-50 text-center">ग्राम पंचायत/नगर निगम/नगर पालिका/नगर पंचायत</div>
+      </div>
+      <div class="roww">
+        <div class="w-50"></div>
+        <div class="w-50 text-center">
+          जिला <%= raw blank_string_format2(12, true, "district") %> (म. प्र.) 
+        </div>
+      </div> 
+ 
+
+    </div>
+  </div>
+
+</div>
