@@ -1,0 +1,66 @@
+<div class="letter-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print selection-criteria-block" id="medical-form-form4-page1">
+    <div class="fnt-28 fnt-b text-center mt-3">
+      Form No. 4
+    </div>
+    <div class="fnt-24 text-center">
+      (See Rule 17)
+    </div>
+    <div class="fnt-21 text-center fnt-b padding-5 mb-4">
+      MEDICAL CERTIFICATE FOR GOVT. SERVANTS RECOMMENDED LEAVE OR EXTENSION OF LEAVE OR COMMUTATION OF LEAVE
+    </div>
+    <div class="paragraph-35 padding-5">
+      Signature of the Government Servant <%= raw blank_string_format2(28, false, "applicant") %>
+      <div class="txt-indent-2">
+        I <%= raw blank_string_format2(20, false, "docter") %> after Careful personal examination of the case here certify that Shri/Smt./Kumari <%= raw blank_string_format2(20, false, "applicant") %> Whose Signature is given above is suffering From <%= raw blank_string_format2(28, false, "desease") %> and I consider that a period of absence from duty of <%= raw blank_string_format2(28, false, "date1") %> W.e.f. <%= raw blank_string_format2(28, false, "date2") %> is absolutely necessary for the restoration of his/her health.
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="">&nbsp;</div>
+      <div class="roww">
+        <div class="w-70">Place: <%= raw blank_string_format2(14, false, "place") %></div>
+        <div class="w-30 text-center">Authorised Medical</div>
+      </div>
+      <div class="roww">
+        <div class="w-70">Date: <%= raw blank_string_format2(15, false, "place") %></div>
+        <div class="w-30 text-center">Attendent</div>
+      </div>
+    </div>
+    <div class="">&nbsp;</div>
+    <div class="roww">
+      <div class="w-3 pe-0"><i class="fa-solid fa-scissors fRight pt-2"></i></div>
+      <div class="w-97 dashed-bdr mt-3 mb-3"></div>
+    </div>
+    <div class="">&nbsp;</div>
+    <div class="fnt-28 fnt-b text-center mb-2">
+      चिकित्सा प्रमाण-पत्र
+    </div>
+    <div class="paragraph-35 padding-5">
+      शासकीय कर्मचारी के हस्ताक्षर <%= raw blank_string_format2(28, false, "applicant") %>
+      <div class="txt-indent-2">
+        मैं <%= raw blank_string_format2(20, false, "docter") %> प्रकरण की सावधानी से व्यक्तिगत परीक्षण करने <%= raw blank_string_format2(20, false, "medical_test") %> के उपरांत मैं प्रमाणित करता हूँ कि श्री/श्रीमती/कुमारी <%= raw blank_string_format2(20, false, "applicant") %> जिसके हस्ताक्षर ऊपर किये गये, रोग से पीड़ित है तथा मेरे विचार से उसने स्वास्थ्य लाभ के लिए अनुपस्थिति पूर्णतः आवश्यक है |
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="">&nbsp;</div>
+      <div class="roww">
+        <div class="w-65">स्थान: <%= raw blank_string_format2(14, false, "place") %></div>
+        <div class="w-35 text-center">परीक्षा करने वाले चिकित्सा</div>
+      </div>
+      <div class="roww">
+        <div class="w-65">दिनांक: <%= raw blank_string_format2(15, false, "place") %></div>
+        <div class="w-35 text-center">अधिकारी के हस्ताक्षर एवं पदनाम</div>
+      </div>
+    </div>
+  </div>
+
+</div>

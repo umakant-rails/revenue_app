@@ -1,0 +1,63 @@
+<div class="letter-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print selection-criteria-block" id="medical-form-form4-page1">
+    <div class="fnt-28 fnt-b text-center mt-3">
+      Form No. 3
+    </div>
+    <div class="fnt-21 text-center fnt-b padding-5 mb-4">
+      MEDICAL CERTIFICATE OF FITNESS TO RETURN TO DUTY
+    </div>
+    <div class="paragraph-35 padding-5">
+      Signature of the Government Servant <%= raw blank_string_format2(28, false, "applicant") %>
+      <div class="txt-indent-2">
+        I <%= raw blank_string_format2(20, false, "docter") %> do hereby Certify that I have carefully examined that Shri/Smt./Kumari <%= raw blank_string_format2(20, false, "applicant") %> Whose Signature is given above and find that he/she has recovered from his/her illness and is now fit to resume duties i.e. Government Service I also certify that before arriving at this decision I have examined the Original certificate (s) and statements of the case (cr certified copies there of) on which leave was granted or extended and have taken these into consideration in arriving at my decision.
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="">&nbsp;</div>
+      <div class="roww">
+        <div class="w-70">Place: <%= raw blank_string_format2(14, false, "place") %></div>
+        <div class="w-30 text-center">Authorised Medical</div>
+      </div>
+      <div class="roww">
+        <div class="w-70">Date: <%= raw blank_string_format2(15, false, "place") %></div>
+        <div class="w-30 text-center">Attendent</div>
+      </div>
+    </div>
+    <div class="">&nbsp;</div>
+    <div class="roww">
+      <div class="w-3 pe-0"><i class="fa-solid fa-scissors fRight pt-2"></i></div>
+      <div class="w-97 dashed-bdr mt-3 mb-3"></div>
+    </div>
+    <div class="">&nbsp;</div>
+    <div class="fnt-28 fnt-b text-center mb-2">
+      स्वास्थ्य का चिकित्सा प्रमाण-पत्र
+    </div>
+    <div class="paragraph-35 padding-5">
+      शासकीय कर्मचारी के हस्ताक्षर <%= raw blank_string_format2(28, false, "applicant") %>
+      <div class="txt-indent-2">
+        मैं <%= raw blank_string_format2(20, false, "docter") %> प्रमाणित करता हूं कि मैंने  श्री/श्रीमती/कुमारी <%= raw blank_string_format2(20, false, "applicant") %> जिसका हस्ताक्षर ऊपर अंकित है, का सावधानीपूर्वक परीक्षण किया है | और मैंने पाया है कि वह अपनी बीमारी से उबर चुके है और अब अपने कर्तव्यों यानी सरकारी सेवा में अपना काम पुनः सँभालने योग्य हो गये है | मैं यह भी प्रमाणित करता हूं कि इस निर्णय पर पहुंचने से पहले मैंने मूल प्रमाण पत्र की जांच कर ली है | और मामले के बयान (उसकी सीआर प्रमाणित प्रतियां) जिस पर छुट्टी दी गई थी या बढ़ाई गई थी, उनकी जाँच कर ली है और अपने निर्णय पर पहुंचने पर उन्हें दृष्टिगत रखा गया है |   
+      </div>
+      <div class="">&nbsp;</div>
+      <div class="">&nbsp;</div>
+      <div class="roww">
+        <div class="w-65">स्थान: <%= raw blank_string_format2(14, false, "place") %></div>
+        <div class="w-35 text-center">परीक्षा करने वाले चिकित्सा</div>
+      </div>
+      <div class="roww">
+        <div class="w-65">दिनांक: <%= raw blank_string_format2(15, false, "place") %></div>
+        <div class="w-35 text-center">अधिकारी के हस्ताक्षर एवं पदनाम</div>
+      </div>
+    </div>
+  </div>
+
+</div>

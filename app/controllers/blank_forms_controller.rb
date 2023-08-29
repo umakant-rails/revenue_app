@@ -75,6 +75,9 @@ class BlankFormsController < ApplicationController
   def department
     @department = Department.where(eng_name: params[:department])[0]
     @form_groups = @department.present? ? @department.blank_forms.pluck("section_hindi").uniq : []
+    if @form_groups.length == 1
+      redirect_to section_blank_forms_path(params[:department], @form_groups[0])
+    end
   end
 
   def get_records

@@ -95,6 +95,7 @@ page[size="A4"][layout="landscape"] {
   */
 }
 
+.w-3{width: 3%; padding: 0px 5px;word-wrap: anywhere;}
 .w-4{width: 4%; padding: 0px 5px;word-wrap: anywhere;}
 .w-5{width: 5%; padding: 0px 5px;word-wrap: anywhere;}
 .w-6{width: 6%; padding: 0px 5px;word-wrap: anywhere;}
@@ -122,6 +123,7 @@ page[size="A4"][layout="landscape"] {
 .w-80{width: 80%; padding: 0px 5px;word-wrap: anywhere;}
 .w-85{width: 85%; padding: 0px 5px;word-wrap: anywhere;}
 .w-95{width: 95%; padding: 0px 5px;word-wrap: anywhere;}
+.w-97{width: 97%; padding: 0px 5px;word-wrap: anywhere;}
 .w-100{width: 100%; padding: 0px 5px;word-wrap: anywhere;}
 
 .mrgn-2{ margin-left: 2%; margin-right: 2%; }
@@ -375,6 +377,10 @@ page[size="A4"][layout="landscape"] {
   font-size: 14px;
   font-weight: bold;
   padding-top: 45px;
+}
+
+.dashed-bdr {
+  border-top: 2px dashed black;
 }
 .ln-hgt-18 { line-height: 18px; text-align: justify; }
 .ln-hgt-19 { line-height: 19px; text-align: justify; }

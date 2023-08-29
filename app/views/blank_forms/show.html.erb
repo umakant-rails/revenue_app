@@ -29,29 +29,31 @@
   </div>
   <div class="col-md-7 ms-5" data-controller="blnk-frm">
     <div id="page-block">
-      <div class="col-md-10" data-controller="misc">
-        <div class="mb-3 row" data-controller="misc">
-          <div class="col-md-3">
-            <label class="form-label">District</label>
-            <%= select_tag :district, options_for_select(@districts), prompt: "जिला चुने", 
-              class: "form-control", 'data-target': 'misc.district', 
-              'data-action': 'change->misc#getRecords' %>
+      <% if @blank_form.department.eng_name == "revenue" %>
+        <div class="col-md-10" data-controller="misc">
+          <div class="mb-3 row">
+            <div class="col-md-3">
+              <label class="form-label">District</label>
+              <%= select_tag :district, options_for_select(@districts), prompt: "जिला चुने", 
+                class: "form-control", 'data-target': 'misc.district', 
+                'data-action': 'change->misc#getRecords' %>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Tehsil</label>
+              <%= select_tag :tehsil, options_for_select([]), prompt: "तहसील चुने", class: "form-control", 'data-target': 'request.tehsil misc.tehsil', 'data-action': 'change->misc#getRecords' %>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Circle</label>
+              <%= select_tag :circle, options_for_select([]), prompt: "सर्किल चुने", class: "form-control", 'data-target': 'request.circle misc.circle', 'data-action': 'change->misc#getRecords' %>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Village</label>
+              <%= select_tag :request_village_id, options_for_select([]), prompt: "ग्राम चुने", class: "form-control set-pmkisan-data", 'data-target': 'request.village misc.village' %>
+            </div>
           </div>
-          <div class="col-md-3">
-            <label class="form-label">Tehsil</label>
-            <%= select_tag :tehsil, options_for_select([]), prompt: "तहसील चुने", class: "form-control", 'data-target': 'request.tehsil misc.tehsil', 'data-action': 'change->misc#getRecords' %>
-          </div>
-          <div class="col-md-3">
-            <label class="form-label">Circle</label>
-            <%= select_tag :circle, options_for_select([]), prompt: "सर्किल चुने", class: "form-control", 'data-target': 'request.circle misc.circle', 'data-action': 'change->misc#getRecords' %>
-          </div>
-          <div class="col-md-3">
-            <label class="form-label">Village</label>
-            <%= select_tag :request_village_id, options_for_select([]), prompt: "ग्राम चुने", class: "form-control set-pmkisan-data", 'data-target': 'request.village misc.village' %>
-          </div>
-        </div>
-      </div>
-      <%= render partial: "blank_forms/forms/#{certificate_name(params[:department])}/#{certificate_name(@blank_form.section)}/#{certificate_name(@blank_form.eng_name)}" rescue nil %>
+         </div>
+      <% end %>
+      <%= render partial: "blank_forms/forms/#{certificate_name(params[:department])}/#{certificate_name(@blank_form.section)}/#{certificate_name(@blank_form.eng_name)}" %>
     </div>
     <div class="divider-bdr"></div>
   </div>
