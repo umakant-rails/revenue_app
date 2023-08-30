@@ -49,6 +49,44 @@ export default class extends ApplicationController {
     this.getData('get', '/welcome/form/search', this.params);
   }
 
+  selectImage(e){
+    var classes = e.target.classList;
+
+    if(classes.contains('fa-circle-xmark')){
+      $("#imagefordomicile").val("");
+      $("#imageSelectBlock").show();
+
+      $("#image-cross-icon").hide();
+      $("#imageAddBlock").hide();
+      $("#imageAddBlock").html("")
+    } else if(classes.contains('fa-circle-plus')){
+      $("#imagefordomicile").click();
+    }
+  }
+
+  addImage(e){
+    var file = e.target.files[0];
+
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+
+    if(file.type.indexOf("image/") == -1){
+      alert("कृपया केवल इमेज/फोटो को ही सेलेक्ट करे |");
+      return;
+    }
+
+    fileReader.addEventListener("load", function () {
+      var imageStr = `<div class="image-holder">
+        <img src="${this.result}" style="width:100%;height:100px"/>
+      </div>`;
+      $("#imageSelectBlock").hide();
+
+      $("#image-cross-icon").show();
+      $("#imageAddBlock").show();
+      $("#imageAddBlock").html(imageStr)
+    });
+  }
+
   /* start js block - make ajax requext */
   getData(requestType, url, params){
     $(".spinner").css('display', 'block');

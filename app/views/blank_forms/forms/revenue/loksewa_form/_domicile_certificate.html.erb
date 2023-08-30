@@ -1,15 +1,29 @@
-<div class="page-a4 only-print" data-controller="blnk-frm">
+<div class="page-a4 only-print" data-controller="blnk-frm misc">
   <div class="col-md-12 ln-hgt-30">
-    <div class="row">
-      <div class="fnt-24 fnt-b">
-        <center>
-          स्थानीय निवासी हेतु<br/>स्व प्रमाणित घोषणा-पत्र 
-        </center>
+    <div class="roww">
+      <div class="w-33"></div>
+      <div class="w-33">
+        <div class="fnt-24 fnt-b">
+          <center>
+            स्थानीय निवासी हेतु<br/>स्व प्रमाणित घोषणा-पत्र 
+          </center>
+        </div>
+        <div class="fnt-20 fnt-b">
+          <center>
+            (अस्टाम्पित कागज पर) 
+          </center>
+        </div>
       </div>
-      <div class="fnt-20 fnt-b">
-        <center>
-          (अस्टाम्पित कागज पर) 
-        </center>
+      <div class="w-33">
+        <input type="file" id="imagefordomicile" style="display:none;" data-action="change->misc#addImage" />
+        <div class="text-center pt-4" id="imageSelectBlock">
+          <i class="fa-solid fa-circle-plus fnt-28 mt-2 hide-on-print" data-action="click->misc#selectImage"></i>
+        </div>
+        <div style="width:100px;">
+          <i class="fa-solid fa-circle-xmark image-cross-icon hide-on-print" id="image-cross-icon" 
+            style="display:none;" data-action="click->misc#selectImage"></i>
+        </div>
+        <div class="text-center" id="imageAddBlock" style="display:none;"></div>
       </div>
     </div>
      <span id="translatable" style="display:none;">
