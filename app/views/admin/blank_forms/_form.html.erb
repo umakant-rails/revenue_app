@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="card-body">
+    <div class="page-header">
+      फॉर्म जानकारी
+    </div>
+    <div class="dropdown-divider"></div>
+    <div data-controller='blnk-frm'>
+      <%= form_with(model: [:admin, blank_form]) do |form| %>
+        <% if blank_form.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(blank_form.errors.count, "error") %> prohibited this blank_form from being saved:</h2>
+
+            <ul>
+              <% blank_form.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="mb-3">
+          <% department_list = departments.collect{|d| [d.eng_name+"/"+d.hindi_name, d.id]} %>
+          <label class="form-label">Department</label>
+          <%= form.select :department_id,  options_for_select(department_list, (form.object.department_id rescue nil) ), {prompt: "आवेदन प्रकार चुने"}, class: "form-control", 'data-action': 'change->blnk-frm#getCategories', 'data-blank_form-target': 'blank_formType' %>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Form Name (English)</label>
+          <%= form.text_field :eng_name, class: "form-control", 'data-blank_form-target': 'year', 'data-action': 'focusout->blank_form#updateblank_formTitle' %>   
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Form Name (Hindi)</label>
+          <%= form.text_field :hindi_name, class: "form-control", 'data-blank_form-target': 'applicant', 'data-action': 'focusout->blank_form#updateblank_formTitle' %>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="blank_form_प्रपत्र श्रेणी (अंग्रेजी)">Select Form Section</label>
+          <%= form.select :section_name, options_for_select([]),{prompt: 'Select Section'}, class: "form-control", 'data-blank_form-target':'blank_formTitle', 'data-action': 'change->blnk-frm#selectSection' %>
+        </div>
+        <div class="text-center text-primary">Or</div>
+        <div class="mb-3">
+          <label class="form-label">Form Section (English)</label>
+          <%= form.text_field :section, class: "form-control", 'data-blank_form-target':'blank_formTitle' %>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Form Section (Hindi)</label>
+          <%= form.text_field :section_hindi, class: "form-control", 'data-blank_form-target':'blank_formTitle' %>
+        </div>
+        
+        <div>
+          <%= form.submit  "Submit Form", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% content_for :head do %>
+  <%= javascript_import_module_tag "custom/admin/blank-form-custom" %>
+<% end %>

@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="row">
+      <table class="table table-bordered border-danger">
+        <thead class="table-danger">
+          <tr>
+            <th>#</th>
+            <th>विभाग</th>
+            <th>प्रमाणपत्र (हिंदी)</th>
+            <th>प्रमाणपत्र (अंग्रेजी)</th>
+            <th>श्रेणी (हिंदी)</th>
+            <th>श्रेणी (अंग्रेजी)</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @blank_forms && @blank_forms.each_with_index do | form, index | %>
+            <%= link_to admin_blank_form_path(form), class:"anchor-no-decoration" do %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td>
+                  <%= link_to form.department.hindi_name,admin_blank_form_path(form), class:"anchor-no-decoration" %>
+                </td>
+                <td>
+                  <%= link_to form.hindi_name,admin_blank_form_path(form), class:"anchor-no-decoration" %>
+                </td>
+                <td>
+                  <%= link_to form.eng_name,admin_blank_form_path(form), class:"anchor-no-decoration" %>
+                </td>
+                <td>
+                  <%= link_to form.section_hindi, admin_blank_form_path(form), class:"anchor-no-decoration" %>
+                </td>
+                <td>
+                  <%= link_to form.section, admin_blank_form_path(form), class:"anchor-no-decoration" %>
+                </td>
+                <td>
+                  <%= link_to edit_admin_blank_form_path(form), class: "btn btn-primary",
+                    'data-bs-toggle': "tooltip", 'data-bs-placement': "top", 'title': "अद्यतन करे" do %>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  <% end %>
+                  <%= button_to edit_admin_blank_form_path(form), method: :delete, class: "btn btn-danger", form: {class: 'ps-0 pe-0', style: "display:inline-block;"} do %>
+                   <i class="fa-solid fa-trash" ></i>
+                  <%end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @blank_forms if @blank_forms.present?%>
+      <hr>
+      <div>
+        <%= link_to "New Form", new_admin_blank_form_path, class: "btn btn-primary" %> 
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>

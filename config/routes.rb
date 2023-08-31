@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :form_templates
     resources :requests
+    resources :blank_forms do
+      get '/dept/:department_id/get_sections' => "blank_forms#get_sections", as: :get_sections, on: :collection
+    end
   end
   
   root 'welcome#index'

@@ -1,0 +1,9 @@
+var options = '';
+
+<% @sections && @sections.each do | section | %>
+  options = options + '<option value="<%= section %>"><%= section %></option>'
+<% end %>
+
+options = '<option value="">Select Section</option>' + options;
+$("#blank_form_section_name").html(options);
+

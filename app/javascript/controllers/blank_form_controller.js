@@ -123,4 +123,32 @@ export default class extends ApplicationController {
     console.log(url)
   }
 
+  getCategories(event){
+    var deptId = event.target.value;
+
+    if(deptId.length == 0){
+      return;
+    }
+
+    $.ajax({
+      type: 'get',
+      url: `/admin/blank_forms/dept/${deptId}/get_sections`,
+      data: {},
+      dataType: 'script',
+      success: function(data){
+      }
+    });
+  }
+
+  selectSection(event){
+    var selectedValue = event.target.value;
+    if(selectedValue.length == 0){
+      $("#blank_form_section").prop('disabled', false);
+      $("#blank_form_section_hindi").prop('disabled', false);
+    } else {
+      $("#blank_form_section").prop('disabled', true);
+      $("#blank_form_section_hindi").prop('disabled', true);
+    }
+  }
+
 }
