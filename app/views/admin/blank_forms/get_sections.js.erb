@@ -1,7 +1,11 @@
 var options = '';
 
-<% @sections && @sections.each do | section | %>
-  options = options + '<option value="<%= section %>"><%= section %></option>'
+<% @sections && @sections.each do | section_eng | %>
+  <% if @blank_form.present? && section == @blank_form.section_eng %>
+    options = options + '<option value="<%= section_eng %>" selected="selected"><%= section_eng %></option>'
+  <% else %>
+    options = options + '<option value="<%= section_eng %>"><%= section_eng %></option>'
+  <% end %>
 <% end %>
 
 options = '<option value="">Select Section</option>' + options;

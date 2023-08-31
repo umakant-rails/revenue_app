@@ -125,7 +125,7 @@ export default class extends ApplicationController {
 
   getCategories(event){
     var deptId = event.target.value;
-
+    var formId = event.target.dataset.formId;
     if(deptId.length == 0){
       return;
     }
@@ -133,7 +133,7 @@ export default class extends ApplicationController {
     $.ajax({
       type: 'get',
       url: `/admin/blank_forms/dept/${deptId}/get_sections`,
-      data: {},
+      data: {form_id: formId},
       dataType: 'script',
       success: function(data){
       }
@@ -143,11 +143,11 @@ export default class extends ApplicationController {
   selectSection(event){
     var selectedValue = event.target.value;
     if(selectedValue.length == 0){
-      $("#blank_form_section").prop('disabled', false);
+      $("#blank_form_section_eng").prop('disabled', false);
       $("#blank_form_section_hindi").prop('disabled', false);
     } else {
-      $("#blank_form_section").prop('disabled', true);
-      $("#blank_form_section_hindi").prop('disabled', true);
+      $("#blank_form_section_eng  ").prop('disabled', true).val("");
+      $("#blank_form_section_hindi").prop('disabled', true).val("");
     }
   }
 

@@ -4,10 +4,10 @@ class CreateBlankForms < ActiveRecord::Migration[7.0]
       t.integer :department_id
       t.string  :eng_name
       t.string  :hindi_name
+      t.string  :section_eng
+      t.string  :section_hindi       
       t.string  :category
       t.text    :content
-      t.string  :section
-      t.string  :section_hindi       
 
       t.timestamps
     end

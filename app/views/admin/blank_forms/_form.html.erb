@@ -21,7 +21,7 @@
         <div class="mb-3">
           <% department_list = departments.collect{|d| [d.eng_name+"/"+d.hindi_name, d.id]} %>
           <label class="form-label">Department</label>
-          <%= form.select :department_id,  options_for_select(department_list, (form.object.department_id rescue nil) ), {prompt: "आवेदन प्रकार चुने"}, class: "form-control", 'data-action': 'change->blnk-frm#getCategories', 'data-blank_form-target': 'blank_formType' %>
+          <%= form.select :department_id,  options_for_select(department_list, (form.object.department_id rescue nil) ), {prompt: "Select Department"}, class: "form-control", 'data-action': 'change->blnk-frm#getCategories', 'data-blank_form-target': 'blank_formType', 'data-form-id': form.object.id rescue nil %>
         </div>
         <div class="mb-3">
           <label class="form-label">Form Name (English)</label>
@@ -35,12 +35,16 @@
 
         <div class="mb-3">
           <label class="form-label" for="blank_form_प्रपत्र श्रेणी (अंग्रेजी)">Select Form Section</label>
-          <%= form.select :section_name, options_for_select([]),{prompt: 'Select Section'}, class: "form-control", 'data-blank_form-target':'blank_formTitle', 'data-action': 'change->blnk-frm#selectSection' %>
+          <% if @sections.present? %>
+            <%= form.select :section_name, options_for_select(@sections.collect{|section| [section]}, form.object.section_eng),{prompt: 'Select Section'}, class: "form-control", 'data-blank_form-target':'blank_formTitle', 'data-action': 'change->blnk-frm#selectSection' %>
+          <% else %>
+            <%= form.select :section_name, options_for_select([]),{prompt: 'Select Section'}, class: "form-control", 'data-blank_form-target':'blank_formTitle', 'data-action': 'change->blnk-frm#selectSection' %>
+          <% end %>
         </div>
         <div class="text-center text-primary">Or</div>
         <div class="mb-3">
           <label class="form-label">Form Section (English)</label>
-          <%= form.text_field :section, class: "form-control", 'data-blank_form-target':'blank_formTitle' %>
+          <%= form.text_field :section_eng, class: "form-control", 'data-blank_form-target':'blank_formTitle' %>
         </div>
         <div class="mb-3">
           <label class="form-label">Form Section (Hindi)</label>
