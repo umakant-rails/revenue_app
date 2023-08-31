@@ -1,7 +1,10 @@
 class WelcomeController < ApplicationController
   def index
-    @districts = Village.all.pluck(:district).uniq
-    @blank_forms = BlankForm.all.page(params[:page]).per(8) rescue nil
+    get_blank_forms
+  end
+
+  def form_index
+    get_blank_forms
   end
 
   def autocomplete_term
@@ -33,6 +36,13 @@ class WelcomeController < ApplicationController
       format.js {}
     end
     render layout: false
+  end
+
+  private
+
+  def get_blank_forms
+    @districts = Village.all.pluck(:district).uniq
+    @blank_forms = BlankForm.all.page(params[:page]).per(10) rescue nil
   end
 
 end

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :welcome, only: [:index] do
+    get '/tbl-format' => "welcome#form_index", on: :collection
     get '/autocomplete_term' => "welcome#autocomplete_term", as: :autocomplete_term, on: :collection
     get '/form/search' => "welcome#form_search", as: :form_search, on: :collection
   end

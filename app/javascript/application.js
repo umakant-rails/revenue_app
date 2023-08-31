@@ -3,8 +3,8 @@ import Rails from '@rails/ujs';
 import $ from 'jquery';
 window.$ = $;
 
-import "bootstrap";
 import "popper";
+import "bootstrap";
 import "controllers";
 import "tinymce";
 import './formjs-custom';

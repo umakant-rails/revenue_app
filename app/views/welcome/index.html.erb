@@ -15,7 +15,21 @@
           <ul class="list-group" data-autocomplete-target="results"></ul>
         </div>
       </div>
-      <div class="col-md-3"></div>
+      <div class="col-md-3"> 
+        <div class="dropdown">
+          <i class="fa-solid fa-ellipsis-vertical fRight fnt-30 pt-2 p-2 cpointer" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Format</a></li>
+            <hr>
+            <li>
+             <a class="dropdown-item" href="<%= tbl_format_welcome_index_path(page: params[:page]) %>">Table</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="<%= root_path(page: params[:page]) %>">Widget</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
   <div class="col-md-1"></div>
@@ -24,7 +38,36 @@
   <div class="col-md-1"></div>
   <div class="col-md-10">
     <div id="forms-list">
-      <%= render partial: "form_list", locals: {blank_forms: @blank_forms} %>
+
+      <div class="row blank-form-list node-format" >
+        <% @blank_forms && @blank_forms.each_with_index do | form, index | %>
+          <% if index%5 == 0%>
+            <div class="col-md-1"></div>
+          <% end %>
+          <%= link_to show_blank_forms_path(form.department.eng_name,form.id), class:"col-md-2 anchor-no-decoration" do %>
+            <center>
+              <div class="card" style="width: 180px; border-radius: 0px;border: 2px solid blue;border-radius: 5px;  ">
+                <div class="card-body p-2" style="border-bottom: 2px solid blue; min-height:100px;">
+                  <div class="card-text fnt-14 fnt-b txt-center"><%= form.eng_name.camelize %> / <%= form.hindi_name %></div>
+                  <div class="card-text fnt-14 fnt-b txt-center">(<%= form.section_eng.capitalize %>)</div>
+                </div>
+                <img src="/assets/letter_img.png" class="card-img-top" alt="..."  >
+              </div>
+            </center>
+          <% end %>
+          <% if index%5 == 4%>
+            <div class="col-md-1"></div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <%= paginate @blank_forms %>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+
     </div>
   </div>
   <div class="col-md-1"></div>
