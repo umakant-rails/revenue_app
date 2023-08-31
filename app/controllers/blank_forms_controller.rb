@@ -1,5 +1,5 @@
 class BlankFormsController < ApplicationController
-  before_action :set_blank_form, only: %i[ show edit update destroy ]
+  before_action :set_blank_form, only: %i[ show_blank_form ]
 
   def get_departments
     @departments = Department.all
@@ -11,65 +11,6 @@ class BlankFormsController < ApplicationController
     @departments = Department.all
     # @department = Department.where(eng_name: params[:department])[0]
     # @blank_forms = @department.present? ? @department.blank_forms.order("group_name")  : []
-  end
-
-  # GET /blank_forms/1 or /blank_forms/1.json
-  def show
-    @districts = Village.all.pluck(:district).uniq
-    if @blank_form.present? 
-      @blank_forms = BlankForm.where(section_hindi: @blank_form.section_hindi)
-    else
-      @blank_forms = BlankForm.where(section_hindi: params[:section])
-      @blank_form = @blank_forms[0]
-    end
-
-  end
-
-  # GET /blank_forms/new
-  def new
-    @blank_form = BlankForm.new
-  end
-
-  # GET /blank_forms/1/edit
-  def edit
-  end
-
-  # POST /blank_forms or /blank_forms.json
-  def create
-    @blank_form = BlankForm.new(blank_form_params)
-
-    respond_to do |format|
-      if @blank_form.save
-        format.html { redirect_to blank_form_url(@blank_form), notice: "Blank form was successfully created." }
-        format.json { render :show, status: :created, location: @blank_form }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @blank_form.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /blank_forms/1 or /blank_forms/1.json
-  def update
-    respond_to do |format|
-      if @blank_form.update(blank_form_params)
-        format.html { redirect_to blank_form_url(@blank_form), notice: "Blank form was successfully updated." }
-        format.json { render :show, status: :ok, location: @blank_form }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @blank_form.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /blank_forms/1 or /blank_forms/1.json
-  def destroy
-    @blank_form.destroy
-
-    respond_to do |format|
-      format.html { redirect_to blank_forms_url, notice: "Blank form was successfully destroyed." }
-      format.json { head :no_content }
-    end
   end
 
   def department
@@ -87,6 +28,16 @@ class BlankFormsController < ApplicationController
       @records = Village.where(tehsil: params[:selected_value]).pluck(:ri).uniq
     elsif params[:selected_field] == "circle"
       @records = Village.where(ri: params[:selected_value])
+    end
+  end
+
+  def show_blank_form
+    @districts = Village.all.pluck(:district).uniq
+    if @blank_form.present? 
+      @blank_forms = BlankForm.where(section_hindi: @blank_form.section_hindi)
+    else
+      @blank_forms = BlankForm.where(section_hindi: params[:section])
+      @blank_form = @blank_forms[0]
     end
   end
 

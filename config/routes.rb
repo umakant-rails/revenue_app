@@ -51,16 +51,12 @@ Rails.application.routes.draw do
   resources :order_templates
 
   resources :blank_forms, only: :index do 
-    # namespace: 'revenue' do
-    #   get '/' => 'blank_forms#index', as: :revenue, on: :collection
-    # end
     get '/departments/:department' => 'blank_forms#department', as: :department,  on: :collection
-    get '/departments/:department/section/:section' => 'blank_forms#show', as: :section, on: :collection
-    get '/departments/:department/:id' => 'blank_forms#show', as: :show, on: :collection
+    get '/departments/:department/section/:section' => 'blank_forms#show_blank_form', as: :section, on: :collection
+    get '/departments/:department/:id' => 'blank_forms#show_blank_form', as: :show, on: :collection
 
     get '/get_records' => "blank_forms#get_records", as: :get_records, on: :collection 
     get '/departments' => "blank_forms#get_departments", as: :get_department, on: :collection
-
   end
 
   resources :pdfs, only: [:index] do
