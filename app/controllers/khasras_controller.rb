@@ -56,13 +56,13 @@ class KhasrasController < ApplicationController
       if khasra_tmp.present?
         flash[:error] =  "यह खसरा पहले ही जोड़ा जा चुका है |"
         format.html { render :new, status: :unprocessable_entity }
-      elsif @khasra.sold_rakba.present? && @khasra.unit.blank?
+      elsif @khasra.sold_rakba.present? && @khasra.unit.blank? && @request.request_type.name == "नामांतरण"
         flash[:error] =  "अगर आपने विक्रय रकबा भरा है तो बिक्रय रकबा की इकाई चुनना आवश्यक है |"
         format.html { render :new, status: :unprocessable_entity }
       elsif @request.request_type.name == "नामांतरण" && inserted_khasra.blank? && @khasra.sold_rakba.blank?
         flash[:error] =  "खसरा में क्रय/विक्रय किया गया रकबा भरना अनिवार्य है |"
         format.html { render :new, status: :unprocessable_entity }
-      elsif sold_rakba > total_rakba
+      elsif @request.request_type.name == "नामांतरण" && sold_rakba > total_rakba
         flash[:error] =  "विक्रय रकबा, खसरे के रकबे से ज्यादा नहीं हो सकता है |"
         format.html { render :new, status: :unprocessable_entity }
       elsif @khasra.save
