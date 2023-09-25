@@ -7,12 +7,12 @@ class FontConvertersController < ApplicationController
 
   def export_docx
     content_text = params[:mangaltext].present? ? params[:mangaltext] : params[:krutitext]
-    file_name = params[:mangaltext].present? ? 'file_mangal' : 'file_krutidev'
+    file_name = params[:mangaltext].present? ? 'file_mangal.docx' : 'file_krutidev.docx'
 
     respond_to do |format|
-      format.html { redirect_to new_font_converter_url, notice: "" }
+      # format.html { redirect_to new_font_converter_url, notice: "" }
       format.docx do
-        render docx: file_name, content: content_text
+        render docx: file_name, inline: content_text
       end
     end
   end
