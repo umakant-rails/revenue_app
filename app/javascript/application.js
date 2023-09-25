@@ -9,7 +9,7 @@ import "controllers";
 import "tinymce";
 import './formjs-custom';
 import './drag-and-drop';
-
+import "./kruti_to_mangal";
 
 $(document).ready(function(){
   tinymce.init({

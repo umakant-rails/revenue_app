@@ -63,6 +63,11 @@ Rails.application.routes.draw do
     get '/departments' => "blank_forms#get_departments", as: :get_department, on: :collection
   end
 
+  resources :font_converters, only: [:new] do
+    post '/export_docx' => "font_converters#export_docx", as: :export_pdf, on: :collection
+    get '/:chart_name/image_to_pdf' => "font_converters#image_to_pdf", as: :image_to_pdf, on: :collection
+  end
+
   resources :pdfs, only: [:index] do
     get '/imagetopdf' => "pdfs#image_to_pdf", as: :imagetopdf, on: :collection
     post '/convert/imagetopdf' => "pdfs#convert_image_to_pdf", as: :convert_imagetopdf, on: :collection

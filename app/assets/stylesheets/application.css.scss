@@ -60,3 +60,15 @@
 .d-table { display: table; border-collapse: collapse; }
 .d-row { display: table-row }
 .d-cell { display: table-cell; }
+
+@font-face {
+  font-family: 'kruti dev' ;
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  font-size: 22px;
+  src: url( '/assets/krutidev-010.ttf' )  format('truetype');
+}
+.hinditext, .hinditext > * {
+  font-family: 'kruti dev';
+}

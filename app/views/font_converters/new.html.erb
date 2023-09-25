@@ -1,0 +1,110 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="page-header mb-3">
+          फोन्ट रूपांतरण सूची
+        </div>
+        <ul class="list-group">
+          <% if params[:conversion_type] == "mangal-to-kruti" %>
+            <%= link_to new_font_converter_path(conversion_type: "kruti-to-mangal"), class: "anchor-no-decoration" do %>
+              <li class="list-group-item">
+                कृतिदेव से मंगल
+              </li>
+            <% end %>
+            <li class="list-group-item active">
+              मंगल से कृतिदेव
+            </li>
+          <% else %>
+            <li class="list-group-item active">
+              कृतिदेव से मंगल
+            </li>
+            <%= link_to new_font_converter_path(conversion_type: "mangal-to-kruti"), class: "anchor-no-decoration" do %>
+              <li class="list-group-item">
+                मंगल से कृतिदेव
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+        <div class="page-header mt-3">
+          फोन्ट डाउनलोड 
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item cpointer fnt-b" id="krutidev-font-download">
+            Download KrutiDev Font
+          </li>
+          <li class="list-group-item cpointer fnt-b" id="krutidev-font-chart-download">
+            Download KrutiDev Font Chart 
+          </li>
+          <li class="list-group-item cpointer fnt-b" id="inscript-font-chart-download">
+            Download Inscript Font Chart
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-9">
+        <div class="col-md-12 txt-center page-header mb-3">
+          फोन्ट रूपांतरण - <%= (params[:conversion_type] == "mangal-to-kruti") ? "मंगल से कृतिदेव" : "कृतिदेव से मंगल" %>
+        </div>
+
+        <% if params[:conversion_type] == "mangal-to-kruti" %>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label class="form-label mb-2 fnt-b fnt-18">Managl Font</label>
+              <textarea rows="8" class="form-control" placeholder="Enter Mangal Text" id="source-text" name="mangaltext"></textarea>
+            </div>
+            <div class="col-md-4 mb-3">
+              <a href="javascript:void(0);" id="convert-mangal-font" class="btn btn-primary form-control"><i class="fa fa-retweet" aria-hidden="true"></i> Convert To Krutidev</a>
+            </div>
+            <div class="col-md-4 mb-3">
+              <a href="javascript:void(0);" id="clear-text" class="btn btn-danger form-control"><i class="fa fa-eraser" aria-hidden="true"></i> Clear Text</a>
+            </div>
+            <%= form_tag(export_pdf_font_converters_path(format: "docx"), method: "post")  do  %>
+              <div class="col-md-12 mb-3">
+                <label class="form-label mb-2 fnt-b fnt-18">KrutiDev Font</label>
+                <textarea rows="8" class="form-control hinditext fnt-22" placeholder="डि&कोडेड कृतिदेव टेक्स्ट" id="converted-text" name="krutitext"></textarea>
+              </div>
+              <div class="row">
+                <div class="col-md-3 mb-3">
+                  <a href="javascript:void(0);" id="copy-to-clipboard" class="btn btn-success pull-right">  <i class="fa fa-clipboard" aria-hidden="true"></i> Copy To Clipboard
+                  </a>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <input type="submit" value="Download Docx" class="btn btn-primary" />
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label class="form-label mb-2 fnt-b fnt-18">KrutiDev Font</label>
+              <textarea rows="8" class="form-control hinditext fnt-22" placeholder="कृतिदेव टेक्स्ट दर्ज करें" id="source-text" name="krutitext"></textarea>
+            </div>
+            <div class="col-md-4 mb-3">
+              <a href="javascript:void(0);" id="convert-kruti-font" class="btn btn-primary form-control"><i class="fa fa-retweet" aria-hidden="true"></i> Convert To Mangal</a>
+            </div>
+            <div class="col-md-4 mb-3">
+              <a href="javascript:void(0);" id="clear-text" class="btn btn-danger form-control"><i class="fa fa-eraser" aria-hidden="true"></i> Clear Text</a>
+            </div>
+            <%= form_tag(export_pdf_font_converters_path(format: "docx"), method: "post")  do  %>
+              <div class="col-md-12 mb-3">
+                <label class="form-label mb-2 fnt-b fnt-18">Managl Font</label>
+                <textarea rows="8" class="form-control" placeholder="Converted Mangal Text" id="converted-text" name="mangaltext"></textarea>
+              </div>
+              <div class="row">
+                <div class="col-md-3 mb-3">
+                  <a href="javascript:void(0);" id="copy-to-clipboard" class="btn btn-success pull-right"><i class="fa fa-clipboard" aria-hidden="true"></i> Copy To Clipboard</a>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <input type="submit" value="Download Docx" class="btn btn-primary" />
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
