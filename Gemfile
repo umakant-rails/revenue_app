@@ -66,6 +66,8 @@ gem 'kaminari'
 gem 'execjs'
 gem 'prawn'
 gem 'matrix'
+gem 'docx'
+
 # gem 'rmagick'
 # gem 'mini_magick'
 

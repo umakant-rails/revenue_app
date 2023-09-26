@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   resources :font_converters, only: [:new] do
     post '/export_docx' => "font_converters#export_docx", as: :export_pdf, on: :collection
     get '/:chart_name/image_to_pdf' => "font_converters#image_to_pdf", as: :image_to_pdf, on: :collection
+    get '/image_to_text' => "font_converters#image_to_text", as: :image_to_text, on: :collection
   end
 
   resources :pdfs, only: [:index] do

@@ -13,6 +13,8 @@ pin "@rails/ujs", to: "https://ga.jspm.io/npm:@rails/ujs@7.0.3-1/lib/assets/comp
 pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js"
 pin "stimulus-autocomplete", to: "https://ga.jspm.io/npm:stimulus-autocomplete@3.1.0/src/autocomplete.js"
 pin "tinymce", to: "https://cdn.tiny.cloud/1/kiyvmpswx8cau4dzmwljz1gop78rrcdkiyicarl0u5z5f7np/tinymce/5/tinymce.min.js", preload: true
+#pin "tesseract", to: "https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js", preload: true
 
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin_all_from "app/javascript/custom", under: "custom"
+

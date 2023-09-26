@@ -1,3 +1,5 @@
+require 'docx'
+
 class FontConvertersController < ApplicationController
   
   # GET /font_converters/new
@@ -27,6 +29,10 @@ class FontConvertersController < ApplicationController
           page_size: 'A4'
       end
     end
+  end
+
+  def image_to_text
+    #https://www.codehim.com/vanilla-javascript/javascript-crop-image-and-save/
   end
 
 end

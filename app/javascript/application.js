@@ -7,9 +7,12 @@ import "popper";
 import "bootstrap";
 import "controllers";
 import "tinymce";
+import "./tesseract";
+//import "tesseract";
 import './formjs-custom';
 import './drag-and-drop';
 import "./kruti_to_mangal";
+import "./textExtractFromImage";
 
 $(document).ready(function(){
   tinymce.init({
