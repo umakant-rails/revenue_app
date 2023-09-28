@@ -66,14 +66,19 @@ Rails.application.routes.draw do
   resources :font_converters, only: [:new] do
     post '/export_docx' => "font_converters#export_docx", as: :export_pdf, on: :collection
     get '/:chart_name/image_to_pdf' => "font_converters#image_to_pdf", as: :image_to_pdf, on: :collection
-    get '/image_to_text' => "font_converters#image_to_text", as: :image_to_text, on: :collection
   end
-
+  resources :image_converters, only: [:new] do
+    get '/image_to_text' => "image_converters#image_to_text", as: :image_to_text, on: :collection
+    get '/image_crop' => "image_converters#image_crop", as: :image_crop, on: :collection
+  end
+  
   resources :pdfs, only: [:index] do
     get '/imagetopdf' => "pdfs#image_to_pdf", as: :imagetopdf, on: :collection
     post '/convert/imagetopdf' => "pdfs#convert_image_to_pdf", as: :convert_imagetopdf, on: :collection
     get '/:file_number/download' => "pdfs#download_file", as: :download_file, on: :collection
     delete '/:file_number/delete' => "pdfs#delete_pdf", as: :delete_pdf, on: :collection
   end
+
+  
 
 end

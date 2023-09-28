@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" data-controller="font">
   <div class="col-md-2"></div>
   <div class="col-md-8">
     <div class="row">
@@ -31,13 +31,13 @@
           फोन्ट डाउनलोड 
         </div>
         <ul class="list-group">
-          <li class="list-group-item cpointer fnt-b" id="krutidev-font-download">
+          <li class="list-group-item cpointer fnt-b" id="krutidev-font-download" data-action="click->font#downloadFont">
             Download KrutiDev Font
           </li>
-          <li class="list-group-item cpointer fnt-b" id="krutidev-font-chart-download">
+          <li class="list-group-item cpointer fnt-b" id="krutidev-font-chart-download" data-action="click->font#downloadFont">
             Download KrutiDev Font Chart 
           </li>
-          <li class="list-group-item cpointer fnt-b" id="inscript-font-chart-download">
+          <li class="list-group-item cpointer fnt-b" id="inscript-font-chart-download" data-action="click->font#downloadFont">
             Download Inscript Font Chart
           </li>
         </ul>
@@ -51,22 +51,25 @@
           <div class="row">
             <div class="col-md-12 mb-3">
               <label class="form-label mb-2 fnt-b fnt-18">Managl Font</label>
-              <textarea rows="8" class="form-control" placeholder="Enter Mangal Text" id="source-text" name="mangaltext"></textarea>
+              <textarea rows="8" class="form-control" placeholder="Enter Mangal Text" id="source-text" name="mangaltext" data-font-target="mangalText" data-action="keyup->font#mangalToKruti paste->font#mangalToKruti change->font#mangalToKruti"></textarea>
             </div>
             <div class="col-md-4 mb-3">
-              <a href="javascript:void(0);" id="convert-mangal-font" class="btn btn-primary form-control"><i class="fa fa-retweet" aria-hidden="true"></i> Convert To Krutidev</a>
+              <a href="javascript:void(0);" id="convert-mangal-font" class="btn btn-primary form-control" data-action="click->font#mangalToKruti">
+                <i class="fa fa-retweet" aria-hidden="true"></i> Convert To Krutidev
+              </a>
             </div>
             <div class="col-md-4 mb-3">
-              <a href="javascript:void(0);" id="clear-text" class="btn btn-danger form-control"><i class="fa fa-eraser" aria-hidden="true"></i> Clear Text</a>
+              <a href="javascript:void(0);" id="clear-text" class="btn btn-danger form-control"><i class="fa fa-eraser" data-action="click->font#clearBothBox" aria-hidden="true"></i> Clear Text</a>
             </div>
             <%= form_tag(export_pdf_font_converters_path(format: "docx"), method: "post")  do  %>
               <div class="col-md-12 mb-3">
                 <label class="form-label mb-2 fnt-b fnt-18">KrutiDev Font</label>
-                <textarea rows="8" class="form-control hinditext fnt-22" placeholder="डि&कोडेड कृतिदेव टेक्स्ट" id="converted-text" name="krutitext"></textarea>
+                <textarea rows="8" class="form-control hinditext fnt-22" placeholder="डि&कोडेड कृतिदेव टेक्स्ट" id="converted-text" name="krutitext" data-font-target="krutiText"></textarea>
               </div>
               <div class="row">
                 <div class="col-md-3 mb-3">
-                  <a href="javascript:void(0);" id="copy-to-clipboard" class="btn btn-success pull-right">  <i class="fa fa-clipboard" aria-hidden="true"></i> Copy To Clipboard
+                  <a href="javascript:void(0);" class="btn btn-success pull-right" data-action="click->font#copyToClipboard" data-target-name="krutidev-text">
+                    <i class="fa fa-clipboard" aria-hidden="true"></i> Copy To Clipboard
                   </a>
                 </div>
                 <div class="col-md-3 mb-3">
@@ -79,22 +82,28 @@
           <div class="row">
             <div class="col-md-12 mb-3">
               <label class="form-label mb-2 fnt-b fnt-18">KrutiDev Font</label>
-              <textarea rows="8" class="form-control hinditext fnt-22" placeholder="कृतिदेव टेक्स्ट दर्ज करें" id="source-text" name="krutitext"></textarea>
+              <textarea rows="8" class="form-control hinditext fnt-22" placeholder="कृतिदेव टेक्स्ट दर्ज करें" id="source-text" name="krutitext" data-font-target="krutiText" data-action="keyup->font#krutiToMangal paste->font#krutiToMangal change->font#krutiToMangal"></textarea>
             </div>
             <div class="col-md-4 mb-3">
-              <a href="javascript:void(0);" id="convert-kruti-font" class="btn btn-primary form-control"><i class="fa fa-retweet" aria-hidden="true"></i> Convert To Mangal</a>
+              <button id="convert-kruti-font" class="btn btn-primary form-control" data-action="click->font#krutiToMangal">
+                <i class="fa fa-retweet" aria-hidden="true"></i> Convert To Mangal
+              </button>
             </div>
             <div class="col-md-4 mb-3">
-              <a href="javascript:void(0);" id="clear-text" class="btn btn-danger form-control"><i class="fa fa-eraser" aria-hidden="true"></i> Clear Text</a>
+              <button id="clear-text" class="btn btn-danger form-control"  data-action="click->font#clearBothBox">
+                <i class="fa fa-eraser" aria-hidden="true"></i> Clear Text
+              </button>
             </div>
             <%= form_tag(export_pdf_font_converters_path(format: "docx"), method: "post")  do  %>
               <div class="col-md-12 mb-3">
                 <label class="form-label mb-2 fnt-b fnt-18">Managl Font</label>
-                <textarea rows="8" class="form-control" placeholder="Converted Mangal Text" id="converted-text" name="mangaltext"></textarea>
+                <textarea rows="8" class="form-control" placeholder="Converted Mangal Text" id="converted-text" name="mangaltext" data-font-target="mangalText"></textarea>
               </div>
               <div class="row">
                 <div class="col-md-3 mb-3">
-                  <a href="javascript:void(0);" id="copy-to-clipboard" class="btn btn-success pull-right"><i class="fa fa-clipboard" aria-hidden="true"></i> Copy To Clipboard</a>
+                  <a href="javascript:void(0);" class="btn btn-success pull-right" data-action="click->font#copyToClipboard" data-target-name="mangal-text">
+                    <i class="fa fa-clipboard" aria-hidden="true"></i> Copy To Clipboard
+                  </a>
                 </div>
                 <div class="col-md-3 mb-3">
                   <input type="submit" value="Download Docx" class="btn btn-primary" />

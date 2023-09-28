@@ -14,6 +14,8 @@ import KhasraBattankController from "./khasra_battank_controller";
 import BlankFormController from "./blank_form_controller";
 import MiscController from "./misc_controller";
 import { Autocomplete } from "stimulus-autocomplete";
+import FontConverterController from "./font_converter_controller";
+import ImageController from "./image_controller";
 
 application.register("application", ApplicationController);
 application.register("request", RequestController);
@@ -25,3 +27,5 @@ application.register("payment", PaymentController);
 application.register("khbattank", KhasraBattankController);
 application.register("blnk-frm", BlankFormController);
 application.register("misc", MiscController);
+application.register("font", FontConverterController);
+application.register("image", ImageController);

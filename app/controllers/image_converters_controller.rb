@@ -1,0 +1,2 @@
+class ImageConvertersController < ApplicationController
+end
