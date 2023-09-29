@@ -67,8 +67,7 @@ gem 'execjs'
 gem 'prawn'
 gem 'matrix'
 gem 'docx'
-
-# gem 'rmagick'
+gem "rmagick", "~> 2.13.1"
 # gem 'mini_magick'
 
 group :development, :test do

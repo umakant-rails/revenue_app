@@ -70,6 +70,8 @@ Rails.application.routes.draw do
   resources :image_converters, only: [:new] do
     get '/image_to_text' => "image_converters#image_to_text", as: :image_to_text, on: :collection
     get '/image_crop' => "image_converters#image_crop", as: :image_crop, on: :collection
+    get '/edit_format' => "image_converters#edit_format", as: :edit_format, on: :collection
+    post '/update_format' => "image_converters#update_format", as: :update_format, on: :collection
   end
   
   resources :pdfs, only: [:index] do
