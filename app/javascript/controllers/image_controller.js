@@ -250,12 +250,19 @@ export default class extends ApplicationController {
     let dtStr = new Date().getTime();
 
     let img = `
-      <div class="col-md-3 mb-3" id="img-${dtStr}">
-        <img src="${imgSrc}" class="mb-3" width="100%" height="100%"/>
-        <a href="${imgSrc}" class="btn btn-primary download" download="image_${dtStr}"
-          data-image-target="downloadBtn">Download</a>
-        <a href="javascript:void(0);" data-action="click->image#removeImage"
-          class="btn btn-danger" data-parent-id="img-${dtStr}">Remove</a>
+      <div class="mb-3" id="img-${dtStr}">
+        <img src="${imgSrc}" class="mb-3" width="100%" height="150"/>
+        <div class="row">
+          <div class="col-md-6">
+            <a href="${imgSrc}" class="btn btn-primary download" download="image_${dtStr}"
+              data-image-target="downloadBtn">Download</a>
+          </div>
+          <div class="col-md-6">
+            <a href="javascript:void(0);" data-action="click->image#removeImage"
+              class="btn btn-danger" data-parent-id="img-${dtStr}">Remove</a>
+          </div>
+        </div>
+        <hr/>
       </div>
     `;
     this.croppedImagesTarget.innerHTML += img;

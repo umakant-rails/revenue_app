@@ -2,58 +2,60 @@
   <div class="col-md-2"></div>
   <div class="col-md-8">
     <div class="row">
-      <div class="col-md-3">
-        <div class="page-header mb-3">
-          फोन्ट रूपांतरण सूची
-        </div>
-        <ul class="list-group">
-          <li class="list-group-item active">
-            Get Text From Image
-          </li>
-          <%= link_to image_crop_image_converters_path, class: "anchor-no-decoration" do %>
-            <li class="list-group-item">
-              Crop Image
-            </li>
-          <% end %>
-          <li class="list-group-item">
-            Change Image Format
-          </li>
-        </ul>
+      <div class="col-md-12 txt-center page-header mb-3">
+        Get Image Text
       </div>
-      <div class="col-md-9">
-        <div class="col-md-12 txt-center page-header mb-3">
-          फोन्ट रूपांतरण - <%= (params[:conversion_type] == "mangal-to-kruti") ? "मंगल से कृतिदेव" : "कृतिदेव से मंगल" %>
-        </div>
-        <div class="mb-3">
-          <label class="mb-2">इमेज की भाषा</label>
-          <select name="language" id="language" class="form-control" data-image-target="language">
-            <option value="">भाषा चुने</option>
-            <option value="hin">Hindi</option>
-            <option value="eng">English</option>
-            <option value="hin+eng">Hindi+English</option>
-          </select>
-        </div>
+    </div>
+      <!--   <div class="mb-3">
+        <label class="mb-2">इमेज की भाषा</label>
+        <select name="language" id="language" class="form-control" data-image-target="language">
+          <option value="">भाषा चुने</option>
+          <option value="hin">Hindi</option>
+          <option value="eng">English</option>
+          <option value="hin+eng">Hindi+English</option>
+        </select>
+      </div> -->
+    <div class="row m-0 p-0">
+      <div class="col-md-6 ps-0">
         <input type="file" name="docx_file" data-image-target="selectedFile" accept="image/*" 
-          class="form-control mb-3"/>
+      class="form-control mb-3"/>
+      </div>
+      <div class="col-md-6 pe-0">
+        <select name="language" id="language" class="form-control" data-image-target="language">
+          <option value="">इमेज की भाषा चुने</option>
+          <option value="hin">Hindi</option>
+          <option value="eng">English</option>
+          <option value="hin+eng">Hindi+English</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
         <input type="button" value="Read Image" data-action="click->image#readTextFromImage" 
-          class="btn btn-primary mt-3 mb-3 read-image"/>
-        <hr>
-        <div id="result-text" style="display: block;">
-          <input type="textarea" style="display:none;" id="copyTextarea" data-image-target="tmpTextArea" />
-          <div class="mb-3" style="border: 1px solid #722F37;border-radius: 4px;padding: 2px 2px 0px 6px;">
-            <label class="mb-2 fnt-b fnt-20">यूनीकोड लिपि</label>
-            <i class="fa-regular fa-copy fnt-30 fRight cpointer" id="copy-unicode-font" data-action="click->image#copyToText" data-target="unicode-block"></i>
-          </div>
-          <div class="mb-3" data-image-target="unicodeBlock">
-            There is nothing...
-          </div>
-          <div class="mb-3" style="border: 1px solid #722F37;border-radius: 4px;padding: 2px 2px 0px 6px;">
-            <label class="mb-2 fnt-b fnt-20">कृतिदेव लिपि</label>
-            <i class="fa-regular fa-copy fnt-30 fRight cpointer" id="copy-krutidev-font" data-action="click->image#copyToText"  data-target="krutidev-block"></i>
-          </div>
-          <div class="mb-3 hinditext fnt-20" data-image-target="krutidevBlock">
-            There is nothing... 
-          </div>
+        class="btn btn-primary mt-3 mb-3 read-image form-control"/>
+      </div>
+      <div class="col-md-4"></div>
+      <hr/>
+    </div>
+    <div class="row" id="result-text">
+      <div class="col-md-6">
+        <input type="textarea" style="display:none;" id="copyTextarea" data-image-target="tmpTextArea" />
+        <div class="mb-3" style="border: 1px solid #722F37;border-radius: 4px;padding: 2px 2px 0px 6px;">
+          <label class="mb-2 fnt-b fnt-20">यूनीकोड लिपि</label>
+          <i class="fa-regular fa-copy fnt-30 fRight cpointer" id="copy-unicode-font" data-action="click->image#copyToText" data-target="unicode-block"></i>
+        </div>
+        <div class="mb-3" data-image-target="unicodeBlock">
+          There is nothing...
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3" style="border: 1px solid #722F37;border-radius: 4px;padding: 2px 2px 0px 6px;">
+          <label class="mb-2 fnt-b fnt-20">कृतिदेव लिपि</label>
+          <i class="fa-regular fa-copy fnt-30 fRight cpointer" id="copy-krutidev-font" data-action="click->image#copyToText"  data-target="krutidev-block"></i>
+        </div>
+        <div class="mb-3 hinditext fnt-20" data-image-target="krutidevBlock">
+          There is nothing... 
         </div>
       </div>
     </div>

@@ -19,8 +19,19 @@
         <li class="nav-item">
           <a class="nav-link" href="<%= new_font_converter_path %>">Font Converter</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<%= image_to_text_image_converters_path %>">Image</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Image
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="<%= image_to_text_image_converters_path %>">Get Text From Image</a>
+            </li>
+            <li><a class="dropdown-item" href="#">Change Image Format</a></li>
+            <li><a class="dropdown-item" href="<%= image_crop_image_converters_path %>">Crop Image</a></li>
+            <li><a class="dropdown-item" href="#">Resize Image</a></li>
+            <li><a class="dropdown-item" href="#">Merge Image</a></li>
+          </ul>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>
