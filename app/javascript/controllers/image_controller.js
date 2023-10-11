@@ -5,7 +5,7 @@ import ApplicationController from "./application_controller";
 // Connects to data-controller="namantaran"
 export default class extends ApplicationController {
   static targets = ['language', 'selectedFile', 'krutidevBlock', 'unicodeBlock', 'tmpTextArea',
-    'selectedImage', 'croppedImages', 'saveBtn', 'downloadBtn'
+    'selectedImage', 'croppedImages', 'saveBtn', 'downloadBtn', 'formatUpdationBtn'
   ];
   
 
@@ -235,6 +235,27 @@ export default class extends ApplicationController {
           this.saveBtnTarget.classList.remove('hide');
 
           this.cropper = new Cropper(img);
+        }
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
+
+  displayImage(event){
+    if (event.target.files.length) {
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        if (e.target.result) {
+
+          let img = document.createElement('img');
+          img.id = 'image';
+          img.src = e.target.result;
+
+          this.selectedImageTarget.innerHTML = '';
+          this.selectedImageTarget.appendChild(img);
+          this.selectedImageTarget.classList.remove('hide');
+          this.formatUpdationBtnTarget.classList.remove('hide');
         }
       };
       reader.readAsDataURL(event.target.files[0]);

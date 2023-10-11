@@ -67,6 +67,7 @@ gem 'execjs'
 gem 'prawn'
 gem 'matrix'
 gem 'docx'
+gem 'rubyXL'
 gem "rmagick", "~> 2.13.1"
 # gem 'mini_magick'
 
