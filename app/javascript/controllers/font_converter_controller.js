@@ -372,8 +372,8 @@ export default class extends ApplicationController {
   }
 
   downloadFont(event){
-    var id = event.target.dataset.id;
-    
+    var id = event.target.getAttribute('id');
+
     if(id == "krutidev-font-download"){
       window.open('/assets/krutidev-010.ttf' , '_blank');
     } else if (id == "krutidev-font-chart-download"){
