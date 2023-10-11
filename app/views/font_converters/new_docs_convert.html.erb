@@ -1,0 +1,106 @@
+<div class="row" data-controller="font">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="page-header mb-3">
+          Font Conversion List
+        </div>
+        <ul class="list-group">
+          <%= link_to new_font_converter_path(conversion_type: "kruti-to-mangal"), class: "anchor-no-decoration" do %>
+            <li class="list-group-item">
+              Kruti To Mangal(Unicode)
+            </li>
+          <% end %>
+          <%= link_to new_font_converter_path(conversion_type: "mangal-to-kruti"), class: "anchor-no-decoration" do %>
+            <li class="list-group-item">
+              Mangal(Unicode) To Kruti
+            </li>
+          <% end %>
+          <% if params[:docs_type] == "docx" %>
+            <li class="list-group-item active">
+              Convert Docx File
+            </li>
+          <% else %>
+            <%= link_to new_docs_convert_font_converters_path('docx'), class: "anchor-no-decoration" do %>
+              <li class="list-group-item">
+                Convert Docx File
+              </li>
+            <% end %>
+          <% end %>
+          <% if params[:docs_type] == "xlsx" %>
+            <li class="list-group-item active">
+              Convert Xlsx File
+            </li>
+          <% else %>
+            <%= link_to new_docs_convert_font_converters_path('xlsx'), class: "anchor-no-decoration" do %>
+              <li class="list-group-item">
+                Convert Xlsx File
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+        <div class="page-header mt-3">
+          फोन्ट डाउनलोड 
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item cpointer fnt-b" id="krutidev-font-download" data-action="click->font#downloadFont">
+            Download KrutiDev Font
+          </li>
+          <li class="list-group-item cpointer fnt-b" id="krutidev-font-chart-download" data-action="click->font#downloadFont">
+            Download KrutiDev Font Chart 
+          </li>
+          <li class="list-group-item cpointer fnt-b" id="inscript-font-chart-download" data-action="click->font#downloadFont">
+            Download Inscript Font Chart
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-9">
+        <div class="col-md-12 txt-center page-header mb-3">
+          फोन्ट रूपांतरण - <%= (params[:conversion_type] == "mangal-to-kruti") ? "मंगल से कृतिदेव" : "कृतिदेव से मंगल" %>
+        </div>
+
+        <% if params[:docs_type] == "xlsx" %>
+          <%= form_tag(convert_docs_font_converters_path("xlsx"), multipart: true, method: "post")  do  %>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="mb-3">
+                  <label for="conversion_type_label" class="form-label">Consersion Type</label>
+                  <%= select_tag "conversion_type", options_for_select(["Kruti to Mangal(Unicode)", "Mangal(Unicode) To Kruti"]), prompt: "Select Operation", class:"form-control" %>
+                </div>
+                <%= hidden_field_tag "file_type", "xlsx", class:"form-control" %>
+                <div class="mb-3">
+                  <label for="doc_label" class="form-label">Docx File</label>
+                  <%= file_field_tag "docs", class:"form-control" %>
+                </div>
+                <div class="mb-3">
+                  <%= submit_tag "Convert Xlsx File", class:"btn btn-primary" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+         <%= form_tag(convert_docs_font_converters_path("docx"), multipart: true, method: "post")  do  %>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="mb-3">
+                  <label for="conversion_type_label" class="form-label">Consersion Type</label>
+                  <%= select_tag "conversion_type", options_for_select(["Kruti to Mangal(Unicode)", "Mangal(Unicode) To Kruti"]), prompt: "Select Operation", class:"form-control" %>
+                </div>
+                <%= hidden_field_tag "file_type", "docx", class:"form-control" %>
+                <div class="mb-3">
+                  <label for="doc_label" class="form-label">Docx File</label>
+                  <%= file_field_tag "docs", class:"form-control" %>
+                </div>
+                <div class="mb-3">
+                  <%= submit_tag "Convert Docs File", class:"btn btn-primary" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
