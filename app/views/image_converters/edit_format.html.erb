@@ -6,10 +6,10 @@
         Change Your Image Format (.jpg, jpeg, .png, .webm etc)
       </div>
     </div>
-    <%= form_tag(update_format_image_converters_path, mehtod: :post, multipart: :true) do  %>
+    <%= form_tag(update_format_image_converters_path, method: :post, multipart: :true) do  %>
       <div class="row">
         <div class="col-md-9">
-          <input type="file" name ="image" id="select_image" data-image-target="selectImage" 
+          <input type="file" name ="image" id="select_image" data-image-target="selectedFile" 
             accept="image/*" class="form-control mb-3" 
             data-action="change->image#selectToImage"/>
         </div>
@@ -33,7 +33,10 @@
       </div>
       <div class="row mb-3">
         <div class="col-md-3">
-          <button type="submit" class="btn btn-primary form-control save hide" data-image-target="saveBtn">update format</button>
+          <button type="submit" class="btn btn-primary form-control save hide" data-image-target="saveBtn">Update Format</button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-primary form-control save e" data-action="click->image#rotateImage">Rotate Image</button>
         </div>
       </div>
     <% end %>

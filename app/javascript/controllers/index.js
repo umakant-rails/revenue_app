@@ -16,6 +16,7 @@ import MiscController from "./misc_controller";
 import { Autocomplete } from "stimulus-autocomplete";
 import FontConverterController from "./font_converter_controller";
 import ImageController from "./image_controller";
+import DragNDropController from "./drag_n_drop_controller";
 
 application.register("application", ApplicationController);
 application.register("request", RequestController);
@@ -29,3 +30,4 @@ application.register("blnk-frm", BlankFormController);
 application.register("misc", MiscController);
 application.register("font", FontConverterController);
 application.register("image", ImageController);
+application.register("dragndrop", DragNDropController);

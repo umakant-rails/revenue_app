@@ -1,3 +1,4 @@
+require 'rubyXL'
 require 'docx'
 
 class FontConvertersController < ApplicationController
@@ -31,7 +32,46 @@ class FontConvertersController < ApplicationController
     end
   end
 
-  def image_to_text
+  def convert_docs
+    obj_font_converter = FontConvertor.new
+
+    if params[:conversion_type].present? && params[:docs_type] == "docx"
+      file_name = params[:docs].original_filename
+      file_name = file_name[0, file_name.index('.')]
+      file_path = params[:docs].tempfile.path 
+      
+      docs = Docx::Document.open(file_path) rescue nil
+
+      if docs.present? && params[:conversion_type] == "Kruti to Mangal(Unicode)"
+        docs_translated = obj_font_converter.convert_docs_kruti_to_unicode(docs)
+        docs_translated.save("/tmp/#{file_name}-mangal.docx")
+        send_data docs, filename: "#{file_name}-mangal.docx", disposition: "downloaded"
+      elsif docs.present? && params[:conversion_type] == "Mangal(Unicode) To Kruti"
+        docs_translated = obj_font_converter.convert_docs_unicode_to_kruti(docs)
+        docs_translated.save("#{file_name}-kruti.docx")
+        send_data docs_translated, filename: "#{file_name}-kruti.docx", disposition: 'downloaded'
+      else
+        respond_to do |format|
+          flash[:error] = "There is something wrong with your docx file. May be docx file is not in proper format."
+          format.html { redirect_to new_docs_convert_font_converters_path }
+        end
+      end
+
+    elsif params[:conversion_type].present? && params[:docs_type] == "xlsx"
+      if params[:conversion_type] == "Kruti to Mangal(Unicode)"
+      else
+      end
+    else
+
+    end
+  end
+
+
+  def kruti_to_unicode
+    #https://www.codehim.com/vanilla-javascript/javascript-crop-image-and-save/
+  end
+
+  def unicode_to_mangal
     #https://www.codehim.com/vanilla-javascript/javascript-crop-image-and-save/
   end
 

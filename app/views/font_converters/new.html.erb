@@ -4,27 +4,37 @@
     <div class="row">
       <div class="col-md-3">
         <div class="page-header mb-3">
-          फोन्ट रूपांतरण सूची
+          Font Conversion List
         </div>
         <ul class="list-group">
           <% if params[:conversion_type] == "mangal-to-kruti" %>
             <%= link_to new_font_converter_path(conversion_type: "kruti-to-mangal"), class: "anchor-no-decoration" do %>
               <li class="list-group-item">
-                कृतिदेव से मंगल
+                Kruti To Mangal(Unicode)
               </li>
             <% end %>
             <li class="list-group-item active">
-              मंगल से कृतिदेव
+              Mangal(Unicode) To Kruti
             </li>
           <% else %>
             <li class="list-group-item active">
-              कृतिदेव से मंगल
+              Kruti To Mangal(Unicode)
             </li>
             <%= link_to new_font_converter_path(conversion_type: "mangal-to-kruti"), class: "anchor-no-decoration" do %>
               <li class="list-group-item">
-                मंगल से कृतिदेव
+                Mangal(Unicode) To Kruti
               </li>
             <% end %>
+          <% end %>
+          <%= link_to new_docs_convert_font_converters_path('docx'), class: "anchor-no-decoration" do %>
+            <li class="list-group-item">
+              Convert Docx File
+            </li>
+          <% end %>
+          <%= link_to new_docs_convert_font_converters_path('xlsx'), class: "anchor-no-decoration" do %>
+            <li class="list-group-item">
+              Convert Xlsx File
+            </li>
           <% end %>
         </ul>
         <div class="page-header mt-3">
