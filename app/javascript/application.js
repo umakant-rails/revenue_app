@@ -7,8 +7,8 @@ import "popper";
 import "bootstrap";
 import "controllers";
 import "tinymce";
-import "./tesseract";
-//import "tesseract";
+//import "./tesseract";
+import "tesseract";
 import './formjs-custom';
 import './drag-and-drop';
 

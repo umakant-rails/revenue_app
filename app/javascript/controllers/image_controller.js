@@ -226,7 +226,7 @@ export default class extends ApplicationController {
         if (e.target.result) {
 
           let img = document.createElement('img');
-          img.id = 'image';
+          img.id = 'selected_img';
           img.src = e.target.result;
 
           this.selectedImageTarget.innerHTML = '';
@@ -240,6 +240,7 @@ export default class extends ApplicationController {
       reader.readAsDataURL(event.target.files[0]);
     }
   }
+
 
   displayImage(event){
     if (event.target.files.length) {
@@ -260,6 +261,11 @@ export default class extends ApplicationController {
       };
       reader.readAsDataURL(event.target.files[0]);
     }
+  }
+
+  croppingStart(){
+    var img = document.querySelector("#selected_img");
+    this.cropper = new Cropper(img);
   }
 
   cropToImage(e){
@@ -294,6 +300,12 @@ export default class extends ApplicationController {
     $("#"+parentId).remove();
   }
 
+  rotateImage(e){
+    e.preventDefault();
+    var image = document.querySelector("#selected_img");
+    //var result = this.cropper.rotateTo(45);
+    image.crop().rotate(45);
+  }
 }
 
 

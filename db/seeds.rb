@@ -38,7 +38,9 @@ revenue_forms = [
   {eng_name: "Sambal Form", hindi_name: "सम्बल आवेदन पत्र", section_hindi: 'लोकसेवा फॉर्म', section_eng: 'Loksewa Form'},
   {eng_name: "EWS Form", hindi_name: "ई डब्ल्यू एस आवेदन पत्र", section_hindi: 'लोकसेवा फॉर्म', section_eng: 'Loksewa Form'},
   {eng_name: "BPL Form", hindi_name: "बी पी एल आवेदन पत्र", section_hindi: 'लोकसेवा फॉर्म', section_eng: 'Loksewa Form'},
-
+  {eng_name: "Application For Digital Copy", hindi_name: "डिजिटल प्रतिलिपि (खसरा/नक्शा/आदेश) आवेदन", section_hindi: 'लोकसेवा फॉर्म', section_eng: 'Loksewa Form'},
+  {eng_name: "Application For Record Room Copy", hindi_name: "रिकार्डरूम प्रतिलिपि (खसरा/नक्शा/आदेश) आवेदन", section_hindi: 'लोकसेवा फॉर्म', section_eng: 'Loksewa Form'},
+  
 
   {eng_name: "Applicant Application", hindi_name: "आवेदक का आवेदन", section_hindi: 'पी एम किसान फॉर्म', section_eng: 'PM Kisan Form'},
   {eng_name: "Patwari Prativedan", hindi_name: "पटवारी प्रतिवेदन", section_hindi: 'पी एम किसान फॉर्म', section_eng: 'PM Kisan Form'},
