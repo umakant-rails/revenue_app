@@ -12,42 +12,80 @@
 
   <div class="page-a4 only-print" id="khasra-copy-form">
     <div class="row">
-      <div class="fnt-30 txt-center fnt-b fnt-u mt-2">
-        प्रतिलिपि प्राप्त करने हेतु आवेदन पत्र
+      <div class="fnt-24 txt-center fnt-b fnt-u mt-4">
+        डिजिटल प्रतिलिपि खसरा/बी/नक्शा प्रदाय करने हेतु आवेदन
       </div>
-      <div class="padding-8">
-        प्रति,
-        <div class="txt-indent-2">
-          <div>श्रीमान प्रधान प्रतिलिपिकार महोदय</div>
-          <div class="mb-3">
-            कार्यालय कलेक्ट्रेट/तहसीलदार <%= raw blank_string(10, true, "tehsil") %>
+      <div class="fnt-20 txt-center fnt-b mb-3">
+        तहसील <%= raw blank_string(10, true, "tehsil") %>
+      </div>
+      <div class="roww mb-3">
+        <div class="w-75"></div>
+        <div class="w-25">दिनांक: - <%= format_dt(Date.today) %></div>
+      </div>
+      <% arr = ['खातेदार का नाम', 'सेवा का नाम जिसके लिए आवेदन किया है', 'खसरा की सूची', 'बर्ष', 'आवेदक का नाम', 'आवेदक का मोबाइल '] %>
+      <div class="padding-4">
+        <div class="roww mb-3">
+          <div class="w-33">सर्किल :- <%= raw blank_string(15, true, "circle") %></div>
+          <div class="w-33">मौजा :- <%= raw blank_string(15, true, "village") %></div>
+          <div class="w-33">प.ह.न. :- <%= raw blank_string(15, true, "halka_number") %></div>
+        </div>
+        <% arr.each_with_index do | txt, index | %>
+          <div class="roww mb-3">
+            <div class="w-10 p-2"><%= index + 1 %></div>
+            <div class="w-35 p-2"><%= txt %></div>
+            <% if index == 1 %>
+              <div class="w-55 p-2">
+                खसरा &nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> बी &nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> नक्शा &nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> 
+              </div>
+            <% else %>
+              <div class="w-55 p-2">
+                <%= raw blank_string_format2(30) %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="roww mt-3">
+          <div class="w-80"></div>
+          <div class="w-20 fnt-b">हस्ताक्षर आवेदक</div>
+        </div>
+
+        <div class="mb-5"></div>
+        <div class="roww">
+          <div class="w-3 pe-0"><i class="fa-solid fa-scissors fRight pt-2"></i></div>
+          <div class="w-97 dashed-bdr mt-3 mb-3"></div>
+        </div>
+        <div class="mb-5"></div>
+
+        <div class="roww mb-3">
+          <div class="w-33">सर्किल :- <%= raw blank_string(15, true, "circle") %></div>
+          <div class="w-33">मौजा :- <%= raw blank_string(15, true, "village") %></div>
+          <div class="w-33">प.ह.न. :- <%= raw blank_string(15, true, "halka_number") %></div>
+        </div>
+        <div class="roww mb-3">
+        <div class="w-75"></div>
+          <div class="w-25">दिनांक: - <%= format_dt(Date.today) %></div>
+        </div>
+        <div class="roww mb-3">
+          <div class="w-45 p-2">खातेदार का नाम</div>
+          <div class="w-55 p-2">
+            <%= raw blank_string_format2(30) %>
           </div>
         </div>
-        <table class="w-100 table-bordered mb-2">
-          <%
-            arr = ['विभाग', 'न्यायालय का नाम', 'ग्राम का नाम', 'पटवारी हल्का नम्बर', 'खसरा नम्बर', 'बंदोबस्त नम्बर', 'राजस्व निरीक्षक मण्डल', 'प्रकरण क्रमांक', 'आदेश', 'तह कार्यालय से भेजने का दिनांक', 'प्रतिलिपि जिनकी आवश्यकता है', 'कहॉं है', 'प्रतिलिपि किस लिये चाहिये', 'पक्षकार का नाम ', 'आवेदक का नाम']
-          %>
-          <% arr.each_with_index do | txt, index | %>
-            <tr>
-              <td class="w-10 p-3"><%= index + 1 %></td>
-              <td class="w-35 p-3"><%= txt %></td>
-              <% if index == 2 %>
-              <td class="w-55 p-3">
-                <%= raw blank_string(0, true, "village") %>
-              </td>
-              <% else %>
-                <td class="w-55 p-3"></td>
-              <% end %>
-            </tr>
-          <% end %>
-        </table>
-
-        <div class="roww mb-2">
-          <div class="w-50"><%= raw blank_string(12, true, "tehsil") %></div>
+        <div class="roww mb-3">
+          <div class="w-45 p-2">खसरा की सूची</div>
+          <div class="w-55 p-2">
+            <%= raw blank_string_format2(30) %>
+          </div>
         </div>
-        <div class="roww mb-2">
-          <div class="w-80">दिनांक <%= blank_string_text(10) %></div>
-          <div class="w-20">हस्ताक्षर आवेदक</div>
+        <div class="roww mb-3">
+          <div class="w-45 p-2">सेवा का नाम जिसके लिए आवेदन किया है</div>
+          <div class="w-55 p-2">
+            खसरा &nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> बी &nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> नक्शा &nbsp;<i class="fa-regular fa-square fnt-24 me-3"></i> 
+          </div>
+        </div>
+        <div class="roww mt-3">
+          <div class="w-80"></div>
+          <div class="w-20 fnt-b">हस्ताक्षर आवेदक</div>
         </div>
       </div>
     </div>
