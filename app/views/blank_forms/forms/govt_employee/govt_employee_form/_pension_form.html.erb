@@ -1,0 +1,1426 @@
+<div class="letter-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print selection-criteria-block" id="pension-form-page1">
+    <div class="col-md-12 mt-2">
+      <div class="row padding-2">
+        <div class="text-center fnt-24 fnt-b mb-2">
+          कार्यालय <%= raw blank_string_format2(32, true, "office_name") %>
+        </div>
+        <div class="row fnt-17 mb-3 p-2">
+          <div class="col-md-6">क्रमांक/_ _ _ _ _ </div>
+          <div class="col-md-6"><span class="fRight">दिनांक _ _/_ _ /_ _ _ _</span></div>
+        </div>
+        <div class="paragraph-30 ln-hgt-28">
+          प्रति,
+          <div class="txt-indent-2">
+            कोषालय अधिकारी
+          </div>
+          <div class="txt-indent-2 mb-3"> 
+            जिला <%= raw blank_string_format2(8, true, "district") %>
+          </div>
+   
+          <div class="txt-indent-2 fnt-24 fnt-b mb-5">
+            बिषय : पेन्शन प्रकरण प्रस्तुत करने बाबत ।
+          </div>
+          महोदय,
+          <div class="txt-indent-2">
+            श्री/श्रीमती (नाम) <strong><%= raw blank_string_format2(32, true, "applicant") %></strong>
+          </div>
+          <div class="txt-indent-2 mb-3"> 
+            सेवानिवृत्त/मृत्यु (पदनाम) <strong><%= raw blank_string_format2(28, true, "post_name") %></strong>
+          </div>
+          <div class="mb-2">पेन्शन प्रकरण सेवा पुस्तिका सहित प्रेषित है।</div>
+          <div class="fnt-u mb-5">
+            इस प्रकरण से सम्बन्धित अन्य आवश्यक जानकारी पृष्ठ के पीछे दी जा रही है।
+          </div>
+          <div class="row">
+            <span class="offset-md-9 col-md-3 text-center fnt-b">
+              <div>हस्ताक्षर/कार्यालय प्रमुख</div>
+              <div>पद मुद्रा</div>
+            </span>
+          </div>
+          <div class="fnt-b mb-2"><strong>संलग्न अभिलेखों की सूचीः-</strong></div>
+          <div>
+            सेवा पुस्तिका मूल संख्या <%= raw blank_string_format2(7, true, "service_book_number") %> वेतन निर्धारित पत्र <%= raw blank_string_format2(7, true, "salary_letter") %> अन्य सेवानस्ती पृष्ठ 1 से <%= raw blank_string_format2(7, true, "retirement_last_page") %>तक।
+          </div>
+          <ul>
+            <li>फार्म क्रं. 1 - पेन्शन परिलब्धियों का स्वीकृति का प्रपत्र एक</li>
+            <li>फार्म क्रं. 2 - पेन्शन परिलब्धियों का स्वीकृति का प्रपत्र दो</li></li>
+            <li>फार्म क्रं. 3 - क्षतिपूर्ति बांड </li>
+            <li>फार्म क्रं. 4 - कर्मचारी के संयुक्त छाया चित्र/हस्ताक्षर/कद एवं पहचान चिन्ह का फार्म</li>
+            <li>फार्म क्रं. 5 - प्रपत्र तीन मृत्यु पर</li>
+            <li>फार्म क्रं. 6 - प्रपत्र चार मृत्यु पर</li>
+            <li>फार्म क्रं. 7 - आवेदक/नमूना हस्ताक्षर छायाचित्र</li>
+            <li>फार्म क्रं. 8 - परिशिष्ट एक</li>
+            <li>फार्म क्रं. 9 - फिप्थ शिड्यूल</li>
+            <li>फार्म क्रं. 10 - लास्ट पे सर्टिफिकेट</li>
+            <li>फार्म क्रं. 11 - घोषणा पत्र</li>
+            <li>फार्म क्रं. 12 - नो डिमांड/नो इन्क्वायरी/नो इवेंट सर्टिफिकेट</li>
+            <li>फार्म क्रं. 13 - थम्ब एण्ड फिगर इम्प्रेशन</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block" id="pension-form-page2">
+    <div class="col-md-12">
+      <div class="row padding-2 mrgn-top-10">
+        <div class="fnt-17">
+          पेंशन का नया फॉर्म <span class="fRight">P-1</span>
+        </div>
+        <div class="text-center fnt-24 fnt-b">
+          पेंशन परिलब्धियों की स्वीकृति का प्रपत्र (प्रपत्र-एक)
+        </div>
+        <div class="fnt-17 fnt-b mb-3 text-center">
+          नि. 50 एव 63 (7) देखें, (कर्मचारी द्वारा भरा जावे)
+        </div>
+        <div class="paragraph-30 ln-hgt-28">
+          <ol class="mb-0">
+            <li>
+              <div class="roww">
+                <div class="w-35">नाम</div>
+                <div class="w-10 text-center fnt-b">:</div>
+                <div class="w-55">
+                  <%= raw blank_string_format2(30, true, "applicant") %>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-35">पिता/पति का नाम</div>
+                <div class="w-10 text-center fnt-b">:</div>
+                <div class="w-55">
+                  <%= raw blank_string_format2(30, true, "applicant_father_name") %>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-35">पत्र व्यवहार का पता</div>
+                <div class="w-10 text-center fnt-b">:</div>
+                <div class="w-55">
+                  <%= raw blank_string_format2(30, true, "applicant_address") %>
+                </div>
+              </div>
+              <div class="roww">
+                <div class="w-45"></div>
+                <div class="w-55">
+                  <%= raw blank_string_format2(30, true, "applicant_address2") %>
+                </div>
+              </div>
+              <div class="roww">
+                <div class="w-45"></div>
+                <div class="w-55">
+                  <%= raw blank_string_format2(30, true, "applicant_address3") %>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-35">जन्मतिथि</div>
+                <div class="w-10 text-center fnt-b">:</div>
+                <div class="w-55">
+                  <%= raw blank_string_format2(30, true, "applicant_dob") %>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-35">सेवा प्रारंभ करने की तिथि</div>
+                <div class="w-10 text-center fnt-b">:</div>
+                <div class="w-55">
+                  <%= raw blank_string_format2(30, true, "joining_date") %>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-35">सेवानिवृत्ति की तिथि</div>
+                <div class="w-10 text-center fnt-b">:</div>
+                <div class="w-55">
+                  <%= raw blank_string_format2(30, true, "retirement_date") %>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="roww">
+                <div class="w-35">अंतिम/वर्तमान धारित पद/पद नाम</div>
+                <div class="w-10 text-center fnt-b">:</div>
+                <div class="w-55">
+                  <%= raw blank_string_format2(30, true, "post_name") %>
+                </div>
+              </div>
+              <div class="roww">
+                <div class="w-35">कार्यालय का नाम तथा पता</div>
+                <div class="w-10 text-center fnt-b">:</div>
+                <div class="w-55">
+                  <%= raw blank_string_format2(30, true, "office_name") %>
+                </div>
+              </div>
+              <div class="roww">
+                <div class="w-35">कार्यालय का पता</div>
+                <div class="w-10 text-center fnt-b">:</div>
+                <div class="w-55">
+                  <%= raw blank_string_format2(30, true, "office_address") %>
+                </div>
+              </div>
+            </li>
+            <li>
+              सेवाकाल की मुख्य घटनाओं का विवरण
+            </li>
+          </ol>
+          <div class="ps-3 mb-1">(अ) पदोन्नति/पदावनति</div>
+          <table class="table-bordered text-center w-100">
+            <thead>
+              <tr>
+                <th class="w-10">सं.क्रं.</th>
+                <th class="w-25">पदोन्नति/पदावनति की तिथि अथवा वर्ष</th>
+                <th class="w-25">पदोन्नति/पदावनति के पूर्व का वेतनमान</th>
+                <th class="w-25">पदोन्नति/पदावनति के पश्चात का वेतनमान</th>
+                <th class="w-15">रिमार्क</th>
+              <tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td></td><td></td><td></td><td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="ps-3 mb-1">(ब) दण्ड</div>
+          <table class="table-bordered text-center w-100">
+            <thead>
+              <tr>
+                <th class="w-10">सं.क्रं.</th>
+                <th class="w-40">तिथि/बर्ष</th>
+                <th class="w-50 text-center">दण्ड का प्रकार/पृकति</th>
+              <tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td></td><td></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td></td><td></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td></td><td></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td></td><td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="ps-3 mb-1">
+            (स) अनुपस्थिति काल:- (ऐसी अवधि जिसको पेंशन आदि हेतु मान्य करने के लिए नियमितीकरण न हुआ हो।)
+          </div>
+          <table class="table-bordered text-center w-100">
+            <thead>
+              <tr class="w-100">
+                <th class="w-10">सं.क्रं.</th>
+                <th class="w-40">तिथि/बर्ष</th>
+                <th class="w-50 text-center">विवरण</th>
+              <tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td></td><td></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td></td><td></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td></td><td></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td></td><td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block" id="pension-form-page3">
+    <div class="col-md-12">
+      <div class="row padding-2 mrgn-top-10">
+        <div class="fnt-17">
+          पेंशन का नया फॉर्म <span class="fRight">P-1</span>
+        </div>
+        <div class="text-center fnt-b">
+          प्रपत्र एक का पृष्ठ (2)
+        </div>
+      </div>
+      <div class="paragraph-30 ln-hgt-28">
+        <ol class="mb-0" start="9">
+          <li>
+            <div class="roww">
+              <div class="w-35">सेवा के प्रारम्भ में वेतन तथा वेतनमान</div>
+              <div class="w-10 text-center fnt-b">:</div>
+              <div class="w-55">
+                <%= raw blank_string_format2(30, true, "applicant") %>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="roww">
+              <div class="w-35">वर्तमान वेतन तथा वेतनमान</div>
+              <div class="w-10 text-center fnt-b">:</div>
+              <div class="w-55">
+                <%= raw blank_string_format2(30, true, "applicant_father_name") %>
+              </div>
+            </div>
+          </li>
+          <li>
+            परिवार का विवरण
+          </li>
+        </ol>
+        <table class="table-bordered text-center w-100">
+          <thead>
+            <tr>
+              <th class="w-5">सं क्रं</th>
+              <th class="w-25">परिवार कें सदस्यो का नाम</th>
+              <th class="w-15">जन्मतिथि   </th>
+              <th class="w-15">कर्मचारी से सम्बन्ध</th>
+              <th class="w-15">विवाहित/अविवाहित</th>
+              <th class="w-25">(रिमार्क यदि विकलांग हो तो उसका उल्लेख करें)</th>
+            <tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+          </tbody>
+        </table>
+        <ol class="mb-0" start="12">
+          <li>
+            <div class="roww">
+              <div class="w-35">
+                जिला कोषालय का नाम जहां से आप
+              </div>
+              <div class="w-10 text-center fnt-b">:</div>
+              <div class="w-55">
+                नाम
+                <%= raw blank_string_format2(30, true, "applicant") %>
+              </div>
+            </div>
+            <div class="roww">
+              <div class="w-45">सेवा निवृत्ति लाभ लेना चाहते है।</div>
+              <div class="w-55">
+                स्थान
+                <%= raw blank_string_format2(29, true, "applicant") %>
+              </div>
+            </div>
+            <div class="roww">
+              <div class="w-45"></div>
+              <div class="w-55">
+                राज्य (स्टेट)
+                <%= raw blank_string_format2(26, true, "applicant") %>
+              </div>
+            </div>
+          </li>
+          <li>
+            सेवा निवृत्ति के उपरांत देय विभिन्न राशियों के लिए नामांकन:-
+          </li>
+        </ol>
+        <table class="table-bordered text-center w-100">
+          <thead>
+            <tr>
+              <th class="w-5">सं.क्रं.</th>
+              <th class="w-35">सन्दाय की राशि किस देयता से संबंधित है उसका विवरण पेंशन/उपादान/इत्यादि</th>
+              <th class="w-25">नामांकित व्यक्तियो के नाम</th>
+              <th class="w-10">संबंध</th>
+              <th class="w-10">जन्मतिथि</th>
+              <th class="w-15">संदाय राशि का विवरण</th>
+            <tr>
+            <tr>
+              <th class="w-5">1</th>
+              <th class="w-35">2</th>
+              <th class="w-25">3</th>
+              <th class="w-10">4</th>
+              <th class="w-10">5</th>
+              <th class="w-15">6</th>
+            <tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+          </tbody>
+        </table>
+        <ol class="mb-0" start="13">
+          <li>
+            का शेष (सं प्रं. 13 का कालम नं. 3) 
+            <div class="fnt-u">मै नामांकित वयक्ति के न रहने की दशा में अन्य वयक्ति का विवरणः</div>
+          </li>
+        </ol>
+        <table class="table-bordered text-center w-100">
+          <thead>
+            <tr class="w-100">
+              <th colspan="2" class="w-50">नाम</th>
+              <th class="w-15">सम्बन्ध</th>
+              <th class="w-15">जन्मतिथि</th>
+              <th class="w-20">संदाय राशि का विवरण</th>
+            <tr>
+            <tr class="w-100">
+              <th colspan="2"class="w-50">7</th>
+              <th class="w-15">8</th>
+              <th class="w-15">9</th>
+              <th class="w-20">10</th>
+            <tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="w-5">1</td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+          </tbody>
+        </table>
+        <ol class="mb-0" start="14">
+          <li>
+            मेरे संयुक्त छायाचित्र/नमूना हस्ताक्षर/कद एवं पहिचान चिन्ह के तीन सेट (प्रतियॉं) संलग्न है।
+          </li>
+        </ol>
+        <div class="text-center fnt-22 fnt-b">// घोषणा-पत्र //</div>
+        <div class="txt-indent-1 mb-3">
+          मैं एतद द्वारा घोषणा करता/करती हूॅ कि मेरे द्वारा दिया गया विवरण सही है। पेंशन व अन्य सभी स्वत्वों में हुए अधिक भुगतान की वसूली पेंशन व अन्य मिलने वाली राशि से करने हेतु क्षतिपूर्ति बंध इस प्रपत्र के साथ संलग्न है। उक्त जानकारी में तथ्यों को न तो छुपाया गया है और न ही गलत ढंग से प्रस्तुत किया गया है।
+        </div>
+         
+        <div class="fnt-17 fnt-b">
+          <div class="fLeft">दिनांक :- </div> <span class="fRight">कर्मचारी के हस्ताक्षर</span>
+        </div>  
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block" id="pension-form-page4">
+    <div class="col-md-12">
+      <div class="row padding-2 mrgn-top-10">
+        <div class="fnt-17">
+          पेंशन का नया फॉर्म
+        </div>
+        <div class="text-center fnt-20 fnt-b">
+          //प्रपत्र-दो//
+        </div>
+        <div class="text-center fnt-b">पेंशन नियम 57 (1), 59, 61(1) एवं (7)</div>
+        <div class="text-center fnt-b">(कार्यालय प्रमुख द्वारा भरा जावे)</div>
+      </div>
+      <div class="paragraph-28 fnt-15">
+        <ol class="mb-0">
+          <li>
+            <div class="roww">
+              <div class="w-35">कर्मचारी का नाम एव पदनाम</div>
+              <div class="w-10 text-center fnt-b">:</div>
+              <div class="w-55">
+                <%= raw blank_string_format2(30, true, "applicant") %>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="roww">
+              <div class="w-35">जन्मतिथि</div>
+              <div class="w-10 text-center fnt-b">:</div>
+              <div class="w-55">
+                <%= raw blank_string_format2(30, true, "applicant_father_name") %>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="roww">
+              <div class="w-35">प्रथम नियुक्ति का दिनांक</div>
+              <div class="w-10 text-center fnt-b">:</div>
+              <div class="w-55">
+                <%= raw blank_string_format2(30, true, "applicant_father_name") %>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="w-35">सेवानिवृत्ति का दिनांक</div>
+              <div class="w-10 text-center fnt-b">:</div>
+              <div class="w-55">
+                <%= raw blank_string_format2(30, true, "applicant_father_name") %>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="w-35">कुल अवधि (4-3)</div>
+              <div class="w-10 text-center fnt-b">:</div>
+              <div class="w-55">
+                <%= raw blank_string_format2(30, true, "applicant_father_name") %>
+              </div>
+            </div>
+          </li>
+          <li>
+            पेंशन के अयोग्य सेवा की अवधि -
+          </li>
+        </ol>
+        <table class="table-bordered text-center w-100">
+          <thead>
+            <tr>
+              <th class="w-10">सं क्रं</th>
+              <th class="w-30">अवधि (कब से कब तक)</th>
+              <th class="w-30">पेंशन हेतु मान्य न करने का कारण</th>
+              <th class="w-30">रिमार्क</th>
+            <tr>
+          </thead>
+          <tbody>
+            <% 4.times do | index | %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td></td><td></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <ol class="mb-0" start="7">
+          <li>
+            <div class="roww">
+              <div class="w-35">
+                पेंशन हेतु शुद्ध अर्हतादायी सेवा (5-6)
+              </div>
+              <div class="w-10 text-center fnt-b">:</div>
+              <div class="w-55">
+                बर्ष <%= raw blank_string_format2(4, true, "year") %> माह <%= raw blank_string_format2(4, true, "applicant") %> दिन <%= raw blank_string_format2(4, true, "days") %>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="roww">
+              <div class="w-35">
+                वर्तमान वेतनमान
+              </div>
+              <div class="w-10 text-center fnt-b">:</div>
+              <div class="w-55"><%= raw blank_string_format2(30, true, "current_salary") %></div>
+            </div>
+          </li>
+          <li>
+            पूर्ण सेवाकाल में समय-समय पर प्राप्त वेतन का विवरणः-
+            <div class="">
+              (1) सेवा में प्रथम नियुक्ति दिनांक को वेतन <%= raw blank_string_format2(10, true, "joining_salary") %> एव वेतनमान <%= raw blank_string_format2(10, true, "last_salary") %>
+            </div>
+            <div class="">
+              (2) सेवाकाल के दौरान सामयिक वेतनमानों में वेतन निर्धारण:-
+            </div>
+          </li>
+        </ol>
+        <table class="table-bordered text-center w-100">
+          <thead>
+            <tr>
+              <th class="w-5">सं.क्रं.</th>
+              <th class="w-10">वर्ष</th>
+              <th class="w-15">धारित पद का नाम</th>
+              <th class="w-10">वेतनमान</th>
+              <th class="w-10">प्रारम्भिक वेतन</th>
+              <th class="w-10">वेतनवृद्धि की राशि</th>
+              <th class="w-10">पश्चातवर्ती वेतन</th>
+              <th class="w-10">रिमार्क</th>
+            <tr>
+          </thead>
+          <tbody>
+            <% 12.times do | index | %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div>(3). अंतिम उपलब्धि:- 1/मूल वेतन <%= raw blank_string_format2(20, false, "current_basic_salary") %> 2/महॅंगाई भत्ता <%= raw blank_string_format2(20, false, "current_da") %></div>       
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block" id="pension-form-page5">
+    <div class="col-md-12">
+      <div class="row padding-2 mrgn-top-10">
+        <div class="fnt-17">
+          पेंशन का नया फॉर्म
+        </div>
+        <div class="text-center fnt-20 fnt-b">
+          प्रपत्र-दो का पृष्ठ (2)
+        </div>
+      </div>
+      <div class="paragraph-28 fnt-15">
+        <ol class="mb-0" start="10">
+          <li>
+            <div>औसत उपलब्धियों की गणना</div>
+            <div>(अंतिम 10 माह में प्राप्त उपलब्धियों के आधार पर)</div>
+          </li>
+        </ol>
+        <table class="table-bordered text-center w-100">
+          <thead>
+            <tr>
+              <th class="w-10">सं क्रं</th>
+              <th class="w-30">धारित पद का नाम</th>
+              <th class="w-30">माह एवं वर्ष</th>
+              <th class="w-30">मासिक उपलब्धि</th>
+            <tr>
+          </thead>
+          <tbody>
+            <% 10.times do | index | %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td></td><td></td><td></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <ol class="mb-0" start="11">
+          <li>
+            <div class="row">
+              <div class="col-md-4">
+                पेंशन की प्रस्तावित राशि
+              </div>
+              <div class="col-md-1 text-center fnt-b">:</div>
+              <div class="col-md-7">
+                <%= raw blank_string_format2(30, false, "recommended_pension") %>
+              </div>
+            </div>
+          </li>
+          <li>
+            लंबित विभागीय जॉंच के विवरण :-
+          </li>
+        </ol>
+        <table class="table-bordered text-center w-100">
+          <thead>
+            <tr>
+              <th class="w-5">सं.क्रं.</th>
+              <th class="w-20">आरोप पत्र प्रस्तुत करने की तिथि   </th>
+              <th class="w-20">विवरण</th>
+              <th class="w-35">विभागीय जॉंच के आरोपों के अंतर्गत शासन को वित्तीय हानि की संभावित राशि</th>
+              <th class="w-20">विभागीय जॉंच पर अंतिम निर्णय की संभावित तिथि</th>
+            <tr>
+          </thead>
+          <tbody>
+            <% 4.times do | index | %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td></td><td></td><td></td><td></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <ol class="mb-0" start="13">
+          <li>
+            उपादान राशि की गणना :-
+          </li>
+        </ol>
+        <table class="table-bordered text-center w-100">
+          <thead>
+            <tr>
+              <th class="w-5">सं.क्रं.</th>
+              <th class="w-20">अंतिम उपलब्धियॉं  उपादान राशि की गणना  </th>
+              <th class="w-20">अर्हतादायी सेवा (छः माही में)</th>
+              <th class="w-35">अर्हतादायी सेवा अंतिम उपलब्धियॉं X 1/4</th>
+              <th class="w-20">देय उपादान राशि</th>
+            <tr>
+          </thead>
+          <tbody>
+            <% 2.times do | index | %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><br/><br/><br/><br/></td><td></td><td></td><td></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>       
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block" id="pension-form-page6">
+    <div class="col-md-12">
+      <div class="row padding-2 mrgn-top-10">
+        <div class="fnt-17">
+          पेंशन का नया फॉर्म
+        </div>
+        <div class="text-center fnt-20 fnt-b">
+          प्रपत्र-दो का पृष्ठ (3)
+        </div>
+      </div>
+
+      <div class="paragraph-30">
+        <ol class="mb-0" start="14">
+          <li>
+            परिवार पेंशन भोगी का नाम :- (पेंशन नियम 46 के अनुसार क्रम से लिखें)
+          </li>
+        </ol>
+        <table class="table-bordered text-center w-100">
+          <thead>
+            <tr>
+              <th class="w-10">सं क्रं</th>
+              <th class="w-30">परिवार पेंशनभोगियो के नाम</th>
+              <th class="w-15">जन्मतिथि</th>
+              <th class="w-20">कर्मचारी से संबंध</th>
+              <th class="w-25">रिमार्क</th>
+            <tr>
+          </thead>
+          <tbody>
+            <% 5.times do | index | %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td></td><td></td><td></td><td></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <ol class="mb-0" start="15">
+          <li>
+            <div class="roww">
+              <div class="w-35">
+                पारिवारिक पेंशन की गणना:- राशि
+              </div>
+              <div class="w-5 text-center fnt-b">:</div>
+              <div class="w-60">
+                अवधि
+                <div><%= raw blank_string_format2(35, false, "pension_period") %></div>
+              </div>
+            </div>
+            <div class="roww">
+              <div class="w-40"></div>
+              <div class="w-30 text-center">
+                कब से
+              </div>
+              <div class="w-30 text-center">
+                 कब तक
+              </div>
+            </div>
+            <div class="roww">
+              <div class="w-35">
+                (क) बढी दर से
+              </div>
+              <div class="w-5 text-center fnt-b">:</div>
+              <div class="w-30">
+                <%= raw blank_string_format2(16, false, "pension_incr_rt_since_when") %>
+              </div>
+              <div class="w-30">
+                <%= raw blank_string_format2(16, false, "pension_incr_rt_when_till") %>
+              </div>
+            </div>
+            <div class="roww">
+              <div class="w-35">
+                (ख) सामान्य दर से
+              </div>
+              <div class="w-5 text-center fnt-b">:</div>
+              <div class="w-30">
+                <%= raw blank_string_format2(16, false, "pension_nrml_rate_since_when") %>
+              </div>
+              <div class="w-30">
+                <%= raw blank_string_format2(16, false, "pension_nrml_rate_when_till") %>
+              </div>
+            </div>
+          </li>
+          
+          <li>
+            <div class="roww">
+              <div class="w-35">
+                पेंशन प्रारम्भ होने का दिनांक
+              </div>
+              <div class="w-5 text-center fnt-b">:</div>
+              <div class="w-60">
+                <%= raw blank_string_format2(35, false, "pension_start_date") %>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="roww">
+              <div class="w-35">
+                कोषालय का नाम जहॉं से पेंशन/ग्रेच्यूटी/की
+              </div>
+              <div class="w-5 text-center fnt-b">:</div>
+              <div class="w-60">
+                <%= raw blank_string_format2(35, true, "treasary_name") %>
+              </div>
+            </div>
+            <div class="roww">
+              <div class="w-35">
+                राशि का भुगतान लेना चाहते है
+              </div>
+              <div class="w-5 text-center fnt-b">:</div>
+              <div class="w-30">
+                स्थान <%= raw blank_string_format2(14, true, "treasury_district") %>
+              </div>
+              <div class="w-30">
+                राज्य <%= raw blank_string_format2(14, true, "state") %>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            कर्मचारी के विरूद्ध अवशेष धनराशियों का विवरणः आवास किराया एवं जल कर सहित
+          </li>
+
+        </ol>
+        <table class="table-bordered text-center w-100">
+          <thead>
+            <tr>
+              <th class="w-5">सं.क्रं.</th>
+              <th class="w-25">विवरण</th>
+              <th class="w-20">अवशेष धनराशि</th>
+              <th class="w-30">सक्षम अधिकारी के वसूली हेतु आदेश का क्र. एवं दिनांक</th>
+              <th class="w-20">रिमार्क</th>
+            <tr>
+          </thead>
+          <tbody>
+            <% 4.times do | index | %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td></td><td></td><td></td><td></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <ol class="mb-4" start="19">
+          <li>
+            <div>
+              शासकीय आवास गृह यदि आवंटित है तो उसका दिनांक <%= raw blank_string_format2(35, true, "govt_hr_desc") %>
+            </div>
+            <div>अन्य विवरण <%= raw blank_string_format2(54, true, "other_desc0") %></div>
+          </li>
+        </ol>
+      
+        <div class="text-center fnt-20 fnt-b">// कार्यालय प्रमुुख का घोषणा पत्र //</div>
+        <div class="txt-indent-1 mb-4">
+          यह प्रमाणित किया जाता है कि श्री/श्रीमति <%= raw blank_string_format2(30, true, "applicant") %> के सम्बन्ध में उपर्युक्तानुरूप दिया गया विवरण सही है तथा इसकी पुष्टि कार्यालयीन अभिलेख तथा सम्बन्धित के सेवा अभिलेख से कर ली गई है। क्षतिपूर्ति बंध भी संलग्न है।
+        </div>
+
+        <div class="roww fnt-b">
+          <div class="w-75">संलग्न :- क्षतिपूर्ति बंध।</div>
+          <div class="w-25 text-center">कार्यालय प्रमुख हस्ताक्षर</div>
+        </div>
+        <div class="roww fnt-b">
+          <div class="w-75">दिनांक :- </div>
+          <div class="w-25 text-center">पदनाम (सील सहित)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block" id="pension-form-page7">
+    <div class="col-md-12">
+      <div class="row padding-2 mrgn-top-10 mb-4">
+        <div class="text-center fnt-22 fnt-b mb-3">
+          परिशिष्ट-एक
+        </div>
+        <div class="text-center fnt-22 fnt-b mb-2">
+          कार्यालय प्रमुख का नाम <%= raw blank_string_format2(20, false, "pension_period") %> जिला <%= raw blank_string_format2(8, false, "pension_period") %>
+        </div>
+      </div>
+      <div class="paragraph-30">
+        <table class="table-bordered text-center w-100 mb-3">
+          <thead>
+            <tr>
+              <th class="w-10">सं क्रं</th>
+              <th class="w-30">अधिकारी/कर्मचारी का नाम तथा पदस्थापना</th>
+              <th class="w-15">जन्मतिथि</th>
+              <th class="w-20">सेवा निवृत्ति की तिथि</th>
+              <th class="w-25">अभ्युक्ति</th>
+            <tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="height:350px;">1</td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+          </tbody>
+        </table>
+        <ol class="mb-5 mt-5">
+          <li class="mb-5">
+            प्रमाणित किया जाता है कि उक्त शासकीय सेवक के वेतन निर्धारण का सत्यापन संयुक्त संचालक, कोष लेखा एवं पेंशन /महालेखाकार से कराया जा चुका है।
+          </li>
+          <li class="mb-5">
+            कर्मचारी के विरूद्ध कोई भी विभागीय जॉंच नही चल रही है।
+          </li>
+          <li class="mb-5">
+            कर्मचारी के विरूद्ध कोई भी न्यायालयीन प्रकरण नही चल रहा है।
+          </li>
+        </ol>
+        <div class="roww fnt-b">
+          <div class="w-75">दिनांक :- </div>
+          <div class="w-25 text-center">
+            <div>तहसीलदार</div> 
+            <div>हस्ताक्षर व मुहर</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block" id="pension-form-page8">
+    <div class="col-md-12">
+      <div class="paragraph-30 mt-4">
+        <div class="text-center fnt-24 fnt-b mb-3">1. घोषणा - पत्र</div>
+        <div class="txt-indent-1 mb-3">
+          मै घोषणा करता/करती हूॅं कि जिस सेवाकाल के लिए पेन्शन तथा ग्रेच्युटी का दावा किया जा रहा है उस अविधा या उसके प्रमाण-पत्र के लिए मैंने पूर्व में कोई भुगतान नही लिया है और न इस हेतु मांग करने के लिए पूर्व में कोई आवेदन-पत्र दिया है।
+        </div>
+        <div class="mb-3 fnt-b">
+          अभिप्रमाणित
+        </div>
+        <div class="roww">
+          <div class="w-60"></div>
+          <div class="w-40 text-center fnt-b">
+            पेन्शनर के हस्ताक्षर 
+          </div>
+        </div>
+        <div class="roww">
+          <div class="w-60"></div>
+          <div class="w-40 text-center">
+            पूरा नाम <%= raw blank_string_format2(20, false, "applicant") %>
+          </div>
+        </div>
+        <div class="roww">
+          <div class="w-60"></div>
+          <div class="w-40 text-center">
+            दिनांक :- <%= raw blank_string(10) %>
+          </div>
+        </div>
+        <div class="roww text-center fnt-b">
+          <div class="w-40">
+            हस्ताक्षर 
+          </div>
+          <div class="w-60"></div>
+        </div>
+        <div class="roww text-center fnt-b">
+          <div class="w-40">
+            कार्यालय प्रमुख एव पद मुद्रा
+          </div>
+          <div class="w-60"></div>
+        </div>
+        <hr>
+ 
+        <div class="text-center fnt-24 fnt-b mb-3">2. सहमति-पत्र</div>
+        <div class="txt-indent-1 mb-3">
+          मेरे पर शासकीय बसूली यागय राशि हो तो मुझे देय पेन्शन एवं ग्रेच्युटी से वसूल कर लेने के लिए सहमत हूॅं।
+        </div>
+        <div class="mb-3 fnt-b">
+          अभिप्रमाणित
+        </div>
+        <div class="roww">
+          <div class="w-60"></div>
+          <div class="w-40 text-center fnt-b">
+            पेन्शनर के हस्ताक्षर 
+          </div>
+        </div>
+        <div class="roww">
+          <div class="w-60"></div>
+          <div class="w-40 text-center">
+            पूरा नाम <%= raw blank_string_format2(20, false, "applicant") %>
+          </div>
+        </div>
+        <div class="roww">
+          <div class="w-60"></div>
+          <div class="w-40 text-center">
+            दिनांक :- <%= raw blank_string(10) %>
+          </div>
+        </div>
+        <div class="roww text-center fnt-b">
+          <div class="w-40">
+            हस्ताक्षर 
+          </div>
+          <div class="w-60"></div>
+        </div>
+        <div class="roww text-center fnt-b">
+          <div class="w-40">
+            कार्यालय प्रमुख एव पद मुद्रा
+          </div>
+          <div class="w-60"></div>
+        </div>
+        <hr>
+
+        <div class="text-center fnt-24 fnt-b mb-3">सहमति-पत्र</div>
+        <div class="txt-indent-1 mb-3">
+          द्वारा मुझे अंशदायी भविष्य निधि <%= raw blank_string_format2(30, false, "bhavishya_nidhi") %> रूपये <%= raw blank_string_format2(10, false, "bhavishya_nidhi_amt") %> का दिनांक <%= raw blank_string(10) %> को भुगतान किया गया है उपरोक्त राशि से अंशदान की राशि कुल भुगतान की आधी राशि एवं उस पर नियमानुसार 5 प्रतिशत अधिक ब्याज सहित मेरी पेंशन एवं उपदान से वसूल कर लिया जावे।
+        </div>
+        <div class="mb-3 fnt-b">
+          अभिप्रमाणित
+        </div>
+        <div class="roww">
+          <div class="w-60"></div>
+          <div class="w-40 text-center fnt-b">
+            पेन्शनर के हस्ताक्षर 
+          </div>
+        </div>
+        <div class="roww">
+          <div class="w-60"></div>
+          <div class="w-40 text-center">
+            पूरा नाम <%= raw blank_string_format2(20, false, "applicant") %>
+          </div>
+        </div>
+        <div class="roww">
+          <div class="w-60"></div>
+          <div class="w-40 text-center">
+            दिनांक :- <%= raw blank_string(10) %>
+          </div>
+        </div>
+        <div class="roww text-center fnt-b">
+          <div class="w-40">
+            हस्ताक्षर 
+          </div>
+          <div class="w-60"></div>
+        </div>
+        <div class="roww text-center fnt-b">
+          <div class="w-40">
+            कार्यालय प्रमुख एव पद मुद्रा
+          </div>
+          <div class="w-60"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block" id="pension-form-page9">
+    <div class="col-md-12 mt-4">
+      <div class="paragraph-30 padding-5">
+        <div class="text-center fnt-24 fnt-b mb-3">NO DEMANAD CERTIFICATE</div>
+        <div class="mb-5">
+          <div>Certified No DUES are outstanding to recovered from Shri/Smt. (Name) _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
+          <div>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
+          <div>Retireed Deceased (Designation) _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div> 
+          <div>OR</div>
+          <div>A Sum or Rs. _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
+          <div>on account Of _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
+          <div>Shri/Smt. _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
+          <div>Retired/(Deceased) _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
+        </div>
+
+        <div class="roww">
+          <div class="w-60">Date</div>
+          <div class="w-40 text-center fnt-b">
+            Head Of Office
+          </div>
+        </div>
+        <div class="roww mb-3">
+          <div class="w-60"></div>
+          <div class="w-40 text-center">
+            Seal
+          </div>
+        </div>
+        <hr>
+ 
+        <div class="text-center fnt-24 fnt-b mb-3 mt-4">NO Enquiry Certificate</div>
+        <div class="txt-indent-2 mb-3">
+          Certified that no enquiry is pending against Shri/Smt. (Name)
+        </div>
+        <div class="mb-5">
+          _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ (Designation) _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+        </div>
+        <div class="roww">
+          <div class="w-60">Date</div>
+          <div class="w-40 text-center fnt-b">
+            Head Of Office
+          </div>
+        </div>
+        <div class="roww mb-4">
+          <div class="w-60"></div>
+          <div class="w-40 text-center">
+            Seal
+          </div>
+        </div>
+        <hr>
+
+        <div class="text-center fnt-24 fnt-b mb-3">No Event Certificate</div>
+        <div class="mb-5">
+          <div class="txt-indent-1">
+            Certified that no event has occured which necessitate the calculation of prnsion to
+          </div>
+          <div>Shri/Smt (Name)  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ _ _</div>
+          <div>Retired/Deceased (Designation)  _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</div>
+        </div>
+        <div class="roww">
+          <div class="w-60">Date</div>
+          <div class="w-40 text-center fnt-b">
+            Head Of Office
+          </div>
+        </div>
+        <div class="roww">
+          <div class="w-60"></div>
+          <div class="w-40 text-center">
+            Seal
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block" id="pension-form-page10">
+    <div class="col-md-12 mt-2">
+      <div class="paragraph-30 padding-5">
+        <div class="text-center fnt-24 fnt-b mb-3">INDEMNITY BOND</div>
+        <div class="txt-indent-1">
+          Whereas I (name) _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ am holding the office of  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ _ _ _ _ _under the Government of Madhya Pradesh.
+        </div>
+        <div class="txt-indent-1">
+          And Whereas in pursuance of the order of Government contained in  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ I am retiring/proceeding on leave preparatory to retirement from Government service, and accordingly handing over charge of my said office to _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ _ _ _ _ _.
+        </div>
+        <div class="txt-indent-1">
+          And whereas it is not possible for Goverment or my successor fully and Headquartely to examine the accounts of all moneys belonging or due to Government for the custody or recovery of which I am responsible or to check the stock of Government property in my charge within the time available  before the date on which I am to be relieved of my said office.
+        </div>
+        <div class="txt-indent-1">
+          And whereas its is incumbent upon me truly and faithfully to account for all the moneys and property aforesaid and to indemnify Government for any loss or damage which may have hapend or beer sustained during my tenure of the said office and which shall be discovered after my relief therefrom.
+        </div>
+        <div class="txt-indent-1">
+          NOW IT IS HEREBY AGREED AND DECLARED by me that in case any such loss or damage oroverpayment in pensionary benefit pay fixation etc. or ahy others matter is discovered, and the State Government is satisfied, after giving me an opportunity to explain the same and after taking into consideration my explanation in respect there of provided it is submitted whithin prescribed time, that the loss or damage was due to neglect, failure, misconduct or disobedience on my part and requires me, by notice in writing, to make good that loss or damage, or overpayment in pension, pensiorory benefit, pay fixation etc. or any other matter I undertake forthwith to do so or to pay such amount by way.
+        </div>
+        <div class="txt-indent-1"> 
+          FURTHER AGREE AND DECLARE that if I fail to pay any amount demanded from me within a reasonable time, the same may be recovered from me by a civil suit or as an arrear of land revenue.
+        </div>
+        <div class="txt-indent-1">
+          Goverment has agreed to bear any stamp duty with which this bond may be chargeable.
+        </div>
+        <div class="txt-indent-1 mb-1">
+          Signed by me this _ _ _ _ _ _ _ _ _ _ _ _ _ day of  _ _ _ _ _ _ _ _ _ _ _ _ _ .
+        </div>
+        <div class="roww mt-5">
+          <div class="w-60">(Office) _ _ _ _ _ _ _ _ _</div>
+          <div class="w-40 text-center fnt-b">
+            Singature
+          </div>
+        </div>
+      </div>
+      <div class="fnt-14 mt-4"><strong>Note:</strong> No Pension case shoud be forwared unaccompanied by a certificated to the effect the no enquiries are pending against the officer concerned which may result in orders to recover amount or value of property lost from him.</div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block" id="pension-form-page11">
+    <div class="col-md-12 mt-2">
+      <div class="padding-2 text-center">
+        <div class="text-center fnt-24 fnt-b mb-3">कर्मचारी के संयुक्त छायाचित्र नमूना हस्ताक्षर/कद एवं पहचान चिन्ह का फार्म</div>
+      </div>
+      <div class="paragraph-30 padding-5">
+        <div class="txt-indent-1 mb-3">
+          संचालक पेंशन/कोषालय को दो प्रतिंयो में भेजा जावे। कार्यालय प्रमुख कार्यालयीन प्रमुख अभिलेख हेतु एक प्रति रखें। अतः कर्मचारी द्वारा तीन प्रतियों में कार्यालय प्रमुख को दिया जावे।
+        </div>
+        <div class="roww mb-4">
+          <div class="w-50 mt-4">
+            <p>कर्मचारी का पत्नी/पति के साथ पासपोर्ट साइज</p>
+            <p>सत्यापित आकार का संयुक्त छायाचित्र</p>
+          </div>
+          <div class="w-50">
+            <center><div class="" style="width:200px;height:150px;border:1px solid gray;"></div></center>
+          </div>
+        </div>
+        <div class="roww mb-4">
+          <div class="w-50">
+            कर्मचारी का नाम/पदनाम
+          </div>
+          <div class="w-50">
+            <div>नाम : <%= raw blank_string_format2(24, true, "applicant") %></div>
+            <div>पदनाम : <%= raw blank_string_format2(22, true, "post_name") %></div>
+          </div>
+        </div>
+        <div class="roww mb-4">
+          <div class="w-50">
+            नमूना हस्ताक्षर
+          </div>
+          <div class="w-50">
+            <div>1. <%= raw blank_string(26) %></div>
+            <div>2. <%= raw blank_string(26) %></div>
+            <div>3. <%= raw blank_string(26) %></div>
+          </div>
+        </div>
+        <div class="roww mb-4">
+          <div class="w-50">
+            हस्ताक्षर न करने की दशा में अंगूठे के निशान
+          </div>
+          <div class="w-50">
+            <div>1. <%= raw blank_string(26) %></div>
+            <div>2. <%= raw blank_string(26) %></div>
+            <div>3. <%= raw blank_string(26) %></div>
+          </div>
+        </div>
+        <div class="roww mb-4">
+          <div class="w-50">
+            ऊंचाई
+          </div>
+          <div class="w-50">
+            <div><%= raw blank_string(26) %></div>
+          </div>
+        </div>
+        <div class="roww mb-4">
+          <div class="w-50">
+            पहचान चिन्ह
+          </div>
+          <div class="w-50">
+            <div><%= raw blank_string(26) %></div>
+            <div><%= raw blank_string(26) %></div>
+          </div>
+        </div>
+        <div class="roww mb-4">
+          <div class="w-50">
+            कर्मचारी का वर्तमान एवं स्थाई पूर्ण पता
+          </div>
+          <div class="w-50">
+            <div><%= raw blank_string(26) %></div>
+            <div><%= raw blank_string(26) %></div>
+            <div><%= raw blank_string(26) %></div>
+          </div>
+        </div>
+        <div class="mb-4">&nbsp;</div>
+        <div class="roww">
+          <div class="w-70">स्थान :- </div>
+          <div class="w-30 text-center">कार्यालय प्रमुख हस्ताक्षर</div>
+        </div>
+        <div class="roww">
+          <div class="w-70">दिनांक :- </div>
+          <div class="w-30 text-center">पदनाम (सील सहित)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="page-a4 only-print selection-criteria-block" id="pension-form-page12">
+    <div class="col-md-12 mt-2">
+      <div class="padding-2 text-center">
+        <div class="text-center fnt-22 fnt-b mb-3">
+          <div>Left Hand Thumb and Fingures impression of</div>
+          <div>Shri <%= raw blank_string_format2(24, true, "applicant") %></div>
+        </div>
+      </div>
+      <div class="paragraph-30 padding-5">
+        <div class="mb-3">
+          <div>Office of The <%= raw blank_string_format2(48, true, "office_name") %></div>
+        </div>
+
+        <table class="text-center w-100 mb-3">
+          <thead>
+            <tr class="t-border b-border">
+              <th class="w-20" style="padding: 15px 0px;">Thumb</th>
+              <th class="w-20">Fore Finger</th>
+              <th class="w-20">Middle Finger</th>
+              <th class="w-20">Ring Finger</th>
+              <th class="w-20">Little Finger</th>
+            <tr>
+          </thead>
+          <tbody>
+            <tr class="b-border">
+              <td style="height:250px;">&nbsp</td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="roww mb-4">
+          <div class="w-70"></div>
+          <div class="w-30 text-center">Attested</div>
+        </div>
+        <div class="mb-4">&nbsp;</div>
+        <div class="roww mb-4">
+          <div class="w-70">
+          </div>
+          <div class="w-30 text-center">
+            Signature, Head Of Office
+          </div>
+        </div>
+        <div class="mb-4">&nbsp;</div>
+        <div class="roww">Specimen Signature of Shri <%= raw blank_string_format2(40, true, "applicant") %></div>
+        <div class="roww">Officer of the <%= raw blank_string_format2(48, true, "applicant") %></div>
+        <div class="roww">1. <%= raw blank_string(56) %></div>
+        <div class="roww">2. <%= raw blank_string(56) %></div>
+        <div class="roww">3. <%= raw blank_string(56) %></div>
+        <div class="mb-4">&nbsp;</div>
+        <div class="roww mb-4">
+          <div class="w-70"></div>
+          <div class="w-30 text-center">Attested</div>
+        </div>
+        <div class="mb-4">&nbsp;</div>
+        <div class="roww mb-4">
+          <div class="w-70">
+          </div>
+          <div class="w-30 text-center">
+            Signature, Head Of Office
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-a4 only-print selection-criteria-block" id="pension-form-page13">
+    <div class="col-md-12 mt-2">
+      <div class="padding-2 text-center">
+        <div class="text-center fnt-20 fnt-b mb-3">
+          <div>LAST PAY CERTIFICATE</div>
+        </div>
+      </div>
+      <div class="paragraph-30  padding-5">
+        <ol class="mb-0">
+          <li>
+            <div class="mb">
+              <div>LAST PAY CERTIFICATE OF<%= raw blank_string_format2(38, true, "applicant") %></div>
+              <div>of the <%= raw blank_string_format2(50, true, "office_name") %></div>
+              <div>Proceeding on <%= raw blank_string_format2(45, true, "office_name") %></div>
+              <div>to<%= raw blank_string_format2(53, true, "office_name") %></div>
+            </div>
+          </li>
+          <li>
+            <div>He has been paid up to <%= raw blank_string_format2(40, true, "none") %></div>
+            <div>at the following rates:-</div>
+            <div class="roww">
+              <div class="w-40"></div>
+              <div class="w-30 text-center">Particulars</div>
+              <div class="w-30 text-center">Rate</div>
+            </div>
+            <div class="roww">
+              <div class="w-40">Substantive Pay</div>
+              <div class="w-30"><%= raw blank_string_format2(15, true, "none") %></div>
+              <div class="w-30"><%= raw blank_string_format2(15, true, "none") %></div>
+            </div>
+            <div class="roww">
+              <div class="w-40">Officiating Pay</div>
+              <div class="w-30"><%= raw blank_string_format2(15, true, "none") %></div>
+              <div class="w-30"><%= raw blank_string_format2(15, true, "none") %></div>
+            </div>
+            <div class="roww t-border b-border">
+              &nbsp;
+            </div>
+          </li>
+        </ol>
+        <div class="fnt-20 fnt-b text-center">
+          DEDUCTIONS
+        </div>
+        <ol start="3" class="mb-0">
+          <li>
+            <div>His General Provident Fund Account No. is <%= raw blank_string_format2(15, false, "none") %> maintained by the </div>
+            <div>Accountant General <%= raw blank_string_format2(42, false, "none") %></div>
+          </li>
+          <li>
+            <div>He made over charge of the office of <%= raw blank_string_format2(24, true, "office_name") %> on the <%= raw blank_string_format2(15, false, "none") %> Noon of <%= raw blank_string_format2(15, false, "none") %></div>
+          </li>
+          <li>
+            <div>Recoveries are to be made from the pay of the Government servant as detailsed on the reverse.</div>
+          </li>
+          <li>
+            <div>Recoveries are to be made from the pay of the Government servant as detailsed on the reverse.</div>
+          </li>
+        </ol>
+        <table class="w-100">
+          <thead>
+            <tr class="text-center t-border b-border">
+              <th class="w-40">Period</th>
+              <th class="w-20">Rate</th>
+              <th class="w-40">Amount (Rs.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>From _ _ _ _ _ _ _ _ to _ _ _ _ _ _ _ _</td>
+              <td>at _ _ _ _ _ _ _ _</td>
+              <td>Rs.  _ _ _ _ _ _ _ _ a month _ _ _ _ _ _ _ _</td>
+            </tr>
+            <tr>
+              <td>From _ _ _ _ _ _ _ _ to _ _ _ _ _ _ _ _</td>
+              <td>at _ _ _ _ _ _ _ _</td>
+              <td>Rs.  _ _ _ _ _ _ _ _ a month _ _ _ _ _ _ _ _</td>
+            </tr>
+            <tr>
+              <td>From _ _ _ _ _ _ _ _ to _ _ _ _ _ _ _ _</td>
+              <td>at _ _ _ _ _ _ _ _</td>
+              <td>Rs.  _ _ _ _ _ _ _ _ a month _ _ _ _ _ _ _ _</td>
+            </tr>
+            <tr class="t-border b-border">
+              <td colspan="3">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+        <ol start="7">
+          <li>He is entitled to draw the following.</li>
+          <li>He is also entitled to joining time for <%= raw blank_string_format2(28, true, "none") %> days.</li>
+          <li>The details of the Income-tax recorvered from him up to the date from the beginning of the current year are not on the reverse.</li>
+        </ol>
+        <div class="roww pb-1 b-border">
+          <div class="w-70">Date:- _ _ _ _ _ _ _</div>
+          <div class="w-30">Signature and Designation</div>
+        </div>
+        <div class="roww fnt-13 ln-hgt-20">
+          <div class="w-5 fnt-b pe-0 ps-0">Note-</div>
+          <div class="w-95">Against Serial No. 3 of the information should be incorporated by the head of office in case of Non Gazetted Government servant and by the Treasury Officer/Office himself in case of Gazetted Officers in Addition when Government servant is transferred from one audit circle to another the name of the Accounts Office who will maintain his General Provident Fund Account after transfer should also be recorded in the case of a Gazetted Officer by the Accountant General while countersigning the Last Pay Certificate and by the Head of Office in the case of Non-Gazetted Government servant is Possible.</div>
+        </div>
+      </div>
+      <!-- <div class="padding-5">
+        <div class="roww fnt-14">
+          <div class="w-10 fnt-b pe-0">Note -</div>
+          <div class="w-90">Against SerialNo. 3 of the information should be incorporated by the head of office in case of Non Gazetted Government servant and by the Treasury Officer/Office himself in case of Gazetted Officers in Addition when Government servant is transferred from one audit circle to another the name of the Accounts Office who will maintain his General Provident Fund Account after transfer should also be recorded in the case of a Gazetted Officer by the Accountant General while countersigning the Last Pay Certificate and by the Head of Office in the case of Non-Gazetted Government servant is Possible.</div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+</div>

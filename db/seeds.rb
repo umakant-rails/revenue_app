@@ -84,7 +84,8 @@ govt_emp_forms = [
   {eng_name: "Form 16", hindi_name: "फॉर्म 16", section_hindi: "सरकारी कर्मचारी फॉर्म", section_eng: 'Govt Employee Form'},
   {eng_name: "Form 12C", hindi_name: "फॉर्म 12(C)", section_hindi: "सरकारी कर्मचारी फॉर्म", section_eng: 'Govt Employee Form'},
   {eng_name: "Medical Leave Form 4", hindi_name: "चिकित्सा प्रमाण पत्र (मेडिकल अवकाश)", section_hindi: "सरकारी कर्मचारी फॉर्म", section_eng: 'Govt Employee Form'},
-  {eng_name: "Medical Leave Form 3", hindi_name: "चिकित्सा प्रमाण पत्र (मेडिकल फिटनेस)", section_hindi: "सरकारी कर्मचारी फॉर्म", section_eng: 'Govt Employee Form'}\
+  {eng_name: "Medical Leave Form 3", hindi_name: "चिकित्सा प्रमाण पत्र (मेडिकल फिटनेस)", section_hindi: "सरकारी कर्मचारी फॉर्म", section_eng: 'Govt Employee Form'},
+  {eng_name: "Pension Form", hindi_name: "पेन्शन फॉर्म", section_hindi: "सरकारी कर्मचारी फॉर्म", section_eng: 'Govt Employee Form'}
 
 ]
 

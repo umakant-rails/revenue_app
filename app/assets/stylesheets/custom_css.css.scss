@@ -128,6 +128,7 @@ page[size="A4"][layout="landscape"] {
 .w-78{width: 78%; padding: 0px 5px;word-wrap: anywhere;}
 .w-80{width: 80%; padding: 0px 5px;word-wrap: anywhere;}
 .w-85{width: 85%; padding: 0px 5px;word-wrap: anywhere;}
+.w-90{width: 90%; padding: 0px 5px;word-wrap: anywhere;}
 .w-95{width: 95%; padding: 0px 5px;word-wrap: anywhere;}
 .w-97{width: 97%; padding: 0px 5px;word-wrap: anywhere;}
 .w-100{width: 100%; padding: 0px 5px;word-wrap: anywhere;}
@@ -421,3 +422,5 @@ page[size="A4"][layout="landscape"] {
 .anchor-no-decoration{
   text-decoration: none !important;
 }
+.t-border{ border-top: 1px solid gray;}
+.b-border{ border-bottom: 1px solid gray;}
