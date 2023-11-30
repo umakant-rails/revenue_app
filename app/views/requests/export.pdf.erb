@@ -5,11 +5,11 @@
   %>
   <% if @request.request_type.name == "नामांतरण" %>
     <%= render partial: "requests/namantaran/pdf_pages/ordersheet_first", locals: hs %>
-    <% if current_user.is_order_display %>
+    <%# if current_user.is_order_display %>
       <%= render partial: "requests/namantaran/pdf_pages/#{@templates[:order_praroop]}/ordersheet_second", locals: hs  %>
-    <% else %>
+    <%# else %>
       <%= render partial: "requests/namantaran/pdf_pages/ordersheet_second_blank",locals: hs %>
-    <% end %>
+    <%# end %>
 
     <%= render partial: "requests/namantaran/pdf_pages/applicant_application", locals: hs  %>
     <%= render partial: "requests/namantaran/pdf_pages/non_applicant_application", locals: hs  %>
@@ -19,6 +19,7 @@
     <%= render partial: "requests/namantaran/pdf_pages/applicant_affidavit", locals: hs  %>
     <%= render partial: "requests/namantaran/pdf_pages/non_applicant_affidavit", locals: hs  %> 
     <%= render partial: "requests/namantaran/pdf_pages/patwari_prativedan", locals: hs  %>
+    <%= render partial: "requests/namantaran/pdf_pages/patwari_prativedan_format2", locals: hs  %>
   <% elsif @request.request_type.name == "फौती" %>
     <%= render partial: "requests/fouti/pdf_pages/ordersheet_first", locals: hs %>
     <%= render partial: "requests/fouti/pdf_pages/#{@templates[:order_praroop]}/ordersheet_second",locals: hs %>

@@ -41,7 +41,10 @@
           अनावेदक का शपथ पत्र
         </li>
         <li class="list-group-item" data-action="click->request#showPage" data-pagename="patwari-prativedan">
-          हल्का पटवारी प्रतिवेदन
+          हल्का पटवारी प्रतिवेदन (प्रारूप-1)
+        </li>
+        <li class="list-group-item" data-action="click->request#showPage" data-pagename="patwari-prativedan-format2">
+          हल्का पटवारी प्रतिवेदन (प्रारूप-2)
         </li>
       </ol>
     </div>
@@ -97,6 +100,7 @@
         <%= render partial: "requests/namantaran/pages/applicant_affidavit",locals: hs %>
         <%= render partial: "requests/namantaran/pages/non_applicant_affidavit",locals: hs %>
         <%= render partial: "requests/namantaran/pages/patwari_prativedan",locals: hs %>
+        <%= render partial: "requests/namantaran/pages/patwari_prativedan_format2",locals: hs %>
       <% end %>
     </div>
     <div class="divider-bdr"></div>

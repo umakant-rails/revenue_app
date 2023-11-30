@@ -1,5 +1,5 @@
 <!-- halka patwari prativedan -->
-<div class="page-a4 only-print" data-request-target="page" data-name="patwari-prativedan" 
+<div class="page-a4 only-print" data-request-target="page" data-name="patwari-prativedan-format2" 
   style="display: none;" data-controller="blnk-frm">
   <span id="translatable" style="display:none;">
     <input id="input1" name="inputText" type="text" value="" 
@@ -56,32 +56,17 @@
           <div class="txt-indent-3">
             वर्तमान अभिलेख मौजा <strong><%= request.village.halka_name %></strong> के खसरा नंबर <strong><%= khasra %></strong> रकबा क्रमशः <strong><%= kh_rakba %></strong> हेक्ट आवेदित भूमि, भूमिस्वामी मद भूमि है | 
           </div>
-          <div class="mb-3">
-            <div class="row">
-              <strong>वर्तमान भू-अभिलेख अनुसार सम्बंधित भूमि की वस्तु-स्थिति : - </strong>
-            </div>
-            <div class="roww">
-              <div class="w-20">बंधक</div>
-              <div class="w-80">
-                : <%= raw blank_string_format2(40, true, "mortgage_status") %>
-              </div>
-            </div>
-            <div class="roww">
-              <div class="w-20">डायवर्सन</div>
-              <div class="w-80">
-                : <%= raw blank_string_format2(40, true, "dyversion_status") %>
-              </div>
-            </div>
-            <div class="roww">
-              <div class="w-20">अन्य विवरण</div>
-              <div class="w-80">
-                : <%= raw blank_string_format2(122, true, "other_desc") %>
-              </div>
-            </div>
-          </div>
           <div class="txt-indent-3">
             अतः <%=raw khasra_description(request) %> पर क्रेता का नाम <%=raw applicant_name(request, true) %>, रजिस्टर्ड बैनामा क्रमांक <strong><%= request.registry_number %></strong> दिनांक <strong><%= format_dt(request.registry_date) %></strong> के अनुसार वर्तमान अभिलेख में दर्ज किये जाने हेतु प्रतिवेदन सादर सम्प्रेषित है |
             <!-- अतः प्रतिवेदन सादर सम्प्रेषित है | -->
+          </div>
+          <div class="roww">
+            <div class="w-30">
+              <strong>टिप्पणी (यदि आवश्यक हो):</strong>
+            </div>
+            <div class="w-70">
+              <br/><br/><br/><br/>
+            </div>
           </div>
         </div>
         <div class="mrgn-top-10">&nbsp;</div>
