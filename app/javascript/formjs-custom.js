@@ -129,4 +129,19 @@ $(document).ready(function(){
     $(targetsToDisplay).show();
   });
 
+  $(".add-seemankan-row, .remove-seemankan-row").on('click', function(){
+    console.log(this);
+    if($(this).hasClass('add-seemankan-row')){
+      $("#participants").append(`<div class="seemankan_participant">
+        <span class="filled-txt participant_person4" data-blnk-frm-target="textHolder" data-translatable="true" data-action="click->blnk-frm#createInput">_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</span>
+      </div>`);
+    } else {
+      var total_children = $("#participants").find(".seemankan_participant").length;
+      if(total_children > 2){
+        $("#participants").find(".seemankan_participant:last").remove();
+      } else {
+        alert("सीमांकन में दो से कम प्रतिभागी नही हो सकते है।");
+      }
+    }
+  });
 });

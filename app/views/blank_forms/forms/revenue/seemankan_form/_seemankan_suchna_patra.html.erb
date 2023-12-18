@@ -1,0 +1,64 @@
+<!-- seemankan praroop 1 -->
+
+<div class="letter-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print selection-criteria-block" id="seemankan-praroop1-page-1">
+    <div class="col-md-12">
+      <div class="row padding-5 mt-3">
+        <div class="fnt-22 text-center fnt-b fnt-u mb-3">
+          कार्यालय पटवारी हल्का नं. <%= raw blank_string_format2(5, true, "halka_number") %> /राजस्व निरीक्षक
+        </div>
+        <div class="fnt-20 fnt-u mb-4">
+          <center>सीमांकन बाबत सूचना पत्र</center>
+        </div>
+        <div class="paragraph-32">      
+          <div class="txt-indent-1 mb-4">
+            आप सभी लोगो को सूचित किया जाता है कि आवेदक <%= raw blank_string_format2(25, true, "applicant") %> पिता <%= raw blank_string_format2(25, true, "applicant_father_name") %> की हल्का नम्बर <%= raw blank_string_format2(10, true, "halka_number") %> मौजा <%= raw blank_string_format2(20, true, "village") %> भूमि ख.न. <%= raw blank_string_format2(25, true, "khasra_number") %> रकबा <%= raw blank_string_format2(25, true, "rakba") %> का सीमांकन दिनांक <%= raw blank_string_format2(25, true, "seemankan_date") %> को सुबह समय <%= raw blank_string_format2(20, true, "seemankan_time") %> बजे किया जायेगा।
+          </div>
+          <div id="participants" class="mb-4">
+            <div class="seemankan_participant">
+              <%= raw blank_string_format2(30, true, "participant_person") %>
+            </div>
+            <div class="seemankan_participant">
+              <%= raw blank_string_format2(30, true, "participant_person") %>
+            </div>
+            <div class="seemankan_participant">
+              <%= raw blank_string_format2(30, true, "participant_person") %>
+            </div>
+            <div class="seemankan_participant">
+              <%= raw blank_string_format2(30, true, "participant_person") %>
+            </div>
+          </div>
+          <i class="fa-solid fa-circle-plus text-success fnt-24 hide-on-print add-seemankan-row"></i>
+          <i class="fa-solid fa-circle-minus text-danger fnt-24 hide-on-print remove-seemankan-row"></i>
+          <div class="roww">
+            <div class="w-70"></div>
+            <div class="w-30">
+              <center>
+                पटवारी/राजस्व निरीक्षक
+              </center>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+सूचना - पत्र
+
+प्रति,
+
+
+

@@ -71,6 +71,7 @@ revenue_forms = [
   {eng_name: "Seemankan Form1", hindi_name: "सीमांकन फॉर्म - प्रथम", section_hindi: "सीमांकन फॉर्म", section_eng: 'Seemankan Form'},
   {eng_name: "Seemankan Form2", hindi_name: "सीमांकन फॉर्म - द्वितीय", section_hindi: "सीमांकन फॉर्म", section_eng: 'Seemankan Form'},
   {eng_name: "Seemankan Form3", hindi_name: "सीमांकन फॉर्म - तृतीय", section_hindi: "सीमांकन फॉर्म", section_eng: 'Seemankan Form'},
+  {eng_name: "Seemankan Suchna Patra", hindi_name: "सीमांकन सूचना पत्र", section_hindi: "सीमांकन फॉर्म", section_eng: 'Seemankan Form'},
 
   {eng_name: "Form C", hindi_name: "फॉर्म सी", section_hindi: "अन्य फॉर्म", section_eng: 'Other Form'},
   {eng_name: "Crop Sowing", hindi_name: "फसल बुआई प्रमाण पत्र", section_hindi: "अन्य फॉर्म", section_eng: 'Other Form'},
