@@ -54,7 +54,7 @@
           </div>
           <div class="col-md-6">
             <%= form.label :year, class: "form-label" %>
-            <%= form.text_field :year, class: "form-control", 'data-request-target': 'year', 'data-action': 'focusout->request#updateRequestTitle' %>
+            <%= form.text_field :year, class: "form-control", 'data-request-target': 'year', 'data-action': 'focusout->request#updateRequestTitle', required: true %>
           </div>   
         </div>
         <div class="mb-3">
