@@ -79,13 +79,13 @@ export default class extends ApplicationController {
 
   submitForm(event){
     var rakbaArr = [];
-    var total = 0;
+    var total = 0.0;
     var newBattankFields = this.newBattankInputTargets;
 
-    var totalRakba = parseFloat(this.newBattankInputTargets[0].dataset['totalrakba'])*10000;
+    var totalRakba = parseFloat(this.newBattankInputTargets[0].dataset['totalrakba']);
     
     for(var i=0; i<newBattankFields.length; i++){
-      rakbaArr.push(parseInt(parseFloat(newBattankFields[i].value) * 10000));
+      rakbaArr.push(parseFloat(newBattankFields[i].value));
     }
 
     rakbaArr.forEach(function(vl){total += vl; });
