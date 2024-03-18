@@ -47,6 +47,7 @@ revenue_forms = [
   {eng_name: "Tehsildar Letter", hindi_name: "तहसीलदार पत्र", section_hindi: 'पी एम किसान फॉर्म', section_eng: 'PM Kisan Form'},
   {eng_name: "Nayab Tehsildar Letter", hindi_name: "नायब तहसीलदार पत्र", section_hindi: 'पी एम किसान फॉर्म', section_eng: 'PM Kisan Form'},
   {eng_name: "Patwari Prativedan Ineligiblity", hindi_name: "पटवारी प्रतिवेदन (अपात्रता)", section_hindi: 'पी एम किसान फॉर्म', section_eng: 'PM Kisan Form'},
+  {eng_name: "Gram Secretary Death Certificate", hindi_name: "मृत्यु प्रमाण पत्र (ग्राम सचिव)", section_hindi: 'पी एम किसान फॉर्म', section_eng: 'PM Kisan Form'},
   {eng_name: "Aadhar Seeding NPCI Form", hindi_name: "आधार लिंकिंग/एन पी सी आई फॉर्म", section_hindi: 'पी एम किसान फॉर्म', section_eng: 'PM Kisan Form'},
 
   {eng_name: "Ordersheet First", hindi_name: "ऑर्डरशीट प्रथम", section_hindi: "नामांतरण फॉर्म", section_eng: 'Namantaran Form'},
@@ -73,11 +74,11 @@ revenue_forms = [
   {eng_name: "Seemankan Form3", hindi_name: "सीमांकन फॉर्म - तृतीय", section_hindi: "सीमांकन फॉर्म", section_eng: 'Seemankan Form'},
   {eng_name: "Seemankan Suchna Patra", hindi_name: "सीमांकन सूचना पत्र", section_hindi: "सीमांकन फॉर्म", section_eng: 'Seemankan Form'},
 
-  {eng_name: "Form C", hindi_name: "फॉर्म सी", section_hindi: "अन्य फॉर्म", section_eng: 'Other Form'},
-  {eng_name: "Crop Sowing", hindi_name: "फसल बुआई प्रमाण पत्र", section_hindi: "अन्य फॉर्म", section_eng: 'Other Form'},
-  {eng_name: "Lease Land Sell Permission Form", hindi_name: "पट्टा भूमि विक्रय हेतु अनुमति आवेदन", section_hindi: "अन्य फॉर्म", section_eng: 'Other Form'},
-  {eng_name: "Land Selling Ikrarnama Form", hindi_name: "विक्रय इकरारनामा फॉर्म", section_hindi: "अन्य फॉर्म", section_eng: 'Other Form'},
-
+  {eng_name: "Form C", hindi_name: "फॉर्म सी", section_hindi: "अन्य फॉर्म (पटवारी)", section_eng: 'Other Form'},
+  {eng_name: "Crop Sowing", hindi_name: "फसल बुआई प्रमाण पत्र", section_hindi: "अन्य फॉर्म (पटवारी)", section_eng: 'Other Form'},
+  {eng_name: "Lease Land Sell Permission Form", hindi_name: "पट्टा भूमि विक्रय हेतु अनुमति आवेदन", section_hindi: "अन्य फॉर्म (पटवारी)", section_eng: 'Other Form'},
+  {eng_name: "Land Selling Ikrarnama Form", hindi_name: "विक्रय इकरारनामा फॉर्म", section_hindi: "अन्य फॉर्म (पटवारी)", section_eng: 'Other Form'},
+  {eng_name: "Revenue Demand Form", hindi_name: "राजस्व वसूली फॉर्म", section_hindi: "अन्य फॉर्म (पटवारी)", section_eng: 'Other Form'},
 ]
 
 govt_emp_forms = [
@@ -86,7 +87,6 @@ govt_emp_forms = [
   {eng_name: "Form 12C", hindi_name: "फॉर्म 12(C)", section_hindi: "सरकारी कर्मचारी फॉर्म", section_eng: 'Govt Employee Form'},
   {eng_name: "Medical Leave Form 4", hindi_name: "चिकित्सा प्रमाण पत्र (मेडिकल अवकाश)", section_hindi: "सरकारी कर्मचारी फॉर्म", section_eng: 'Govt Employee Form'},
   {eng_name: "Medical Leave Form 3", hindi_name: "चिकित्सा प्रमाण पत्र (मेडिकल फिटनेस)", section_hindi: "सरकारी कर्मचारी फॉर्म", section_eng: 'Govt Employee Form'},
-  {eng_name: "Pension Form", hindi_name: "पेन्शन फॉर्म", section_hindi: "सरकारी कर्मचारी फॉर्म", section_eng: 'Govt Employee Form'}
 
 ]
 
@@ -95,7 +95,7 @@ rev_dept = Department.where(eng_name: "revenue", hindi_name: "राजस्व
 if rev_dept.present?
   revenue_forms.each do | form | 
     rev_dept.blank_forms.create(form) if rev_dept.blank_forms.where(form).blank?
-  end
+  end 
 end
 
 govt_emp =  Department.where(eng_name: "Govt Employee", hindi_name: "सरकारी कर्मचारी").first

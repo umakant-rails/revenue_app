@@ -1,0 +1,83 @@
+<div class="letter-block" data-controller="blnk-frm">
+  <span id="translatable" style="display:none;">
+    <input id="input1" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+  <span id="not-translatable" style="display:none;">
+    <input id="input2" name="inputText" type="text" value="" 
+      class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
+      data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
+  </span>
+
+  <div class="page-a4 only-print selection-criteria-block" id="applicant-letter">
+    <div class="col-md-12">
+      <div class="row padding-3 mt-2">
+        <div class="fnt-18 text-center fnt-b">फॉर्म 'अ'</div>
+        <div class="fnt-14 text-center mb-2">
+          (नियम 2 देखिये)
+        </div>
+        <div class="fnt-20 text-center fnt-b mb-3">मांग की सूची</div>
+        <div class="fnt-16 text-center fnt-b mb-3">
+          (मध्यप्रदेश भू-राजस्व संहिता, 1959 की धारा 146 के अधीन)
+        </div>
+        
+        <div class="paragraph-28 fnt-14">
+
+          <div class="mb-2">
+            श्रीमान तहसीलदार/नायाब तहसीलदार महोदय <%= raw blank_string_format2(15, true, "tehsil") %> के न्यायालय में श्री  <%= raw blank_string_format2(20, true, "applicant") %> आत्मज <%= raw blank_string_format2(20, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(20, true, "applicant_address") %> तहसील <%= raw blank_string_format2(20, true, "tehsil") %> जिला  <%= raw blank_string_format2(20, true, "district") %> को आपको इसके द्वारा यह सूचना दी जाती है कि अनुलग्न विवरण में दिये गये ब्यौरे के अनुसार भू राजस्व की बकाया के कारण <%= raw blank_string_format2(16, true, "reason") %> रूपये आपसे प्राप्य है आपने इस सूचना पत्र की प्राप्ति से <%= raw blank_string_format2(5, true, "days") %> दिनो के भीतर शास्ति एवं आदेशिका फीस के रूप मे <%= raw blank_string_format2(10, true, "demand_amount") %> रूपयों सहित उक्त रकम नही चुकाई तो आपके विरूद्ध प्राप्य रकमों की वसूली के लिये विधि अनुसार बलात् कार्यवाही की जायेगी।  
+          </div>
+          <div class="mb-3">
+            (न्यायालय अविअ महोदय <%= raw blank_string_format2(12, true, "tehsil") %> के रा प्र क्र <%= raw blank_string_format2(12, false, "case_number") %> आदेश दिनांक <%= raw blank_string_format2(10, false, "order_date") %> के अनुसार निर्धारित भू-राजस्व की बसूली के अनुपालन में)
+          </div>
+          <table class="custom-tbl mb-5 fnt-14">
+            <thead>
+              <tr>
+                <th class="w-16">ग्राम एवं राजस्व वसूली वर्ष</th>
+                <th class="w-14">खाता क्रमांक</th>
+                <th class="w-14">बकाया रकम</th>
+                <th class="w-14">शास्ति</th>
+                <th class="w-14">आदेशिका फीस</th>
+                <th class="w-14">कुल प्राप्य रकम</th>
+                <th class="w-14">तामील की तारीख</th>
+              </tr>
+              <tr>
+                <th class="w-16 text-center">1</th>
+                <th class="w-14 text-center">2</th>
+                <th class="w-14 text-center">3</th>
+                <th class="w-14 text-center">4</th>
+                <th class="w-14 text-center">5</th>
+                <th class="w-14 text-center">6</th>
+                <th class="w-14 text-center">7</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <%= raw blank_string_format2(10, true, "village") %>
+                  <div style="height:400px !important;"><div>
+                </td>
+                <td ></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="roww">
+            <div class="w-80 fnt-b">
+              <p>मुद्रा</p>
+              <p>तारीख : <%=  blank_string_text(10) %></p>
+            </div>           
+            <div class="w-20 text-center">
+              <p><%=  blank_string_text(10) %><p>
+              <p>तहसीलदार</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

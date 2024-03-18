@@ -69,6 +69,7 @@ class RequestsController < ApplicationController
   def create
     @districts = Village.all.pluck(:district).uniq
     @request = current_user.requests.new(request_params)
+    @request_types = RequestType.all
 
     respond_to do |format|
       if (@request.request_type.name == "नामांतरण") && 

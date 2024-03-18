@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     get_blank_forms
+    @categories = BlankForm.all.pluck(:section_hindi).uniq
   end
 
   def form_index

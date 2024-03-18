@@ -11,7 +11,7 @@ class Request < ApplicationRecord
 
   paginates_per 10
 
-  validates :title, :request_type_id, :year,  presence: true 
+  validates :title, :request_type_id, :year, presence: true 
 
   # accepts_nested_attributes_for :khasras, allow_destroy: true
   UNITS = ['व.फु.', 'व.मी.', 'हे.']
