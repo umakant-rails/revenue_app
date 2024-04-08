@@ -17,6 +17,7 @@ import { Autocomplete } from "stimulus-autocomplete";
 import FontConverterController from "./font_converter_controller";
 import ImageController from "./image_controller";
 import DragNDropController from "./drag_n_drop_controller";
+import DemandFormController from "./demand_form_controller";
 
 application.register("application", ApplicationController);
 application.register("request", RequestController);
@@ -31,3 +32,4 @@ application.register("misc", MiscController);
 application.register("font", FontConverterController);
 application.register("image", ImageController);
 application.register("dragndrop", DragNDropController);
+application.register("dmd-frm", DemandFormController);

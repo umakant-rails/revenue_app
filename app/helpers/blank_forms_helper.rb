@@ -28,4 +28,18 @@ module BlankFormsHelper
     certificate_name.split(" ").collect{|txt| txt.downcase }.join('_')
   end
 
+  def get_current_revenue_year
+    date_today = Date.today
+    date, month, cur_year = date_today.strftime("%d"), date_today.strftime("%m"), date_today.strftime("%Y")
+    last_date_of_rev_year = Date.parse("31/03/#{cur_year}")
+    cur_year_short = date_today.strftime("%y")
+    current_rev_year = ""
+
+    if date_today < last_date_of_rev_year
+      current_rev_year = "#{cur_year.to_i-1}-#{cur_year_short.to_i}"
+    else
+      current_rev_year = "#{cur_year.to_i}-#{cur_year_short.to_i+1}"
+    end
+    return current_rev_year
+  end
 end

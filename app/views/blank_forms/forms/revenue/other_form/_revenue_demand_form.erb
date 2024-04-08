@@ -1,4 +1,4 @@
-<div class="letter-block" data-controller="blnk-frm">
+<div class="letter-block" data-controller="blnk-frm dmd-frm">
   <span id="translatable" style="display:none;">
     <input id="input1" name="inputText" type="text" value="" 
       class="hidden-field" data-blnk-frm-target="textField" data-translatable="true"
@@ -9,6 +9,80 @@
       class="hidden-field" data-blnk-frm-target="textField" data-translatable="false"
       data-action="keydown.tab->blnk-frm#nextInput keydown.enter->blnk-frm#typingText" />
   </span>
+  <div class="form row">
+    <div class=" col-md-10 bdr mb-3 p-4" style="border: 1px solid gray; border-radius: 5px;">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="applicant" class="form-label">आवेदक का नाम</label>
+          <input type="text" class="form-control" id="applicant" placeholder="Applicant Name" data-dmd-frm-target="applicant">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="applicantFather" class="form-label">पिता का नाम</label>
+          <input type="text" class="form-control" id="applicantFather" placeholder="Father Name" data-dmd-frm-target="fatherName">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="address" class="form-label">पता</label>
+          <input type="text" class="form-control" id="address" placeholder="Address" data-dmd-frm-target="address">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="timePeriod" class="form-label">रूपये जमा करने की अवधि (दिन में)</label>
+          <input type="number" class="form-control" id="timePeriod" placeholder="" value="7" data-dmd-frm-target="timePeriod">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label for="khasra" class="form-label">खसरा</label>
+          <input type="text" class="form-control" id="khasra" placeholder="Khasra" data-dmd-frm-target="khasra">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="divertedArea" class="form-label">व्यपवर्तित रकबा (वर्ग मी)</label>
+          <input type="text" class="form-control" id="divertedArea" placeholder="" value="" data-dmd-frm-target="divertedArea">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="ratePerSqMeter" class="form-label">व्यपवर्तन की दर(प्रति वर्ग मी)</label>
+          <input type="number" class="form-control" id="ratePerSqMeter" placeholder="" value="" data-dmd-frm-target="ratePerSqMeter" data-action="keyup->dmd-frm#calDiversionAmt">
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-12 text-danger fnt-b">
+          <%# <input type="checkbox" name="cess" data-dmd-frm-target="isCessApplied" checked=true />
+          यदि उपकर लागू है तो इसे मार्क करे ? %>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" data-dmd-frm-target="isCessApplied" value="" id="flexCheckChecked" checked>
+            <label class="form-check-label" for="flexCheckChecked">
+              यदि उपकर लागू है तो इसे मार्क करे ?
+            </label>
+          </div>
+        </div>
+      </div>
+      <div id="yearBlock">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="year" class="form-label">वर्ष</label>
+            <input type="text" class="form-control" value="<%= get_current_revenue_year %>" 
+              class="year" data-dmd-frm-target="year" >
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="yearlyAmount" class="form-label">व्यपवर्तन की राशि</label>
+            <input type="number" class="form-control" value="" class="yearlyAmount" data-dmd-frm-target="divertedAmt" min="0">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="shashti" class="form-label">शास्ति(व्याज%)</label>
+            <input type="number" class="form-control" value="" class="shashti" 
+              data-dmd-frm-target="interest" min="0">
+          </div>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <a href="javascript:void(0);" data-action="click->dmd-frm#addNewYear">Add Year</a>
+      </div>
+      <div class="row">
+        <button data-action="click->dmd-frm#fillForm" class="btn btn-primary">Fill Demand Form</button>
+      </div>
+    </div>
+  </div>
 
   <div class="page-a4 only-print selection-criteria-block" id="applicant-letter">
     <div class="col-md-12">
@@ -25,7 +99,7 @@
         <div class="paragraph-28 fnt-14">
 
           <div class="mb-2">
-            श्रीमान तहसीलदार/नायाब तहसीलदार महोदय <%= raw blank_string_format2(15, true, "tehsil") %> के न्यायालय में श्री  <%= raw blank_string_format2(20, true, "applicant") %> आत्मज <%= raw blank_string_format2(20, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(20, true, "applicant_address") %> तहसील <%= raw blank_string_format2(20, true, "tehsil") %> जिला  <%= raw blank_string_format2(20, true, "district") %> को आपको इसके द्वारा यह सूचना दी जाती है कि अनुलग्न विवरण में दिये गये ब्यौरे के अनुसार भू राजस्व की बकाया के कारण <%= raw blank_string_format2(16, true, "reason") %> रूपये आपसे प्राप्य है आपने इस सूचना पत्र की प्राप्ति से <%= raw blank_string_format2(5, true, "days") %> दिनो के भीतर शास्ति एवं आदेशिका फीस के रूप मे <%= raw blank_string_format2(10, true, "demand_amount") %> रूपयों सहित उक्त रकम नही चुकाई तो आपके विरूद्ध प्राप्य रकमों की वसूली के लिये विधि अनुसार बलात् कार्यवाही की जायेगी।  
+            श्रीमान तहसीलदार/नायाब तहसीलदार महोदय <%= raw blank_string_format2(15, true, "tehsil") %> के न्यायालय में श्री  <%= raw blank_string_format2(20, true, "applicant") %> आत्मज <%= raw blank_string_format2(20, true, "applicant_father_name") %> निवासी <%= raw blank_string_format2(20, true, "applicant_address") %> तहसील <%= raw blank_string_format2(20, true, "tehsil") %> जिला  <%= raw blank_string_format2(20, true, "district") %> को आपको इसके द्वारा यह सूचना दी जाती है कि अनुलग्न विवरण में दिये गये ब्यौरे के अनुसार भू राजस्व की बकाया के कारण <%= raw blank_string_format2(16, true, "demand_amount") %> रूपये आपसे प्राप्य है आपने इस सूचना पत्र की प्राप्ति से <%= raw blank_string_format2(5, true, "time_period") %> दिनो के भीतर शास्ति एवं आदेशिका फीस के रूप मे <%= raw blank_string_format2(10, true, "demand_amount") %> रूपयों सहित उक्त रकम नही चुकाई तो आपके विरूद्ध प्राप्य रकमों की वसूली के लिये विधि अनुसार बलात् कार्यवाही की जायेगी।  
           </div>
           <div class="mb-3">
             (न्यायालय अविअ महोदय <%= raw blank_string_format2(12, true, "tehsil") %> के रा प्र क्र <%= raw blank_string_format2(12, false, "case_number") %> आदेश दिनांक <%= raw blank_string_format2(10, false, "order_date") %> के अनुसार निर्धारित भू-राजस्व की बसूली के अनुपालन में)
@@ -52,10 +126,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
+              <tr id="data-row">
+                <td style="height:450px;">
                   <%= raw blank_string_format2(10, true, "village") %>
-                  <div style="height:400px !important;"><div>
+                  <div style="/*height:400px !important;*/"><div>
                 </td>
                 <td ></td>
                 <td></td>
